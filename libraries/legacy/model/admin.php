@@ -147,7 +147,7 @@ abstract class JModelAdmin extends JModelForm
 	 */
 	public function batch($commands, $pks, $contexts)
 	{
-		// Sanitize user ids.
+		// Sanitize ids.
 		$pks = array_unique($pks);
 		JArrayHelper::toInteger($pks);
 
@@ -208,6 +208,16 @@ abstract class JModelAdmin extends JModelForm
 			$done = true;
 		}
 
+		if (!empty($commands['tag']))
+		{
+			if (!$this->batchTag($commands['tag'], $pks, $contexts))
+			{
+				return false;
+			}
+
+			$done = true;
+		}
+
 		if (!$done)
 		{
 			$this->setError(JText::_('JLIB_APPLICATION_ERROR_INSUFFICIENT_BATCH_INFORMATION'));
@@ -248,12 +258,14 @@ abstract class JModelAdmin extends JModelForm
 				if (!$table->store())
 				{
 					$this->setError($table->getError());
+
 					return false;
 				}
 			}
 			else
 			{
 				$this->setError(JText::_('JLIB_APPLICATION_ERROR_BATCH_CANNOT_EDIT'));
+
 				return false;
 			}
 		}
@@ -480,7 +492,7 @@ abstract class JModelAdmin extends JModelForm
 			return false;
 		}
 
-		// Parent exists so we let's proceed
+		// Parent exists so we proceed
 		foreach ($pks as $pk)
 		{
 			if (!$user->authorise('core.edit', $contexts[$pk]))
@@ -962,6 +974,7 @@ abstract class JModelAdmin extends JModelForm
 	{
 		$dispatcher = JEventDispatcher::getInstance();
 		$table = $this->getTable();
+
 		$key = $table->getKeyName();
 		$pk = (!empty($data[$key])) ? $data[$key] : (int) $this->getState($this->getName() . '.id');
 		$isNew = true;
@@ -1108,6 +1121,40 @@ abstract class JModelAdmin extends JModelForm
 		// Clear the component's cache
 		$this->cleanCache();
 
+		return true;
+	}
+	/**
+	 * Batch tag a list of item.
+	 *
+	 * @param   integer  $value     The value of the new tag.
+	 * @param   array    $pks       An array of row IDs.
+	 * @param   array    $contexts  An array of item contexts.
+	 *
+	 * @return  void.
+	 *
+	 * @since   3.1
+	 */
+	protected function batchTag($value, $pks, $contexts)
+	{
+		$tagsHelper = new JHelperTags;
+		foreach ($pks as $pk)
+		{
+			$item = $this->getItem($pk);
+
+			// This is needed not to have warning in tagItem method.
+			$item->params = new JRegistry($item->params);
+			$context = explode('.', $contexts[$pk]);
+
+			$typeAlias = $context[0] . '.' . $context[1];
+			$ucm = new JUcmContent($this->getTable(), $typeAlias);
+			$itemArray = JArrayHelper::fromObject($item);
+
+			$ucm->save($itemArray);
+			$ucmId = $ucm->getPrimaryKey($ucm->type->type->type_id, $item->id);
+
+			// In batch we will default to not replacing old tags
+			$tagsHelper->tagItem($pk, $typeAlias, false, $ucmId, array($value), null, false);
+		}
 		return true;
 	}
 }
