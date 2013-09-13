@@ -1,0 +1,160 @@
+/* http://persistent-grid.com
+   v1.0 | 20130701
+   Copyright: Copyright (C) 2013 Crossing Hippos - Babs Gösgens. All rights reserved.
+   License: GNU General Public License version 2 or later; see LICENSE.txt
+*/
+/* line 7, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.root {
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 1152px;
+}
+
+/* line 11, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.column {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* line 16, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.column-container {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+}
+
+/* line 20, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.column-padding {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* line 24, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.bleed {
+  margin-left: -24px;
+  margin-right: -24px;
+}
+
+/* line 28, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.full {
+  width: 100%;
+}
+
+/* line 36, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.half {
+  width: 50%;
+}
+
+/* line 39, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.half.persistent {
+  width: 50% !important;
+}
+
+/* line 43, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.push-half {
+  position: relative;
+  left: 50%;
+}
+
+/* line 47, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.pull-half {
+  position: relative;
+  left: -50%;
+}
+
+/* line 36, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.fourth {
+  width: 25%;
+}
+
+/* line 39, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.fourth.persistent {
+  width: 25% !important;
+}
+
+/* line 43, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.push-fourth {
+  position: relative;
+  left: 25%;
+}
+
+/* line 47, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.pull-fourth {
+  position: relative;
+  left: -25%;
+}
+
+/* line 36, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.third {
+  width: 33.33333%;
+}
+
+/* line 39, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.third.persistent {
+  width: 33.33333% !important;
+}
+
+/* line 43, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.push-third {
+  position: relative;
+  left: 33.33333%;
+}
+
+/* line 47, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.pull-third {
+  position: relative;
+  left: -33.33333%;
+}
+
+/* line 36, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.two-third {
+  width: 66.66667%;
+}
+
+/* line 39, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.two-third.persistent {
+  width: 66.66667% !important;
+}
+
+/* line 43, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.push-two-third {
+  position: relative;
+  left: 66.66667%;
+}
+
+/* line 47, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.pull-two-third {
+  position: relative;
+  left: -66.66667%;
+}
+
+/* line 36, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.three-fourth {
+  width: 75%;
+}
+
+/* line 39, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.three-fourth.persistent {
+  width: 75% !important;
+}
+
+/* line 43, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.push-three-fourth {
+  position: relative;
+  left: 75%;
+}
+
+/* line 47, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/grid/_behavior.scss */
+.pull-three-fourth {
+  position: relative;
+  left: -75%;
+}
