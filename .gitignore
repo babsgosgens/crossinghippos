@@ -5,3 +5,6 @@ installation/
 configuration.php
 robots.txt.dist
 .htaccess
+logs/*
+!logs/index.html
+~installation

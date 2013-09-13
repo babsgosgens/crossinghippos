@@ -1,0 +1,49 @@
+<?php
+/**
+ * @package     WinTOP
+ * @subpackage  tmp_nszonetaxi
+ * @author      Babs Gösgens <babs@crossinghippos.nl>
+ * @copyright   Copyright (C) 2013 Transvision B.V., Netherlands
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+// No direct access.
+defined('_JEXEC') or die;
+include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
+?>
+
+<!DOCTYPE html>
+<!-- <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" class="no-js"> -->
+<html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" class="no-js">
+<head>
+    <meta http-equiv="x-ua-compatible" content="IE=9">
+    <?php echo $jQueryScript; ?>
+    <jdoc:include type="head" />
+    <link rel="apple-touch-icon" href="webclip-72x72v2.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="webclip-72x72v2.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="webclip-114x114v2.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="webclip-144x144v2.png" />
+</head>
+<body>
+    <jdoc:include type="message" />
+    <jdoc:include type="component" />
+    <jdoc:include type="modules" name="component-modules" style="raw" />
+
+    <jdoc:include type="modules" name="debug" />
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12737688-1']);
+      _gaq.push(['_setDomainName', 'crossinghippos.com']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+</body>
+</html>
