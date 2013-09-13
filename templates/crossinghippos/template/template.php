@@ -19,25 +19,11 @@ jimport('joomla.filesystem.file');
 $doc = JFactory::getDocument();
 
 /**
- * ALways load nszonetaxi language file
- *
- */
-$language = JFactory::getLanguage();
-$language->load('com_nszonetaxi');
-
-/**
  * Get browser info
  *
  */
 $browser = new JBrowser();
 $msieold = $browser->getBrowser()=='msie' && $browser->getMajor()<=9;
-
-/**
- * Initialise dependent resources
- *
- */
-$user = JFactory::getUser();
-$isGuest = $user->guest ? true : false;
 
 /**
  * Determine which menu to use
@@ -67,22 +53,17 @@ $doc->setGenerator('');
 $doc->setMetaData('viewport', 'initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width');
 
 // Add CSS
-$ns     = $this->baseurl.'/templates/'.$this->template.'/stylesheets/ns-generic-styles.css';
-$screen = $this->baseurl.'/templates/'.$this->template.'/stylesheets/screen.css';
-$print  = $this->baseurl.'/templates/'.$this->template.'/stylesheets/print.css';
-
-// $doc->addStyleSheet('http://www.ns.nl/ns2010/static/css/generic/generic-styles.min.css','text/css','screen');
-$doc->addStyleSheet($ns,'text/css','screen');
+$screen = $doc->baseurl.'/templates/'.$doc->template.'/stylesheets/screen.css';
+$print  = $doc->baseurl.'/templates/'.$doc->template.'/stylesheets/print.css';
 $doc->addStyleSheet($screen,'text/css','screen');
 $doc->addStyleSheet($print,'text/css','print');
 
 if($msieold) {
-	$doc->addStyleSheet($doc->baseurl.'/templates/'.$doc->template.'/stylesheets/ie.css','text/css','screen');
 }
 
 // Add jQuery
 $path_to_remote_jquery = '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js';
-$path_to_local_jquery  = $doc->baseurl.'/media/com_nszonetaxi/js/jquery-latest.min.js';
+$path_to_local_jquery  = $doc->baseurl.'/templates/'.$doc->template.'/javascripts/jquery-1.10.2.min.js';
 
 	/*
 	 * Use php to detect availability of jQuery, otherwise the order in which scripts are injected will break the scripts
@@ -98,21 +79,12 @@ $path_to_local_jquery  = $doc->baseurl.'/media/com_nszonetaxi/js/jquery-latest.m
 	$jQueryScript .= "<script>$.noConflict();</script>\n";
 
 
-// Add the other scripts
-$doc->addScript($doc->baseurl.'/media/com_nszonetaxi/js/bootstrap.min.js');
-$doc->addScript($doc->baseurl.'/media/com_nszonetaxi/js/jquery.formutils.js');
-$doc->addScript($doc->baseurl.'/media/com_nszonetaxi/js/persistentgrid.js');
 
-
-// Add Modernizr and HTML5 shiv
+	// Add Modernizr and HTML5 shiv
 
 	/*
 	 * Scriptmerge will inject the merged js and css before the closing head tag,
 	 * therefor it's not possible to load them after the css.
 	 */
-
-	$doc->addScript($doc->baseurl.'/media/com_nszonetaxi/js/modernizr.custom.min.js');
-	$doc->addScriptDeclaration('document.documentElement.className = "js";');
-	$doc->addScriptDeclaration('if(Modernizr.inputtypes.date) { document.documentElement.className += " date"; } else { document.documentElement.className += " no-date"; }');
-	$doc->addScriptDeclaration('if(Modernizr.inputtypes.time) { document.documentElement.className += " time"; } else { document.documentElement.className += " no-time"; }');
-	$doc->addScriptDeclaration('if(Modernizr.inputtypes.datetime) { document.documentElement.className += " datetime"; } else { document.documentElement.className += " no-datetime"; }');
+	$path_to_local_modernizr  = $doc->baseurl.'/templates/'.$doc->template.'/javascripts/modernizr.custom.55528.js';
+	$doc->addScript($path_to_local_modernizr);
