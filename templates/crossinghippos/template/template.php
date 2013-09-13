@@ -63,27 +63,8 @@ if($msieold) {
 // Add jQuery
 $path_to_remote_jquery = '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js';
 $path_to_local_jquery  = $doc->baseurl.'/templates/'.$doc->template.'/javascripts/jquery-1.10.2.min.js';
-
-/*
- * Use php to detect availability of jQuery, otherwise the order in which scripts are injected will break the scripts
- * because the remaining scripts will be loaded before jQuery loads.
- */
-if (@fopen($path_to_remote_jquery, 'r')) {
-	$jQuery = $path_to_remote_jquery;
-} else {
-	$jQuery = $path_to_local_jquery;
-}
-
-$jQueryScript = "<script src=\"".$jQuery."\" type=\"text/javascript\"></script>\n";
-// $jQueryScript .= "<script>$.noConflict();</script>\n";
-
-
+$doc->addScript($path_to_remote_jquery);
 
 // Add Modernizr and HTML5 shiv
-
-/*
- * Scriptmerge will inject the merged js and css before the closing head tag,
- * therefor it's not possible to load them after the css.
- */
 $path_to_local_modernizr  = $doc->baseurl.'/templates/'.$doc->template.'/javascripts/modernizr.custom.55528.js';
 $doc->addScript($path_to_local_modernizr);

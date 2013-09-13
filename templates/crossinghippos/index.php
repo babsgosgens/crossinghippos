@@ -17,9 +17,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" class="no-js">
 <head>
     <meta http-equiv="x-ua-compatible" content="IE=9">
-<?php
-unset($this->_scripts['/media/system/js/caption.js']);
-?>    <jdoc:include type="head" />
+    <jdoc:include type="head" />
     <link rel="apple-touch-icon" href="webclip-72x72v2.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="webclip-72x72v2.png" />
     <link rel="apple-touch-icon" sizes="114x114" href="webclip-114x114v2.png" />
@@ -46,6 +44,13 @@ unset($this->_scripts['/media/system/js/caption.js']);
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
 
+      (function() {
+        if(window.jQuery == undefined) {
+          var jq = document.createElement('script'); jq.type = 'text/javascript'; jq.async = true;
+          jq.src = '<?php echo $path_to_local_jquery ?>';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(jq, s);
+        }
+      })();
     </script>
 </body>
 </html>
