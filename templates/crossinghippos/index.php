@@ -17,8 +17,9 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" class="no-js">
 <head>
     <meta http-equiv="x-ua-compatible" content="IE=9">
-    <?php echo $jQueryScript; ?>
-    <jdoc:include type="head" />
+<?php
+unset($this->_scripts['/media/system/js/caption.js']);
+?>    <jdoc:include type="head" />
     <link rel="apple-touch-icon" href="webclip-72x72v2.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="webclip-72x72v2.png" />
     <link rel="apple-touch-icon" sizes="114x114" href="webclip-114x114v2.png" />
@@ -30,6 +31,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
     <jdoc:include type="modules" name="component-modules" style="raw" />
 
     <jdoc:include type="modules" name="debug" />
+    <?php echo $jQueryScript; ?>
     <script type="text/javascript">
 
       var _gaq = _gaq || [];

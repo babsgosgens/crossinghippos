@@ -1,10 +1,12 @@
 .DS_Store
 LICENSE.txt
 README.txt
+~installation
 installation/
 configuration.php
 robots.txt.dist
 .htaccess
 logs/*
 !logs/index.html
-~installation
+cache/*
+!cache/index.html

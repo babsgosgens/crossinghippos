@@ -41,6 +41,7 @@ if($doc->countModules('component-modules')) {
 	$pageClass .= ' has-component-modules';
 }
 
+
 /**
  * Build head
  *
@@ -54,9 +55,7 @@ $doc->setMetaData('viewport', 'initial-scale = 1.0, maximum-scale = 1.0, user-sc
 
 // Add CSS
 $screen = $doc->baseurl.'/templates/'.$doc->template.'/stylesheets/screen.css';
-$print  = $doc->baseurl.'/templates/'.$doc->template.'/stylesheets/print.css';
 $doc->addStyleSheet($screen,'text/css','screen');
-$doc->addStyleSheet($print,'text/css','print');
 
 if($msieold) {
 }
@@ -76,7 +75,7 @@ if (@fopen($path_to_remote_jquery, 'r')) {
 }
 
 $jQueryScript = "<script src=\"".$jQuery."\" type=\"text/javascript\"></script>\n";
-$jQueryScript .= "<script>$.noConflict();</script>\n";
+// $jQueryScript .= "<script>$.noConflict();</script>\n";
 
 
 
