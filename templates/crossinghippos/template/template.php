@@ -17,6 +17,13 @@ jimport('joomla.filesystem.file');
  *
  */
 $doc = JFactory::getDocument();
+$app = JFactory::getApplication();
+
+/**
+ * Load template parameters
+ *
+ */
+$params = $app->getTemplate(true)->params;
 
 /**
  * Get browser info
@@ -61,8 +68,8 @@ if($msieold) {
 }
 
 // Add jQuery
-$path_to_remote_jquery = '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js';
-$path_to_local_jquery  = $doc->baseurl.'/templates/'.$doc->template.'/javascripts/jquery-1.10.2.min.js';
+$path_to_remote_jquery = '//ajax.googleapis.com/ajax/libs/jquery/'.$params->get('jQueryVersion').'/jquery.min.js';
+$path_to_local_jquery  = $doc->baseurl.'/templates/'.$doc->template.'/javascripts/jquery-'.$params->get('jQueryVersion').'.min.js';
 $doc->addScript($path_to_remote_jquery);
 
 // Add Modernizr and HTML5 shiv

@@ -51,7 +51,18 @@
     </languages>
     <config>
         <fields name="params">
-            <fieldset name="advanced"/>
+            <fieldset name="advanced">
+                 <field name="jQueryVersion" class="" type="text" default="1.10.2"
+                    label="TPL_XH_JQUERYVERSION_LABEL"
+                    description="TPL_XH_JQUERYVERSION_DESC" />
+                <field name="webFontVersion" class="" type="text" default="1.4.8"
+                    label="TPL_XH_WEBFONTVERSION_LABEL"
+                    description="TPL_XH_WEBFONTVERSION_DESC" />
+                <field name="webFontConfig" class="" type="textarea" rows="10" default="{custom: { families: ['sofia_pro_lightregular'], urls: ['/templates/crossinghippos/fonts/SofiaProLight.css']}}"
+                    label="TPL_XH_WEBFONTCONFIG_LABEL"
+                    description="TPL_XH_WEBFONTCONFIG_DESC" />
+
+            </fieldset>>
         </fields>
     </config>
 </extension>
