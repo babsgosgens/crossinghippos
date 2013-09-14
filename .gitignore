@@ -10,3 +10,4 @@ logs/*
 !logs/index.html
 cache/*
 !cache/index.html
+templates/crossinghippos/.sass-cache
