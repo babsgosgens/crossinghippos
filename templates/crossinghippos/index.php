@@ -40,7 +40,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 
       var i = 0;
       // Fonts
-      WebFontConfig = <?php echo $params->get('webFontConfig'); ?>;
+      WebFontConfig = {<?php echo $params->get('webFontConfig'); ?>};
       (function() {
         var wf   = document.createElement('script');
         wf.src   = ('https:' == document.location.protocol ? 'https' : 'http') + '://ajax.googleapis.com/ajax/libs/webfont/<?php echo $params->get('webFontVersion'); ?>/webfont.js';

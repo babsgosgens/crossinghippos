@@ -15,6 +15,7 @@ $trace-imports: false;
 //  Helpers
 //  ==========================================================================
 	@import "pg/helpers";
+	@import "pg/base/helpers";
 	@import "pg/grid/helpers";
 
 //  ==========================================================================
@@ -28,10 +29,13 @@ $trace-imports: false;
 	@import "pg/grid/settings";
 	// Your project settings and overrides //
 
+	@import "crossinghippos.nl/settings";
+
 //  ==========================================================================
 //  Settings
 //  --------------------------------------------------------------------------
 //  Import the behavior (in the order you want rules to render): 
 //  ==========================================================================
+	@import "pg/base/behavior";
 	@import "pg/grid/behavior";
 	// Your project behavior, e.g. your (S)CSS //
