@@ -366,7 +366,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: sans-serif;
+  font-weight: 700;
 }
 
 /* line 64, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/base/baserules/_behavior.scss */
@@ -604,3 +604,9 @@ q {
   position: relative;
   left: -75%;
 }
+
+/* http://persistent-grid.com
+   v1.0 | 20130701
+   Copyright: Copyright (C) 2013 Crossing Hippos - Babs Gösgens. All rights reserved.
+   License: GNU General Public License version 2 or later; see LICENSE.txt
+*/

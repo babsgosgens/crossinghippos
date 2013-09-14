@@ -27,9 +27,9 @@ $trace-imports: false;
 //  ==========================================================================
 	@import "pg/base/settings";
 	@import "pg/grid/settings";
-	// Your project settings and overrides //
 
 	@import "crossinghippos.nl/settings";
+
 
 //  ==========================================================================
 //  Settings
@@ -38,4 +38,5 @@ $trace-imports: false;
 //  ==========================================================================
 	@import "pg/base/behavior";
 	@import "pg/grid/behavior";
-	// Your project behavior, e.g. your (S)CSS //
+
+	@import "crossinghippos.nl/behavior";

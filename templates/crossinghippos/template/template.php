@@ -61,8 +61,13 @@ $doc->setGenerator('');
 $doc->setMetaData('viewport', 'initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width');
 
 // Add CSS
-$screen = $doc->baseurl.'/templates/'.$doc->template.'/stylesheets/screen.css';
-$doc->addStyleSheet($screen,'text/css','screen');
+$path = JPATH_SITE.'/templates/'.$this->template.'/stylesheets/';
+$uri = $doc->baseurl.'/templates/'.$doc->template.'/stylesheets/';
+$cssScreen = 'screen.css';
+$cssPrint = 'print.css';
+$cssIeOld = 'ieold.css';
+
+$doc->addStyleSheet($uri.$cssScreen.'?'.filemtime($path.$cssScreen),'text/css','screen');
 
 if($msieold) {
 }
