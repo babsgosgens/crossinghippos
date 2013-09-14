@@ -8,6 +8,11 @@
    Copyright: Copyright (C) 2013 Crossing Hippos - Babs Gösgens. All rights reserved.
    License: GNU General Public License version 2 or later; see LICENSE.txt
 */
+/* http://persistent-grid.com
+   v1.0 | 20130701
+   Copyright: Copyright (C) 2013 Crossing Hippos - Babs Gösgens. All rights reserved.
+   License: GNU General Public License version 2 or later; see LICENSE.txt
+*/
 /* line 28, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/persistentgrid-0.0.1.beta.8/scss/pg/base/reset/_behavior.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -81,7 +86,7 @@ html {
   /*
    * It's good practice to set the background color of the html tag
    */
-  background-color: white;
+  background-color: #fffef4;
   /**
    * Prevent iOS text size adjust after orientation change, 
    * without disabling user zoom.
