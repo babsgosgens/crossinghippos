@@ -24,7 +24,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
     <link rel="apple-touch-icon" sizes="144x144" href="webclip-144x144v2.png" />
     <link href='http://fonts.googleapis.com/css?family=Asap:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body class="root">
     <jdoc:include type="message" />
     <jdoc:include type="component" />
     <jdoc:include type="modules" name="component-modules" style="raw" />
