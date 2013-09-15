@@ -29,8 +29,8 @@ $params = $app->getTemplate(true)->params;
  * Get browser info
  *
  */
-$browser = new JBrowser();
-$msieold = $browser->getBrowser()=='msie' && $browser->getMajor()<=9;
+// $browser = new JBrowser();
+// $msieold = $browser->getBrowser()=='msie' && $browser->getMajor()<=9;
 
 /**
  * Determine which menu to use

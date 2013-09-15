@@ -9,7 +9,7 @@
 		LICENSE.txt</license>
 	<authorEmail>babs@crossinghippos.nl</authorEmail>
 	<authorUrl>www.crossinghippos.nl</authorUrl>
-	<version>3.0.0</version>
+	<version>3.0.1</version>
 	<description>COM_STREAMS_XML_DESCRIPTION</description>
 
 	<install> <!-- Runs on install -->
