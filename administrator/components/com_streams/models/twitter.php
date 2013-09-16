@@ -49,12 +49,12 @@ class StreamsModelTwitter extends JModelAdmin
 	{
 		parent::__construct($config);
 
-		$oauth = new JTwitterOAuth();
-		$twitter = new JTwitterStatuses($oauth);
+		// $oauth = new JTwitterOAuth();
+		// $twitter = new JTwitterStatuses($oauth);
 
-		// var_dump($twitter->getUserTimeline('babsgosgens'));
+		// // var_dump($twitter->getUserTimeline('babsgosgens'));
 
-		// break;
+		// // break;
 
 		/**
 		 * Set access tokens here - see: https://dev.twitter.com/apps/
@@ -108,6 +108,7 @@ class StreamsModelTwitter extends JModelAdmin
 		 * Twitter returns an array of items if the call wass succesful
 		 */
 		$response =& $this->_response;
+
 		if ( is_array($response) && isset($response[0]) )
 		{
 			foreach ($response as $item)
