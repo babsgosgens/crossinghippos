@@ -110,7 +110,7 @@ class StreamsModelFacebook extends JModelAdmin
 		{
 			// Keep counter for update items
 			$c = 0;
-			foreach ($response as $item)
+			foreach ($response->data as $item)
 			{
 				/**
 				 * Get a reference to the table
@@ -118,12 +118,14 @@ class StreamsModelFacebook extends JModelAdmin
 				$table =& $this->getTable('Stream', 'StreamsTable');
 
 				/**
-				 * Create two array with data for storage,
+				 * Create two arrays with data for storage,
 				 * use the first array to determine if the item exists
 				 */
+				$pos = strpos($item->id, '_'); //Only use after underscore, first part is userid, second postid: 100002043048057_515362341875196
+				$postId = substr($item->id, $pos+1 );
 				$id = array(
 					'platform' => 2,
-					'platform_id' => $item->id
+					'platform_id' => $postId
 				);
 
 				/**
@@ -141,7 +143,7 @@ class StreamsModelFacebook extends JModelAdmin
 
 					$data = array(
 						'date_created' => $date_created->toSql(),
-						'raw' => serialize($item),
+						'raw' => base64_encode(serialize($item)), // http://stackoverflow.com/a/1058294
 						'metadata' => null,
 						'permalink' => null,
 						'params' => null,
@@ -154,6 +156,7 @@ class StreamsModelFacebook extends JModelAdmin
 					$row = array_merge($id,$data);
 					$table->bind($row);
 					$table->store($row);
+
 
 					// Update the counter
 					$c++;
