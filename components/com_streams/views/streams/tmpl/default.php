@@ -11,3 +11,15 @@ defined('_JEXEC') or die;
 ?>
 
 <h1>Streams</h1>
+
+<?php if ( empty($this->items[0]) ):
+	?>
+	<?php else: 
+		foreach ($this->items as $item) :
+			$platform = $item->platform;
+
+			$this->item = $item->php;
+			echo $this->loadTemplate( JText::_('COM_STREAMS_LABEL_PLATFORM'.$platform) );
+		?>
+		<?php endforeach; ?>
+<?php endif; ?>
