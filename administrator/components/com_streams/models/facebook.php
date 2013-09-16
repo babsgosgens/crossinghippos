@@ -99,13 +99,13 @@ class StreamsModelFacebook extends JModelAdmin
 	 * Method to update the database with the new items
 	 *
 	 */
-	public function update($response)
+	public function update($response = null)
 	{
-		/**
-		 * Twitter returns an array of items if the call wass succesful
-		 */
-		$response = $this->getResponse();
+		$response = $response ? $response : $this->getResponse();
 
+		/**
+		 * Facebook returns an object with two attributes: data and paginate if the call was succesful
+		 */
 		if ( property_exists($response, 'data') && $response->data[0] )
 		{
 			// Keep counter for update items
@@ -121,7 +121,7 @@ class StreamsModelFacebook extends JModelAdmin
 				 * Create two array with data for storage,
 				 * use the first array to determine if the item exists
 				 */
-				$data1 = array(
+				$id = array(
 					'platform' => 2,
 					'platform_id' => $item->id
 				);
@@ -129,7 +129,7 @@ class StreamsModelFacebook extends JModelAdmin
 				/**
 				 * Save the item if it does not yet exist
 				 */
-				if ( $table->load($data1) )
+				if ( $table->load($id) )
 				{
 				}
 				else
@@ -139,7 +139,7 @@ class StreamsModelFacebook extends JModelAdmin
 					 */
 					$date_created = new JDate($item->updated_time);
 
-					$data2 = array(
+					$data = array(
 						'date_created' => $date_created->toSql(),
 						'raw' => serialize($item),
 						'metadata' => null,
@@ -151,9 +151,9 @@ class StreamsModelFacebook extends JModelAdmin
 						'publish_down' => null,
 					);
 
-					$data = array_merge($data1,$data2);
-					$table->bind($data);
-					$table->store($data);
+					$row = array_merge($id,$data);
+					$table->bind($row);
+					$table->store($row);
 
 					// Update the counter
 					$c++;
