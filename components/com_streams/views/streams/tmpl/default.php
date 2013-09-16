@@ -18,7 +18,7 @@ defined('_JEXEC') or die;
 		foreach ($this->items as $item) :
 			$platform = $item->platform;
 
-			$this->item = $item->php;
+			$this->post = $item->php;
 			echo $this->loadTemplate( JText::_('COM_STREAMS_LABEL_PLATFORM'.$platform) );
 		?>
 		<?php endforeach; ?>

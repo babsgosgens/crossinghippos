@@ -8,6 +8,17 @@
  */
 
 defined('_JEXEC') or die;
-?>
 
-<?php var_dump($this->item); ?>
+$post = $this->post;
+
+/*
+	// Call attributes like so
+	$created_at = $post->created_at;
+	$text = $post->text;
+ */
+
+// Uncomment for available attributes
+echo '<pre>';
+print_r($post);
+echo '</pre>';
+?>
