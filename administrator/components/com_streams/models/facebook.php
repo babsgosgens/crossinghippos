@@ -127,10 +127,10 @@ public function updateTable()
 				$data2 = array(
 					'date_created' => $date_created->toSql(),
 					'raw' => serialize($item),
-					'metadata' => serialize($item['from']),
+					'metadata' => null,
 					'permalink' => null,
 					'params' => null,
-					'language' => null,
+					'language' => '*',
 					'state' => 1,
 					'publish_up' => null,
 					'publish_down' => null,

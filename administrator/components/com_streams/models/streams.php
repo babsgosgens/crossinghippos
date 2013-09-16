@@ -44,6 +44,7 @@ class StreamsModelStreams extends JModelList
 	{
 		$items = parent::getItems();
 
+
 		// Unserialize raw attribute into PHP array
 		foreach ($items as $key => &$item) {
 			$item->php = unserialize($item->raw);

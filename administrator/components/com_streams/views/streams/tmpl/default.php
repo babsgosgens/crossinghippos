@@ -110,7 +110,8 @@ $listDirn	= '';
 						$postContent = $post->text;
 						break;
 					case 2:
-						$postContent = '';
+						$post = $item->php;
+						$postContent = $post['message'];
 						break;
 				}
 				?>
