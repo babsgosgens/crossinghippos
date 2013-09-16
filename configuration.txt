@@ -13,9 +13,9 @@ class JConfig {
 	public $debug_lang = '0';
 	public $dbtype = 'mysqli';
 	public $host = 'localhost';
-	public $user = '####';
-	public $password = '####';
-	public $db = 'crossinghippos_j3';
+	public $user = '';
+	public $password = '';
+	public $db = 'crossingdev';
 	public $dbprefix = 'flock_';
 	public $live_site = '';
 	public $secret = '9xv7ia85xfWz1SeQ';
