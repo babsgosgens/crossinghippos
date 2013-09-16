@@ -79,7 +79,7 @@ class StreamsModelFacebook extends JModelAdmin
 			}
 
 		} else {
-			$this->_response = $this->_api->api("/me/statuses?limit=10&locale=nl");
+			$this->_response = $this->_api->api("/me/statuses?limit=20&locale=nl");
 		}
 
 		if ( $update )
@@ -87,7 +87,7 @@ class StreamsModelFacebook extends JModelAdmin
 			$this->updateTable();
 		}
 
-		return $this->_response;
+		return $this->_response['data'];
 
 	}
 
