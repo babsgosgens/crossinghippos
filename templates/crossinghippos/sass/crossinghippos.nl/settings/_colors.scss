@@ -1,0 +1,26 @@
+/* http://persistent-grid.com
+   v1.0 | 20130701
+   Copyright: Copyright (C) 2013 Crossing Hippos - Babs Gösgens. All rights reserved.
+   License: GNU General Public License version 2 or later; see LICENSE.txt
+*/
+$trace-imports: false;
+
+
+//  ==========================================================================
+//  Colors
+//  ==========================================================================
+	
+	$xh_yellow: #ffcc00;
+	$xh_cyan: #00E4CF;
+	$xh_teal: #00B09E;
+	$xh_brown: #2A1F0C;
+	$xh_cream: #FFFEF4;
+
+	$xh_yellow-rgb: 255,204,0;
+	$xh_cyan-rgb: 0,228,207;
+	$xh_teal-rgb: 0,176,158;
+	$xh_brown-rgb: 42,31,12;
+	$xh_cream-rgb: 255,254,244;
+
+	$color-background: $xh_cream;
+	$color-body: $xh_brown;
