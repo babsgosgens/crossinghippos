@@ -49,12 +49,12 @@ class StreamsModelTwitter extends JModelAdmin
 	{
 		parent::__construct($config);
 
-		// $oauth = new JTwitterOAuth();
+		// // $oauth = new JTwitterOAuth();
 		// $twitter = new JTwitterStatuses($oauth);
 
-		// // var_dump($twitter->getUserTimeline('babsgosgens'));
+		// var_dump($twitter);
 
-		// // break;
+		// break;
 
 		/**
 		 * Set access tokens here - see: https://dev.twitter.com/apps/
@@ -139,7 +139,7 @@ class StreamsModelTwitter extends JModelAdmin
 					'metadata' => null,
 					'permalink' => 'https://twitter.com/'.$item->user->screen_name.'/status/'.$item->id_str,
 					'params' => null,
-					'language' => null,
+					'language' => '*',
 					'state' => 1,
 					'publish_up' => null,
 					'publish_down' => null,

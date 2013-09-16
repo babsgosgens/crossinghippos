@@ -22,8 +22,16 @@ class StreamsViewStreams extends JViewLegacy
 
 	public function display($tpl = null)
 	{
-		// Get some data from the models
-		$item		= $this->get('Item');
+
+		$this->items		= $this->get('Items');
+		$this->pagination	= $this->get('Pagination');
+
+		// Check for errors.
+		if (count($errors = $this->get('Errors')))
+		{
+			JError::raiseError(500, implode("\n", $errors));
+			return false;
+		}
 
 		parent::display($tpl);
 	}

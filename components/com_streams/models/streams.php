@@ -89,7 +89,6 @@ class StreamsModelStreams extends JModelList
 			$query->where('(a.state IN (0, 1))');
 		}
 
-
 		// echo nl2br(str_replace('#__','jos_',$query));
 		return $query;
 	}
