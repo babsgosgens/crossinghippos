@@ -87,6 +87,8 @@ class StreamsModelFacebook extends JModelAdmin
 			$this->updateTable();
 		}
 
+		return $this->_response;
+
 	}
 
 	/**
