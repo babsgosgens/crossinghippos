@@ -113,7 +113,7 @@ class StreamsViewStreams extends JViewLegacy
 		return array(
 			'a.state' => JText::_('JSTATUS'),
 			'platform_title' => JText::_('JGLOBAL_TITLE'),
-			'a.date_created' => JText::_('JGRID_HEADING_DATE'),
+			'a.date_created' => JText::_('JDATE'),
 			'a.language' => JText::_('JGRID_HEADING_LANGUAGE'),
 		);
 	}

@@ -28,6 +28,7 @@ class StreamsModelStreams extends JModelList
 		if (empty($config['filter_fields']))
 		{
 			$config['filter_fields'] = array(
+				'id', 'a.id',
 				'state', 'a.state',
 				'title', 'aa.title', 'platform_title',
 				'date_created', 'a.date_created',
@@ -48,6 +49,9 @@ class StreamsModelStreams extends JModelList
 	protected function populateState($ordering = null, $direction = null)
 	{
 		// Load the filter state.
+		$id = $this->getUserStateFromRequest($this->context . '.filter.id', 'filter_id', '', 'string');
+		$this->setState('filter.state', $published);
+
 		$published = $this->getUserStateFromRequest($this->context . '.filter.state', 'filter_state', '', 'string');
 		$this->setState('filter.state', $published);
 
@@ -80,6 +84,7 @@ class StreamsModelStreams extends JModelList
 	{
 		// Compile the store id.
 		$id .= ':' . $this->getState('filter.search');
+		$id .= ':' . $this->getState('filter.id');
 		$id .= ':' . $this->getState('filter.state');
 		$id .= ':' . $this->getState('filter.platform');
 		$id .= ':' . $this->getState('filter.language');
