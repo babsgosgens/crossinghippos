@@ -28,13 +28,63 @@ class StreamsModelStreams extends JModelList
 		if (empty($config['filter_fields']))
 		{
 			$config['filter_fields'] = array(
-				'platform', 'a.platform',
-				'date_created', 'a.date_created',
 				'state', 'a.state',
+				'title', 'aa.title', 'platform_title',
+				'date_created', 'a.date_created',
+				'language', 'a.language',
 			);
 		}
 
 		parent::__construct($config);
+	}
+
+	/**
+	 * Method to auto-populate the model state.
+	 *
+	 * Note. Calling getState in this method will result in recursion.
+	 *
+	 * @since   1.6
+	 */
+	protected function populateState($ordering = null, $direction = null)
+	{
+		// Load the filter state.
+		$published = $this->getUserStateFromRequest($this->context . '.filter.state', 'filter_state', '', 'string');
+		$this->setState('filter.state', $published);
+
+		$platform = $this->getUserStateFromRequest($this->context . '.filter.platform', 'filter_platform', '', 'string');
+		$this->setState('filter.platform', $platform);
+
+		$language = $this->getUserStateFromRequest($this->context . '.filter.language', 'filter_language', '');
+		$this->setState('filter.language', $language);
+
+		// Load the parameters.
+		$params = JComponentHelper::getParams('com_streams');
+		$this->setState('params', $params);
+
+		// List state information.
+		parent::populateState('a.date_created', 'desc');
+	}
+
+	/**
+	 * Method to get a store id based on model configuration state.
+	 *
+	 * This is necessary because the model is used by the component and
+	 * different modules that might need different sets of data or different
+	 * ordering requirements.
+	 *
+	 * @param   string  $id    A prefix for the store id.
+	 * @return  string  A store id.
+	 * @since   1.6
+	 */
+	protected function getStoreId($id = '')
+	{
+		// Compile the store id.
+		$id .= ':' . $this->getState('filter.search');
+		$id .= ':' . $this->getState('filter.state');
+		$id .= ':' . $this->getState('filter.platform');
+		$id .= ':' . $this->getState('filter.language');
+
+		return parent::getStoreId($id);
 	}
 
 	/**
@@ -81,9 +131,11 @@ class StreamsModelStreams extends JModelList
 		);
 		$query->from($db->quoteName('#__streams') . ' AS a');
 
+		// Join over the api platforms.
 		$query->select('aa.alias AS platform, aa.title AS platform_title')
 			->join('LEFT', $db->quoteName('#__streams_apis') . ' AS aa ON aa.id = a.api_id');
 
+		// Filter by published state
 		$published = $this->getState('filter.state');
 		if (is_numeric($published))
 		{
@@ -93,6 +145,25 @@ class StreamsModelStreams extends JModelList
 		{
 			$query->where('(a.state IN (0, 1))');
 		}
+
+		// Filter on the language.
+		if ($language = $this->getState('filter.language'))
+		{
+			$query->where('a.language = ' . $db->quote($language));
+		}
+
+		// Add the list ordering clause.
+		echo $orderCol = $this->state->get('list.ordering');
+		$orderDirn = $this->state->get('list.direction');
+		if ($orderCol == 'aa.title')
+		{
+			$orderCol = 'aa.title ' . $orderDirn . ', a.date_created';
+		}
+		elseif ($orderCol == 'a.language')
+		{
+			$orderCol = 'a.language ' . $orderDirn . ', a.date_created';
+		}
+		$query->order($db->escape($orderCol . ' ' . $orderDirn));
 
 
 		// echo nl2br(str_replace('#__','flock_',$query));
