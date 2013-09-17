@@ -23,7 +23,7 @@ defined('_JEXEC') or die;
 
 			/* DEBUG */
 
-			var_dump($this->items);
+			// var_dump($this->items);
 
 			/* DEBUG */
 
