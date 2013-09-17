@@ -13,7 +13,7 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
 /**
  * Available platforms
  */
-$_platforms = array('twitter', 'facebook', 'github', 'dribbble', 'googleplus');
+$_platforms = array('jtwitter', 'twitter', 'facebook', 'github', 'dribbble', 'googleplus');
 ?>
 
 <ul class="inline">
