@@ -120,7 +120,7 @@ class StreamsModelTwitter extends JModelAdmin
 				 */
 				$data1 = array(
 					'platform' => 1,
-					'platform_id' => $item->id_str
+					'api_id' => $item->id_str
 				);
 				$data2 = array(
 					'date_created' => $date_created->toSql(),

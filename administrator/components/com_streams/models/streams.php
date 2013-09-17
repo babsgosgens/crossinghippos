@@ -93,6 +93,7 @@ class StreamsModelStreams extends JModelList
 
 
 		// echo nl2br(str_replace('#__','jos_',$query));
+		// exit;
 		return $query;
 	}
 }

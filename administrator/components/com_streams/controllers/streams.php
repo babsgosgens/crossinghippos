@@ -16,43 +16,6 @@ defined('_JEXEC') or die;
  */
 class StreamsControllerStreams extends JControllerAdmin
 {
-	/**
-	 * Method to update the stream for any or all available platforms
-	 *
-	 * @param string 	$type 	A string representing a platform, e.g: 'twitter'
-	 * @param array 	$config 	An optional array with configuration data
-	 */
-	public function update($config = array())
-	{
-		/*
-		 * Check if a type was passed through the request
-		 */
-		$input = JFactory::getApplication()->input;
-		$type = $input->get('type', '');
-
-		/*
-		 * Allow to search for older items
-		 */
-		if ( !isset($config['date']) )
-		{
-			$config['date'] = date(now);
-		}
-
-		var_dump($type);
-
-		/*
-		 * Call the model for this type
-		 */
-		$typeModel = $this->getModel($type);
-
-		if ( $typeModel )
-		{
-			var_dump($typeModel);
-		} else
-		{
-			var_dump($typeModel);
-		}
-	}
 
 	/**
 	 * Method to provide child classes the opportunity to process after the delete task.

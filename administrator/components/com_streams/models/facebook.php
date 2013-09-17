@@ -125,7 +125,7 @@ class StreamsModelFacebook extends JModelAdmin
 				$postId = substr($item->id, $pos+1 );
 				$id = array(
 					'platform' => 2,
-					'platform_id' => $postId
+					'api_id' => $postId
 				);
 
 				/**

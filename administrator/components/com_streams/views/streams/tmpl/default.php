@@ -9,6 +9,10 @@
 defined('_JEXEC') or die;
 
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
+
+/**
+ * Available platforms
+ */
 $_platforms = array('twitter', 'facebook', 'github', 'dribbble', 'googleplus');
 ?>
 
