@@ -1,4 +1,5 @@
-CREATE TABLE IF NOT EXISTS `#__streams` (
+DROP TABLE IF EXISTS `flock_streams`;
+CREATE TABLE IF NOT EXISTS `flock_streams` (
   `api_id` tinyint(2) NOT NULL,
   `post_id` bigint(50) NOT NULL,
   `date_created` datetime NOT NULL,
@@ -14,7 +15,8 @@ CREATE TABLE IF NOT EXISTS `#__streams` (
   KEY `api_id` (`api_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE IF NOT EXISTS `#__streams_apis` (
+DROP TABLE IF EXISTS `flock_streams_apis`;
+CREATE TABLE IF NOT EXISTS `flock_streams_apis` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` bigint(20) NOT NULL,
   `title` varchar(50) NOT NULL,

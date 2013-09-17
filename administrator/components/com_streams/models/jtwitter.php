@@ -17,7 +17,7 @@ require_once( JPATH_SITE.'/libraries/twitter/TwitterAPIExchange.php' );
  * @package     com_streams
  * @since       3.1
  */
-class StreamsModelTwitter extends JModelAdmin
+class StreamsModelJtwitter extends JModelAdmin
 {
 	/**
 	 * var
@@ -48,25 +48,46 @@ class StreamsModelTwitter extends JModelAdmin
 	{
 		parent::__construct($config);
 
-		// // $oauth = new JTwitterOAuth();
-		// $twitter = new JTwitterStatuses($oauth);
+		// Call the URI object to get the current request
+		$uri = JFactory::getUri();
 
-		// var_dump($twitter);
+		// Required settings, 
+		$access_token = '110107572-YMo8GKZ6ulzP1loyygnLTQUWx9dI681V4kU8LASv';
+		$access_token_secret = 'u1GpK5fNbI8POV9kY9lVbScLu6l331MEoDOJbJGqChY';
 
-		// break;
+		$consumer_key = 'KSlsiPWpC50tBn2jLD8xQ';
+		$consumer_secret = 'BfFmluo0rnZp2I3H3XitCWhFvOqHHJFSGmMaTTvwN4';
 
-		/**
-		 * Set access tokens here - see: https://dev.twitter.com/apps/
-		 * @todo add these to the component configuration
-		 */
-		$this->settings = array(
-		    'oauth_access_token' => '110107572-YMo8GKZ6ulzP1loyygnLTQUWx9dI681V4kU8LASv',
-		    'oauth_access_token_secret' => 'u1GpK5fNbI8POV9kY9lVbScLu6l331MEoDOJbJGqChY',
-		    'consumer_key' => 'KSlsiPWpC50tBn2jLD8xQ',
-		    'consumer_secret' => 'BfFmluo0rnZp2I3H3XitCWhFvOqHHJFSGmMaTTvwN4'
-		);
+		$callback_url = $uri->toString();
 
-		$this->api = new TwitterAPIExchange( $this->settings );
+		// Build the options object
+		$options = new JRegistry;
+
+		// $options->set('access_token', $access_token);
+		// $options->set('access_token_secret', $access_token_secret);
+
+		$options->set('consumer_key', $consumer_key);
+		$options->set('consumer_secret', $consumer_secret);
+		$options->set('callback', $callback_url);
+		$options->set('sendheaders', true);
+
+		// Authenticate 
+		$oauth = new JTwitterOAuth($options);
+		// $oauth->setToken($access_token);
+		// $access_token = $oauth->authenticate();
+		$oauth->authenticate();
+
+		// Create the Facebook object
+		$twitter = new JTwitter($oauth);
+		$statuses = $twitter->statuses;
+
+		echo '<pre>';
+		print_r($statuses);
+		echo '</pre>';
+		exit;
+
+		// Make it accessible to this object
+		$this->api = $twitter;
 	}
 
 	/**
@@ -91,7 +112,7 @@ class StreamsModelTwitter extends JModelAdmin
 	 * Method to update the database with the new items
 	 *
 	 */
-	public function update( $response=null )
+	public function update($response = null)
 	{
 		/**
 		 * Twitter returns an array of items if the call wass succesful
@@ -102,8 +123,6 @@ class StreamsModelTwitter extends JModelAdmin
 		{
 			foreach ($response as $item)
 			{
-				$data = null;
-
 				/**
 				 * Get a reference to the table
 				 */
@@ -118,13 +137,13 @@ class StreamsModelTwitter extends JModelAdmin
 				 * Create two array with data for storage,
 				 * use the first array to determine if the item exists
 				 */
-				$data1 = array(
+				$id = array(
 					'api_id' => 1,
 					'post_id' => $item->id_str
 				);
-				$data2 = array(
+				$data = array(
 					'date_created' => $date_created->toSql(),
-					'raw' => base64_encode(serialize($item)), // http://stackoverflow.com/a/1058294
+					'raw' => base64_encode(serialize($item)),
 					'metadata' => null,
 					'permalink' => 'https://twitter.com/'.$item->user->screen_name.'/status/'.$item->id_str,
 					'params' => null,
@@ -137,14 +156,14 @@ class StreamsModelTwitter extends JModelAdmin
 				/**
 				 * Save the item if it does not yet exist
 				 */
-				if ( $table->load($data1) )
+				if ( $table->load($id) )
 				{
 				}
 				else
 				{
-					$data = array_merge($data1,$data2);
-					$table->bind($data);
-					$table->store($data);
+					$row = array_merge($id,$data);
+					$table->bind($row);
+					$table->store($row);
 					// $this->save($data);
 				}
 			}
@@ -160,27 +179,14 @@ class StreamsModelTwitter extends JModelAdmin
 	 */
 	protected function setResponse()
 	{
-		$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=babsgosgens&count=2';
-		$url = 'https://api.twitter.com/1.1/statuses/home_timeline.json';
-		$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
-		// $config = array(
-		// 	'screen_name=crossinghippos',
-		// 	'count=2'
-		// 	);
-		// $config = '?screen_name=babsgosgens&count=2';
 		// Only call the data once
 		if ( $this->response==null ) 
 		{
+			// Get a reference to the api object
 			$twitter =& $this->api;
-			
-			$twitter->buildOauth($url, 'GET');
 
-			if($config)
-			{
-				$twitter->setGetfield($config);
-			}
-
-			$this->response = json_decode( $twitter->performRequest() );
+			// Do stuff
+			$this->response = $twitter->statuses;
 		}
 	}
 

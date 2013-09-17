@@ -9,7 +9,11 @@
 defined('_JEXEC') or die;
 
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
-$_platforms = array('twitter', 'facebook', 'github', 'dribbble', 'googleplus');
+
+/**
+ * Available platforms
+ */
+$_platforms = array('jtwitter', 'twitter', 'facebook', 'github', 'dribbble', 'googleplus');
 ?>
 
 <ul class="inline">
@@ -105,11 +109,11 @@ $listDirn	= '';
 			<?php foreach ($this->items as $i => $item) :
 				$postContent = '';
 				switch ($item->platform) {
-					case 1:
+					case 'twitter':
 						$post = $item->php;
 						$postContent = $post->text;
 						break;
-					case 2:
+					case 'facebook':
 						$post = $item->php;
 						$postContent = $post->message;
 						break;
@@ -142,7 +146,7 @@ $listDirn	= '';
 						<?php echo JHtml::_('jgrid.published', $item->state, $i, 'weblinks.', $canChange, 'cb', $item->publish_up, $item->publish_down); ?>
 					</td>
 					<td class="small">
-						<?php echo JText::_('COM_STREAMS_LABEL_PLATFORM'.$item->platform); ?>
+						<?php echo $item->platform_title; ?>
 					</td>
 					<td class="nowrap has-context">
 						<?php echo $postContent; ?>
