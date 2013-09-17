@@ -46,29 +46,22 @@ class StreamsControllerUpdate extends JControllerAdmin
 	public function update(	$config = array() )
 	{
 		$type = $this->getTask();
-		/*
-		 * Allow to search for older items
-		 */
-		if ( !isset($config['date']) )
-		{
-			$config['date'] = date(now);
-		}
 
 		/*
 		 * Call the model for this type
-		 * Return to the default view if no model exists
+		 * else raise a warning and return to the view
 		 */
 		$m = $this->getModel($type);
-		$msg = '';
 
 		if ( $m )
 		{
-			$result = $m->getItems($config);
-			
+			$response = $m->getResponse($config);
+
 			// Notify the user about the update
-			if ( $result )
+			if ( $response )
 			{
-				$msg = JText::sprintf('COM_STREAMS_UPDATE_SUCCESS', $type, count($result) );
+				// Store the feed into the database
+				$m->update($response);
 			}
 			else
 			{

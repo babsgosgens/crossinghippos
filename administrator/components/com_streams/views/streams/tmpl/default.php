@@ -9,7 +9,7 @@
 defined('_JEXEC') or die;
 
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
-$_platforms = array('twitter', 'facebook', 'github', 'dribbble');
+$_platforms = array('twitter', 'facebook', 'github', 'dribbble', 'googleplus');
 ?>
 
 <ul class="inline">
@@ -111,7 +111,7 @@ $listDirn	= '';
 						break;
 					case 2:
 						$post = $item->php;
-						$postContent = $post['message'];
+						$postContent = $post->message;
 						break;
 				}
 				?>

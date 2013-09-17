@@ -46,8 +46,9 @@ class StreamsModelStreams extends JModelList
 
 
 		// Unserialize raw attribute into PHP array
-		foreach ($items as $key => &$item) {
-			$item->php = unserialize($item->raw);
+		foreach ($items as $key => &$item)
+		{
+			$item->php = unserialize(base64_decode($item->raw));  // http://stackoverflow.com/a/1058294
 		}
 
 		// Store in cache

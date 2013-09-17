@@ -8,9 +8,10 @@
 
 defined('_JEXEC') or die;
 
-// https://github.com/J7mbo/twitter-api-php
-require_once( JPATH_SITE.'/libraries/facebook/facebook.php' );
-jimport('joomla.twitter');
+use Joomla\Facebook\Facebook;
+use Joomla\Facebook\OAuth;
+use Joomla\Registry\Registry;
+
 
 /**
  * Methods supporting a list of weblink records.
@@ -24,19 +25,19 @@ class StreamsModelFacebook extends JModelAdmin
 	 * var
 	 * $settings array An array of authentication data
 	 */
-	protected $_settings = array();
+	protected $settings = array();
 
 	/**
 	 * var
 	 * $api TwitterAPIExchange An instance of the api object
 	 */
-	protected $_api = null;
+	protected $api = null;
 
 	/**
 	 * var
 	 * $response mixed A (JSON) array with response data
 	 */
-	protected $_response = null;
+	protected $response = null;
 
 	/**
 	 * Constructor.
@@ -49,16 +50,31 @@ class StreamsModelFacebook extends JModelAdmin
 	{
 		parent::__construct($config);
 
-		/**
-		 * Set access tokens here - see: https://dev.twitter.com/apps/
-		 * @todo add these to the component configuration
-		 */
-		$this->_settings = array(
-  			'appId' => '231110010232949',
-  			'secret' => 'eedc870587dc39297be6fe57ab8f2b3d',
-  		);
+		// Call the URI object to get the current request
+		$uri = JFactory::getUri();
 
-		$this->_api = new Facebook($this->_settings);
+		// Required settings, 
+  		$app_id = '231110010232949';
+  		$app_secret = 'eedc870587dc39297be6fe57ab8f2b3d';
+		$app_redirect = $uri->toString();
+
+		// Build the options object
+		$options = new JRegistry;
+		$options->set('clientid', 	$app_id);
+		$options->set('clientsecret', $app_secret);
+		$options->set('redirecturi', $app_redirect);
+		$options->set('sendheaders', true);
+		$options->set('authmethod', 'get');
+
+		// Authenticate 
+		$oauth = new JFacebookOAuth($options);
+		$access_token = $oauth->authenticate();
+
+		// Create the Facebook object
+		$facebook = new JFacebook($oauth);
+
+		// Make it accessible to this object
+		$this->api = $facebook;
 	}
 
 	/**
@@ -66,28 +82,20 @@ class StreamsModelFacebook extends JModelAdmin
 	 *
 	 * @return a list of items
 	 */
-	public function getItems( $update=true )
+	public function getResponse()
 	{
 
-		if ($this->_api->getUser() == false) {
+		/**
+		 * Only fetch items if the response is empty
+		 */
+		if ( is_null($this->_response) )
 
-			$params = array('scope' => 'user_status');
-			
-			if (!isset($_GET['error'])){
-				header("Location: " . $this->_api->getLoginUrl($params));
-				exit;
-			}
-
-		} else {
-			$this->_response = $this->_api->api("/me/statuses?limit=20&locale=nl");
-		}
-
-		if ( $update )
 		{
-			$this->updateTable();
+			$this->setResponse();
 		}
 
-		return $this->_response['data'];
+
+		return $this->response;
 
 	}
 
@@ -95,63 +103,92 @@ class StreamsModelFacebook extends JModelAdmin
 	 * Method to update the database with the new items
 	 *
 	 */
-public function updateTable()
+	public function update($response = null)
 	{
-		/**
-		 * Twitter returns an array of items if the call wass succesful
-		 */
-		$response =& $this->_response['data'];
+		$response = $response ? $response : $this->getResponse();
 
-		if (is_array($response) && isset($response[0]))
+		/**
+		 * Facebook returns an object with two attributes: data and paginate if the call was succesful
+		 */
+		if ( property_exists($response, 'data') && $response->data[0] )
 		{
-			foreach ($response as $item)
+			// Keep counter for update items
+			$c = 0;
+			foreach ($response->data as $item)
 			{
-				$data = null;
 				/**
 				 * Get a reference to the table
 				 */
 				$table =& $this->getTable('Stream', 'StreamsTable');
 
 				/**
-				 * Reformat the date
-				 */
-				$date_created = new JDate($item['updated_time']);
-
-				/**
-				 * Create two array with data for storage,
+				 * Create two arrays with data for storage,
 				 * use the first array to determine if the item exists
 				 */
-				$data1 = array(
+				$pos = strpos($item->id, '_'); //Only use after underscore, first part is userid, second postid: 100002043048057_515362341875196
+				$postId = substr($item->id, $pos+1 );
+				$id = array(
 					'platform' => 2,
-					'platform_id' => $item['id']
-				);
-
-				$data2 = array(
-					'date_created' => $date_created->toSql(),
-					'raw' => serialize($item),
-					'metadata' => null,
-					'permalink' => null,
-					'params' => null,
-					'language' => '*',
-					'state' => 1,
-					'publish_up' => null,
-					'publish_down' => null,
+					'platform_id' => $postId
 				);
 
 				/**
 				 * Save the item if it does not yet exist
 				 */
-				if ( $table->load($data1) )
+				if ( $table->load($id) )
 				{
 				}
 				else
 				{
-					$data = array_merge($data1,$data2);
-					$table->bind($data);
-					$table->store($data);
-					// $this->save($data);
+					/**
+					 * Reformat the date
+					 */
+					$date_created = new JDate($item->updated_time);
+
+					$data = array(
+						'date_created' => $date_created->toSql(),
+						'raw' => base64_encode(serialize($item)), // http://stackoverflow.com/a/1058294
+						'metadata' => null,
+						'permalink' => null,
+						'params' => null,
+						'language' => '*',
+						'state' => 1,
+						'publish_up' => null,
+						'publish_down' => null,
+					);
+
+					$row = array_merge($id,$data);
+					$table->bind($row);
+					$table->store($row);
+
+
+					// Update the counter
+					$c++;
 				}
 			}
+
+			JFactory::getApplication()->enqueueMessage( JText::sprintf('COM_STREAMS_UPDATE_SUCCESS', 'Facebook', $c), 'message');
+		}
+	}
+
+	/**
+	 * Method to new items from stream
+	 *
+	 * @param array An array with configuration data
+	 *
+	 * @return void
+	 */
+	protected function setResponse()
+	{
+		// Only call the data once
+		if ( $this->response==null ) 
+		{
+			// Get a reference to the api object
+			$facebook =& $this->api;
+
+			// Get the feed and store it in the class attribute
+			$user = $facebook->user;
+			$this->response = $user->getFeed("me");
 		}
 	}
 

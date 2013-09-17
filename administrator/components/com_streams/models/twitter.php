@@ -10,7 +10,6 @@ defined('_JEXEC') or die;
 
 // https://github.com/J7mbo/twitter-api-php
 require_once( JPATH_SITE.'/libraries/twitter/TwitterAPIExchange.php' );
-jimport('joomla.twitter');
 
 /**
  * Methods supporting a list of weblink records.
@@ -24,19 +23,19 @@ class StreamsModelTwitter extends JModelAdmin
 	 * var
 	 * $settings array An array of authentication data
 	 */
-	protected $_settings = array();
+	protected $settings = array();
 
 	/**
 	 * var
 	 * $api TwitterAPIExchange An instance of the api object
 	 */
-	protected $_api = null;
+	protected $api = null;
 
 	/**
 	 * var
 	 * $response mixed A (JSON) array with response data
 	 */
-	protected $_response = null;
+	protected $response = null;
 
 	/**
 	 * Constructor.
@@ -60,14 +59,14 @@ class StreamsModelTwitter extends JModelAdmin
 		 * Set access tokens here - see: https://dev.twitter.com/apps/
 		 * @todo add these to the component configuration
 		 */
-		$this->_settings = array(
+		$this->settings = array(
 		    'oauth_access_token' => '110107572-YMo8GKZ6ulzP1loyygnLTQUWx9dI681V4kU8LASv',
 		    'oauth_access_token_secret' => 'u1GpK5fNbI8POV9kY9lVbScLu6l331MEoDOJbJGqChY',
 		    'consumer_key' => 'KSlsiPWpC50tBn2jLD8xQ',
 		    'consumer_secret' => 'BfFmluo0rnZp2I3H3XitCWhFvOqHHJFSGmMaTTvwN4'
 		);
 
-		$this->_api = new TwitterAPIExchange( $this->_settings );
+		$this->api = new TwitterAPIExchange( $this->settings );
 	}
 
 	/**
@@ -75,46 +74,36 @@ class StreamsModelTwitter extends JModelAdmin
 	 *
 	 * @return a list of items
 	 */
-	public function getItems( $update=true )
+	public function getResponse()
 	{
-		$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=babsgosgens&count=2';
-		$url = 'https://api.twitter.com/1.1/statuses/home_timeline.json';
-		$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
-		// $config = array(
-		// 	'screen_name=crossinghippos',
-		// 	'count=2'
-		// 	);
-		// $config = '?screen_name=babsgosgens&count=2';
-		$this->_getRaw($url, $config);
-
 		/**
-		 * Add the items to the table
+		 * Only fetch items if the response is empty
 		 */
-		if ( $update )
+		if ( is_null($this->_response) )
 		{
-			$this->updateTable();
+			$this->setResponse();
 		}
-		
-		return $this->_response;
+
+		return $this->response;
 	}
 
 	/**
 	 * Method to update the database with the new items
 	 *
 	 */
-	public function updateTable()
+	public function update( $response=null )
 	{
 		/**
 		 * Twitter returns an array of items if the call wass succesful
 		 */
-		$response =& $this->_response;
+		$response = $response ? $response : $this->getResponse();
 
 		if ( is_array($response) && isset($response[0]) )
 		{
 			foreach ($response as $item)
 			{
 				$data = null;
-				var_dump($item->id);
+
 				/**
 				 * Get a reference to the table
 				 */
@@ -135,7 +124,7 @@ class StreamsModelTwitter extends JModelAdmin
 				);
 				$data2 = array(
 					'date_created' => $date_created->toSql(),
-					'raw' => serialize($item),
+					'raw' => base64_encode(serialize($item)), // http://stackoverflow.com/a/1058294
 					'metadata' => null,
 					'permalink' => 'https://twitter.com/'.$item->user->screen_name.'/status/'.$item->id_str,
 					'params' => null,
@@ -169,12 +158,20 @@ class StreamsModelTwitter extends JModelAdmin
 	 *
 	 * @return void
 	 */
-	protected function _getRaw( $url, $config = array() )
+	protected function setResponse()
 	{
+		$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=babsgosgens&count=2';
+		$url = 'https://api.twitter.com/1.1/statuses/home_timeline.json';
+		$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
+		// $config = array(
+		// 	'screen_name=crossinghippos',
+		// 	'count=2'
+		// 	);
+		// $config = '?screen_name=babsgosgens&count=2';
 		// Only call the data once
-		if ( $this->_response==null ) 
+		if ( $this->response==null ) 
 		{
-			$twitter =& $this->_api;
+			$twitter =& $this->api;
 			
 			$twitter->buildOauth($url, 'GET');
 
@@ -183,7 +180,7 @@ class StreamsModelTwitter extends JModelAdmin
 				$twitter->setGetfield($config);
 			}
 
-			$this->_response = json_decode( $twitter->performRequest() );
+			$this->response = json_decode( $twitter->performRequest() );
 		}
 	}
 
