@@ -80,7 +80,7 @@ $sortFields = $this->getSortFields();
 				<ul class="inline">
 					<?php foreach ($this->api->getOptions() as $type): ?>
 						<?php $uri = JRoute::_('index.php?option=com_streams&task=update.'.$type->value); ?>
-						<li><a href="<?php echo $uri; ?>" class="btn">Update <?php echo $type->text; ?></a></li>
+						<li><a href="<?php echo $uri; ?>" class="btn"><?php echo $type->text; ?></a></li>
 					<?php endforeach; ?>
 				</ul>
 			</div>
