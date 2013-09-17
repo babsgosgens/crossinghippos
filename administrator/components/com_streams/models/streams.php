@@ -72,15 +72,17 @@ class StreamsModelStreams extends JModelList
 
 		// Select the required fields from the table.
 		$query->select(
-			'a.platform,
-				 a.date_created,
-				 a.raw,
-				 a.state, 
-				 a.language'
+			'a.api_id,
+			 a.post_id,
+			 a.date_created,
+			 a.raw,
+			 a.state, 
+			 a.language'
 		);
 		$query->from($db->quoteName('#__streams') . ' AS a');
-		$query->join($db->quoteName('#__streams_apis') . ' AS aa');
 
+		$query->select('aa.alias AS platform, aa.title AS platform_title')
+			->join('LEFT', $db->quoteName('#__streams_apis') . ' AS aa ON aa.id = a.api_id');
 
 		$published = $this->getState('filter.state');
 		if (is_numeric($published))
@@ -93,7 +95,7 @@ class StreamsModelStreams extends JModelList
 		}
 
 
-		// echo nl2br(str_replace('#__','jos_',$query));
+		// echo nl2br(str_replace('#__','flock_',$query));
 		// exit;
 		return $query;
 	}

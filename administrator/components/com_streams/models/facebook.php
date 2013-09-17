@@ -124,8 +124,8 @@ class StreamsModelFacebook extends JModelAdmin
 				$pos = strpos($item->id, '_'); //Only use after underscore, first part is userid, second postid: 100002043048057_515362341875196
 				$postId = substr($item->id, $pos+1 );
 				$id = array(
-					'platform' => 2,
-					'api_id' => $postId
+					'api_id' => 2,
+					'post_id' => $postId
 				);
 
 				/**

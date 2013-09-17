@@ -119,8 +119,8 @@ class StreamsModelTwitter extends JModelAdmin
 				 * use the first array to determine if the item exists
 				 */
 				$data1 = array(
-					'platform' => 1,
-					'api_id' => $item->id_str
+					'api_id' => 1,
+					'post_id' => $item->id_str
 				);
 				$data2 = array(
 					'date_created' => $date_created->toSql(),
