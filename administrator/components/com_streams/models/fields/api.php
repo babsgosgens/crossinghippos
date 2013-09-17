@@ -38,7 +38,7 @@ class JFormFieldApi extends JFormFieldList
             $db     = JFactory::getDbo();
             $query  = $db->getQuery(true);
 
-            $query->select('id AS value, title AS text');
+            $query->select('alias AS value, title AS text');
             $query->from('#__streams_apis AS a');
             $query->order('a.title');
             $query->where('state = 1');

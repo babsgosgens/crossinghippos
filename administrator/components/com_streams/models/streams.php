@@ -160,7 +160,7 @@ class StreamsModelStreams extends JModelList
 		// Filter on the language.
 		if ($api = $this->getState('filter.api'))
 		{
-			$query->where('a.api_id = ' . $db->quote($api));
+			$query->where('aa.alias = ' . $db->quote($api));
 		}
 
 		// Add the list ordering clause.

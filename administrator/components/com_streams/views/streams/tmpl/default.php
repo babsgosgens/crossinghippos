@@ -16,13 +16,6 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
 $_platforms = array('jtwitter', 'twitter', 'facebook', 'github', 'dribbble', 'googleplus');
 ?>
 
-<ul class="inline">
-	<?php foreach ($_platforms as $type): ?>
-		<?php $uri = JRoute::_('index.php?option=com_streams&task=update.'.$type); ?>
-		<li><a href="<?php echo $uri; ?>" class="btn"><?php echo $type; ?></a></li>
-	<?php endforeach; ?>
-</ul>
-
 
 <?php
 JHtml::_('bootstrap.tooltip');
@@ -83,7 +76,16 @@ $sortFields = $this->getSortFields();
 					<?php echo JHtml::_('select.options', $sortFields, 'value', 'text', $listOrder);?>
 				</select>
 			</div>
+			<div>
+				<ul class="inline">
+					<?php foreach ($this->api->getOptions() as $type): ?>
+						<?php $uri = JRoute::_('index.php?option=com_streams&task=update.'.$type->value); ?>
+						<li><a href="<?php echo $uri; ?>" class="btn">Update <?php echo $type->text; ?></a></li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
 		</div>
+
 		<div class="clearfix"> </div>
 		<table class="table table-striped" id="streamsList">
 			<thead>

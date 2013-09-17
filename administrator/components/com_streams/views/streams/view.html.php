@@ -90,12 +90,12 @@ class StreamsViewStreams extends JViewLegacy
 
 		//Get companie options
 		JFormHelper::addFieldPath(JPATH_COMPONENT . '/models/fields');
-		$api = JFormHelper::loadFieldType('Api', false);
+		$this->api = JFormHelper::loadFieldType('Api', false);
 
 		JHtmlSidebar::addFilter(
 			JText::_('COM_STREAMS_SELECT_API'),
 			'filter_api',
-			JHtml::_('select.options', $api->getOptions(), 'value', 'text', $this->state->get('filter.api'))
+			JHtml::_('select.options', $this->api->getOptions(), 'value', 'text', $this->state->get('filter.api'))
 		);
 
 		JHtmlSidebar::addFilter(
