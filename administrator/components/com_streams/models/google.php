@@ -8,8 +8,10 @@
 
 defined('_JEXEC') or die;
 
-// https://github.com/J7mbo/twitter-api-php
-require_once( JPATH_SITE.'/libraries/twitter/TwitterAPIExchange.php' );
+use Joomla\Facebook\Facebook;
+use Joomla\Facebook\OAuth;
+use Joomla\Registry\Registry;
+
 
 /**
  * Methods supporting a list of weblink records.
@@ -17,29 +19,23 @@ require_once( JPATH_SITE.'/libraries/twitter/TwitterAPIExchange.php' );
  * @package     com_streams
  * @since       3.1
  */
-class StreamsModelTwitter extends JModelAdmin
+class StreamsModelFacebook extends JModelAdmin
 {
 	/**
 	 * var
-	 * JRegistry Parameters
+	 * $settings array An array of authentication data
 	 */
-	protected $params = null;
+	protected $settings = array();
 
 	/**
 	 * var
-	 * JRegistry The authentication object
-	 */
-	protected $options = null;
-
-	/**
-	 * var
-	 * TwitterAPIExchange An instance of the api object
+	 * $api TwitterAPIExchange An instance of the api object
 	 */
 	protected $api = null;
 
 	/**
 	 * var
-	 * mixed An object with response data
+	 * $response mixed A (JSON) array with response data
 	 */
 	protected $response = null;
 
@@ -54,13 +50,31 @@ class StreamsModelTwitter extends JModelAdmin
 	{
 		parent::__construct($config);
 
-		// Load this items parameters
-		$table =& $this->getTable('Api', 'StreamsTable');
-		$table->load(1);
-		$params = new JRegistry( $table->get('params') );
+		// Call the URI object to get the current request
+		$uri = JFactory::getUri();
 
-		$twitter = new TwitterAPIExchange( $params->toArray() );
-		$this->set('api', $twitter);
+		// Required settings, 
+  		$app_id = '231110010232949';
+  		$app_secret = 'eedc870587dc39297be6fe57ab8f2b3d';
+		$app_redirect = $uri->toString();
+
+		// Build the options object
+		$options = new JRegistry;
+		$options->set('clientid', 	$app_id);
+		$options->set('clientsecret', $app_secret);
+		$options->set('redirecturi', $app_redirect);
+		$options->set('sendheaders', true);
+		$options->set('authmethod', 'get');
+
+		// Authenticate 
+		$oauth = new JFacebookOAuth($options);
+		$access_token = $oauth->authenticate();
+
+		// Create the Facebook object
+		$facebook = new JFacebook($oauth);
+
+		// Make it accessible to this object
+		$this->api = $facebook;
 	}
 
 	/**
@@ -85,49 +99,31 @@ class StreamsModelTwitter extends JModelAdmin
 	 * Method to update the database with the new items
 	 *
 	 */
-	public function update( $response=null )
+	public function update($response = null)
 	{
-		/**
-		 * Twitter returns an array of items if the call wass succesful
-		 */
 		$response = $response ? $response : $this->getResponse();
 
-		if ( is_array($response) && isset($response[0]) )
+		/**
+		 * Facebook returns an object with two attributes: data and paginate if the call was succesful
+		 */
+		if ( property_exists($response, 'data') && $response->data[0] )
 		{
 			// Keep counter for update items
 			$c = 0;
 			foreach ($response as $item)
 			{
-				$data = null;
-
 				/**
 				 * Get a reference to the table
 				 */
 				$table =& $this->getTable('Stream', 'StreamsTable');
 
 				/**
-				 * Reformat the date
-				 */
-				$date_created = new JDate($item->created_at);
-
-				/**
 				 * Create two array with data for storage,
 				 * use the first array to determine if the item exists
 				 */
 				$id = array(
-					'api_id' => 1,
-					'post_id' => $item->id_str
-				);
-				$post = array(
-					'date_created' => $date_created->toSql(),
-					'raw' => base64_encode(serialize($item)), // http://stackoverflow.com/a/1058294
-					'metadata' => null,
-					'permalink' => 'https://twitter.com/'.$item->user->screen_name.'/status/'.$item->id_str,
-					'params' => null,
-					'language' => '*',
-					'state' => 1,
-					'publish_up' => null,
-					'publish_down' => null,
+					'platform' => 2,
+					'api_id' => $item->id
 				);
 
 				/**
@@ -138,15 +134,33 @@ class StreamsModelTwitter extends JModelAdmin
 				}
 				else
 				{
-					$data = array_merge($id,$post);
-					$table->bind($data);
-					$table->store($data);
+					/**
+					 * Reformat the date
+					 */
+					$date_created = new JDate($item->updated_time);
+
+					$data = array(
+						'date_created' => $date_created->toSql(),
+						'raw' => serialize($item),
+						'metadata' => null,
+						'permalink' => null,
+						'params' => null,
+						'language' => '*',
+						'state' => 1,
+						'publish_up' => null,
+						'publish_down' => null,
+					);
+
+					$row = array_merge($id,$data);
+					$table->bind($row);
+					$table->store($row);
 
 					// Update the counter
 					$c++;
 				}
 			}
-			JFactory::getApplication()->enqueueMessage( JText::sprintf('COM_STREAMS_UPDATE_SUCCESS', 'Twitter', $c), 'message');
+
+			JFactory::getApplication()->enqueueMessage( JText::sprintf('COM_STREAMS_UPDATE_SUCCESS', 'Facebook', $c), 'message');
 		}
 	}
 
@@ -159,27 +173,15 @@ class StreamsModelTwitter extends JModelAdmin
 	 */
 	protected function setResponse()
 	{
-		$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=babsgosgens&count=2';
-		$url = 'https://api.twitter.com/1.1/statuses/home_timeline.json';
-		$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
-		// $config = array(
-		// 	'screen_name=crossinghippos',
-		// 	'count=2'
-		// 	);
-		// $config = '?screen_name=babsgosgens&count=2';
 		// Only call the data once
 		if ( $this->response==null ) 
 		{
-			$twitter =& $this->api;
-			
-			$twitter->buildOauth($url, 'GET');
+			// Get a reference to the api object
+			$facebook =& $this->api;
 
-			if($config)
-			{
-				$twitter->setGetfield($config);
-			}
-
-			$this->response = json_decode( $twitter->performRequest() );
+			// Get the feed and store it in the class attribute
+			$user = $facebook->user;
+			$this->response = $user->getFeed("me");
 		}
 	}
 
