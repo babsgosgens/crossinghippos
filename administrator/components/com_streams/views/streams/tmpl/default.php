@@ -95,7 +95,7 @@ $sortFields = $this->getSortFields();
 						<?php echo JHtml::_('grid.sort', 'JSTATUS', 'a.state', $listDirn, $listOrder); ?>
 					</th>
 					<th>
-						<?php echo JHtml::_('grid.sort', 'COM_STREAMS_LABEL_PLATFORM', 'aa.title', $listDirn, $listOrder); ?>
+						<?php echo JHtml::_('grid.sort', 'COM_STREAMS_LABEL_API', 'aa.title', $listDirn, $listOrder); ?>
 					</th>
 					<th>
 						<?php echo JText::_('COM_STREAMS_LABEL_CONTENT'); ?>

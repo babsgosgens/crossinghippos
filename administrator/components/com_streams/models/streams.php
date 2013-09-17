@@ -50,13 +50,13 @@ class StreamsModelStreams extends JModelList
 	{
 		// Load the filter state.
 		$id = $this->getUserStateFromRequest($this->context . '.filter.id', 'filter_id', '', 'string');
-		$this->setState('filter.state', $published);
+		$this->setState('filter.id', $published);
 
 		$published = $this->getUserStateFromRequest($this->context . '.filter.state', 'filter_state', '', 'string');
 		$this->setState('filter.state', $published);
 
-		$platform = $this->getUserStateFromRequest($this->context . '.filter.platform', 'filter_platform', '', 'string');
-		$this->setState('filter.platform', $platform);
+		$api = $this->getUserStateFromRequest($this->context . '.filter.api', 'filter_api', '', 'string');
+		$this->setState('filter.api', $api);
 
 		$language = $this->getUserStateFromRequest($this->context . '.filter.language', 'filter_language', '');
 		$this->setState('filter.language', $language);
@@ -83,10 +83,9 @@ class StreamsModelStreams extends JModelList
 	protected function getStoreId($id = '')
 	{
 		// Compile the store id.
-		$id .= ':' . $this->getState('filter.search');
 		$id .= ':' . $this->getState('filter.id');
 		$id .= ':' . $this->getState('filter.state');
-		$id .= ':' . $this->getState('filter.platform');
+		$id .= ':' . $this->getState('filter.api');
 		$id .= ':' . $this->getState('filter.language');
 
 		return parent::getStoreId($id);
@@ -156,6 +155,12 @@ class StreamsModelStreams extends JModelList
 		if ($language = $this->getState('filter.language'))
 		{
 			$query->where('a.language = ' . $db->quote($language));
+		}
+
+		// Filter on the language.
+		if ($api = $this->getState('filter.api'))
+		{
+			$query->where('a.api_id = ' . $db->quote($api));
 		}
 
 		// Add the list ordering clause.

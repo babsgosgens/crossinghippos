@@ -88,10 +88,14 @@ class StreamsViewStreams extends JViewLegacy
 
 		JHtmlSidebar::setAction('index.php?option=com_streams&view=streams');
 
+		//Get companie options
+		JFormHelper::addFieldPath(JPATH_COMPONENT . '/models/fields');
+		$api = JFormHelper::loadFieldType('Api', false);
+
 		JHtmlSidebar::addFilter(
-			JText::_('COM_STREAMS_SELECT_PLATFORM'),
-			'filter_platform',
-			JHtml::_('select.options', JHtml::_('contentlanguage.existing', true, true), 'value', 'text', $this->state->get('filter.language'))
+			JText::_('COM_STREAMS_SELECT_API'),
+			'filter_api',
+			JHtml::_('select.options', $api->getOptions(), 'value', 'text', $this->state->get('filter.api'))
 		);
 
 		JHtmlSidebar::addFilter(
@@ -112,7 +116,7 @@ class StreamsViewStreams extends JViewLegacy
 	{
 		return array(
 			'a.state' => JText::_('JSTATUS'),
-			'platform_title' => JText::_('JGLOBAL_TITLE'),
+			'platform_title' => JText::_('COM_STREAMS_LABEL_API'),
 			'a.date_created' => JText::_('JDATE'),
 			'a.language' => JText::_('JGRID_HEADING_LANGUAGE'),
 		);
