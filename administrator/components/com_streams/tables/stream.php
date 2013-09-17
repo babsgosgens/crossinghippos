@@ -104,8 +104,6 @@ class StreamsTableStream extends JTable
 	 */
 	public function publish($pks = null, $state = 1, $userId = 0)
 	{
-
-		break;
 		$k = $this->_tbl_key;
 
 		// Sanitize input.
