@@ -8,9 +8,10 @@
 
 defined('_JEXEC') or die;
 
-use Joomla\Facebook\Facebook;
-use Joomla\Facebook\OAuth;
+use Joomla\Github\Github;
 use Joomla\Registry\Registry;
+
+require_once(__DIR__ . '/api.php');
 
 
 /**
@@ -19,7 +20,7 @@ use Joomla\Registry\Registry;
  * @package     com_streams
  * @since       3.1
  */
-class StreamsModelFacebook extends JModelAdmin
+class StreamsModelGithub extends StreamsModelApi
 {
 	/**
 	 * var
@@ -58,54 +59,21 @@ class StreamsModelFacebook extends JModelAdmin
 
 		// Load this items parameters
 		$table =& $this->getTable('Api', 'StreamsTable');
-		$table->load(2);
+		$table->load(3);
 		$params = new JRegistry( $table->get('params') );
-
-		// Call the URI object to get the current request
-		$uri = JFactory::getUri();
-		$params->set('app_redirect', $uri->toString());
 
 		// Build the options object
 		$options = new JRegistry;
-		$options->set('clientid', $params->get('app_id'));
-		$options->set('clientsecret', $params->get('app_secret'));
-		$options->set('redirecturi', $params->get('app_redirect'));
-		$options->set('sendheaders', true);
-		$options->set('authmethod', 'get');
-
-		// Authenticate 
-		$oauth = new JFacebookOAuth($options);
-		$access_token = $oauth->authenticate();
+		$options->set('api.username', $params->get('username'));
+		$options->set('api.password', $params->get('password'));
 
 		// Create the Facebook object
-		$facebook = new JFacebook($oauth);
+		$github = new JGithub($options);
 
-		// Make it accessible to this object
-		$this->set('api', $facebook);
+		// Make accessible to this object
+		$this->set('api', $github);
 		$this->set('params', $params);
 		$this->set('options', $options);
-	}
-
-	/**
-	 * Method to new items from stream
-	 *
-	 * @return a list of items
-	 */
-	public function getResponse()
-	{
-
-		/**
-		 * Only fetch items if the response is empty
-		 */
-		if ( is_null($this->_response) )
-
-		{
-			$this->setResponse();
-		}
-
-
-		return $this->response;
-
 	}
 
 	/**
@@ -119,24 +87,25 @@ class StreamsModelFacebook extends JModelAdmin
 		/**
 		 * Facebook returns an object with two attributes: data and paginate if the call was succesful
 		 */
-		if ( property_exists($response, 'data') && $response->data[0] )
+		if ( isset($response[0]) )
 		{
 			// Keep counter for update items
 			$c = 0;
-			foreach ($response->data as $item)
+			foreach ($response as $item)
 			{
+
 				/**
 				 * Get a reference to the table
 				 */
 				$table =& $this->getTable('Stream', 'StreamsTable');
 
 				/**
-				 * Create two arrays with data for storage,
+				 * Create two array with data for storage,
 				 * use the first array to determine if the item exists
 				 */
 				$id = array(
-					'api_id' => 2,
-					'post_id' => $item->id
+					'api_id' => 3,
+					'post_id' => $item->sha
 				);
 
 				/**
@@ -150,13 +119,13 @@ class StreamsModelFacebook extends JModelAdmin
 					/**
 					 * Reformat the date
 					 */
-					$date_created = new JDate($item->updated_time);
+					$date_created = new JDate($item->commit->committer->date);
 
 					$data = array(
 						'date_created' => $date_created->toSql(),
 						'raw' => base64_encode(serialize($item)), // http://stackoverflow.com/a/1058294
 						'metadata' => null,
-						'permalink' => null,
+						'permalink' => $item->html_url,
 						'params' => null,
 						'language' => '*',
 						'state' => 1,
@@ -180,6 +149,24 @@ class StreamsModelFacebook extends JModelAdmin
 	/**
 	 * Method to new items from stream
 	 *
+	 * @return a list of items
+	 */
+	public function getResponse()
+	{
+		/**
+		 * Only fetch items if the response is empty
+		 */
+		if ( is_null($this->_response) )
+		{
+			$this->setResponse();
+		}
+
+		return $this->response;
+	}
+
+	/**
+	 * Method to new items from stream
+	 *
 	 * @param array An array with configuration data
 	 *
 	 * @return void
@@ -190,23 +177,13 @@ class StreamsModelFacebook extends JModelAdmin
 		if ( $this->response==null ) 
 		{
 			// Get a reference to the api object
-			$facebook =& $this->api;
+			$github = $this->get('api');
+			$params = $this->get('params');
 
-			// Get the feed and store it in the class attribute
-			$user = $facebook->user;
-			$this->response = $user->getFeed("me");
+			$username = $params->get('username');
+			$repository = $params->get('repository');
+
+			$this->set('response', $github->commits->getList($username, $repository));
 		}
-	}
-
-	/**
-	 * Method to get the record form.
-	 *
-	 * @param   array  $data		An optional array of data for the form to interogate.
-	 * @param   boolean	$loadData	True if the form is to load its own data (default case), false if not.
-	 * @return  JForm	A JForm object on success, false on failure
-	 * @since   1.6
-	 */
-	public function getForm($data = array(), $loadData = true)
-	{
 	}
 }

@@ -117,6 +117,10 @@ $listDirn	= '';
 						$post = $item->php;
 						$postContent = $post->message;
 						break;
+					case 'github':
+						$post = $item->php;
+						$postContent = $post->commit->message;
+						break;
 				}
 				?>
 				<tr class="row<?php echo $i % 2; ?>" sortable-group-id="<?php echo $item->catid?>">
