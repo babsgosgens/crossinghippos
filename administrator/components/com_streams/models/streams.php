@@ -122,7 +122,8 @@ class StreamsModelStreams extends JModelList
 
 		// Select the required fields from the table.
 		$query->select(
-			'a.api_id,
+			'a.id,
+			 a.api_id,
 			 a.post_id,
 			 a.date_created,
 			 a.raw,
@@ -166,8 +167,14 @@ class StreamsModelStreams extends JModelList
 		$query->order($db->escape($orderCol . ' ' . $orderDirn));
 
 
-		// echo nl2br(str_replace('#__','flock_',$query));
-		// exit;
+		// echo nl2br(str_replace('#__','flock_',$query)); exit;
 		return $query;
+	}
+
+	public function publish($data2, $data1)
+	{
+		var_dump($data2);
+		var_dump($data1);
+		exit;
 	}
 }

@@ -895,6 +895,7 @@ abstract class JModelAdmin extends JModelForm
 		$user = JFactory::getUser();
 		$table = $this->getTable();
 		$pks = (array) $pks;
+		var_dump($pks);exit;
 
 		// Include the content plugins for the change of state event.
 		JPluginHelper::importPlugin('content');
