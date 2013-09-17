@@ -26,11 +26,48 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 </head>
 <body class="root">
   <header>
-
+    <h1>Crossing Hippos</h1><h2>webdesign met overbite</h2>
+    <nav>
+      <jdoc:inclue type="modules" name="position-7" />
+    </nav>
   </header>
-    <jdoc:include type="message" />
-    <jdoc:include type="component" />
-    <jdoc:include type="modules" name="component-modules" style="raw" />
+  <section>
+    <jdoc:include type="modules" name="position-2" />
+    <article>
+      <jdoc:include type="message" />
+      <jdoc:include type="component" />
+      <jdoc:include type="modules" name="component-modules" style="raw" />
+    </article>
+  </section>
+  <footer>
+    <article class="fourth column">
+      <h1>Lorem ipsum</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
+        ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
+      </p>
+    </article>
+    <article class="fourth column">
+      <h1>Lorem ipsum</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
+        ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
+      </p>
+    </article>
+    <article class="fourth column">
+      <h1>Lorem ipsum</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
+        ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
+      </p>
+    </article>
+    <article class="fourth column">
+      <h1>Lorem ipsum</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
+        ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
+      </p>
+    </article>
 
     <jdoc:include type="modules" name="debug" />
 
