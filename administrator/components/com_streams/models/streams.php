@@ -79,6 +79,7 @@ class StreamsModelStreams extends JModelList
 				 a.language'
 		);
 		$query->from($db->quoteName('#__streams') . ' AS a');
+		$query->join($db->quoteName('#__streams_apis') . ' AS aa');
 
 
 		$published = $this->getState('filter.state');
