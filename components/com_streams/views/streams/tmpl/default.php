@@ -19,7 +19,7 @@ defined('_JEXEC') or die;
 		foreach ($this->items as $item) :
 			$this->post = $item->php;
 
-			$platform = $item->platform;
+			$platform = $item->api_id;
 
 			/* DEBUG */
 

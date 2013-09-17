@@ -68,7 +68,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
         ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
       </p>
     </article>
-
+  </footer>
     <jdoc:include type="modules" name="debug" />
 
     <script type="text/javascript">
