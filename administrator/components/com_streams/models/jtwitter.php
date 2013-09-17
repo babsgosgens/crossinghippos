@@ -21,19 +21,25 @@ class StreamsModelJtwitter extends JModelAdmin
 {
 	/**
 	 * var
-	 * $settings array An array of authentication data
+	 * JRegistry Parameters
 	 */
-	protected $settings = array();
+	protected $params = null;
 
 	/**
 	 * var
-	 * $api TwitterAPIExchange An instance of the api object
+	 * JRegistry The authentication object
+	 */
+	protected $options = null;
+
+	/**
+	 * var
+	 * TwitterAPIExchange An instance of the api object
 	 */
 	protected $api = null;
 
 	/**
 	 * var
-	 * $response mixed A (JSON) array with response data
+	 * mixed An object with response data
 	 */
 	protected $response = null;
 
@@ -51,14 +57,10 @@ class StreamsModelJtwitter extends JModelAdmin
 		// Call the URI object to get the current request
 		$uri = JFactory::getUri();
 
-		// Required settings, 
-		$access_token = '110107572-YMo8GKZ6ulzP1loyygnLTQUWx9dI681V4kU8LASv';
-		$access_token_secret = 'u1GpK5fNbI8POV9kY9lVbScLu6l331MEoDOJbJGqChY';
-
-		$consumer_key = 'KSlsiPWpC50tBn2jLD8xQ';
-		$consumer_secret = 'BfFmluo0rnZp2I3H3XitCWhFvOqHHJFSGmMaTTvwN4';
-
-		$callback_url = $uri->toString();
+		// Load this items parameters
+		$table =& $this->getTable('Api', 'StreamsTable');
+		$table->load(1);
+		$params = new JRegistry( $table->get('params') );
 
 		// Build the options object
 		$options = new JRegistry;
@@ -66,9 +68,9 @@ class StreamsModelJtwitter extends JModelAdmin
 		// $options->set('access_token', $access_token);
 		// $options->set('access_token_secret', $access_token_secret);
 
-		$options->set('consumer_key', $consumer_key);
-		$options->set('consumer_secret', $consumer_secret);
-		$options->set('callback', $callback_url);
+		$options->set('consumer_key', $params->get('consumer_key'));
+		$options->set('consumer_secret', $params->get('consumer_secret'));
+		$options->set('callback', $uri->toString());
 		$options->set('sendheaders', true);
 
 		// Authenticate 
@@ -79,7 +81,6 @@ class StreamsModelJtwitter extends JModelAdmin
 
 		// Create the Facebook object
 		$twitter = new JTwitter($oauth);
-		$statuses = $twitter->statuses;
 
 		echo '<pre>';
 		print_r($statuses);
@@ -87,7 +88,10 @@ class StreamsModelJtwitter extends JModelAdmin
 		exit;
 
 		// Make it accessible to this object
-		$this->api = $twitter;
+		// Make it accessible to this object
+		$this->set('api', $twitter);
+		$this->set('params', $params);
+		$this->set('options', $options);
 	}
 
 	/**
