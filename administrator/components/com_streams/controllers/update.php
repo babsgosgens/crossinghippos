@@ -49,7 +49,7 @@ class StreamsControllerUpdate extends JControllerAdmin
 
 		/*
 		 * Call the model for this type
-		 * Return to the default view if no model exists
+		 * else raise a warning and return to the view
 		 */
 		$m = $this->getModel($type);
 
