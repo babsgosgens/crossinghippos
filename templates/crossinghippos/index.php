@@ -25,6 +25,9 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
     <!-- <link href='http://fonts.googleapis.com/css?family=Asap:400,700,700italic,400italic' rel='stylesheet' type='text/css'> -->
 </head>
 <body class="root">
+  <header>
+
+  </header>
     <jdoc:include type="message" />
     <jdoc:include type="component" />
     <jdoc:include type="modules" name="component-modules" style="raw" />
