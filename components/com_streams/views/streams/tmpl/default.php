@@ -19,9 +19,15 @@ defined('_JEXEC') or die;
 		foreach ($this->items as $item) :
 			$this->post = $item->php;
 
-			$platform = $item->platform;
+			$platform = $item->api_id;
 
-			echo $this->loadTemplate( JText::_('COM_STREAMS_LABEL_PLATFORM'.$platform) );
+			/* DEBUG */
+
+			// var_dump($this->items);
+
+			/* DEBUG */
+
+			// echo $this->loadTemplate( JText::_('COM_STREAMS_LABEL_PLATFORM'.$platform) );
 		?>
 		<?php endforeach; ?>
 <?php endif; ?>

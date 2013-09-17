@@ -93,15 +93,19 @@ class StreamsModelFacebook extends JModelAdmin
 	 */
 	public function getResponse()
 	{
+
 		/**
 		 * Only fetch items if the response is empty
 		 */
 		if ( is_null($this->_response) )
+
 		{
 			$this->setResponse();
 		}
 
+
 		return $this->response;
+
 	}
 
 	/**

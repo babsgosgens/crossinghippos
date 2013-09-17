@@ -28,7 +28,7 @@ class StreamsModelStreams extends JModelList
 		if (empty($config['filter_fields']))
 		{
 			$config['filter_fields'] = array(
-				'platform', 'a.platform',
+				'platform', 'a.api_id',
 				'date_created', 'a.date_created',
 				'state', 'a.state',
 			);
@@ -46,7 +46,7 @@ class StreamsModelStreams extends JModelList
 
 		// Unserialize raw attribute into PHP array
 		foreach ($items as $key => &$item) {
-			$item->php = unserialize($item->raw);
+			$item->php = unserialize(base64_decode($item->raw));
 		}
 
 		// Store in cache
@@ -70,7 +70,7 @@ class StreamsModelStreams extends JModelList
 
 		// Select the required fields from the table.
 		$query->select(
-			'a.platform,
+				'a.api_id,
 				 a.date_created,
 				 a.raw,
 				 a.state, 
