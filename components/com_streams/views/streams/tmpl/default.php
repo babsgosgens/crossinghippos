@@ -21,7 +21,13 @@ defined('_JEXEC') or die;
 
 			$platform = $item->platform;
 
-			echo $this->loadTemplate( JText::_('COM_STREAMS_LABEL_PLATFORM'.$platform) );
+			/* DEBUG */
+
+			var_dump($this->items);
+
+			/* DEBUG */
+
+			// echo $this->loadTemplate( JText::_('COM_STREAMS_LABEL_PLATFORM'.$platform) );
 		?>
 		<?php endforeach; ?>
 <?php endif; ?>
