@@ -17,10 +17,11 @@ defined('_JEXEC') or die;
 	<p>Geen resultaten</p>
 	<?php else: 
 		foreach ($this->items as $item) :
+
 			$this->post = $item->php;
 
 			$platform = $item->api_id;
-			echo $this->loadTemplate($platform);
+			echo $this->loadTemplate('twitter');
 		?>
 		<?php endforeach; ?>
 <?php endif; ?>

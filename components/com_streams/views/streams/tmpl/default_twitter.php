@@ -29,9 +29,9 @@ echo '</pre>';
 	<!-- DON'T FORGET TO REMOVE EMBEDDED EM STYLES -->
 	<a href="https://www.twitter.com/<?php echo $user->screen_name; ?>"><span><?php echo $user->name;?></span><em>@<?php echo $user->screen_name;?></em></a>
 	<p>
-		<?php echo preg_replace("/@(\w+)/", '<a href="https://www.twitter.com/$1">@$1</a>'
-		<?php echo preg_replace("/#(\w+)/", '<a href="https://www.twitter.com/search?q=%23$2&src=hash">@$1</a>'
-		, $post->text); ?>
+		<?php echo preg_replace("/@(\w+)/", '<a href="https://www.twitter.com/$1">@$1</a>',
+		echo preg_replace("/#(\w+)/)/", '<a href=https://twitter.com/search?q=%23$2&src=hash>@$2</a>'
+	    , $post->text); ?>
 	</p>
 	<time><?php echo $post->created_at; ?></time>
 </article>
