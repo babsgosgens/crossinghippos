@@ -26,12 +26,15 @@ defined('_JEXEC') or die;
 			// echo '<pre>';
 			// print_r($item);
 			// echo '</pre>';
+			$date = new JDate($item->date_created);
+			$platform = $item->platform;
 
 			$this->post = $item->php;
-
-			$platform = $item->platform;
-			echo $this->loadTemplate($platform);
-		?>
+			?>
+			<article class="stream <?php echo $platform; ?>">
+				<?php echo $this->loadTemplate($platform); ?>
+				<time><?php echo $item->date_created = $date->format( JText::_('DATE_FORMAT_LC2') ); ?></time>
+			</article>
 		<?php endforeach; ?>
 <?php endif; ?>
 
