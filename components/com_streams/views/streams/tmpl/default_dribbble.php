@@ -13,11 +13,12 @@ $post = $this->post;
 
 // Uncomment for available attributes
 // echo '<pre>';
-// print_r($post);
+//print_r($post);
 // echo '</pre>';
 // exit;
 ?>
 
 	<img src="<?php echo $post->player->avatar_url; ?>" width="32" height="32">
-	<a href="<?php echo $post->url; ?>"><span><?php echo $post->title; ?></span></a>
-	<img src="<?php echo $post->image_url; ?>" width="200">
+	<a href="http://dribbble.com/<?php echo $post->player->username; ?>"><span><?php echo $post->player->name;?></span></a>
+	<a href="<?php echo $post->url; ?>"><span><?php echo $post->title; ?></span>
+	<img src="<?php echo $post->image_url; ?>" width="150"></a>
