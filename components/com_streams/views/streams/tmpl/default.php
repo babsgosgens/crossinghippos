@@ -34,3 +34,10 @@ defined('_JEXEC') or die;
 		?>
 		<?php endforeach; ?>
 <?php endif; ?>
+
+<div class="pagination">
+	<p class="counter pull-right">
+		<?php echo $this->pagination->getPagesCounter(); ?>
+	</p>
+	<?php echo $this->pagination->getPagesLinks(); ?>
+</div>
