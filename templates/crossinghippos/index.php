@@ -28,7 +28,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
   <header>
     <h1>Crossing Hippos</h1><h2>webdesign met overbite</h2>
     <nav>
-      <jdoc:inclue type="modules" name="position-7" />
+      <jdoc:include type="modules" name="position-7" />
     </nav>
   </header>
   <section>

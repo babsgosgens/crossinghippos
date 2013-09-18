@@ -159,15 +159,8 @@ class StreamsModelTwitter extends JModelAdmin
 	 */
 	protected function setResponse()
 	{
-		$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=babsgosgens&count=2';
-		$url = 'https://api.twitter.com/1.1/statuses/home_timeline.json';
 		$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
-		// $config = array(
-		// 	'screen_name=crossinghippos',
-		// 	'count=2'
-		// 	);
-		// $config = '?screen_name=babsgosgens&count=2';
-		// Only call the data once
+
 		if ( $this->response==null ) 
 		{
 			$twitter =& $this->api;

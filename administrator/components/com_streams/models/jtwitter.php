@@ -82,11 +82,6 @@ class StreamsModelJtwitter extends JModelAdmin
 		// Create the Facebook object
 		$twitter = new JTwitter($oauth);
 
-		echo '<pre>';
-		print_r($statuses);
-		echo '</pre>';
-		exit;
-
 		// Make it accessible to this object
 		// Make it accessible to this object
 		$this->set('api', $twitter);
