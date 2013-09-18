@@ -31,7 +31,7 @@ $formatted_post = preg_replace($patterns, $replace, $post->text);
 
 ?>
 
-<article class="twitter post">
+<article class="twitter post" style="background-color: lightblue;">
 	<img src="<?php echo $user->profile_image_url; ?>" width="32" height="32">
 	<!-- DON'T FORGET TO REMOVE EMBEDDED EM STYLES -->
 	<a href="https://www.twitter.com/<?php echo $user->screen_name; ?>"><span><?php echo $user->name;?></span><em>@<?php echo $user->screen_name;?></em></a>
