@@ -16,18 +16,21 @@ defined('_JEXEC') or die;
 	?>
 	<p>Geen resultaten</p>
 	<?php else: 
-		foreach ($this->items as $item) :
+
+			// echo '<pre>';
+			// print_r($this->items);
+			// echo '</pre>';
+
+			foreach ($this->items as $item) :
+
+			// echo '<pre>';
+			// print_r($item);
+			// echo '</pre>';
+
 			$this->post = $item->php;
 
-			$platform = $item->api_id;
-
-			/* DEBUG */
-
-			// var_dump($this->items);
-
-			/* DEBUG */
-
-			// echo $this->loadTemplate( JText::_('COM_STREAMS_LABEL_PLATFORM'.$platform) );
+			$platform = $item->platform;
+			echo $this->loadTemplate($platform);
 		?>
 		<?php endforeach; ?>
 <?php endif; ?>

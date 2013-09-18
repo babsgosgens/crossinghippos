@@ -23,12 +23,17 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
     <link rel="apple-touch-icon" sizes="114x114" href="webclip-114x114v2.png" />
     <link rel="apple-touch-icon" sizes="144x144" href="webclip-144x144v2.png" />
     <!-- <link href='http://fonts.googleapis.com/css?family=Asap:400,700,700italic,400italic' rel='stylesheet' type='text/css'> -->
+    <style type="text/css">
+    .root {
+      overflow: auto;
+    }
+    </style>
 </head>
 <body class="root">
   <header>
     <h1>Crossing Hippos</h1><h2>webdesign met overbite</h2>
     <nav>
-      <jdoc:inclue type="modules" name="position-7" />
+      <jdoc:include type="modules" name="position-7" />
     </nav>
   </header>
   <section>

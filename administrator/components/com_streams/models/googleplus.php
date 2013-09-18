@@ -8,34 +8,35 @@
 
 defined('_JEXEC') or die;
 
-use Joomla\Facebook\Facebook;
-use Joomla\Facebook\OAuth;
-use Joomla\Registry\Registry;
-
-
 /**
  * Methods supporting a list of weblink records.
  *
  * @package     com_streams
  * @since       3.1
  */
-class StreamsModelFacebook extends JModelAdmin
+class StreamsModelGoogleplus extends JModelAdmin
 {
 	/**
 	 * var
-	 * $settings array An array of authentication data
+	 * JRegistry Parameters
 	 */
-	protected $settings = array();
+	protected $params = null;
 
 	/**
 	 * var
-	 * $api TwitterAPIExchange An instance of the api object
+	 * JRegistry The authentication object
+	 */
+	protected $options = null;
+
+	/**
+	 * var
+	 * JTwitter An instance of the api object
 	 */
 	protected $api = null;
 
 	/**
 	 * var
-	 * $response mixed A (JSON) array with response data
+	 * mixed An object with response data
 	 */
 	protected $response = null;
 
@@ -50,31 +51,40 @@ class StreamsModelFacebook extends JModelAdmin
 	{
 		parent::__construct($config);
 
+		/**
+		 *
+		 * SEE: https://github.com/babsgosgens/joomla-framework/blob/staging/src/Joomla/Google/README.md
+		 *
+		 */
+
+		// Load this item's parameters
+		$table =& $this->getTable('Api', 'StreamsTable');
+		$table->load(8);
+		$params = new JRegistry( $table->get('params') );
+
 		// Call the URI object to get the current request
 		$uri = JFactory::getUri();
-
-		// Required settings, 
-  		$app_id = '231110010232949';
-  		$app_secret = 'eedc870587dc39297be6fe57ab8f2b3d';
-		$app_redirect = $uri->toString();
+		$params->set('app_redirect', $uri->toString());
 
 		// Build the options object
 		$options = new JRegistry;
-		$options->set('clientid', 	$app_id);
-		$options->set('clientsecret', $app_secret);
-		$options->set('redirecturi', $app_redirect);
+		$options->set('clientid', $params->get('app_id'));
+		$options->set('clientsecret', $params->get('app_secret'));
+		$options->set('redirecturi', $params->get('app_redirect'));
 		$options->set('sendheaders', true);
 		$options->set('authmethod', 'get');
 
-		// Authenticate 
-		$oauth = new JFacebookOAuth($options);
-		$access_token = $oauth->authenticate();
+		// // Authenticate 
+		// $oauth = new JFacebookOAuth($options);
+		// $access_token = $oauth->authenticate();
 
 		// Create the Facebook object
-		$facebook = new JFacebook($oauth);
+		$google = new JGoogle($options);
 
 		// Make it accessible to this object
-		$this->api = $facebook;
+		$this->set('api', $google);
+		$this->set('params', $params);
+		$this->set('options', $options);
 	}
 
 	/**
@@ -110,7 +120,7 @@ class StreamsModelFacebook extends JModelAdmin
 		{
 			// Keep counter for update items
 			$c = 0;
-			foreach ($response as $item)
+			foreach ($response->data as $item)
 			{
 				/**
 				 * Get a reference to the table
@@ -118,12 +128,12 @@ class StreamsModelFacebook extends JModelAdmin
 				$table =& $this->getTable('Stream', 'StreamsTable');
 
 				/**
-				 * Create two array with data for storage,
+				 * Create two arrays with data for storage,
 				 * use the first array to determine if the item exists
 				 */
 				$id = array(
-					'platform' => 2,
-					'api_id' => $item->id
+					'api_id' => 2,
+					'post_id' => $item->id
 				);
 
 				/**
@@ -131,6 +141,7 @@ class StreamsModelFacebook extends JModelAdmin
 				 */
 				if ( $table->load($id) )
 				{
+					// Do nothing if this item exists in the table
 				}
 				else
 				{
@@ -141,7 +152,7 @@ class StreamsModelFacebook extends JModelAdmin
 
 					$data = array(
 						'date_created' => $date_created->toSql(),
-						'raw' => serialize($item),
+						'raw' => base64_encode(serialize($item)), // http://stackoverflow.com/a/1058294
 						'metadata' => null,
 						'permalink' => null,
 						'params' => null,

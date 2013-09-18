@@ -17,7 +17,7 @@ require_once( JPATH_SITE.'/libraries/twitter/TwitterAPIExchange.php' );
  * @package     com_streams
  * @since       3.1
  */
-class StreamsModelTwitter extends JModelAdmin
+class StreamsModelDribbble extends JModelAdmin
 {
 	/**
 	 * var
@@ -163,16 +163,12 @@ class StreamsModelTwitter extends JModelAdmin
 
 		if ( $this->response==null ) 
 		{
-			$twitter =& $this->api;
+			$dribbble =& $this->api;
 			
-			$twitter->buildOauth($url, 'GET');
+			$r = json_decode( $r );
+			$r = JArrayHelper::toObject($r);
 
-			if($config)
-			{
-				$twitter->setGetfield($config);
-			}
-
-			$this->response = json_decode( $twitter->performRequest() );
+			$this->response = $r;
 		}
 	}
 

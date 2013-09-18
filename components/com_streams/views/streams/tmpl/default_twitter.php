@@ -22,12 +22,17 @@ echo '<pre>';
 // print_r($user);
 // print_r($post);
 echo '</pre>';
+
+// Format the content
+$post->text = preg_replace("/@(\w+)/", '<a href="https://www.twitter.com/$1">@$1</a>', $post->text);
+// $post->text = preg_replace("/#(\w+)/)/", '<a href=https://twitter.com/search?q=%23$2&src=hash>@$2</a>', $post->text);
+
 ?>
 
 <article class="twitter post">
 	<img src="<?php echo $user->profile_image_url; ?>">
 	<!-- DON'T FORGET TO REMOVE EMBEDDED EM STYLES -->
 	<a href="https://www.twitter.com/<?php echo $user->screen_name; ?>"><span><?php echo $user->name;?></span><em>@<?php echo $user->screen_name;?></em></a>
-	<p><?php echo preg_replace("/@(\w+)/", '<a href="https://www.twitter.com/$1">@$1</a>', $post->text); ?></p>
+	<p><?php echo $post->text; ?></p>
 	<time><?php echo $post->created_at; ?></time>
 </article>

@@ -71,7 +71,6 @@ class StreamsViewStreams extends JViewLegacy
 			JToolbarHelper::unpublish('streams.unpublish', 'JTOOLBAR_UNPUBLISH', true);
 
 			JToolbarHelper::archiveList('streams.archive');
-			JToolbarHelper::checkin('streams.checkin');
 		}
 		if ($state->get('filter.state') == -2 && $canDo->get('core.delete'))
 		{
@@ -79,18 +78,6 @@ class StreamsViewStreams extends JViewLegacy
 		} elseif ($canDo->get('core.edit.state'))
 		{
 			JToolbarHelper::trash('streams.trash');
-		}
-		// Add a batch button
-		if ($user->authorise('core.create', 'com_streams') && $user->authorise('core.edit', 'com_streams') && $user->authorise('core.edit.state', 'com_streams'))
-		{
-			JHtml::_('bootstrap.modal', 'collapseModal');
-			$title = JText::_('JTOOLBAR_BATCH');
-
-			// Instantiate a new JLayoutFile instance and render the batch button
-			$layout = new JLayoutFile('joomla.toolbar.batch');
-
-			$dhtml = $layout->render(array('title' => $title));
-			$bar->appendButton('Custom', $dhtml, 'batch');
 		}
 		if ($canDo->get('core.admin'))
 		{
@@ -101,30 +88,21 @@ class StreamsViewStreams extends JViewLegacy
 
 		JHtmlSidebar::setAction('index.php?option=com_streams&view=streams');
 
+		//Get companie options
+		JFormHelper::addFieldPath(JPATH_COMPONENT . '/models/fields');
+		$this->api = JFormHelper::loadFieldType('Api', false);
+
+		JHtmlSidebar::addFilter(
+			JText::_('COM_STREAMS_SELECT_API'),
+			'filter_api',
+			JHtml::_('select.options', $this->api->getOptions(), 'value', 'text', $this->state->get('filter.api'))
+		);
+
 		JHtmlSidebar::addFilter(
 			JText::_('JOPTION_SELECT_PUBLISHED'),
 			'filter_state',
 			JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), 'value', 'text', $this->state->get('filter.state'), true)
 		);
-
-		JHtmlSidebar::addFilter(
-			JText::_('JOPTION_SELECT_ACCESS'),
-			'filter_access',
-			JHtml::_('select.options', JHtml::_('access.assetgroups'), 'value', 'text', $this->state->get('filter.access'))
-		);
-
-		JHtmlSidebar::addFilter(
-			JText::_('JOPTION_SELECT_LANGUAGE'),
-			'filter_language',
-			JHtml::_('select.options', JHtml::_('contentlanguage.existing', true, true), 'value', 'text', $this->state->get('filter.language'))
-		);
-
-		JHtmlSidebar::addFilter(
-		JText::_('JOPTION_SELECT_TAG'),
-		'filter_tag',
-		JHtml::_('select.options', JHtml::_('tag.options', true, true), 'value', 'text', $this->state->get('filter.tag'))
-		);
-
 	}
 
 	/**
@@ -138,10 +116,9 @@ class StreamsViewStreams extends JViewLegacy
 	{
 		return array(
 			'a.state' => JText::_('JSTATUS'),
-			'a.title' => JText::_('JGLOBAL_TITLE'),
-			'a.access' => JText::_('JGRID_HEADING_ACCESS'),
+			'platform_title' => JText::_('COM_STREAMS_LABEL_API'),
+			'a.date_created' => JText::_('JDATE'),
 			'a.language' => JText::_('JGRID_HEADING_LANGUAGE'),
-			'a.id' => JText::_('JGRID_HEADING_ID')
 		);
 	}
 }
