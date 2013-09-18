@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 18, 2013 at 09:24 AM
+-- Generation Time: Sep 18, 2013 at 11:13 AM
 -- Server version: 5.1.56
 -- PHP Version: 5.3.8
 
@@ -543,7 +543,7 @@ CREATE TABLE IF NOT EXISTS `flock_extensions` (
   KEY `element_clientid` (`element`,`client_id`),
   KEY `element_folder_clientid` (`element`,`folder`,`client_id`),
   KEY `extension` (`type`,`element`,`folder`,`client_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10010 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10012 ;
 
 --
 -- Dumping data for table `flock_extensions`
@@ -683,7 +683,8 @@ INSERT INTO `flock_extensions` (`extension_id`, `name`, `type`, `element`, `fold
 (10003, 'PLG_SYSTEM_SCRIPTMERGE', 'plugin', 'scriptmerge', 'system', 0, 1, 1, 0, '{"name":"PLG_SYSTEM_SCRIPTMERGE","type":"plugin","creationDate":"July 2013","author":"Yireo","copyright":"Copyright (C) 2013 Yireo.com. All rights reserved.","authorEmail":"info@yireo.com","authorUrl":"www.yireo.com","version":"0.9.8","description":"PLG_SYSTEM_SCRIPTMERGE_DESC","group":""}', '{"merge_type":"md5sum","enable_css":"0","enable_js":"1","compress_css":"0","compress_js":"2","skip_compressed":"1","exclude_css":"","exclude_js":"\\/javascripts\\/jquery-1.10.2.min.js, \\/javascripts\\/modernizr.custom.55528.js","exclude_components":"","frontend":"1","backend":"0","use_comments":"0","compress_html":"1","expiration":"30","version":"1","follow_imports":"0","data_uris":"0","data_uris_filesize":"2000","use_webp":"0","cwebp":"","use_jsmin":"0","jsmin":"","async_merged":"1","js_position":"body_end","css_position":"first_tag","force_gzip":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (10005, 'PLG_SYS_MOOTABLE', 'plugin', 'mootable', 'system', 0, 1, 1, 0, '{"name":"PLG_SYS_MOOTABLE","type":"plugin","creationDate":"December 2012","author":"Roberto Segura","copyright":"Copyright (C) 2012 Roberto Segura. All rights reserved.","authorEmail":"roberto@phproberto.com","authorUrl":"http:\\/\\/digitaldisseny.com\\/en\\/extensions\\/showtags-content-tags-joomla-plugin","version":"1.0.8","description":"PLG_SYS_MOOTABLE_XML_DESC","group":""}', '{"defaultMode":"0","manualDisable":"","alwaysEnable":"","contentEdition":"1","enableComUsers":"0","disableWhenDebug":"1"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (10007, 'plg_system_layout', 'plugin', 'layout', 'system', 0, 0, 1, 0, '{"name":"plg_system_layout","type":"plugin","creationDate":"March 2012","author":"Miss High and Mighty","copyright":"Copyright (C) 2005 - 2012 Open Source Matters. All rights reserved.","authorEmail":"AmyStephen@gmail.com","authorUrl":"molajo.org","version":"1.0","description":"PLG_SYSTEM_LAYOUT_XML_DESCRIPTION","group":""}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-(10009, 'com_streams', 'component', 'com_streams', '', 1, 1, 1, 0, '{"name":"com_streams","type":"component","creationDate":"September 2013","author":"Babs Gosgens","copyright":"(C) 2010 - 2013 Crossing Hippos. All rights reserved.\\n\\t","authorEmail":"babs@crossinghippos.nl","authorUrl":"www.crossinghippos.nl","version":"3.0.0","description":"COM_STREAMS_XML_DESCRIPTION","group":""}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0);
+(10009, 'com_streams', 'component', 'com_streams', '', 1, 1, 1, 0, '{"name":"com_streams","type":"component","creationDate":"September 2013","author":"Babs Gosgens","copyright":"(C) 2010 - 2013 Crossing Hippos. All rights reserved.\\n\\t","authorEmail":"babs@crossinghippos.nl","authorUrl":"www.crossinghippos.nl","version":"3.0.0","description":"COM_STREAMS_XML_DESCRIPTION","group":""}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+(10011, 'Crossing Hippos (Babs)', 'template', 'babs', '', 0, 1, 1, 0, '{"name":"Crossing Hippos (Babs)","type":"template","creationDate":"18 April 2013","author":"Babs G\\u00f6sgens","copyright":"Copyright (C) 2013 Babs G\\u00f6sgens. All rights reserved.","authorEmail":"babsgosgens@gmail.com","authorUrl":"http:\\/\\/crossinghippos.nl","version":"3.1.0","description":"TPL_CROSSINGHIPPOS_XML_DESCRIPTION","group":""}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1788,7 +1789,8 @@ CREATE TABLE IF NOT EXISTS `flock_session` (
 --
 
 INSERT INTO `flock_session` (`session_id`, `client_id`, `guest`, `time`, `data`, `userid`, `username`) VALUES
-('l45rnjdrqtvkpssi9m49vipvt7', 1, 0, '1379488969', '__default|a:8:{s:15:"session.counter";i:4;s:19:"session.timer.start";i:1379488966;s:18:"session.timer.last";i:1379488967;s:17:"session.timer.now";i:1379488968;s:22:"session.client.browser";s:119:"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.62 Safari/537.36";s:8:"registry";O:9:"JRegistry":1:{s:7:"\\0\\0\\0data";O:8:"stdClass":1:{s:11:"application";O:8:"stdClass":1:{s:4:"lang";s:0:"";}}}s:4:"user";O:5:"JUser":24:{s:9:"\\0\\0\\0isRoot";b:1;s:2:"id";s:3:"623";s:4:"name";s:10:"Super User";s:8:"username";s:11:"babsgosgens";s:5:"email";s:22:"babs@crossinghippos.nl";s:8:"password";s:65:"5d6bbe9a857e194a3a63167eb861c8d6:vvZG3UYTXlWKftqNhnnQ4RSTG79PUhHH";s:14:"password_clear";s:0:"";s:5:"block";s:1:"0";s:9:"sendEmail";s:1:"1";s:12:"registerDate";s:19:"2013-09-13 11:16:48";s:13:"lastvisitDate";s:19:"2013-09-17 16:17:48";s:10:"activation";s:1:"0";s:6:"params";s:92:"{"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}";s:6:"groups";a:1:{i:8;s:1:"8";}s:5:"guest";i:0;s:13:"lastResetTime";s:19:"0000-00-00 00:00:00";s:10:"resetCount";s:1:"0";s:10:"\\0\\0\\0_params";O:9:"JRegistry":1:{s:7:"\\0\\0\\0data";O:8:"stdClass":6:{s:11:"admin_style";s:0:"";s:14:"admin_language";s:0:"";s:8:"language";s:0:"";s:6:"editor";s:0:"";s:8:"helpsite";s:0:"";s:8:"timezone";s:0:"";}}s:14:"\\0\\0\\0_authGroups";a:2:{i:0;i:1;i:1;i:8;}s:14:"\\0\\0\\0_authLevels";a:4:{i:0;i:1;i:1;i:1;i:2;i:2;i:3;i:3;}s:15:"\\0\\0\\0_authActions";N;s:12:"\\0\\0\\0_errorMsg";N;s:10:"\\0\\0\\0_errors";a:0:{}s:3:"aid";i:0;}s:13:"session.token";s:32:"717e9fddb263f41820109da6f47d27ef";}', 623, 'babsgosgens');
+('l45rnjdrqtvkpssi9m49vipvt7', 1, 0, '1379495454', '__default|a:8:{s:15:"session.counter";i:49;s:19:"session.timer.start";i:1379488966;s:18:"session.timer.last";i:1379495454;s:17:"session.timer.now";i:1379495454;s:22:"session.client.browser";s:119:"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.62 Safari/537.36";s:8:"registry";O:9:"JRegistry":1:{s:7:"\\0\\0\\0data";O:8:"stdClass":4:{s:11:"application";O:8:"stdClass":1:{s:4:"lang";s:0:"";}s:13:"com_installer";O:8:"stdClass":2:{s:7:"message";s:0:"";s:17:"extension_message";s:0:"";}s:11:"com_streams";O:8:"stdClass":1:{s:7:"streams";O:8:"stdClass":4:{s:6:"filter";O:8:"stdClass":2:{s:5:"state";s:1:"1";s:3:"api";s:6:"github";}s:10:"limitstart";i:0;s:8:"ordercol";s:14:"a.date_created";s:9:"orderdirn";s:4:"desc";}}s:6:"global";O:8:"stdClass":1:{s:4:"list";O:8:"stdClass":1:{s:5:"limit";i:20;}}}}s:4:"user";O:5:"JUser":24:{s:9:"\\0\\0\\0isRoot";b:1;s:2:"id";s:3:"623";s:4:"name";s:10:"Super User";s:8:"username";s:11:"babsgosgens";s:5:"email";s:22:"babs@crossinghippos.nl";s:8:"password";s:65:"5d6bbe9a857e194a3a63167eb861c8d6:vvZG3UYTXlWKftqNhnnQ4RSTG79PUhHH";s:14:"password_clear";s:0:"";s:5:"block";s:1:"0";s:9:"sendEmail";s:1:"1";s:12:"registerDate";s:19:"2013-09-13 11:16:48";s:13:"lastvisitDate";s:19:"2013-09-17 16:17:48";s:10:"activation";s:1:"0";s:6:"params";s:92:"{"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}";s:6:"groups";a:1:{i:8;s:1:"8";}s:5:"guest";i:0;s:13:"lastResetTime";s:19:"0000-00-00 00:00:00";s:10:"resetCount";s:1:"0";s:10:"\\0\\0\\0_params";O:9:"JRegistry":1:{s:7:"\\0\\0\\0data";O:8:"stdClass":6:{s:11:"admin_style";s:0:"";s:14:"admin_language";s:0:"";s:8:"language";s:0:"";s:6:"editor";s:0:"";s:8:"helpsite";s:0:"";s:8:"timezone";s:0:"";}}s:14:"\\0\\0\\0_authGroups";a:2:{i:0;i:1;i:1;i:8;}s:14:"\\0\\0\\0_authLevels";a:4:{i:0;i:1;i:1;i:1;i:2;i:2;i:3;i:3;}s:15:"\\0\\0\\0_authActions";N;s:12:"\\0\\0\\0_errorMsg";N;s:10:"\\0\\0\\0_errors";a:0:{}s:3:"aid";i:0;}s:13:"session.token";s:32:"717e9fddb263f41820109da6f47d27ef";}', 623, 'babsgosgens'),
+('tdeehpjfn6jp15035e5mjjaqj3', 0, 1, '1379495456', '__default|a:7:{s:15:"session.counter";i:27;s:19:"session.timer.start";i:1379489381;s:18:"session.timer.last";i:1379494724;s:17:"session.timer.now";i:1379495456;s:22:"session.client.browser";s:119:"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.62 Safari/537.36";s:8:"registry";O:9:"JRegistry":1:{s:7:"\\0\\0\\0data";O:8:"stdClass":1:{s:11:"com_streams";O:8:"stdClass":1:{s:7:"streams";O:8:"stdClass":2:{s:8:"ordercol";N;s:10:"limitstart";s:1:"0";}}}}s:4:"user";O:5:"JUser":24:{s:9:"\\0\\0\\0isRoot";N;s:2:"id";i:0;s:4:"name";N;s:8:"username";N;s:5:"email";N;s:8:"password";N;s:14:"password_clear";s:0:"";s:5:"block";N;s:9:"sendEmail";i:0;s:12:"registerDate";N;s:13:"lastvisitDate";N;s:10:"activation";N;s:6:"params";N;s:6:"groups";a:1:{i:0;s:1:"9";}s:5:"guest";i:1;s:13:"lastResetTime";N;s:10:"resetCount";N;s:10:"\\0\\0\\0_params";O:9:"JRegistry":1:{s:7:"\\0\\0\\0data";O:8:"stdClass":0:{}}s:14:"\\0\\0\\0_authGroups";N;s:14:"\\0\\0\\0_authLevels";a:3:{i:0;i:1;i:1;i:1;i:2;i:5;}s:15:"\\0\\0\\0_authActions";N;s:12:"\\0\\0\\0_errorMsg";N;s:10:"\\0\\0\\0_errors";a:0:{}s:3:"aid";i:0;}}', 0, '');
 
 -- --------------------------------------------------------
 
@@ -1996,7 +1998,7 @@ CREATE TABLE IF NOT EXISTS `flock_template_styles` (
   PRIMARY KEY (`id`),
   KEY `idx_template` (`template`),
   KEY `idx_home` (`home`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `flock_template_styles`
@@ -2007,7 +2009,8 @@ INSERT INTO `flock_template_styles` (`id`, `template`, `client_id`, `home`, `tit
 (5, 'hathor', 1, '0', 'Hathor - Default', '{"showSiteName":"0","colourChoice":"","boldText":"0"}'),
 (7, 'protostar', 0, '0', 'protostar - Default', '{"templateColor":"","logoFile":"","googleFont":"1","googleFontName":"Open+Sans","fluidContainer":"0"}'),
 (8, 'isis', 1, '1', 'isis - Default', '{"templateColor":"","logoFile":""}'),
-(9, 'crossinghippos', 0, '1', 'Crossing Hippos - Default', '{"jQueryVersion":"1.10.2","webFontVersion":"1.4.8","webFontConfig":"google: { families: [ ''Asap:400,700,400italic,700italic:latin'' ] }"}');
+(9, 'crossinghippos', 0, '0', 'Crossing Hippos - Default', '{"jQueryVersion":"1.10.2","webFontVersion":"1.4.8","webFontConfig":"google: { families: [ ''Asap:400,700,400italic,700italic:latin'' ] }"}'),
+(10, 'babs', 0, '1', 'Crossing Hippos (Babs) - Default', '{}');
 
 -- --------------------------------------------------------
 
