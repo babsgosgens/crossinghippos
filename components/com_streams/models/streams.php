@@ -45,8 +45,9 @@ class StreamsModelStreams extends JModelList
 		$items = parent::getItems();
 
 		// Unserialize raw attribute into PHP array
-		foreach ($items as $key => &$item) {
-			$item->php = unserialize($item->raw);
+		foreach ($items as $key => &$item)
+		{
+			$item->php = unserialize(base64_decode($item->raw));  // http://stackoverflow.com/a/1058294
 		}
 
 		// Store in cache
@@ -70,24 +71,22 @@ class StreamsModelStreams extends JModelList
 
 		// Select the required fields from the table.
 		$query->select(
-			'a.platform,
-				 a.date_created,
-				 a.raw,
-				 a.state, 
-				 a.language'
+			'a.id,
+			 a.api_id,
+			 a.post_id,
+			 a.date_created,
+			 a.raw,
+			 a.state, 
+			 a.language'
 		);
 		$query->from($db->quoteName('#__streams') . ' AS a');
 
+		// Join over the api platforms.
+		$query->select('aa.alias AS platform, aa.title AS platform_title')
+			->join('LEFT', $db->quoteName('#__streams_apis') . ' AS aa ON aa.id = a.api_id');
 
-		$published = $this->getState('filter.state');
-		if (is_numeric($published))
-		{
-			$query->where('a.state = ' . (int) $published);
-		}
-		elseif ($published === '')
-		{
-			$query->where('(a.state IN (0, 1))');
-		}
+		// Only show published items
+		$query->where('a.state = 1');
 
 		// echo nl2br(str_replace('#__','jos_',$query));
 		return $query;
