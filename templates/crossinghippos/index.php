@@ -25,10 +25,50 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
     <!-- <link href='http://fonts.googleapis.com/css?family=Asap:400,700,700italic,400italic' rel='stylesheet' type='text/css'> -->
 </head>
 <body class="root">
-    <jdoc:include type="message" />
-    <jdoc:include type="component" />
-    <jdoc:include type="modules" name="component-modules" style="raw" />
-
+  <header>
+    <h1>Crossing Hippos</h1><h2>webdesign met overbite</h2>
+    <nav>
+      <jdoc:include type="modules" name="position-7" />
+    </nav>
+  </header>
+  <section>
+    <jdoc:include type="modules" name="position-2" />
+    <article>
+      <jdoc:include type="message" />
+      <jdoc:include type="component" />
+      <jdoc:include type="modules" name="component-modules" style="raw" />
+    </article>
+  </section>
+  <footer>
+    <article class="fourth column">
+      <h1>Lorem ipsum</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
+        ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
+      </p>
+    </article>
+    <article class="fourth column">
+      <h1>Lorem ipsum</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
+        ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
+      </p>
+    </article>
+    <article class="fourth column">
+      <h1>Lorem ipsum</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
+        ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
+      </p>
+    </article>
+    <article class="fourth column">
+      <h1>Lorem ipsum</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
+        ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
+      </p>
+    </article>
+  </footer>
     <jdoc:include type="modules" name="debug" />
 
     <script type="text/javascript">
