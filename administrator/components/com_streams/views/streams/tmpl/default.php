@@ -140,6 +140,10 @@ $sortFields = $this->getSortFields();
 						$post = $item->php;
 						$postContent = $post->commit->message;
 						break;
+					case 'dribbble':
+						$post = $item->php;
+						$postContent = $post->title;
+						break;
 				}
 				?>
 				<tr class="row<?php echo $i % 2; ?>">
