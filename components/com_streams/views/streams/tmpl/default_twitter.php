@@ -26,8 +26,9 @@ echo '</pre>';
 // Format the content
 $patterns = array('/@(\w+)/', '/#(\w+)/');
 $replace = array('<a href="https://www.twitter.com/$1">@$1</a>&nbsp;', '<a href="https://twitter.com/search?q=%23$1&src=hash">#$1</a>');
-
 $formatted_post = preg_replace($patterns, $replace, $post->text);
+$date = new JDate($post->created_at);
+$date = $date->format('d F Y');
 
 ?>
 
@@ -36,5 +37,5 @@ $formatted_post = preg_replace($patterns, $replace, $post->text);
 	<!-- DON'T FORGET TO REMOVE EMBEDDED EM STYLES -->
 	<a href="https://www.twitter.com/<?php echo $user->screen_name; ?>"><span><?php echo $user->name;?></span><em>@<?php echo $user->screen_name;?></em></a>
 	<p><?php echo $formatted_post; ?></p>
-	<time><?php echo $post->created_at; ?></time>
+	<time><?php echo $date; ?></time>
 </article>
