@@ -28,7 +28,7 @@ class StreamsModelStreams extends JModelList
 		if (empty($config['filter_fields']))
 		{
 			$config['filter_fields'] = array(
-				'platform', 'a.platform',
+				'platform', 'a.api_id',
 				'date_created', 'a.date_created',
 				'state', 'a.state',
 			);
