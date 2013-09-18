@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  * @package     com_streams
  * @since       3.1
  */
-class StreamsModelDribbble extends JModelAdmin
+class StreamsModelFlickr extends JModelAdmin
 {
 	/**
 	 * var
@@ -47,12 +47,15 @@ class StreamsModelDribbble extends JModelAdmin
 
 		// Load this items parameters
 		$table =& $this->getTable('Api', 'StreamsTable');
-		$table->load(5);
+		$table->load(6);
 		$params = new JRegistry( $table->get('params') );
 
 		// get contents
-		$dribbble = file_get_contents('http://api.dribbble.com/players/'.$params->get('username').'/shots');
-		$this->set('api', $dribbble);
+		$flickr = file_get_contents('http://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key='.$params->get('key').'&user_id='.$params->get('user').'&format=json&nojsoncallback=1&per_page=20');
+		
+		// make available to this object.
+		$this->set('api', $flickr);
+		$this->set('params', $params);
 	}
 
 	/**
@@ -84,13 +87,17 @@ class StreamsModelDribbble extends JModelAdmin
 		 */
 		$response = $response ? $response : $this->getResponse();
 
-		if ( is_object($response) && isset($response->shots[0]) )
+		if ( is_array($response->photos->photo) && isset($response->photos->photo[0]) )
 		{
+
 			// Keep counter for update items
 			$c = 0;
-			foreach ($response->shots as $item)
+			foreach ($response->photos->photo as $item)
 			{
 				$data = null;
+
+				$photo_data = json_decode(file_get_contents('http://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key='.$this->params->get('key').'&photo_id='.$item->id.'&format=json&nojsoncallback=1'));
+				$item = $photo_data->photo;
 
 				/**
 				 * Get a reference to the table
@@ -100,21 +107,22 @@ class StreamsModelDribbble extends JModelAdmin
 				/**
 				 * Reformat the date
 				 */
-				$date_created = new JDate($item->created_at);
+				$date_created = new JDate($item->dateuploaded);
 
 				/**
 				 * Create two array with data for storage,
 				 * use the first array to determine if the item exists
 				 */
 				$id = array(
-					'api_id' => 5,
+					'api_id' => 6,
 					'post_id' => $item->id
 				);
+
 				$post = array(
-					'date_created' => $date_created->toSql(),
+					'date_created' => $date_created->ToSql(),
 					'raw' => base64_encode(serialize($item)), // http://stackoverflow.com/a/1058294
 					'metadata' => null,
-					'permalink' => $item->url,
+					'permalink' => 'http://farm'.$item->farm.'.staticflickr.com/'.$item->server.'/'.$item->id.'_'.$item->secret.'.jpg',
 					'params' => null,
 					'language' => '*',
 					'state' => 1,
@@ -138,7 +146,7 @@ class StreamsModelDribbble extends JModelAdmin
 					$c++;
 				}
 			}
-			JFactory::getApplication()->enqueueMessage( JText::sprintf('COM_STREAMS_UPDATE_SUCCESS', 'Dribbble', $c), 'message');
+			JFactory::getApplication()->enqueueMessage( JText::sprintf('COM_STREAMS_UPDATE_SUCCESS', 'Flickr', $c), 'message');
 		}
 	}
 
@@ -153,8 +161,8 @@ class StreamsModelDribbble extends JModelAdmin
 	{
 		if ( $this->response==null ) 
 		{
-			$dribbble =& $this->api;
-			$decode = json_decode($dribbble);
+			$flickr =& $this->api;
+			$decode = json_decode($flickr);
 			$this->response = $decode;
 		}
 	}

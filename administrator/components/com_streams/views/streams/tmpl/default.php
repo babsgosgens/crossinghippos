@@ -16,7 +16,6 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
 $_platforms = array('jtwitter', 'twitter', 'facebook', 'github', 'dribbble', 'googleplus');
 ?>
 
-
 <?php
 JHtml::_('bootstrap.tooltip');
 JHtml::_('behavior.multiselect');
@@ -142,7 +141,21 @@ $sortFields = $this->getSortFields();
 						break;
 					case 'dribbble':
 						$post = $item->php;
-						$postContent = $post->title;
+
+						if($this->get('State')->get('filter.api') == 'dribbble'){
+							$postContent = '<img src="'.$post->image_teaser_url.'"> '.$post->title;
+						} else {
+							$postContent = $post->title;
+						}
+						break;
+					case 'flickr':
+						$post = $item->php;
+
+						if($this->get('State')->get('filter.api') == 'flickr'){
+							$postContent = '<img src="http://farm'.$post->farm.'.staticflickr.com/'.$post->server.'/'.$post->id.'_'.$post->secret.'_s.jpg"> '.$post->title->_content;
+						} else {
+							$postContent = $post->title->_content;
+						}
 						break;
 				}
 				?>
