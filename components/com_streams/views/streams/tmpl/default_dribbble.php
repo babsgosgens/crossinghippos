@@ -12,7 +12,15 @@ defined('_JEXEC') or die;
 $post = $this->post;
 
 // Uncomment for available attributes
-echo '<pre>';
-print_r($post);
-echo '</pre>';
+// echo '<pre>';
+// print_r($post);
+// echo '</pre>';
+// exit;
 ?>
+
+<article class="github post" style="background-color: lightgrey;">
+	<img src="<?php echo $post->player->avatar_url; ?>" width="32" height="32">
+	<a href="<?php echo $post->url; ?>"><span><?php echo $post->title; ?></span></a>
+	<img src="<?php echo $post->image_url; ?>" width="200">
+	<time><?php echo $post->created_at; ?></time>
+</article>
