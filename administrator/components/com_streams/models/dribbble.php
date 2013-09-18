@@ -8,9 +8,6 @@
 
 defined('_JEXEC') or die;
 
-// https://github.com/J7mbo/twitter-api-php
-require_once( JPATH_SITE.'/libraries/twitter/TwitterAPIExchange.php' );
-
 /**
  * Methods supporting a list of weblink records.
  *
@@ -33,7 +30,7 @@ class StreamsModelDribbble extends JModelAdmin
 
 	/**
 	 * var
-	 * TwitterAPIExchange An instance of the api object
+	 * Dribbble An instance of the api object
 	 */
 	protected $api = null;
 
@@ -56,11 +53,12 @@ class StreamsModelDribbble extends JModelAdmin
 
 		// Load this items parameters
 		$table =& $this->getTable('Api', 'StreamsTable');
-		$table->load(1);
+		$table->load(5);
 		$params = new JRegistry( $table->get('params') );
 
-		$twitter = new TwitterAPIExchange( $params->toArray() );
-		$this->set('api', $twitter);
+		// get contents
+		$dribbble = file_get_contents('http://api.dribbble.com/players/'.$params->get('username').'/shots');
+		$this->set('api', $dribbble);
 	}
 
 	/**
@@ -88,15 +86,15 @@ class StreamsModelDribbble extends JModelAdmin
 	public function update( $response=null )
 	{
 		/**
-		 * Twitter returns an array of items if the call wass succesful
+		 * Dribbble returns an array of items if the call wass succesful
 		 */
 		$response = $response ? $response : $this->getResponse();
 
-		if ( is_array($response) && isset($response[0]) )
+		if ( is_object($response) && isset($response->shots[0]) )
 		{
 			// Keep counter for update items
 			$c = 0;
-			foreach ($response as $item)
+			foreach ($response->shots as $item)
 			{
 				$data = null;
 
@@ -115,14 +113,14 @@ class StreamsModelDribbble extends JModelAdmin
 				 * use the first array to determine if the item exists
 				 */
 				$id = array(
-					'api_id' => 1,
-					'post_id' => $item->id_str
+					'api_id' => 5,
+					'post_id' => $item->id
 				);
 				$post = array(
 					'date_created' => $date_created->toSql(),
 					'raw' => base64_encode(serialize($item)), // http://stackoverflow.com/a/1058294
 					'metadata' => null,
-					'permalink' => 'https://twitter.com/'.$item->user->screen_name.'/status/'.$item->id_str,
+					'permalink' => $item->url,
 					'params' => null,
 					'language' => '*',
 					'state' => 1,
@@ -146,7 +144,7 @@ class StreamsModelDribbble extends JModelAdmin
 					$c++;
 				}
 			}
-			JFactory::getApplication()->enqueueMessage( JText::sprintf('COM_STREAMS_UPDATE_SUCCESS', 'Twitter', $c), 'message');
+			JFactory::getApplication()->enqueueMessage( JText::sprintf('COM_STREAMS_UPDATE_SUCCESS', 'Dribbble', $c), 'message');
 		}
 	}
 
@@ -159,16 +157,11 @@ class StreamsModelDribbble extends JModelAdmin
 	 */
 	protected function setResponse()
 	{
-		$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
-
 		if ( $this->response==null ) 
 		{
 			$dribbble =& $this->api;
-			
-			$r = json_decode( $r );
-			$r = JArrayHelper::toObject($r);
-
-			$this->response = $r;
+			$decode = json_decode($dribbble);
+			$this->response = $decode;
 		}
 	}
 
