@@ -88,7 +88,7 @@ class StreamsModelStreams extends JModelList
 		// Only show published items
 		$query->where('a.state = 1');
 
-		// echo nl2br(str_replace('#__','jos_',$query));
+		// echo nl2br(str_replace('#__','flock_',$query));
 		return $query;
 	}
 }
