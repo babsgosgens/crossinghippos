@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.6/template-install.dtd">
+<extension version="3.1" type="template" client="site">
+	<name>Crossing Hippos (Babs)</name>
+	<creationDate>18 April 2013</creationDate>
+	<author>Babs Gösgens</author>
+	<authorEmail>babsgosgens@gmail.com</authorEmail>
+	<authorUrl>http://crossinghippos.nl</authorUrl>
+	<copyright>Copyright (C) 2013 Babs Gösgens. All rights reserved.</copyright>
+	<version>3.1.0</version>
+	<description>TPL_CROSSINGHIPPOS_XML_DESCRIPTION</description>
+
+	<files>
+		<folder>css</folder>
+		<folder>html</folder>
+		<folder>images</folder>
+		<folder>js</folder>
+		<folder>language</folder>
+		<filename>index.html</filename>
+		<filename>index.php</filename>
+		<filename>templateDetails.xml</filename>
+		<filename>template_preview.png</filename>
+		<filename>template_thumbnail.png</filename>
+		<filename>favicon.ico</filename>
+		<filename>component.php</filename>
+		<filename>error.php</filename>
+	</files>
+
+	<positions>
+		<position>debug</position>
+		<position>header-title</position>
+		<position>header-navigation</position>
+		<position>footer</position>
+		<position>breadcrumbs</position>
+		<position>position-0</position>
+		<position>position-1</position>
+		<position>position-2</position>
+		<position>position-3</position>
+		<position>position-4</position>
+		<position>position-5</position>
+		<position>position-6</position>
+		<position>position-7</position>
+		<position>position-8</position>
+		<position>position-9</position>
+		<position>position-10</position>
+		<position>position-11</position>
+		<position>position-12</position>
+		<position>position-13</position>
+		<position>position-14</position>
+	</positions>
+
+	<!-- 	For core templates, we also install/uninstall the language files in the core language folders.
+	-->
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.tpl_crossinghippos.ini</language>
+		<language tag="en-GB">en-GB/en-GB.tpl_crossinghippos.sys.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params"/>
+	</config>
+</extension>
