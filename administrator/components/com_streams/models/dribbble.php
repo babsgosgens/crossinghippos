@@ -24,12 +24,6 @@ class StreamsModelDribbble extends JModelAdmin
 
 	/**
 	 * var
-	 * JRegistry The authentication object
-	 */
-	protected $options = null;
-
-	/**
-	 * var
 	 * Dribbble An instance of the api object
 	 */
 	protected $api = null;
