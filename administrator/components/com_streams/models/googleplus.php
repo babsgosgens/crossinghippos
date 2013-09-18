@@ -68,18 +68,13 @@ class StreamsModelGoogleplus extends JModelAdmin
 
 		// Build the options object
 		$options = new JRegistry;
-		$options->set('clientid', $params->get('app_id'));
-		$options->set('clientsecret', $params->get('app_secret'));
-		$options->set('redirecturi', $params->get('app_redirect'));
-		$options->set('sendheaders', true);
-		$options->set('authmethod', 'get');
+		$options->set('clientid', $params->get('clientid'));
+		$options->set('clientsecret', $params->get('clientsecret'));
 
-		// // Authenticate 
-		// $oauth = new JFacebookOAuth($options);
-		// $access_token = $oauth->authenticate();
-
-		// Create the Facebook object
 		$google = new JGoogle($options);
+
+		var_dump($google);
+		exit;
 
 		// Make it accessible to this object
 		$this->set('api', $google);
@@ -164,7 +159,7 @@ class StreamsModelGoogleplus extends JModelAdmin
 
 					$row = array_merge($id,$data);
 					$table->bind($row);
-					$table->store($row);
+					// $table->store($row);
 
 					// Update the counter
 					$c++;
