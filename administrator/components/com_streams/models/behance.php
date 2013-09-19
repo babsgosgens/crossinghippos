@@ -61,6 +61,7 @@ class StreamsModelBehance extends JModelAdmin
 
 		$behance = new Be_Api($params->get('client_id'), $params->get('client_secret'));
 		$this->set('api', $behance);
+		$this->set('params', $params);
 	}
 
 	/**
@@ -167,7 +168,12 @@ class StreamsModelBehance extends JModelAdmin
 		{
 			$behance =& $this->api;
 
-			$this->response = $behance->getUserProjects('JenkCole');
+			$this->response = $behance->getUserProjects($this->params->get('username'));
+
+			// check if user has any projects
+			if ($this->response == null){
+				JFactory::getApplication()->enqueueMessage('Because the user has no items, ');
+			}
 		}
 	}
 
