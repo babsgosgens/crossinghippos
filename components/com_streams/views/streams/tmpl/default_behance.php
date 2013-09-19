@@ -18,6 +18,7 @@ $post = $this->post;
 // exit;
 ?>
 
-	<a href="<?php echo $post->owner->nsid; ?>"><span><?php echo $post->owner->username; ?></span></a>
-	<a href="<?php echo $post->urls->url[0]->_content; ?>"><span><?php echo $post->title->_content; ?></span>
-	<img src="<?php echo 'http://farm'.$post->farm.'.staticflickr.com/'.$post->server.'/'.$post->id.'_'.$post->secret.'_m.jpg'; ?>" width="150"></a>
+	<img src="<?php echo $post->owners[0]->images->{50}; ?>" width="32" height="32">
+	<a href="<?php echo $post->owners[0]->url; ?>"><span><?php echo $post->owners[0]->username; ?></span></a>
+	<a href="<?php echo $post->url; ?>"><span><?php echo $post->name; ?></span>
+	<img src="<?php echo $post->covers->{202}; ?>" width="150"></a>
