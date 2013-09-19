@@ -133,10 +133,6 @@ class StreamsModelBehance extends JModelAdmin
 					'publish_down' => null,
 				);
 
-				var_dump(array_merge($id,$post));
-
-				exit;
-
 				/**
 				 * Save the item if it does not yet exist
 				 */
@@ -147,13 +143,13 @@ class StreamsModelBehance extends JModelAdmin
 				{
 					$data = array_merge($id,$post);
 					$table->bind($data);
-					// $table->store($data);
+					$table->store($data);
 
 					// Update the counter
 					$c++;
 				}
 			}
-			JFactory::getApplication()->enqueueMessage( JText::sprintf('COM_STREAMS_UPDATE_SUCCESS', 'Twitter', $c), 'message');
+			JFactory::getApplication()->enqueueMessage( JText::sprintf('COM_STREAMS_UPDATE_SUCCESS', 'Behance', $c), 'message');
 		}
 	}
 
