@@ -21,4 +21,3 @@ $post = $this->post;
 	<img src="<?php echo $post->author->avatar_url; ?>" width="32" height="32">
 	<a href="<?php echo $post->author->html_url; ?>"><span><?php echo $post->commit->author->name; ?></span></a>
 	<p><?php echo $post->commit->message; ?></p>
-	<time><?php echo $post->commit->author->date; ?></time>
