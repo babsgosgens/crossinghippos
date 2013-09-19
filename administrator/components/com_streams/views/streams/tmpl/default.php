@@ -157,6 +157,15 @@ $sortFields = $this->getSortFields();
 							$postContent = $post->title->_content;
 						}
 						break;
+					case 'behance':
+						$post = $item->php;
+
+						if($this->get('State')->get('filter.api') == 'behance'){
+							$postContent = '<img src="'.$post->covers->{115}.'"> '.$post->name;
+						} else {
+							$postContent = $post->name;
+						}
+						break;
 				}
 				?>
 				<tr class="row<?php echo $i % 2; ?>">
