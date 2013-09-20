@@ -6,6 +6,26 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
+/**
+* Easter egg
+* Call with /?hippo=name
+*/
+if (isset($_GET['hippo']))
+{
+
+	$mainline = '<h1>I love ' . $_GET['hippo'] . ' hippos!</h1><img src="/images/eastereggs/' . $_GET['hippo'] . '.gif"><p>&copy; ' . date("Y") . ' Babs Gosgens</p>';
+
+	switch ($_GET['hippo'])
+	{
+    	case 'baby':
+        	die($mainline);
+        	break;
+    	case 'flippy':
+      	 	die($mainline);
+        	break;
+    }
+}
+
 if (version_compare(PHP_VERSION, '5.3.1', '<'))
 {
 	die('Your host needs to use PHP 5.3.1 or higher to run this version of Joomla!');
