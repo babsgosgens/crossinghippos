@@ -1,32 +1,13 @@
--- phpMyAdmin SQL Dump
--- version 4.0.4.1
--- http://www.phpmyadmin.net
---
--- Machine: 127.0.0.1
--- Genereertijd: 19 sep 2013 om 16:21
--- Serverversie: 5.5.32
--- PHP-versie: 5.4.19
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
---
--- Databank: `crossingdev`
---
 CREATE DATABASE IF NOT EXISTS `crossingdev` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `crossingdev`;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_assets`
---
 
 CREATE TABLE IF NOT EXISTS `flock_assets` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
@@ -42,10 +23,6 @@ CREATE TABLE IF NOT EXISTS `flock_assets` (
   KEY `idx_lft_rgt` (`lft`,`rgt`),
   KEY `idx_parent_id` (`parent_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=38 ;
-
---
--- Gegevens worden uitgevoerd voor tabel `flock_assets`
---
 
 INSERT INTO `flock_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `title`, `rules`) VALUES
 (1, 0, 0, 73, 0, 'root.1', 'Root Asset', '{"core.login.site":{"6":1,"2":1},"core.login.admin":{"6":1},"core.login.offline":{"6":1},"core.admin":{"8":1},"core.manage":{"7":1},"core.create":{"6":1,"3":1},"core.delete":{"6":1},"core.edit":{"6":1,"4":1},"core.edit.state":{"6":1,"5":1},"core.edit.own":{"6":1,"3":1}}'),
@@ -86,12 +63,6 @@ INSERT INTO `flock_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `t
 (36, 1, 71, 72, 1, 'com_scriptmerge', 'com_scriptmerge', '{}'),
 (37, 27, 19, 20, 3, 'com_content.article.1', 'Typography Sample', '{"core.delete":{"6":1},"core.edit":{"6":1,"4":1},"core.edit.state":{"6":1,"5":1}}');
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_associations`
---
-
 CREATE TABLE IF NOT EXISTS `flock_associations` (
   `id` int(11) NOT NULL COMMENT 'A reference to the associated item.',
   `context` varchar(50) NOT NULL COMMENT 'The context of the associated item.',
@@ -99,12 +70,6 @@ CREATE TABLE IF NOT EXISTS `flock_associations` (
   PRIMARY KEY (`context`,`id`),
   KEY `idx_key` (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_banner_clients`
---
 
 CREATE TABLE IF NOT EXISTS `flock_banner_clients` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -126,12 +91,6 @@ CREATE TABLE IF NOT EXISTS `flock_banner_clients` (
   KEY `idx_metakey_prefix` (`metakey_prefix`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_banner_tracks`
---
-
 CREATE TABLE IF NOT EXISTS `flock_banner_tracks` (
   `track_date` datetime NOT NULL,
   `track_type` int(10) unsigned NOT NULL,
@@ -142,12 +101,6 @@ CREATE TABLE IF NOT EXISTS `flock_banner_tracks` (
   KEY `idx_track_type` (`track_type`),
   KEY `idx_banner_id` (`banner_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_banners`
---
 
 CREATE TABLE IF NOT EXISTS `flock_banners` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -192,12 +145,6 @@ CREATE TABLE IF NOT EXISTS `flock_banners` (
   KEY `idx_language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_categories`
---
-
 CREATE TABLE IF NOT EXISTS `flock_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `asset_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
@@ -236,10 +183,6 @@ CREATE TABLE IF NOT EXISTS `flock_categories` (
   KEY `idx_language` (`language`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
---
--- Gegevens worden uitgevoerd voor tabel `flock_categories`
---
-
 INSERT INTO `flock_categories` (`id`, `asset_id`, `parent_id`, `lft`, `rgt`, `level`, `path`, `extension`, `title`, `alias`, `note`, `description`, `published`, `checked_out`, `checked_out_time`, `access`, `params`, `metadesc`, `metakey`, `metadata`, `created_user_id`, `created_time`, `modified_user_id`, `modified_time`, `hits`, `language`, `version`) VALUES
 (1, 0, 0, 0, 13, 0, '', 'system', 'ROOT', 'root', '', '', 1, 0, '0000-00-00 00:00:00', 1, '{}', '', '', '', 42, '2011-01-01 00:00:01', 0, '0000-00-00 00:00:00', 0, '*', 1),
 (2, 27, 1, 1, 2, 1, 'uncategorised', 'com_content', 'Uncategorised', 'uncategorised', '', '', 1, 0, '0000-00-00 00:00:00', 1, '{"target":"","image":""}', '', '', '{"page_title":"","author":"","robots":""}', 42, '2011-01-01 00:00:01', 0, '0000-00-00 00:00:00', 0, '*', 1),
@@ -248,12 +191,6 @@ INSERT INTO `flock_categories` (`id`, `asset_id`, `parent_id`, `lft`, `rgt`, `le
 (5, 30, 1, 7, 8, 1, 'uncategorised', 'com_newsfeeds', 'Uncategorised', 'uncategorised', '', '', 1, 0, '0000-00-00 00:00:00', 1, '{"target":"","image":""}', '', '', '{"page_title":"","author":"","robots":""}', 42, '2011-01-01 00:00:01', 0, '0000-00-00 00:00:00', 0, '*', 1),
 (6, 31, 1, 9, 10, 1, 'uncategorised', 'com_weblinks', 'Uncategorised', 'uncategorised', '', '', 1, 0, '0000-00-00 00:00:00', 1, '{"target":"","image":""}', '', '', '{"page_title":"","author":"","robots":""}', 42, '2011-01-01 00:00:01', 0, '0000-00-00 00:00:00', 0, '*', 1),
 (7, 32, 1, 11, 12, 1, 'uncategorised', 'com_users', 'Uncategorised', 'uncategorised', '', '', 1, 0, '0000-00-00 00:00:00', 1, '{"target":"","image":""}', '', '', '{"page_title":"","author":"","robots":""}', 42, '2011-01-01 00:00:01', 0, '0000-00-00 00:00:00', 0, '*', 1);
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_contact_details`
---
 
 CREATE TABLE IF NOT EXISTS `flock_contact_details` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -310,12 +247,6 @@ CREATE TABLE IF NOT EXISTS `flock_contact_details` (
   KEY `idx_xreference` (`xreference`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_content`
---
-
 CREATE TABLE IF NOT EXISTS `flock_content` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `asset_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
@@ -358,18 +289,8 @@ CREATE TABLE IF NOT EXISTS `flock_content` (
   KEY `idx_xreference` (`xreference`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
---
--- Gegevens worden uitgevoerd voor tabel `flock_content`
---
-
 INSERT INTO `flock_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
 (1, 37, 'Typography Sample', 'typography-sample', '<p>Chupa chups cupcake jelly tiramisu pastry. Pudding lollipop apple pie bonbon candy canes tiramisu dessert bonbon jujubes. Pudding chocolate bar pudding chocolate halvah muffin jujubes. Cookie topping brownie candy canes jelly muffin gummi bears. Biscuit biscuit oat cake. Soufflé applicake fruitcake. Croissant carrot cake muffin dessert caramels. Lollipop tart candy pastry gummi bears pie apple pie. Tart chocolate bar chocolate cake marshmallow cupcake cotton candy macaroon bonbon tootsie roll. Icing macaroon dragée cake pie. Sugar plum marzipan candy canes donut cotton candy carrot cake cake halvah marshmallow. Chupa chups halvah jelly-o brownie fruitcake marzipan. Applicake ice cream gingerbread fruitcake wafer bear claw applicake. Gummies donut icing marshmallow. Toffee bear claw chocolate bonbon unerdwear.com. Sweet roll jelly lollipop dessert. Gingerbread cookie pudding fruitcake. Dessert topping powder wafer sweet ice cream candy. Jelly-o gummies sesame snaps marzipan cotton candy gingerbread. Bonbon sweet roll fruitcake. Cheesecake cotton candy muffin jujubes cookie unerdwear.com macaroon chocolate cake donut. Jelly dessert jelly lemon drops. Sesame snaps bonbon unerdwear.com candy applicake topping tiramisu. Chocolate chocolate cake cheesecake brownie donut carrot cake sweet roll. Sweet cheesecake donut jelly beans chocolate. Danish powder oat cake cake tiramisu pie oat cake lollipop. Jelly-o tart cupcake caramels cotton candy gummi bears ice cream chocolate bar. Sweet roll jelly cotton candy. Applicake applicake apple pie gingerbread. Croissant carrot cake halvah dessert sweet. Donut sugar plum gummies ice cream lemon drops gummi bears tootsie roll sugar plum gummies. Sesame snaps bear claw cheesecake jelly-o fruitcake tiramisu chocolate cake bear claw. Cheesecake sweet chocolate cake icing macaroon brownie apple pie lollipop chupa chups. Topping muffin pie. Chocolate fruitcake danish chocolate jelly pudding oat cake cake jujubes. Chocolate cake liquorice bear claw sugar plum powder jelly-o brownie. Lollipop danish tart sweet roll jelly beans jelly jelly applicake soufflé. Unerdwear.com apple pie danish bonbon. Sweet roll chupa chups powder liquorice cake unerdwear.com cheesecake dessert sesame snaps. Dessert marshmallow toffee lollipop chocolate jelly chocolate candy sugar plum. Toffee chocolate bar danish. Topping tart unerdwear.com jujubes lollipop. Sweet roll gummies jelly beans fruitcake bear claw macaroon topping bear claw. Tart jelly beans jelly sesame snaps macaroon chocolate. Gummi bears pie cotton candy. Sweet cake icing cheesecake powder jelly beans gummi bears biscuit. Jujubes chocolate bar jelly-o wafer cotton candy chocolate bar lemon drops chupa chups cupcake. Jujubes applicake bear claw muffin bonbon dessert marshmallow. Marshmallow ice cream ice cream gingerbread candy dessert. Brownie jujubes candy canes. Sweet donut powder lemon drops dragée jelly bear claw gummies.</p>', '', 1, 2, '2013-09-14 10:43:53', 623, '', '2013-09-14 11:00:36', 623, 0, '0000-00-00 00:00:00', '2013-09-14 10:43:53', '0000-00-00 00:00:00', '{"image_intro":"","float_intro":"","image_intro_alt":"","image_intro_caption":"","image_fulltext":"","float_fulltext":"","image_fulltext_alt":"","image_fulltext_caption":""}', '{"urla":false,"urlatext":"","targeta":"","urlb":false,"urlbtext":"","targetb":"","urlc":false,"urlctext":"","targetc":""}', '{"show_title":"","link_titles":"","show_tags":"","show_intro":"","info_block_position":"","show_category":"","link_category":"","show_parent_category":"","link_parent_category":"","show_author":"","link_author":"","show_create_date":"","show_modify_date":"","show_publish_date":"","show_item_navigation":"","show_icons":"","show_print_icon":"","show_email_icon":"","show_vote":"","show_hits":"","show_noauth":"","urls_position":"","alternative_readmore":"","article_layout":"crossinghippos:post","show_publishing_options":"","show_article_options":"","show_urls_images_backend":"","show_urls_images_frontend":""}', 5, 0, '', '', 1, 15, '{"robots":"","author":"","rights":"","xreference":""}', 1, '*', '');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_content_frontpage`
---
 
 CREATE TABLE IF NOT EXISTS `flock_content_frontpage` (
   `content_id` int(11) NOT NULL DEFAULT '0',
@@ -377,18 +298,8 @@ CREATE TABLE IF NOT EXISTS `flock_content_frontpage` (
   PRIMARY KEY (`content_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Gegevens worden uitgevoerd voor tabel `flock_content_frontpage`
---
-
 INSERT INTO `flock_content_frontpage` (`content_id`, `ordering`) VALUES
 (1, 1);
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_content_rating`
---
 
 CREATE TABLE IF NOT EXISTS `flock_content_rating` (
   `content_id` int(11) NOT NULL DEFAULT '0',
@@ -397,12 +308,6 @@ CREATE TABLE IF NOT EXISTS `flock_content_rating` (
   `lastip` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`content_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_content_types`
---
 
 CREATE TABLE IF NOT EXISTS `flock_content_types` (
   `type_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -416,10 +321,6 @@ CREATE TABLE IF NOT EXISTS `flock_content_types` (
   KEY `idx_alias` (`type_alias`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
---
--- Gegevens worden uitgevoerd voor tabel `flock_content_types`
---
-
 INSERT INTO `flock_content_types` (`type_id`, `type_title`, `type_alias`, `table`, `rules`, `field_mappings`, `router`) VALUES
 (1, 'Article', 'com_content.article', '{"special":{"dbtable":"#__content","key":"id","type":"Content","prefix":"JTable","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}', '', '{"common":{"core_content_item_id":"id","core_title":"title","core_state":"state","core_alias":"alias","core_created_time":"created","core_modified_time":"modified","core_body":"introtext", "core_hits":"hits","core_publish_up":"publish_up","core_publish_down":"publish_down","core_access":"access", "core_params":"attribs", "core_featured":"featured", "core_metadata":"metadata", "core_language":"language", "core_images":"images", "core_urls":"urls", "core_version":"version", "core_ordering":"ordering", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"catid", "core_xreference":"xreference", "asset_id":"asset_id"}, "special": {"fulltext":"fulltext"}}', 'ContentHelperRoute::getArticleRoute'),
 (2, 'Weblink', 'com_weblinks.weblink', '{"special":{"dbtable":"#__weblinks","key":"id","type":"Weblink","prefix":"WeblinksTable","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}', '', '{"common":{"core_content_item_id":"id","core_title":"title","core_state":"state","core_alias":"alias","core_created_time":"created","core_modified_time":"modified","core_body":"description", "core_hits":"hits","core_publish_up":"publish_up","core_publish_down":"publish_down","core_access":"access", "core_params":"params", "core_featured":"featured", "core_metadata":"metadata", "core_language":"language", "core_images":"images", "core_urls":"url", "core_version":"version", "core_ordering":"ordering", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"catid", "core_xreference":"xreference", "asset_id":"null"}, "special": {}}', 'WeblinksHelperRoute::getWeblinkRoute'),
@@ -431,12 +332,6 @@ INSERT INTO `flock_content_types` (`type_id`, `type_title`, `type_alias`, `table
 (8, 'Newsfeeds Category', 'com_newsfeeds.category', '{"special":{"dbtable":"#__categories","key":"id","type":"Category","prefix":"JTable","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}', '', '{"common":{"core_content_item_id":"id","core_title":"title","core_state":"published","core_alias":"alias","core_created_time":"created_time","core_modified_time":"modified_time","core_body":"description", "core_hits":"hits","core_publish_up":"null","core_publish_down":"null","core_access":"access", "core_params":"params", "core_featured":"null", "core_metadata":"metadata", "core_language":"language", "core_images":"null", "core_urls":"null", "core_version":"version", "core_ordering":"null", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"parent_id", "core_xreference":"null", "asset_id":"asset_id"}, "special": {"parent_id":"parent_id","lft":"lft","rgt":"rgt","level":"level","path":"path","extension":"extension","note":"note"}}', 'NewsfeedsHelperRoute::getCategoryRoute'),
 (9, 'Weblinks Category', 'com_weblinks.category', '{"special":{"dbtable":"#__categories","key":"id","type":"Category","prefix":"JTable","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}', '', '{"common":{"core_content_item_id":"id","core_title":"title","core_state":"published","core_alias":"alias","core_created_time":"created_time","core_modified_time":"modified_time","core_body":"description", "core_hits":"hits","core_publish_up":"null","core_publish_down":"null","core_access":"access", "core_params":"params", "core_featured":"null", "core_metadata":"metadata", "core_language":"language", "core_images":"null", "core_urls":"null", "core_version":"version", "core_ordering":"null", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"parent_id", "core_xreference":"null", "asset_id":"asset_id"}, "special": {"parent_id":"parent_id","lft":"lft","rgt":"rgt","level":"level","path":"path","extension":"extension","note":"note"}}', 'WeblinksHelperRoute::getCategoryRoute'),
 (10, 'Tag', 'com_tags.tag', '{"special":{"dbtable":"#__tags","key":"tag_id","type":"Tag","prefix":"TagsTable","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}', '', '{"common":{"core_content_item_id":"id","core_title":"title","core_state":"published","core_alias":"alias","core_created_time":"created_time","core_modified_time":"modified_time","core_body":"description", "core_hits":"hits","core_publish_up":"null","core_publish_down":"null","core_access":"access", "core_params":"params", "core_featured":"featured", "core_metadata":"metadata", "core_language":"language", "core_images":"images", "core_urls":"urls", "core_version":"version", "core_ordering":"null", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"null", "core_xreference":"null", "asset_id":"null"}, "special": {"parent_id":"parent_id","lft":"lft","rgt":"rgt","level":"level","path":"path"}}', 'TagsHelperRoute::getTagRoute');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_contentitem_tag_map`
---
 
 CREATE TABLE IF NOT EXISTS `flock_contentitem_tag_map` (
   `type_alias` varchar(255) NOT NULL DEFAULT '',
@@ -453,22 +348,10 @@ CREATE TABLE IF NOT EXISTS `flock_contentitem_tag_map` (
   KEY `idx_core_content_id` (`core_content_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Maps items from content tables to tags';
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_core_log_searches`
---
-
 CREATE TABLE IF NOT EXISTS `flock_core_log_searches` (
   `search_term` varchar(128) NOT NULL DEFAULT '',
   `hits` int(10) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_extensions`
---
 
 CREATE TABLE IF NOT EXISTS `flock_extensions` (
   `extension_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -493,10 +376,6 @@ CREATE TABLE IF NOT EXISTS `flock_extensions` (
   KEY `element_folder_clientid` (`element`,`folder`,`client_id`),
   KEY `extension` (`type`,`element`,`folder`,`client_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10010 ;
-
---
--- Gegevens worden uitgevoerd voor tabel `flock_extensions`
---
 
 INSERT INTO `flock_extensions` (`extension_id`, `name`, `type`, `element`, `folder`, `client_id`, `enabled`, `access`, `protected`, `manifest_cache`, `params`, `custom_data`, `system_data`, `checked_out`, `checked_out_time`, `ordering`, `state`) VALUES
 (1, 'com_mailto', 'component', 'com_mailto', '', 0, 1, 1, 1, '{"name":"com_mailto","type":"component","creationDate":"April 2006","author":"Joomla! Project","copyright":"(C) 2005 - 2013 Open Source Matters. All rights reserved.\\t","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.0.0","description":"COM_MAILTO_XML_DESCRIPTION","group":""}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
@@ -634,12 +513,6 @@ INSERT INTO `flock_extensions` (`extension_id`, `name`, `type`, `element`, `fold
 (10007, 'plg_system_layout', 'plugin', 'layout', 'system', 0, 0, 1, 0, '{"name":"plg_system_layout","type":"plugin","creationDate":"March 2012","author":"Miss High and Mighty","copyright":"Copyright (C) 2005 - 2012 Open Source Matters. All rights reserved.","authorEmail":"AmyStephen@gmail.com","authorUrl":"molajo.org","version":"1.0","description":"PLG_SYSTEM_LAYOUT_XML_DESCRIPTION","group":""}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (10009, 'com_streams', 'component', 'com_streams', '', 1, 1, 1, 0, '{"name":"com_streams","type":"component","creationDate":"September 2013","author":"Babs Gosgens","copyright":"(C) 2010 - 2013 Crossing Hippos. All rights reserved.\\n\\t","authorEmail":"babs@crossinghippos.nl","authorUrl":"www.crossinghippos.nl","version":"3.0.0","description":"COM_STREAMS_XML_DESCRIPTION","group":""}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0);
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_filters`
---
-
 CREATE TABLE IF NOT EXISTS `flock_finder_filters` (
   `filter_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
@@ -657,12 +530,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_filters` (
   `params` mediumtext,
   PRIMARY KEY (`filter_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_links`
---
 
 CREATE TABLE IF NOT EXISTS `flock_finder_links` (
   `link_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -693,12 +560,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_links` (
   KEY `idx_published_sale` (`published`,`state`,`access`,`publish_start_date`,`publish_end_date`,`sale_price`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_links_terms0`
---
-
 CREATE TABLE IF NOT EXISTS `flock_finder_links_terms0` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -707,12 +568,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_links_terms0` (
   KEY `idx_term_weight` (`term_id`,`weight`),
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_links_terms1`
---
 
 CREATE TABLE IF NOT EXISTS `flock_finder_links_terms1` (
   `link_id` int(10) unsigned NOT NULL,
@@ -723,12 +578,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_links_terms1` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_links_terms2`
---
-
 CREATE TABLE IF NOT EXISTS `flock_finder_links_terms2` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -737,12 +586,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_links_terms2` (
   KEY `idx_term_weight` (`term_id`,`weight`),
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_links_terms3`
---
 
 CREATE TABLE IF NOT EXISTS `flock_finder_links_terms3` (
   `link_id` int(10) unsigned NOT NULL,
@@ -753,12 +596,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_links_terms3` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_links_terms4`
---
-
 CREATE TABLE IF NOT EXISTS `flock_finder_links_terms4` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -767,12 +604,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_links_terms4` (
   KEY `idx_term_weight` (`term_id`,`weight`),
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_links_terms5`
---
 
 CREATE TABLE IF NOT EXISTS `flock_finder_links_terms5` (
   `link_id` int(10) unsigned NOT NULL,
@@ -783,12 +614,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_links_terms5` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_links_terms6`
---
-
 CREATE TABLE IF NOT EXISTS `flock_finder_links_terms6` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -797,12 +622,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_links_terms6` (
   KEY `idx_term_weight` (`term_id`,`weight`),
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_links_terms7`
---
 
 CREATE TABLE IF NOT EXISTS `flock_finder_links_terms7` (
   `link_id` int(10) unsigned NOT NULL,
@@ -813,12 +632,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_links_terms7` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_links_terms8`
---
-
 CREATE TABLE IF NOT EXISTS `flock_finder_links_terms8` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -827,12 +640,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_links_terms8` (
   KEY `idx_term_weight` (`term_id`,`weight`),
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_links_terms9`
---
 
 CREATE TABLE IF NOT EXISTS `flock_finder_links_terms9` (
   `link_id` int(10) unsigned NOT NULL,
@@ -843,12 +650,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_links_terms9` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_links_termsa`
---
-
 CREATE TABLE IF NOT EXISTS `flock_finder_links_termsa` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -857,12 +658,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_links_termsa` (
   KEY `idx_term_weight` (`term_id`,`weight`),
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_links_termsb`
---
 
 CREATE TABLE IF NOT EXISTS `flock_finder_links_termsb` (
   `link_id` int(10) unsigned NOT NULL,
@@ -873,12 +668,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_links_termsb` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_links_termsc`
---
-
 CREATE TABLE IF NOT EXISTS `flock_finder_links_termsc` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -887,12 +676,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_links_termsc` (
   KEY `idx_term_weight` (`term_id`,`weight`),
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_links_termsd`
---
 
 CREATE TABLE IF NOT EXISTS `flock_finder_links_termsd` (
   `link_id` int(10) unsigned NOT NULL,
@@ -903,12 +686,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_links_termsd` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_links_termse`
---
-
 CREATE TABLE IF NOT EXISTS `flock_finder_links_termse` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -918,12 +695,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_links_termse` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_links_termsf`
---
-
 CREATE TABLE IF NOT EXISTS `flock_finder_links_termsf` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -932,12 +703,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_links_termsf` (
   KEY `idx_term_weight` (`term_id`,`weight`),
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_taxonomy`
---
 
 CREATE TABLE IF NOT EXISTS `flock_finder_taxonomy` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -954,18 +719,8 @@ CREATE TABLE IF NOT EXISTS `flock_finder_taxonomy` (
   KEY `idx_parent_published` (`parent_id`,`state`,`access`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
---
--- Gegevens worden uitgevoerd voor tabel `flock_finder_taxonomy`
---
-
 INSERT INTO `flock_finder_taxonomy` (`id`, `parent_id`, `title`, `state`, `access`, `ordering`) VALUES
 (1, 0, 'ROOT', 0, 0, 0);
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_taxonomy_map`
---
 
 CREATE TABLE IF NOT EXISTS `flock_finder_taxonomy_map` (
   `link_id` int(10) unsigned NOT NULL,
@@ -974,12 +729,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_taxonomy_map` (
   KEY `link_id` (`link_id`),
   KEY `node_id` (`node_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_terms`
---
 
 CREATE TABLE IF NOT EXISTS `flock_finder_terms` (
   `term_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -998,22 +747,12 @@ CREATE TABLE IF NOT EXISTS `flock_finder_terms` (
   KEY `idx_soundex_phrase` (`soundex`,`phrase`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_terms_common`
---
-
 CREATE TABLE IF NOT EXISTS `flock_finder_terms_common` (
   `term` varchar(75) NOT NULL,
   `language` varchar(3) NOT NULL,
   KEY `idx_word_lang` (`term`,`language`),
   KEY `idx_lang` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Gegevens worden uitgevoerd voor tabel `flock_finder_terms_common`
---
 
 INSERT INTO `flock_finder_terms_common` (`term`, `language`) VALUES
 ('a', 'en'),
@@ -1132,12 +871,6 @@ INSERT INTO `flock_finder_terms_common` (`term`, `language`) VALUES
 ('your', 'en'),
 ('yours', 'en');
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_tokens`
---
-
 CREATE TABLE IF NOT EXISTS `flock_finder_tokens` (
   `term` varchar(75) NOT NULL,
   `stem` varchar(75) NOT NULL,
@@ -1149,12 +882,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_tokens` (
   KEY `idx_word` (`term`),
   KEY `idx_context` (`context`)
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_tokens_aggregate`
---
 
 CREATE TABLE IF NOT EXISTS `flock_finder_tokens_aggregate` (
   `term_id` int(10) unsigned NOT NULL,
@@ -1172,12 +899,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_tokens_aggregate` (
   KEY `keyword_id` (`term_id`)
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_finder_types`
---
-
 CREATE TABLE IF NOT EXISTS `flock_finder_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
@@ -1185,12 +906,6 @@ CREATE TABLE IF NOT EXISTS `flock_finder_types` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `title` (`title`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_languages`
---
 
 CREATE TABLE IF NOT EXISTS `flock_languages` (
   `lang_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -1214,18 +929,8 @@ CREATE TABLE IF NOT EXISTS `flock_languages` (
   KEY `idx_ordering` (`ordering`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
---
--- Gegevens worden uitgevoerd voor tabel `flock_languages`
---
-
 INSERT INTO `flock_languages` (`lang_id`, `lang_code`, `title`, `title_native`, `sef`, `image`, `description`, `metakey`, `metadesc`, `sitename`, `published`, `access`, `ordering`) VALUES
 (1, 'en-GB', 'English (UK)', 'English (UK)', 'en', 'en', '', '', '', '', 1, 0, 1);
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_menu`
---
 
 CREATE TABLE IF NOT EXISTS `flock_menu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1262,10 +967,6 @@ CREATE TABLE IF NOT EXISTS `flock_menu` (
   KEY `idx_language` (`language`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=105 ;
 
---
--- Gegevens worden uitgevoerd voor tabel `flock_menu`
---
-
 INSERT INTO `flock_menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `link`, `type`, `published`, `parent_id`, `level`, `component_id`, `checked_out`, `checked_out_time`, `browserNav`, `access`, `img`, `template_style_id`, `params`, `lft`, `rgt`, `home`, `language`, `client_id`) VALUES
 (1, '', 'Menu_Item_Root', 'root', '', '', '', '', 1, 0, 0, 0, 0, '0000-00-00 00:00:00', 0, 0, '', 0, '', 0, 53, 0, '*', 0),
 (2, 'menu', 'com_banners', 'Banners', '', 'Banners', 'index.php?option=com_banners', 'component', 0, 1, 1, 4, 0, '0000-00-00 00:00:00', 0, 0, 'class:banners', 0, '', 1, 10, 0, '*', 1),
@@ -1294,12 +995,6 @@ INSERT INTO `flock_menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `l
 (103, 'main', 'com_streams', 'com-streams', '', 'com-streams', 'index.php?option=com_streams', 'component', 0, 1, 1, 10009, 0, '0000-00-00 00:00:00', 0, 1, 'class:streams', 0, '', 49, 52, 0, '', 1),
 (104, 'main', 'com_streams_items', 'com-streams-items', '', 'com-streams/com-streams-items', 'index.php?option=com_streams', 'component', 0, 103, 2, 10009, 0, '0000-00-00 00:00:00', 0, 1, 'class:streams', 0, '', 50, 51, 0, '', 1);
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_menu_types`
---
-
 CREATE TABLE IF NOT EXISTS `flock_menu_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `menutype` varchar(24) NOT NULL,
@@ -1309,18 +1004,8 @@ CREATE TABLE IF NOT EXISTS `flock_menu_types` (
   UNIQUE KEY `idx_menutype` (`menutype`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
---
--- Gegevens worden uitgevoerd voor tabel `flock_menu_types`
---
-
 INSERT INTO `flock_menu_types` (`id`, `menutype`, `title`, `description`) VALUES
 (1, 'mainmenu', 'Main Menu', 'The main menu for the site');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_messages`
---
 
 CREATE TABLE IF NOT EXISTS `flock_messages` (
   `message_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1336,24 +1021,12 @@ CREATE TABLE IF NOT EXISTS `flock_messages` (
   KEY `useridto_state` (`user_id_to`,`state`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_messages_cfg`
---
-
 CREATE TABLE IF NOT EXISTS `flock_messages_cfg` (
   `user_id` int(10) unsigned NOT NULL DEFAULT '0',
   `cfg_name` varchar(100) NOT NULL DEFAULT '',
   `cfg_value` varchar(255) NOT NULL DEFAULT '',
   UNIQUE KEY `idx_user_var_name` (`user_id`,`cfg_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_modules`
---
 
 CREATE TABLE IF NOT EXISTS `flock_modules` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1379,10 +1052,6 @@ CREATE TABLE IF NOT EXISTS `flock_modules` (
   KEY `idx_language` (`language`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=87 ;
 
---
--- Gegevens worden uitgevoerd voor tabel `flock_modules`
---
-
 INSERT INTO `flock_modules` (`id`, `title`, `note`, `content`, `ordering`, `position`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `published`, `module`, `access`, `showtitle`, `params`, `client_id`, `language`) VALUES
 (1, 'Main Menu', '', '', 1, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_menu', 1, 1, '{"menutype":"mainmenu","startLevel":"0","endLevel":"0","showAllChildren":"0","tag_id":"","class_sfx":"","window_open":"","layout":"","moduleclass_sfx":"_menu","cache":"1","cache_time":"900","cachemode":"itemid"}', 0, '*'),
 (2, 'Login', '', '', 1, 'login', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_login', 1, 1, '', 1, '*'),
@@ -1400,21 +1069,11 @@ INSERT INTO `flock_modules` (`id`, `title`, `note`, `content`, `ordering`, `posi
 (79, 'Multilanguage status', '', '', 1, 'status', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_multilangstatus', 3, 1, '{"layout":"_:default","moduleclass_sfx":"","cache":"0"}', 1, '*'),
 (86, 'Joomla Version', '', '', 1, 'footer', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_version', 3, 1, '{"format":"short","product":"1","layout":"_:default","moduleclass_sfx":"","cache":"0"}', 1, '*');
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_modules_menu`
---
-
 CREATE TABLE IF NOT EXISTS `flock_modules_menu` (
   `moduleid` int(11) NOT NULL DEFAULT '0',
   `menuid` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`moduleid`,`menuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Gegevens worden uitgevoerd voor tabel `flock_modules_menu`
---
 
 INSERT INTO `flock_modules_menu` (`moduleid`, `menuid`) VALUES
 (1, 0),
@@ -1434,12 +1093,6 @@ INSERT INTO `flock_modules_menu` (`moduleid`, `menuid`) VALUES
 (17, 0),
 (79, 0),
 (86, 0);
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_newsfeeds`
---
 
 CREATE TABLE IF NOT EXISTS `flock_newsfeeds` (
   `catid` int(11) NOT NULL DEFAULT '0',
@@ -1482,12 +1135,6 @@ CREATE TABLE IF NOT EXISTS `flock_newsfeeds` (
   KEY `idx_xreference` (`xreference`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_overrider`
---
-
 CREATE TABLE IF NOT EXISTS `flock_overrider` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `constant` varchar(255) NOT NULL,
@@ -1495,12 +1142,6 @@ CREATE TABLE IF NOT EXISTS `flock_overrider` (
   `file` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_redirect_links`
---
 
 CREATE TABLE IF NOT EXISTS `flock_redirect_links` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1517,30 +1158,14 @@ CREATE TABLE IF NOT EXISTS `flock_redirect_links` (
   KEY `idx_link_modifed` (`modified_date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_schemas`
---
-
 CREATE TABLE IF NOT EXISTS `flock_schemas` (
   `extension_id` int(11) NOT NULL,
   `version_id` varchar(20) NOT NULL,
   PRIMARY KEY (`extension_id`,`version_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Gegevens worden uitgevoerd voor tabel `flock_schemas`
---
-
 INSERT INTO `flock_schemas` (`extension_id`, `version_id`) VALUES
 (700, '3.1.5');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_session`
---
 
 CREATE TABLE IF NOT EXISTS `flock_session` (
   `session_id` varchar(200) NOT NULL DEFAULT '',
@@ -1555,18 +1180,9 @@ CREATE TABLE IF NOT EXISTS `flock_session` (
   KEY `time` (`time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Gegevens worden uitgevoerd voor tabel `flock_session`
---
-
 INSERT INTO `flock_session` (`session_id`, `client_id`, `guest`, `time`, `data`, `userid`, `username`) VALUES
-('talnhfjl6j64s0tpd26es8oeo5', 0, 1, '1379600428', '__default|a:7:{s:15:"session.counter";i:1;s:19:"session.timer.start";i:1379600427;s:18:"session.timer.last";i:1379600427;s:17:"session.timer.now";i:1379600427;s:22:"session.client.browser";s:108:"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.66 Safari/537.36";s:8:"registry";O:9:"JRegistry":1:{s:7:"\\0\\0\\0data";O:8:"stdClass":1:{s:11:"com_streams";O:8:"stdClass":1:{s:7:"streams";O:8:"stdClass":1:{s:8:"ordercol";N;}}}}s:4:"user";O:5:"JUser":24:{s:9:"\\0\\0\\0isRoot";N;s:2:"id";i:0;s:4:"name";N;s:8:"username";N;s:5:"email";N;s:8:"password";N;s:14:"password_clear";s:0:"";s:5:"block";N;s:9:"sendEmail";i:0;s:12:"registerDate";N;s:13:"lastvisitDate";N;s:10:"activation";N;s:6:"params";N;s:6:"groups";a:1:{i:0;s:1:"9";}s:5:"guest";i:1;s:13:"lastResetTime";N;s:10:"resetCount";N;s:10:"\\0\\0\\0_params";O:9:"JRegistry":1:{s:7:"\\0\\0\\0data";O:8:"stdClass":0:{}}s:14:"\\0\\0\\0_authGroups";N;s:14:"\\0\\0\\0_authLevels";a:3:{i:0;i:1;i:1;i:1;i:2;i:5;}s:15:"\\0\\0\\0_authActions";N;s:12:"\\0\\0\\0_errorMsg";N;s:10:"\\0\\0\\0_errors";a:0:{}s:3:"aid";i:0;}}', 0, '');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_streams`
---
+('008u39pvbuka8bqh50elpojql3', 0, 1, '1379885645', '__default|a:7:{s:15:"session.counter";i:5;s:19:"session.timer.start";i:1379885567;s:18:"session.timer.last";i:1379885633;s:17:"session.timer.now";i:1379885645;s:22:"session.client.browser";s:108:"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.76 Safari/537.36";s:8:"registry";O:9:"JRegistry":1:{s:7:"\\0\\0\\0data";O:8:"stdClass":1:{s:11:"com_streams";O:8:"stdClass":1:{s:7:"streams";O:8:"stdClass":2:{s:8:"ordercol";N;s:10:"limitstart";s:2:"80";}}}}s:4:"user";O:5:"JUser":24:{s:9:"\\0\\0\\0isRoot";N;s:2:"id";i:0;s:4:"name";N;s:8:"username";N;s:5:"email";N;s:8:"password";N;s:14:"password_clear";s:0:"";s:5:"block";N;s:9:"sendEmail";i:0;s:12:"registerDate";N;s:13:"lastvisitDate";N;s:10:"activation";N;s:6:"params";N;s:6:"groups";a:1:{i:0;s:1:"9";}s:5:"guest";i:1;s:13:"lastResetTime";N;s:10:"resetCount";N;s:10:"\\0\\0\\0_params";O:9:"JRegistry":1:{s:7:"\\0\\0\\0data";O:8:"stdClass":0:{}}s:14:"\\0\\0\\0_authGroups";N;s:14:"\\0\\0\\0_authLevels";a:3:{i:0;i:1;i:1;i:1;i:2;i:5;}s:15:"\\0\\0\\0_authActions";N;s:12:"\\0\\0\\0_errorMsg";N;s:10:"\\0\\0\\0_errors";a:0:{}s:3:"aid";i:0;}}', 0, ''),
+('kvfhttoksojcsfpopund5daoc7', 1, 0, '1379885758', '__default|a:8:{s:15:"session.counter";i:12;s:19:"session.timer.start";i:1379885703;s:18:"session.timer.last";i:1379885748;s:17:"session.timer.now";i:1379885757;s:22:"session.client.browser";s:108:"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.76 Safari/537.36";s:8:"registry";O:9:"JRegistry":1:{s:7:"\\0\\0\\0data";O:8:"stdClass":3:{s:11:"application";O:8:"stdClass":1:{s:4:"lang";s:0:"";}s:11:"com_streams";O:8:"stdClass":1:{s:7:"streams";O:8:"stdClass":4:{s:6:"filter";O:8:"stdClass":2:{s:5:"state";s:0:"";s:3:"api";s:6:"flickr";}s:10:"limitstart";i:0;s:8:"ordercol";s:14:"a.date_created";s:9:"orderdirn";s:4:"desc";}}s:6:"global";O:8:"stdClass":1:{s:4:"list";O:8:"stdClass":1:{s:5:"limit";i:20;}}}}s:4:"user";O:5:"JUser":24:{s:9:"\\0\\0\\0isRoot";b:0;s:2:"id";s:3:"624";s:4:"name";s:13:"Jean Brouwers";s:8:"username";s:12:"jeanbrouwers";s:5:"email";s:22:"jean@crossinghippos.nl";s:8:"password";s:65:"d4e3abb8df5921d76eabf3aa7bb4fbb4:QSY9KZVLQcsSjyIT0HL7O5xs1wMICMap";s:14:"password_clear";s:0:"";s:5:"block";s:1:"0";s:9:"sendEmail";s:1:"0";s:12:"registerDate";s:19:"2013-09-13 11:19:07";s:13:"lastvisitDate";s:19:"2013-09-19 13:49:19";s:10:"activation";s:0:"";s:6:"params";s:92:"{"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}";s:6:"groups";a:2:{i:2;s:1:"2";i:7;s:1:"7";}s:5:"guest";i:0;s:13:"lastResetTime";s:19:"0000-00-00 00:00:00";s:10:"resetCount";s:1:"0";s:10:"\\0\\0\\0_params";O:9:"JRegistry":1:{s:7:"\\0\\0\\0data";O:8:"stdClass":6:{s:11:"admin_style";s:0:"";s:14:"admin_language";s:0:"";s:8:"language";s:0:"";s:6:"editor";s:0:"";s:8:"helpsite";s:0:"";s:8:"timezone";s:0:"";}}s:14:"\\0\\0\\0_authGroups";a:4:{i:0;i:1;i:1;i:2;i:3;i:6;i:4;i:7;}s:14:"\\0\\0\\0_authLevels";a:4:{i:0;i:1;i:1;i:1;i:2;i:2;i:3;i:3;}s:15:"\\0\\0\\0_authActions";N;s:12:"\\0\\0\\0_errorMsg";N;s:10:"\\0\\0\\0_errors";a:0:{}s:3:"aid";i:0;}s:13:"session.token";s:32:"a1e74fa22152c7e4c20d4ca0295c0d3c";}', 624, 'jeanbrouwers');
 
 CREATE TABLE IF NOT EXISTS `flock_streams` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -1585,10 +1201,6 @@ CREATE TABLE IF NOT EXISTS `flock_streams` (
   UNIQUE KEY `id` (`id`),
   KEY `api_id` (`api_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=100 ;
-
---
--- Gegevens worden uitgevoerd voor tabel `flock_streams`
---
 
 INSERT INTO `flock_streams` (`id`, `api_id`, `post_id`, `date_created`, `raw`, `metadata`, `permalink`, `params`, `language`, `state`, `publish_up`, `publish_down`) VALUES
 (31, 1, '361485006050299906', '2013-07-28 13:55:16', 'Tzo4OiJzdGRDbGFzcyI6MjI6e3M6MTA6ImNyZWF0ZWRfYXQiO3M6MzA6IlN1biBKdWwgMjggMTM6NTU6MTYgKzAwMDAgMjAxMyI7czoyOiJpZCI7aTozNjE0ODUwMDYwNTAyOTk5MDY7czo2OiJpZF9zdHIiO3M6MTg6IjM2MTQ4NTAwNjA1MDI5OTkwNiI7czo0OiJ0ZXh0IjtzOjMyOiJAYmV0d2VlbmJyYWluIEBuaWdodHNoaWZ0YyByb3RmbCI7czo2OiJzb3VyY2UiO3M6ODI6IjxhIGhyZWY9Imh0dHA6Ly90d2l0dGVyLmNvbS9kb3dubG9hZC9pcGhvbmUiIHJlbD0ibm9mb2xsb3ciPlR3aXR0ZXIgZm9yIGlQaG9uZTwvYT4iO3M6OToidHJ1bmNhdGVkIjtiOjA7czoyMToiaW5fcmVwbHlfdG9fc3RhdHVzX2lkIjtpOjM2MTI1ODk0MjkwNDU0NTI4MDtzOjI1OiJpbl9yZXBseV90b19zdGF0dXNfaWRfc3RyIjtzOjE4OiIzNjEyNTg5NDI5MDQ1NDUyODAiO3M6MTk6ImluX3JlcGx5X3RvX3VzZXJfaWQiO2k6MTgwNDI2ODk7czoyMzoiaW5fcmVwbHlfdG9fdXNlcl9pZF9zdHIiO3M6ODoiMTgwNDI2ODkiO3M6MjM6ImluX3JlcGx5X3RvX3NjcmVlbl9uYW1lIjtzOjEyOiJiZXR3ZWVuYnJhaW4iO3M6NDoidXNlciI7Tzo4OiJzdGRDbGFzcyI6Mzg6e3M6MjoiaWQiO2k6MTEwMTA3NTcyO3M6NjoiaWRfc3RyIjtzOjk6IjExMDEwNzU3MiI7czo0OiJuYW1lIjtzOjEzOiJCYWJzIEfDtnNnZW5zIjtzOjExOiJzY3JlZW5fbmFtZSI7czoxMToiYmFic2dvc2dlbnMiO3M6ODoibG9jYXRpb24iO3M6ODoiUm9zbWFsZW4iO3M6MTE6ImRlc2NyaXB0aW9uIjtzOjEzNjoiKFdlYilkZXNpZ25lciBhbmQgZGV2ZWxvcGVyLCBzdHViYm9ybiBhcyBoZWxsLCBhbHdheXMgcXVlc3Rpb25pbmcgZXZlcnl0aGluZy4gTGlrZXMgdG8gcmUtaW52ZW50IHRoZSB3aGVlbCB0byBzZWUgaWYgaXQgY2FuIGJlIGFwcHJvdmVkLiI7czozOiJ1cmwiO3M6MjI6Imh0dHA6Ly90LmNvL21WeUd5Q3pUU2MiO3M6ODoiZW50aXRpZXMiO086ODoic3RkQ2xhc3MiOjI6e3M6MzoidXJsIjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6InVybHMiO2E6MTp7aTowO086ODoic3RkQ2xhc3MiOjQ6e3M6MzoidXJsIjtzOjIyOiJodHRwOi8vdC5jby9tVnlHeUN6VFNjIjtzOjEyOiJleHBhbmRlZF91cmwiO3M6MjQ6Imh0dHA6Ly9jcm9zc2luZ2hpcHBvcy5ubCI7czoxMToiZGlzcGxheV91cmwiO3M6MTc6ImNyb3NzaW5naGlwcG9zLm5sIjtzOjc6ImluZGljZXMiO2E6Mjp7aTowO2k6MDtpOjE7aToyMjt9fX19czoxMToiZGVzY3JpcHRpb24iO086ODoic3RkQ2xhc3MiOjE6e3M6NDoidXJscyI7YTowOnt9fX1zOjk6InByb3RlY3RlZCI7YjowO3M6MTU6ImZvbGxvd2Vyc19jb3VudCI7aToyMDM7czoxMzoiZnJpZW5kc19jb3VudCI7aToxNzU7czoxMjoibGlzdGVkX2NvdW50IjtpOjEzO3M6MTA6ImNyZWF0ZWRfYXQiO3M6MzA6IlN1biBKYW4gMzEgMTA6NDk6NDcgKzAwMDAgMjAxMCI7czoxNjoiZmF2b3VyaXRlc19jb3VudCI7aTo2OTtzOjEwOiJ1dGNfb2Zmc2V0IjtpOi03MjAwO3M6OToidGltZV96b25lIjtzOjk6IkdyZWVubGFuZCI7czoxMToiZ2VvX2VuYWJsZWQiO2I6MTtzOjg6InZlcmlmaWVkIjtiOjA7czoxNDoic3RhdHVzZXNfY291bnQiO2k6MTEzNDtzOjQ6ImxhbmciO3M6MjoiZW4iO3M6MjA6ImNvbnRyaWJ1dG9yc19lbmFibGVkIjtiOjA7czoxMzoiaXNfdHJhbnNsYXRvciI7YjowO3M6MjQ6InByb2ZpbGVfYmFja2dyb3VuZF9jb2xvciI7czo2OiIxMzE1MTYiO3M6Mjg6InByb2ZpbGVfYmFja2dyb3VuZF9pbWFnZV91cmwiO3M6OTI6Imh0dHA6Ly9hMC50d2ltZy5jb20vcHJvZmlsZV9iYWNrZ3JvdW5kX2ltYWdlcy8yNTIwNDEwNTUveGM1ZTA2YWFjOWZiMTY0YmQ5Mjc1MWJjMDQ0N2IzZWIucG5nIjtzOjM0OiJwcm9maWxlX2JhY2tncm91bmRfaW1hZ2VfdXJsX2h0dHBzIjtzOjk0OiJodHRwczovL3NpMC50d2ltZy5jb20vcHJvZmlsZV9iYWNrZ3JvdW5kX2ltYWdlcy8yNTIwNDEwNTUveGM1ZTA2YWFjOWZiMTY0YmQ5Mjc1MWJjMDQ0N2IzZWIucG5nIjtzOjIzOiJwcm9maWxlX2JhY2tncm91bmRfdGlsZSI7YjoxO3M6MTc6InByb2ZpbGVfaW1hZ2VfdXJsIjtzOjYyOiJodHRwOi8vYTAudHdpbWcuY29tL3Byb2ZpbGVfaW1hZ2VzLzEzNTAzMjA5NTIvamFiMTFfbm9ybWFsLnBuZyI7czoyMzoicHJvZmlsZV9pbWFnZV91cmxfaHR0cHMiO3M6NjQ6Imh0dHBzOi8vc2kwLnR3aW1nLmNvbS9wcm9maWxlX2ltYWdlcy8xMzUwMzIwOTUyL2phYjExX25vcm1hbC5wbmciO3M6MTg6InByb2ZpbGVfbGlua19jb2xvciI7czo2OiIwMDk5OTkiO3M6Mjg6InByb2ZpbGVfc2lkZWJhcl9ib3JkZXJfY29sb3IiO3M6NjoiRUVFRUVFIjtzOjI2OiJwcm9maWxlX3NpZGViYXJfZmlsbF9jb2xvciI7czo2OiJFRkVGRUYiO3M6MTg6InByb2ZpbGVfdGV4dF9jb2xvciI7czo2OiIwMDAwMDAiO3M6Mjg6InByb2ZpbGVfdXNlX2JhY2tncm91bmRfaW1hZ2UiO2I6MDtzOjE1OiJkZWZhdWx0X3Byb2ZpbGUiO2I6MDtzOjIxOiJkZWZhdWx0X3Byb2ZpbGVfaW1hZ2UiO2I6MDtzOjk6ImZvbGxvd2luZyI7YjowO3M6MTk6ImZvbGxvd19yZXF1ZXN0X3NlbnQiO2I6MDtzOjEzOiJub3RpZmljYXRpb25zIjtiOjA7fXM6MzoiZ2VvIjtOO3M6MTE6ImNvb3JkaW5hdGVzIjtOO3M6NToicGxhY2UiO047czoxMjoiY29udHJpYnV0b3JzIjtOO3M6MTM6InJldHdlZXRfY291bnQiO2k6MDtzOjE0OiJmYXZvcml0ZV9jb3VudCI7aTowO3M6ODoiZW50aXRpZXMiO086ODoic3RkQ2xhc3MiOjQ6e3M6ODoiaGFzaHRhZ3MiO2E6MDp7fXM6Nzoic3ltYm9scyI7YTowOnt9czo0OiJ1cmxzIjthOjA6e31zOjEzOiJ1c2VyX21lbnRpb25zIjthOjI6e2k6MDtPOjg6InN0ZENsYXNzIjo1OntzOjExOiJzY3JlZW5fbmFtZSI7czoxMjoiYmV0d2VlbmJyYWluIjtzOjQ6Im5hbWUiO3M6MTI6ImJldHdlZW5icmFpbiI7czoyOiJpZCI7aToxODA0MjY4OTtzOjY6ImlkX3N0ciI7czo4OiIxODA0MjY4OSI7czo3OiJpbmRpY2VzIjthOjI6e2k6MDtpOjA7aToxO2k6MTM7fX1pOjE7Tzo4OiJzdGRDbGFzcyI6NTp7czoxMToic2NyZWVuX25hbWUiO3M6MTE6Im5pZ2h0c2hpZnRjIjtzOjQ6Im5hbWUiO3M6MTU6IkNyaXN0aW5hIFNvbGFuYSI7czoyOiJpZCI7aToxODg2ODYwNztzOjY6ImlkX3N0ciI7czo4OiIxODg2ODYwNyI7czo3OiJpbmRpY2VzIjthOjI6e2k6MDtpOjE0O2k6MTtpOjI2O319fX1zOjk6ImZhdm9yaXRlZCI7YjowO3M6OToicmV0d2VldGVkIjtiOjA7czo0OiJsYW5nIjtzOjI6ImRlIjt9', '', 'https://twitter.com/babsgosgens/status/361485006050299906', '', '*', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -1691,12 +1303,6 @@ INSERT INTO `flock_streams` (`id`, `api_id`, `post_id`, `date_created`, `raw`, `
 (98, 7, '954169', '2011-02-02 14:36:32', 'Tzo4OiJzdGRDbGFzcyI6MTM6e3M6MjoiaWQiO2k6OTU0MTY5O3M6NDoibmFtZSI7czozOToiUm95YWwgTWVsYm91cm5lIEluc3RpdHV0ZSBvZiBUZWNobm9sb2d5IjtzOjEyOiJwdWJsaXNoZWRfb24iO2k6MTI5NjY1NzM5MjtzOjEwOiJjcmVhdGVkX29uIjtpOjEyOTY2NTYxNzc7czoxMToibW9kaWZpZWRfb24iO2k6MTM1NDY0Mzg5NztzOjM6InVybCI7czo3ODoiaHR0cHM6Ly93d3cuYmVoYW5jZS5uZXQvZ2FsbGVyeS9Sb3lhbC1NZWxib3VybmUtSW5zdGl0dXRlLW9mLVRlY2hub2xvZ3kvOTU0MTY5IjtzOjc6InByaXZhY3kiO3M6NjoicHVibGljIjtzOjY6ImZpZWxkcyI7YToxOntpOjA7czoxMjoiSWxsdXN0cmF0aW9uIjt9czo2OiJjb3ZlcnMiO086ODoic3RkQ2xhc3MiOjI6e3M6MzoiMTE1IjtzOjk2OiJodHRwczovL20xLmJlaGFuY2UubmV0L3Byb2ZpbGVzNC8xMzk5NjkvcHJvamVjdHMvOTU0MTY5LzExNXhiMDFmNjY2NDhmNzNmZGZmODc2MzFjM2EyOWEyMTk4OS5wbmciO3M6MzoiMjAyIjtzOjkyOiJodHRwczovL20xLmJlaGFuY2UubmV0L3Byb2ZpbGVzNC8xMzk5NjkvcHJvamVjdHMvOTU0MTY5L2IwMWY2NjY0OGY3M2ZkZmY4NzYzMWMzYTI5YTIxOTg5LnBuZyI7fXM6MTQ6Im1hdHVyZV9jb250ZW50IjtpOjA7czoxMzoibWF0dXJlX2FjY2VzcyI7czo3OiJhbGxvd2VkIjtzOjY6Im93bmVycyI7YToxOntpOjA7Tzo4OiJzdGRDbGFzcyI6MTQ6e3M6MjoiaWQiO2k6MTM5OTY5O3M6MTA6ImZpcnN0X25hbWUiO3M6NDoiamVuayI7czo5OiJsYXN0X25hbWUiO3M6NDoiQ29sZSI7czo4OiJ1c2VybmFtZSI7czo4OiJKZW5rQ29sZSI7czo0OiJjaXR5IjtzOjE5OiJNYW5zZmllbGQgV29vZGhvdXNlIjtzOjU6InN0YXRlIjtzOjA6IiI7czo3OiJjb3VudHJ5IjtzOjE0OiJVbml0ZWQgS2luZ2RvbSI7czo3OiJjb21wYW55IjtzOjA6IiI7czoxMDoib2NjdXBhdGlvbiI7czoxNjoiR3JhcGhpYyBkZXNpZ25lciI7czoxMDoiY3JlYXRlZF9vbiI7aToxMjYxOTUxNTI2O3M6MzoidXJsIjtzOjMxOiJodHRwOi8vd3d3LmJlaGFuY2UubmV0L0plbmtDb2xlIjtzOjEyOiJkaXNwbGF5X25hbWUiO3M6OToiamVuayBDb2xlIjtzOjY6ImltYWdlcyI7Tzo4OiJzdGRDbGFzcyI6Mzp7czoyOiI1MCI7czo3OToiaHR0cHM6Ly9tMS5iZWhhbmNlLm5ldC9wcm9maWxlczQvMTM5OTY5LzUweDE0MmQ2M2M1NGFjZGVkYjQxZTRhZTFiMGEzNWE2NjU4LmpwZyI7czozOiIxMTUiO3M6ODA6Imh0dHBzOi8vbTEuYmVoYW5jZS5uZXQvcHJvZmlsZXM0LzEzOTk2OS8xMTV4MTQyZDYzYzU0YWNkZWRiNDFlNGFlMWIwYTM1YTY2NTguanBnIjtzOjM6IjEzOCI7czo3NjoiaHR0cHM6Ly9tMS5iZWhhbmNlLm5ldC9wcm9maWxlczQvMTM5OTY5LzE0MmQ2M2M1NGFjZGVkYjQxZTRhZTFiMGEzNWE2NjU4LmpwZyI7fXM6NjoiZmllbGRzIjthOjM6e2k6MDtzOjk6Ik1hcmtldGluZyI7aToxO3M6MTA6IldlYiBEZXNpZ24iO2k6MjtzOjE0OiJHcmFwaGljIERlc2lnbiI7fX19czo1OiJzdGF0cyI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJ2aWV3cyI7aTozMDtzOjEzOiJhcHByZWNpYXRpb25zIjtpOjA7czo4OiJjb21tZW50cyI7aTowO319', '', 'https://www.behance.net/gallery/Royal-Melbourne-Institute-of-Technology/954169', '', '*', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (99, 7, '954216', '2011-02-02 14:46:34', 'Tzo4OiJzdGRDbGFzcyI6MTM6e3M6MjoiaWQiO2k6OTU0MjE2O3M6NDoibmFtZSI7czoyNjoiQmxhY2sgUmhvZGl1bSB3ZWJzaXRlIDIwMTEiO3M6MTI6InB1Ymxpc2hlZF9vbiI7aToxMjk2NjU3OTk0O3M6MTA6ImNyZWF0ZWRfb24iO2k6MTI5NjY1NzY1MjtzOjExOiJtb2RpZmllZF9vbiI7aToxMzU0NjQzODk4O3M6MzoidXJsIjtzOjY1OiJodHRwczovL3d3dy5iZWhhbmNlLm5ldC9nYWxsZXJ5L0JsYWNrLVJob2RpdW0td2Vic2l0ZS0yMDExLzk1NDIxNiI7czo3OiJwcml2YWN5IjtzOjY6InB1YmxpYyI7czo2OiJmaWVsZHMiO2E6MTp7aTowO3M6MTA6IldlYiBEZXNpZ24iO31zOjY6ImNvdmVycyI7Tzo4OiJzdGRDbGFzcyI6Mjp7czozOiIxMTUiO3M6OTY6Imh0dHBzOi8vbTEuYmVoYW5jZS5uZXQvcHJvZmlsZXM0LzEzOTk2OS9wcm9qZWN0cy85NTQyMTYvMTE1eGI5MTA3MDg2MWIxYTFkZjEwY2I0MWMxNTU4ODkzZTc4LnBuZyI7czozOiIyMDIiO3M6OTI6Imh0dHBzOi8vbTEuYmVoYW5jZS5uZXQvcHJvZmlsZXM0LzEzOTk2OS9wcm9qZWN0cy85NTQyMTYvYjkxMDcwODYxYjFhMWRmMTBjYjQxYzE1NTg4OTNlNzgucG5nIjt9czoxNDoibWF0dXJlX2NvbnRlbnQiO2k6MDtzOjEzOiJtYXR1cmVfYWNjZXNzIjtzOjc6ImFsbG93ZWQiO3M6Njoib3duZXJzIjthOjE6e2k6MDtPOjg6InN0ZENsYXNzIjoxNDp7czoyOiJpZCI7aToxMzk5Njk7czoxMDoiZmlyc3RfbmFtZSI7czo0OiJqZW5rIjtzOjk6Imxhc3RfbmFtZSI7czo0OiJDb2xlIjtzOjg6InVzZXJuYW1lIjtzOjg6IkplbmtDb2xlIjtzOjQ6ImNpdHkiO3M6MTk6Ik1hbnNmaWVsZCBXb29kaG91c2UiO3M6NToic3RhdGUiO3M6MDoiIjtzOjc6ImNvdW50cnkiO3M6MTQ6IlVuaXRlZCBLaW5nZG9tIjtzOjc6ImNvbXBhbnkiO3M6MDoiIjtzOjEwOiJvY2N1cGF0aW9uIjtzOjE2OiJHcmFwaGljIGRlc2lnbmVyIjtzOjEwOiJjcmVhdGVkX29uIjtpOjEyNjE5NTE1MjY7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly93d3cuYmVoYW5jZS5uZXQvSmVua0NvbGUiO3M6MTI6ImRpc3BsYXlfbmFtZSI7czo5OiJqZW5rIENvbGUiO3M6NjoiaW1hZ2VzIjtPOjg6InN0ZENsYXNzIjozOntzOjI6IjUwIjtzOjc5OiJodHRwczovL20xLmJlaGFuY2UubmV0L3Byb2ZpbGVzNC8xMzk5NjkvNTB4MTQyZDYzYzU0YWNkZWRiNDFlNGFlMWIwYTM1YTY2NTguanBnIjtzOjM6IjExNSI7czo4MDoiaHR0cHM6Ly9tMS5iZWhhbmNlLm5ldC9wcm9maWxlczQvMTM5OTY5LzExNXgxNDJkNjNjNTRhY2RlZGI0MWU0YWUxYjBhMzVhNjY1OC5qcGciO3M6MzoiMTM4IjtzOjc2OiJodHRwczovL20xLmJlaGFuY2UubmV0L3Byb2ZpbGVzNC8xMzk5NjkvMTQyZDYzYzU0YWNkZWRiNDFlNGFlMWIwYTM1YTY2NTguanBnIjt9czo2OiJmaWVsZHMiO2E6Mzp7aTowO3M6OToiTWFya2V0aW5nIjtpOjE7czoxMDoiV2ViIERlc2lnbiI7aToyO3M6MTQ6IkdyYXBoaWMgRGVzaWduIjt9fX1zOjU6InN0YXRzIjtPOjg6InN0ZENsYXNzIjozOntzOjU6InZpZXdzIjtpOjI2O3M6MTM6ImFwcHJlY2lhdGlvbnMiO2k6MDtzOjg6ImNvbW1lbnRzIjtpOjA7fX0=', '', 'https://www.behance.net/gallery/Black-Rhodium-website-2011/954216', '', '*', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_streams_apis`
---
-
 CREATE TABLE IF NOT EXISTS `flock_streams_apis` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` bigint(20) NOT NULL,
@@ -1713,10 +1319,6 @@ CREATE TABLE IF NOT EXISTS `flock_streams_apis` (
   KEY `parent_id_2` (`parent_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
---
--- Gegevens worden uitgevoerd voor tabel `flock_streams_apis`
---
-
 INSERT INTO `flock_streams_apis` (`id`, `parent_id`, `title`, `alias`, `params`, `language`, `state`, `publish_up`, `publish_down`) VALUES
 (1, 0, 'Twitter', 'twitter', 'consumer_key=KSlsiPWpC50tBn2jLD8xQ\nconsumer_secret=BfFmluo0rnZp2I3H3XitCWhFvOqHHJFSGmMaTTvwN4\noauth_access_token=110107572-YMo8GKZ6ulzP1loyygnLTQUWx9dI681V4kU8LASv\noauth_access_token_secret=u1GpK5fNbI8POV9kY9lVbScLu6l331MEoDOJbJGqChY', '*', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (2, 0, 'Facebook', 'facebook', 'app_id=231110010232949\r\napp_secret=eedc870587dc39297be6fe57ab8f2b3d\r\napp_redirect=', '*', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -1726,12 +1328,6 @@ INSERT INTO `flock_streams_apis` (`id`, `parent_id`, `title`, `alias`, `params`,
 (7, 0, 'Behance', 'behance', 'client_id=5tq3cGGMES1FqwDILUuxQ10u4vAX97uU\nclient_secret=BljHqQLFUl32Ji9mvuSpRDoRlzVgCqHW\nusername=babsgosgens', '*', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (8, 0, 'Google+', 'googleplus', 'clientid=606050528417.apps.googleusercontent.com\nclientsecret=8087d2da188d58b462777fdca930f217e6c97fb1', '*', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (9, 0, 'LinkedIn', 'linkedin', 'api_key=ex3babit93fp\r\nsecret_key=ShKaRn3ZdBdnXSNw\r\noauth_user_token=4e017b3a-27e1-470e-aad7-0364f27e1894\r\noauth_user_secret=efafac4a-3555-4a95-b7f0-2d3fff6fbe07', '*', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_tags`
---
 
 CREATE TABLE IF NOT EXISTS `flock_tags` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1774,18 +1370,8 @@ CREATE TABLE IF NOT EXISTS `flock_tags` (
   KEY `idx_language` (`language`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
---
--- Gegevens worden uitgevoerd voor tabel `flock_tags`
---
-
 INSERT INTO `flock_tags` (`id`, `parent_id`, `lft`, `rgt`, `level`, `path`, `title`, `alias`, `note`, `description`, `published`, `checked_out`, `checked_out_time`, `access`, `params`, `metadesc`, `metakey`, `metadata`, `created_user_id`, `created_time`, `created_by_alias`, `modified_user_id`, `modified_time`, `images`, `urls`, `hits`, `language`, `version`, `publish_up`, `publish_down`) VALUES
 (1, 0, 0, 1, 0, '', 'ROOT', 'root', '', '', 1, 0, '0000-00-00 00:00:00', 1, '{}', '', '', '', 0, '2011-01-01 00:00:01', '', 0, '0000-00-00 00:00:00', '', '', 0, '*', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_template_styles`
---
 
 CREATE TABLE IF NOT EXISTS `flock_template_styles` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1799,22 +1385,12 @@ CREATE TABLE IF NOT EXISTS `flock_template_styles` (
   KEY `idx_home` (`home`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
---
--- Gegevens worden uitgevoerd voor tabel `flock_template_styles`
---
-
 INSERT INTO `flock_template_styles` (`id`, `template`, `client_id`, `home`, `title`, `params`) VALUES
 (4, 'beez3', 0, '0', 'Beez3 - Default', '{"wrapperSmall":"53","wrapperLarge":"72","logo":"images\\/joomla_black.gif","sitetitle":"Joomla!","sitedescription":"Open Source Content Management","navposition":"left","templatecolor":"personal","html5":"0"}'),
 (5, 'hathor', 1, '0', 'Hathor - Default', '{"showSiteName":"0","colourChoice":"","boldText":"0"}'),
 (7, 'protostar', 0, '0', 'protostar - Default', '{"templateColor":"","logoFile":"","googleFont":"1","googleFontName":"Open+Sans","fluidContainer":"0"}'),
 (8, 'isis', 1, '1', 'isis - Default', '{"templateColor":"","logoFile":""}'),
 (9, 'crossinghippos', 0, '1', 'Crossing Hippos - Default', '{"jQueryVersion":"1.10.2","webFontVersion":"1.4.8","webFontConfig":"google: { families: [ ''Asap:400,700,400italic,700italic:latin'' ] }"}');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_ucm_base`
---
 
 CREATE TABLE IF NOT EXISTS `flock_ucm_base` (
   `ucm_id` int(10) unsigned NOT NULL,
@@ -1826,12 +1402,6 @@ CREATE TABLE IF NOT EXISTS `flock_ucm_base` (
   KEY `idx_ucm_type_id` (`ucm_type_id`),
   KEY `idx_ucm_language_id` (`ucm_language_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_ucm_content`
---
 
 CREATE TABLE IF NOT EXISTS `flock_ucm_content` (
   `core_content_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1881,12 +1451,6 @@ CREATE TABLE IF NOT EXISTS `flock_ucm_content` (
   KEY `idx_core_type_id` (`core_type_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Contains core content data in name spaced fields' AUTO_INCREMENT=1 ;
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_update_sites`
---
-
 CREATE TABLE IF NOT EXISTS `flock_update_sites` (
   `update_site_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT '',
@@ -1897,10 +1461,6 @@ CREATE TABLE IF NOT EXISTS `flock_update_sites` (
   PRIMARY KEY (`update_site_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Update Sites' AUTO_INCREMENT=6 ;
 
---
--- Gegevens worden uitgevoerd voor tabel `flock_update_sites`
---
-
 INSERT INTO `flock_update_sites` (`update_site_id`, `name`, `type`, `location`, `enabled`, `last_check_timestamp`) VALUES
 (1, 'Joomla Core', 'collection', 'http://update.joomla.org/core/list.xml', 1, 1379412277),
 (2, 'Joomla Extension Directory', 'collection', 'http://update.joomla.org/jed/list.xml', 1, 1379412277),
@@ -1908,21 +1468,11 @@ INSERT INTO `flock_update_sites` (`update_site_id`, `name`, `type`, `location`, 
 (4, 'com_scriptmerge', 'extension', 'http://www.yireo.com/updates/com_scriptmerge.xml', 1, 1379412277),
 (5, 'plg_system_scriptmerge', 'extension', 'http://www.yireo.com/updates/plg_system_scriptmerge.xml', 1, 1379412277);
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_update_sites_extensions`
---
-
 CREATE TABLE IF NOT EXISTS `flock_update_sites_extensions` (
   `update_site_id` int(11) NOT NULL DEFAULT '0',
   `extension_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`update_site_id`,`extension_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Links extensions to update sites';
-
---
--- Gegevens worden uitgevoerd voor tabel `flock_update_sites_extensions`
---
 
 INSERT INTO `flock_update_sites_extensions` (`update_site_id`, `extension_id`) VALUES
 (1, 700),
@@ -1930,12 +1480,6 @@ INSERT INTO `flock_update_sites_extensions` (`update_site_id`, `extension_id`) V
 (3, 600),
 (4, 10002),
 (5, 10003);
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_updates`
---
 
 CREATE TABLE IF NOT EXISTS `flock_updates` (
   `update_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1953,10 +1497,6 @@ CREATE TABLE IF NOT EXISTS `flock_updates` (
   `infourl` text NOT NULL,
   PRIMARY KEY (`update_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Available Updates' AUTO_INCREMENT=53 ;
-
---
--- Gegevens worden uitgevoerd voor tabel `flock_updates`
---
 
 INSERT INTO `flock_updates` (`update_id`, `update_site_id`, `extension_id`, `name`, `description`, `element`, `type`, `folder`, `client_id`, `version`, `data`, `detailsurl`, `infourl`) VALUES
 (1, 3, 0, 'Romanian', '', 'pkg_ro-RO', 'package', '', 0, '3.1.1.2', '', 'http://update.joomla.org/language/details3/ro-RO_details.xml', ''),
@@ -2012,12 +1552,6 @@ INSERT INTO `flock_updates` (`update_id`, `update_site_id`, `extension_id`, `nam
 (51, 3, 0, 'Swahili', '', 'pkg_sw-KE', 'package', '', 0, '3.1.5.1', '', 'http://update.joomla.org/language/details3/sw-KE_details.xml', ''),
 (52, 4, 0, 'ScriptMerge', '', 'scriptmerge', 'component', '', 0, '0.9.8', '', 'http://www.yireo.com/updates/com_scriptmerge.xml', 'http://www.yireo.com/software/joomla-extensions/scriptmerge');
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_user_notes`
---
-
 CREATE TABLE IF NOT EXISTS `flock_user_notes` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL DEFAULT '0',
@@ -2039,12 +1573,6 @@ CREATE TABLE IF NOT EXISTS `flock_user_notes` (
   KEY `idx_category_id` (`catid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_user_profiles`
---
-
 CREATE TABLE IF NOT EXISTS `flock_user_profiles` (
   `user_id` int(11) NOT NULL,
   `profile_key` varchar(100) NOT NULL,
@@ -2053,21 +1581,11 @@ CREATE TABLE IF NOT EXISTS `flock_user_profiles` (
   UNIQUE KEY `idx_user_id_profile_key` (`user_id`,`profile_key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Simple user profile storage table';
 
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_user_usergroup_map`
---
-
 CREATE TABLE IF NOT EXISTS `flock_user_usergroup_map` (
   `user_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Foreign Key to #__users.id',
   `group_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Foreign Key to #__usergroups.id',
   PRIMARY KEY (`user_id`,`group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Gegevens worden uitgevoerd voor tabel `flock_user_usergroup_map`
---
 
 INSERT INTO `flock_user_usergroup_map` (`user_id`, `group_id`) VALUES
 (623, 8),
@@ -2075,12 +1593,6 @@ INSERT INTO `flock_user_usergroup_map` (`user_id`, `group_id`) VALUES
 (624, 7),
 (625, 2),
 (625, 7);
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_usergroups`
---
 
 CREATE TABLE IF NOT EXISTS `flock_usergroups` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
@@ -2095,10 +1607,6 @@ CREATE TABLE IF NOT EXISTS `flock_usergroups` (
   KEY `idx_usergroup_nested_set_lookup` (`lft`,`rgt`) USING BTREE
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
---
--- Gegevens worden uitgevoerd voor tabel `flock_usergroups`
---
-
 INSERT INTO `flock_usergroups` (`id`, `parent_id`, `lft`, `rgt`, `title`) VALUES
 (1, 0, 1, 18, 'Public'),
 (2, 1, 8, 15, 'Registered'),
@@ -2109,12 +1617,6 @@ INSERT INTO `flock_usergroups` (`id`, `parent_id`, `lft`, `rgt`, `title`) VALUES
 (7, 6, 5, 6, 'Administrator'),
 (8, 1, 16, 17, 'Super Users'),
 (9, 1, 2, 3, 'Guest');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_users`
---
 
 CREATE TABLE IF NOT EXISTS `flock_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -2137,20 +1639,10 @@ CREATE TABLE IF NOT EXISTS `flock_users` (
   KEY `email` (`email`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=626 ;
 
---
--- Gegevens worden uitgevoerd voor tabel `flock_users`
---
-
 INSERT INTO `flock_users` (`id`, `name`, `username`, `email`, `password`, `block`, `sendEmail`, `registerDate`, `lastvisitDate`, `activation`, `params`, `lastResetTime`, `resetCount`) VALUES
 (623, 'Super User', 'babsgosgens', 'babs@crossinghippos.nl', '5d6bbe9a857e194a3a63167eb861c8d6:vvZG3UYTXlWKftqNhnnQ4RSTG79PUhHH', 0, 1, '2013-09-13 11:16:48', '2013-09-18 07:22:47', '0', '{"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}', '0000-00-00 00:00:00', 0),
-(624, 'Jean Brouwers', 'jeanbrouwers', 'jean@crossinghippos.nl', 'd4e3abb8df5921d76eabf3aa7bb4fbb4:QSY9KZVLQcsSjyIT0HL7O5xs1wMICMap', 0, 0, '2013-09-13 11:19:07', '2013-09-19 13:49:19', '', '{"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}', '0000-00-00 00:00:00', 0),
+(624, 'Jean Brouwers', 'jeanbrouwers', 'jean@crossinghippos.nl', 'd4e3abb8df5921d76eabf3aa7bb4fbb4:QSY9KZVLQcsSjyIT0HL7O5xs1wMICMap', 0, 0, '2013-09-13 11:19:07', '2013-09-22 21:35:18', '', '{"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}', '0000-00-00 00:00:00', 0),
 (625, 'Jelle van Grinsven', 'jellevangrinsven', 'jelle@crossinghippos.nl', 'd044df4f99dd0afb4316b1ca5af04418:xIbcy0AAtZED4etJGQ9Pcik3WFlNv7nG', 0, 0, '2013-09-13 11:20:01', '0000-00-00 00:00:00', '', '{"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}', '0000-00-00 00:00:00', 0);
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_viewlevels`
---
 
 CREATE TABLE IF NOT EXISTS `flock_viewlevels` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
@@ -2161,21 +1653,11 @@ CREATE TABLE IF NOT EXISTS `flock_viewlevels` (
   UNIQUE KEY `idx_assetgroup_title_lookup` (`title`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
---
--- Gegevens worden uitgevoerd voor tabel `flock_viewlevels`
---
-
 INSERT INTO `flock_viewlevels` (`id`, `title`, `ordering`, `rules`) VALUES
 (1, 'Public', 0, '[1]'),
 (2, 'Registered', 1, '[6,2,8]'),
 (3, 'Special', 2, '[6,3,8]'),
 (5, 'Guest', 0, '[9]');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `flock_weblinks`
---
 
 CREATE TABLE IF NOT EXISTS `flock_weblinks` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
