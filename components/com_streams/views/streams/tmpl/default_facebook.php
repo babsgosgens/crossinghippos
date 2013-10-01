@@ -21,7 +21,7 @@ $patterns = array("/(?i)\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4
 $replace = array('<a href="$1">$1</a>', '<a href="https://www.facebook.com/$1">@$1</a>&nbsp;', '<a href="https://www.facebook.com/hashtag/$1">#$1</a>');
 $formatted_post = preg_replace($patterns, $replace, $post->message);
 
-if ($post->picture != ''){
+if (isset($post->picture)){
 	$picture = '<p><img src="' . $post->picture . '" /></p>';
 } else {
 	$picture = '';
