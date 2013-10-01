@@ -15,8 +15,13 @@ $post = $this->post;
 echo '<pre>';
 print_r($post);
 echo '</pre>';
+
+// Format the content
+$patterns = array('/@(\w+)/', '/#(\w+)/');
+$replace = array('<a href="https://www.facebook.com/$1">@$1</a>&nbsp;', '<a href="https://www.facebook.com/hashtag/$1">#$1</a>');
+$formatted_post = preg_replace($patterns, $replace, $post->message);
 ?>
 
 <a href="https://www.facebook.com/<?php echo $post->from->id; ?>"><span><?php echo $post->from->name;?></span></a>
-<p><?php echo $post->message; ?></p>
+<p><?php echo $formatted_post; ?></p>
 <p><img src="<?php echo $post->picture ?>" /></p>
