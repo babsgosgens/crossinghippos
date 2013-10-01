@@ -18,8 +18,7 @@ $post = $this->post;
 // exit;
 ?>
 
-	<img src="<?php echo $post->player->avatar_url; ?>" width="32" height="32">
-	<a href="http://dribbble.com/<?php echo $post->player->username; ?>"><span><?php echo $post->player->name;?></span></a>
-	<a href="<?php echo $post->url; ?>"><span><?php echo $post->title; ?></span>
-	<img src="<?php echo $post->image_url; ?>" width="150"></a>
-	Dribbble
+	<p><img src="<?php echo $post->player->avatar_url; ?>" width="32" height="32">
+	<a href="http://dribbble.com/<?php echo $post->player->username; ?>"><span><?php echo $post->player->name;?></span></a></p>
+	<p><a href="<?php echo $post->url; ?>"><span><?php echo $post->title; ?></span></p>
+	<p><img src="<?php echo $post->image_url; ?>" width="150"></a></p>

@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 $post = $this->post;
 
 // Uncomment for available attributes
-echo '<pre>';
-print_r($post);
-echo '</pre>';
+//echo '<pre>';
+//print_r($post);
+//echo '</pre>';
 ?>
 
 <a href="https://www.facebook.com/<?php echo $post->from->id; ?>"><span><?php echo $post->from->name;?></span></a>
