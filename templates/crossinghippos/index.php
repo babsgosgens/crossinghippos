@@ -30,10 +30,10 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
     </style>
 </head>
 <body class="root">
-  <header>
-    <h1>Crossing Hippos</h1><h2>webdesign met overbite</h2>
-    <nav>
-      <jdoc:include type="modules" name="position-7" />
+  <header role="banner" class="banner">
+    <h1 class="banner-title">Crossing Hippos<span class="banner-subtitle">webdesign met overbite</span></h1>
+    <nav role="navigation" class="navbar">
+      <jdoc:include type="modules" name="mainnav" />
     </nav>
   </header>
   <section>

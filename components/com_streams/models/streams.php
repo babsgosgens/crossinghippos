@@ -43,6 +43,7 @@ class StreamsModelStreams extends JModelList
 	public function getItems()
 	{
 		$items = parent::getItems();
+		$store = 'streams';
 
 		// Unserialize raw attribute into PHP array
 		foreach ($items as $key => &$item)

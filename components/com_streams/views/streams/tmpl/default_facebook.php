@@ -22,7 +22,7 @@ $replace = array('<a href="$1">$1</a>', '<a href="https://www.facebook.com/$1">@
 $formatted_post = preg_replace($patterns, $replace, $post->message);
 
 if (isset($post->picture)){
-	$picture = '<p><img src="' . $post->picture . '" /></p>';
+	$picture = '<p><img src="' . $post->picture . '"></p>';
 } else {
 	$picture = '';
 }
