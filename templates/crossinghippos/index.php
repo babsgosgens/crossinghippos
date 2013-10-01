@@ -29,22 +29,24 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
     }
     </style>
 </head>
-<body class="root">
+<body>
   <header role="banner" class="banner">
     <h1 class="banner-title">Crossing Hippos<span class="banner-subtitle">webdesign met overbite</span></h1>
     <nav role="navigation" class="navbar">
       <jdoc:include type="modules" name="mainnav" />
     </nav>
   </header>
-  <section>
-    <jdoc:include type="modules" name="position-2" />
-    <article>
-      <jdoc:include type="message" />
-      <jdoc:include type="component" />
-      <jdoc:include type="modules" name="component-modules" style="raw" />
-    </article>
-  </section>
-  <footer>
+  <div class="body">
+    <span><?php echo $pageTitle;?></span>
+    <nav class="navbar">
+      <jdoc:include type="modules" name="breadcrumbs" />
+    </nav>
+    <jdoc:include type="message" />
+    <jdoc:include type="modules" name="content-top" />
+    <jdoc:include type="component" />
+    <jdoc:include type="modules" name="component-modules" style="raw" />
+  </div>
+  <footer class="footer">
     <article class="fourth column">
       <h1>Lorem ipsum</h1>
       <p>

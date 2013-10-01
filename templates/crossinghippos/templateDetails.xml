@@ -29,6 +29,8 @@
         <position>banner</position>
         <position>debug</position>
         <position>mainnav</position>
+        <position>content-top</position>
+        <position>breadcrumbs</position>
         <position>position-0</position>
         <position>position-1</position>
         <position>position-2</position>

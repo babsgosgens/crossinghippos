@@ -19,7 +19,17 @@ jimport('joomla.filesystem.file');
 $doc = JFactory::getDocument();
 $app = JFactory::getApplication();
 $user = JFactory::getUser();
+
 $isGuest = $user->guest;
+$menu = $app->getMenu();
+$activeMenu = $menu->getActive();
+//print_r($activeMenu);
+
+/**
+ * Load page title
+ *
+ */
+$pageTitle = $activeMenu->params->get('page_heading', $activeMenu->title);
 
 /**
  * Load template parameters
