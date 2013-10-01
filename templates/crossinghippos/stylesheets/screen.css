@@ -621,36 +621,35 @@ q {
 .stream {
   margin-top: 10px;
   margin-bottom: 10px;
-  border: 1px solid #000000;
   padding: 5px;
 }
 
-/* line 8, ../sass/crossinghippos.nl/behavior/_jelle.scss */
+/* line 7, ../sass/crossinghippos.nl/behavior/_jelle.scss */
 .twitter {
   background-color: #00ACED;
 }
 
-/* line 12, ../sass/crossinghippos.nl/behavior/_jelle.scss */
+/* line 11, ../sass/crossinghippos.nl/behavior/_jelle.scss */
 .github {
   background-color: #7BBF6A;
 }
 
-/* line 16, ../sass/crossinghippos.nl/behavior/_jelle.scss */
+/* line 15, ../sass/crossinghippos.nl/behavior/_jelle.scss */
 .dribbble {
   background-color: #F05F96;
 }
 
-/* line 20, ../sass/crossinghippos.nl/behavior/_jelle.scss */
+/* line 19, ../sass/crossinghippos.nl/behavior/_jelle.scss */
 .flickr {
   background-color: #0063DB;
 }
 
-/* line 24, ../sass/crossinghippos.nl/behavior/_jelle.scss */
+/* line 23, ../sass/crossinghippos.nl/behavior/_jelle.scss */
 .behance {
   background-color: #4797D0;
 }
 
-/* line 28, ../sass/crossinghippos.nl/behavior/_jelle.scss */
+/* line 27, ../sass/crossinghippos.nl/behavior/_jelle.scss */
 .facebook {
   background-color: #3B5998;
 }
