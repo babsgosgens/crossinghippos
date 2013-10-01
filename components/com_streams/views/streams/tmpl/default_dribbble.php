@@ -22,3 +22,4 @@ $post = $this->post;
 	<a href="http://dribbble.com/<?php echo $post->player->username; ?>"><span><?php echo $post->player->name;?></span></a>
 	<a href="<?php echo $post->url; ?>"><span><?php echo $post->title; ?></span>
 	<img src="<?php echo $post->image_url; ?>" width="150"></a>
+	Dribbble

@@ -22,3 +22,4 @@ $post = $this->post;
 	<a href="<?php echo $post->owners[0]->url; ?>"><span><?php echo $post->owners[0]->username; ?></span></a>
 	<a href="<?php echo $post->url; ?>"><span><?php echo $post->name; ?></span>
 	<img src="<?php echo $post->covers->{202}; ?>" width="150"></a>
+	Behance
