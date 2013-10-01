@@ -618,31 +618,39 @@ q {
    License: GNU General Public License version 2 or later; see LICENSE.txt
 */
 /* line 1, ../sass/crossinghippos.nl/behavior/_jelle.scss */
+.stream {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #000000;
+  padding: 5px;
+}
+
+/* line 8, ../sass/crossinghippos.nl/behavior/_jelle.scss */
 .twitter {
   background-color: #00ACED;
 }
 
-/* line 5, ../sass/crossinghippos.nl/behavior/_jelle.scss */
+/* line 12, ../sass/crossinghippos.nl/behavior/_jelle.scss */
 .github {
   background-color: #7BBF6A;
 }
 
-/* line 9, ../sass/crossinghippos.nl/behavior/_jelle.scss */
+/* line 16, ../sass/crossinghippos.nl/behavior/_jelle.scss */
 .dribbble {
   background-color: #F05F96;
 }
 
-/* line 13, ../sass/crossinghippos.nl/behavior/_jelle.scss */
+/* line 20, ../sass/crossinghippos.nl/behavior/_jelle.scss */
 .flickr {
   background-color: #0063DB;
 }
 
-/* line 17, ../sass/crossinghippos.nl/behavior/_jelle.scss */
+/* line 24, ../sass/crossinghippos.nl/behavior/_jelle.scss */
 .behance {
   background-color: #4797D0;
 }
 
-/* line 21, ../sass/crossinghippos.nl/behavior/_jelle.scss */
+/* line 28, ../sass/crossinghippos.nl/behavior/_jelle.scss */
 .facebook {
   background-color: #3B5998;
 }
