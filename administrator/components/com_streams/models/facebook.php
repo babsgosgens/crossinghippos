@@ -75,6 +75,7 @@ class StreamsModelFacebook extends JModelAdmin
 		$options->set('redirecturi', $params->get('app_redirect'));
 		$options->set('sendheaders', true);
 		$options->set('authmethod', 'get');
+		$options->set('scope', 'user_status');
 
 		// Authenticate 
 		if (!isset($_GET['error_reason'])){
@@ -121,11 +122,6 @@ class StreamsModelFacebook extends JModelAdmin
 	{
 		$response = $response ? $response : $this->getResponse();
 
-		/* DEBUG */
-		var_dump($response);
-		exit;
-		/* DEBUG */
-
 		/**
 		 * Facebook returns an object with two attributes: data and paginate if the call was succesful
 		 */
@@ -135,6 +131,7 @@ class StreamsModelFacebook extends JModelAdmin
 			$c = 0;
 			foreach ($response->data as $item)
 			{
+
 				/**
 				 * Get a reference to the table
 				 */
