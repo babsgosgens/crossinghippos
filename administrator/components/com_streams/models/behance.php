@@ -172,7 +172,7 @@ class StreamsModelBehance extends JModelAdmin
 
 			// check if user has any projects
 			if ($this->response == null){
-				JFactory::getApplication()->enqueueMessage('Because the user has no items, ');
+				JFactory::getApplication()->enqueueMessage('The user ' . $this->params->get('username') . ' has 0 items. Therefore');
 			}
 		}
 	}
