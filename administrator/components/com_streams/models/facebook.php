@@ -77,8 +77,10 @@ class StreamsModelFacebook extends JModelAdmin
 		$options->set('authmethod', 'get');
 
 		// Authenticate 
-		$oauth = new JFacebookOAuth($options);
-		$access_token = $oauth->authenticate();
+		if (!isset($_GET['error_reason'])){
+			$oauth = new JFacebookOAuth($options);
+			$access_token = $oauth->authenticate();
+		}
 
 		// Create the Facebook object
 		$facebook = new JFacebook($oauth);
@@ -118,6 +120,11 @@ class StreamsModelFacebook extends JModelAdmin
 	public function update($response = null)
 	{
 		$response = $response ? $response : $this->getResponse();
+
+		/* DEBUG */
+		var_dump($response);
+		exit;
+		/* DEBUG */
 
 		/**
 		 * Facebook returns an object with two attributes: data and paginate if the call was succesful
@@ -197,7 +204,7 @@ class StreamsModelFacebook extends JModelAdmin
 
 			// Get the feed and store it in the class attribute
 			$user = $facebook->user;
-			$this->response = $user->getFeed("me");
+			$this->response = $user->getStatuses("me");
 		}
 	}
 
