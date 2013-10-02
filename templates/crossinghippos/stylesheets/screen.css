@@ -88,7 +88,7 @@ html {
   /*
    * It's good practice to set the background color of the html tag
    */
-  background-color: #fffef4;
+  background-color: #ffcc00;
   /**
    * Prevent iOS text size adjust after orientation change, 
    * without disabling user zoom.
@@ -651,4 +651,40 @@ q {
 /* line 26, ../sass/crossinghippos.nl/behavior/_jelle.scss */
 .facebook {
   background-color: #3B5998;
+}
+
+/* line 1, ../sass/crossinghippos.nl/behavior/_banner.scss */
+.banner {
+  background-color: white;
+}
+
+/* line 1, ../sass/crossinghippos.nl/behavior/_footer.scss */
+.footer {
+  background-color: white;
+}
+
+/* line 5, ../sass/crossinghippos.nl/behavior/_navbar.scss */
+.navbar li {
+  display: inline-block;
+}
+/* line 9, ../sass/crossinghippos.nl/behavior/_navbar.scss */
+.navbar .active a {
+  color: #00b09e;
+}
+/* line 11, ../sass/crossinghippos.nl/behavior/_navbar.scss */
+.navbar .active a:visited {
+  color: #00b09e;
+}
+/* line 16, ../sass/crossinghippos.nl/behavior/_navbar.scss */
+.navbar a {
+  text-decoration: none;
+}
+/* line 21, ../sass/crossinghippos.nl/behavior/_navbar.scss */
+.navbar a, .navbar:visited, .navbar:active {
+  color: inherit;
+}
+
+/* line 1, ../sass/crossinghippos.nl/behavior/_template.scss */
+.page-header {
+  color: white;
 }

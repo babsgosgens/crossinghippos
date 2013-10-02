@@ -31,50 +31,56 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 </head>
 <body>
   <header role="banner" class="banner">
-    <h1 class="banner-title">Crossing Hippos<span class="banner-subtitle">webdesign met overbite</span></h1>
-    <nav role="navigation" class="navbar">
-      <jdoc:include type="modules" name="mainnav" />
-    </nav>
+    <div class="root">
+      <h1 class="banner-title">Crossing Hippos<span class="banner-subtitle">webdesign met overbite</span></h1>
+      <nav role="navigation" class="navbar">
+        <jdoc:include type="modules" name="mainnav" />
+      </nav>
+    </div>
   </header>
   <div class="body">
-    <span><?php echo $pageTitle;?></span>
-    <nav class="navbar">
-      <jdoc:include type="modules" name="breadcrumbs" />
-    </nav>
-    <jdoc:include type="message" />
-    <jdoc:include type="modules" name="content-top" />
-    <jdoc:include type="component" />
-    <jdoc:include type="modules" name="component-modules" style="raw" />
+    <span class="page-header"><?php echo $pageTitle;?></span>
+    <div class="root">
+      <nav class="navbar">
+        <jdoc:include type="modules" name="breadcrumbs" />
+      </nav>
+      <jdoc:include type="message" />
+      <jdoc:include type="modules" name="content-top" />
+      <jdoc:include type="component" />
+      <jdoc:include type="modules" name="component-modules" style="raw" />
+    </div>
   </div>
   <footer class="footer">
-    <article class="fourth column">
-      <h1>Lorem ipsum</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
-        ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
-      </p>
-    </article>
-    <article class="fourth column">
-      <h1>Lorem ipsum</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
-        ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
-      </p>
-    </article>
-    <article class="fourth column">
-      <h1>Lorem ipsum</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
-        ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
-      </p>
-    </article>
-    <article class="fourth column">
-      <h1>Lorem ipsum</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
-        ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
-      </p>
-    </article>
+    <div class="root">
+      <article class="fourth column">
+        <h1>Lorem ipsum</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
+          ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
+        </p>
+      </article>
+      <article class="fourth column">
+        <h1>Lorem ipsum</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
+          ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
+        </p>
+      </article>
+      <article class="fourth column">
+        <h1>Lorem ipsum</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
+          ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
+        </p>
+      </article>
+      <article class="fourth column">
+        <h1>Lorem ipsum</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
+          ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
+        </p>
+      </article>
+    </div>
   </footer>
     <jdoc:include type="modules" name="debug" />
 
