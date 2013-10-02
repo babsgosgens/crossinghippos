@@ -65,6 +65,9 @@ class StreamsModelFacebook extends JModelAdmin
 		$uri = JFactory::getUri();
 		$params->set('app_redirect', $uri->toString());
 
+		// Remove 'fb' from app_id.
+		$params->set('app_id', str_replace('fb', '', $params->get('app_id')));
+
 		// Build the options object
 		$options = new JRegistry;
 		$options->set('clientid', $params->get('app_id'));
