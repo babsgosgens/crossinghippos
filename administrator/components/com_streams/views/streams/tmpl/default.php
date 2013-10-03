@@ -166,6 +166,19 @@ $sortFields = $this->getSortFields();
 							$postContent = $post->name;
 						}
 						break;
+					case 'googleplus':
+						$post = $item->php;
+
+						if($this->get('State')->get('filter.api') == 'googleplus'){
+							if (isset($post[object][attachments][0][image][url])){
+								$postContent = '<img width="115" src="'.$post[object][attachments][0][image][url].'"> '.$post[title];
+							} else {
+								$postContent = $post[title];
+							}
+						} else {
+							$postContent = $post[title];
+						}
+						break;
 				}
 				?>
 				<tr class="row<?php echo $i % 2; ?>">

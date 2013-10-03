@@ -198,7 +198,7 @@ class StreamsModelFacebook extends JModelAdmin
 
 			// Get the feed and store it in the class attribute
 			$user = $facebook->user;
-			$this->response = $user->getStatuses('me');
+			$this->response = $user->getStatuses('me', 200);
 		}
 	}
 
