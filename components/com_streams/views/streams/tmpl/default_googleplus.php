@@ -15,6 +15,29 @@ $post = $this->post;
 // echo '<pre>';
 // print_r($post);
 // echo '</pre>';
+
+// format according element
+if (isset($post['object']['attachments'])){
+
+	if ($post['object']['attachments'][0]['objectType'] == 'photo'){
+		$type = 'photo';
+		$content = $post['object']['attachments'][0]['image']['url'];
+		$permalink = $post['url'];
+	} elseif ($post['object']['attachments'][0]['objectType'] == 'video'){
+		$type = 'video';
+		$content = strtok($post['object']['attachments'][0]['embed']['url'], '?') . '?feature=player_embedded&autoplay=0';
+		$permalink = '';
+	} elseif ($post['object']['attachments'][0]['objectType'] == 'article'){
+		$type = 'url';
+		$content = $post['object']['attachments'][0]['image']['url'];
+		$permalink = $post['object']['attachments'][0]['url'];
+	}
+
+	$element = array('type' => $type, 'content' => $content, 'permalink' => $permalink);
+
+} else {
+	$element = '';
+}
 ?>
 
 <!-- PROFILE -->
@@ -27,25 +50,5 @@ $post = $this->post;
 <!-- TITLE -->
 
 <!-- ITEM -->
-<?php
-if (isset($post['object']['attachments'][0])){
-	if ($post['object']['attachments'][0]['objectType'] == 'photo'){
-		/*
-		* PHOTOS
-		*/
-		echo '<a href="' . $post['url'] . '"><img src="' . $post['object']['attachments'][0]['image']['url'] . '"></img></a>';
-	} elseif ($post['object']['attachments'][0]['objectType'] == 'video'){
-		/*
-		* VIDEOS
-		*/
-		echo '<iframe width="100%" height="100%" src="' . strtok($post['object']['attachments'][0]['embed']['url'], '?') . '?feature=player_embedded&autoplay=0" frameborder="0" allowfullscreen></iframe>';
-	} elseif ($post['object']['attachments'][0]['objectType'] == 'article'){
-		/*
-		* LINKS
-		*/
-		echo '<img src="' . $post['object']['attachments'][0]['image']['url'] . '">';
-		echo '<a href="' . $post['object']['attachments'][0]['url'] . '">' . $post['object']['attachments'][0]['url'] . '</a>';
-	}
-}
-?>
+<?php var_dump($element); ?>
 <!-- ITEM -->
