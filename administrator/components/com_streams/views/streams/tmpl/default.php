@@ -133,7 +133,12 @@ $sortFields = $this->getSortFields();
 						break;
 					case 'facebook':
 						$post = $item->php;
-						$postContent = $post->message;
+
+						if(isset($post->message)) {
+							$postContent = $post->message;
+						} else {
+							$postContent = '';
+						}
 						break;
 					case 'github':
 						$post = $item->php;
@@ -170,16 +175,17 @@ $sortFields = $this->getSortFields();
 						$post = $item->php;
 
 						if($this->get('State')->get('filter.api') == 'googleplus'){
-							if (isset($post[object][attachments][0][image][url])){
-								$postContent = '<img width="115" src="'.$post[object][attachments][0][image][url].'"> '.$post[title];
+							if (isset($post['object']['attachments'][0]['image']['url'])){
+								$postContent = '<img width="115" src="'.$post['object']['attachments'][0]['image']['url'].'"> '.$post['title'];
 							} else {
-								$postContent = $post[title];
+								$postContent = $post['title'];
 							}
 						} else {
-							$postContent = $post[title];
+							$postContent = $post['title'];
 						}
 						break;
 				}
+
 				?>
 				<tr class="row<?php echo $i % 2; ?>">
 					<td class="center hidden-phone">

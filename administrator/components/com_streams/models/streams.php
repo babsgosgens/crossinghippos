@@ -50,7 +50,7 @@ class StreamsModelStreams extends JModelList
 	{
 		// Load the filter state.
 		$id = $this->getUserStateFromRequest($this->context . '.filter.id', 'filter_id', '', 'string');
-		$this->setState('filter.id', $published);
+		$this->setState('filter.id', $id);
 
 		$published = $this->getUserStateFromRequest($this->context . '.filter.state', 'filter_state', '', 'string');
 		$this->setState('filter.state', $published);
@@ -98,6 +98,8 @@ class StreamsModelStreams extends JModelList
 	{
 		$items = parent::getItems();
 
+		$store = 'streams';
+
 		// Unserialize raw attribute into PHP array
 		foreach ($items as $key => &$item)
 		{
@@ -131,7 +133,9 @@ class StreamsModelStreams extends JModelList
 			 a.date_created,
 			 a.raw,
 			 a.state, 
-			 a.language'
+			 a.language,
+			 a.publish_up,
+			 a.publish_down'
 		);
 		$query->from($db->quoteName('#__streams') . ' AS a');
 
