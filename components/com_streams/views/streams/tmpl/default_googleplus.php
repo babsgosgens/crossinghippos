@@ -17,7 +17,18 @@ $post = $this->post;
 // echo '</pre>';
 ?>
 
-<?php echo $post['actor']['image']['url']; ?><?php echo $post['actor']['displayName']; ?>
-<?php echo $post['title']; ?><?php echo $post['url']; ?>
+<!-- PROFILE -->
+<?php echo '<img src="' . $post['actor']['image']['url'] . '"></img>'; ?>
+<?php echo $post['actor']['displayName']; ?>
 
-<?php echo $post['object']['attachments'][0]['image']['url']; ?>
+<!-- ITEM -->
+<?php
+if (isset($post['object']['attachments'][0])){
+	// if photo
+	if ($post['object']['attachments'][0]['objectType'] == 'photo'){
+		echo '<a href="' . $post['url'] . '"><h1>' . $post['title'] . '</h1><img src="' . $post['object']['attachments'][0]['image']['url'] . '"></img></a>';
+	} elseif ($post['object']['attachments'][0]['objectType'] == 'video'){
+		echo '<h1>' . $post['title'] . '</h1><iframe src="' . strtok($post['object']['attachments'][0]['embed']['url'], '?') . '?feature=player_embedded&autoplay=0" frameborder="0" allowfullscreen></iframe>';
+	}
+}
+?>
