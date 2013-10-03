@@ -17,7 +17,7 @@ $post = $this->post;
 // echo '</pre>';
 ?>
 
-<?php echo $post[actor][image][url]; ?><?php echo $post[actor][displayName]; ?>
-<?php echo $post[title]; ?><?php echo $post[url]; ?>
+<?php echo $post['actor']['image']['url']; ?><?php echo $post['actor']['displayName']; ?>
+<?php echo $post['title']; ?><?php echo $post['url']; ?>
 
-<?php echo $post[object][attachments][0][image][url]; ?>
+<?php echo $post['object']['attachments'][0]['image']['url']; ?>
