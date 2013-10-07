@@ -26,6 +26,7 @@ if (isset($post['object']['attachments'])){
 	} elseif ($post['object']['attachments'][0]['objectType'] == 'article'){
 		$content = $post['object']['attachments'][0]['fullImage']['url'];
 		$link = $post['object']['attachments'][0]['url'];
+
 		if (isset($post['object']['attachments'][0]['content'])){
 			$description = $post['object']['attachments'][0]['content'];
 		} else {
@@ -34,6 +35,7 @@ if (isset($post['object']['attachments'])){
 	} elseif ($post['object']['attachments'][0]['objectType'] == 'video'){
 		$content = $post['object']['attachments'][0]['image']['url'];
 		$link = $post['object']['attachments'][0]['url'];
+
 		if (isset($post['object']['attachments'][0]['content'])){
 			$description = $post['object']['attachments'][0]['content'];
 		} else {
@@ -61,14 +63,16 @@ if (isset($post['title']))
 
 <!-- ITEM -->
 <?php
-if (isset($attachment))
-{
+if (isset($attachment)){
 	echo '<a href="' . $attachment['url'] . '"><img src="' . $attachment['content'] . '"></a>';
 
 	if (isset($attachment['description']))
 	{
 		echo '<p>' . $attachment['description'] . '</p>';
 	}
+	
+} else {
+	echo '<p>' . $post['object']['content'] . '</p>';
 }
 ?>
 <!-- ITEM -->
