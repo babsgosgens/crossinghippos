@@ -19,18 +19,15 @@ $post = $this->post;
 // format according element
 if (isset($post['object']['attachments'])){
 
-	if ($post['object']['attachments'][0]['objectType'] == 'photo'){
+	if ($post['object']['attachments'][0]['objectType'] == 'photo' ||  $post['object']['attachments'][0]['objectType'] == 'video'){
 		$content = $post['object']['attachments'][0]['image']['url'];
-		$permalink = $post['object']['attachments'][0]['url'];;
-	} elseif ($post['object']['attachments'][0]['objectType'] == 'video'){
-		$content = strtok($post['object']['attachments'][0]['embed']['url'], '?') . '?feature=player_embedded&autoplay=0';
 		$permalink = $post['object']['attachments'][0]['url'];
 	} elseif ($post['object']['attachments'][0]['objectType'] == 'article'){
 		$content = $post['object']['attachments'][0]['fullImage']['url'];
 		$permalink = $post['object']['attachments'][0]['url'];
 	}
 
-	$attachment = array('type' => $post['object']['attachments'][0]['objectType'], 'content' => $content, 'link' => $permalink);
+	$attachment = array('type' => $post['object']['attachments'][0]['objectType'], 'content' => $content, 'url' => $permalink);
 }
 ?>
 
@@ -52,17 +49,13 @@ if (isset($post['title']))
 <?php
 if (isset($attachment)){
 
-		if ($attachment['type'] == 'photo')
+		if ($attachment['type'] == 'photo' || $attachment['type'] == 'video')
 		{
-			echo 'PHOTO';
-		}
-		elseif ($attachment['type'] == 'video')
-		{
-			echo 'VIDEO';
+			echo '<a href="' . $attachment['url'] . '"><img src="' . $attachment['content'] . '"></a>';
 		}
 		elseif ($attachment['type'] == 'article')
 		{
-			echo 'ARTICLE';
+			echo '<a href="' . $attachment['url'] . '"><img src="' . $attachment['content'] . '"></a>';
 		}
 	}
 	?>
