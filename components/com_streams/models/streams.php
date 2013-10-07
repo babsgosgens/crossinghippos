@@ -89,6 +89,9 @@ class StreamsModelStreams extends JModelList
 		// Only show published items
 		$query->where('a.state = 1');
 
+		// Sort on date
+		$query->order('a.date_created DESC');
+
 		// echo nl2br(str_replace('#__','flock_',$query));
 		return $query;
 	}
