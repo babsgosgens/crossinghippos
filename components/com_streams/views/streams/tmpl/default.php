@@ -10,7 +10,61 @@
 defined('_JEXEC') or die;
 ?>
 
-<h1>Streams</h1>
+<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+<script>
+$(function() {
+  $(".scrollable").scrollable();
+});
+</script>
+<style>
+.scrollable {
+  /* required settings */
+  position:relative;
+  overflow:hidden;
+  width: 605px;
+}
+ 
+.scrollable .items {
+  /* this cannot be too large */
+  width:20000em;
+  position:absolute;
+}
+
+article
+{
+	float: left;
+	width: 300px;
+	height: 200px;
+}
+
+.avatar
+{
+	width: 32px;
+	height: 32px;
+}
+
+.postimage
+{
+	width: 32px;
+	height: 32px;
+}
+
+.intro
+{
+	background-color: grey;
+}
+</style>
+
+<div class="scrollable" id="scrollable" style="height: 205px;">
+  <div class="items">
+
+  	<article class="stream intro">
+  		<p>
+  			Hello, this is a small intro block.
+  			I describe unnecessery info here.
+  			And this is also not interesting.
+  		</p>
+  	</article>
 
 <?php if ( empty($this->items) ):
 	?>
@@ -38,7 +92,14 @@ defined('_JEXEC') or die;
 		<?php endforeach; ?>
 <?php endif; ?>
 
-<div class="pagination">
+  </div>
+</div>
+
+<a class="prev browse left">back</a>&nbsp;
+<a class="next browse right">next</a>
+</div>
+
+<div class="pagination" style="display: none;">
 	<p class="counter pull-right">
 		<?php echo $this->pagination->getPagesCounter(); ?>
 	</p>

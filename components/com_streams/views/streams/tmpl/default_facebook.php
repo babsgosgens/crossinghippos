@@ -26,7 +26,7 @@ if (isset($post->message))
 ?>
 
 
-<?php echo '<img src="https://graph.facebook.com/' . $post->from->id . '/picture?square">'; ?>
+<?php echo '<img class="avatar" src="https://graph.facebook.com/' . $post->from->id . '/picture?square">'; ?>
 <a href="https://www.facebook.com/<?php echo $post->from->id; ?>"><span><?php echo $post->from->name;?></span></a>
 <?php
 if (isset($formatted_post))

@@ -48,7 +48,7 @@ if (isset($post['object']['attachments'])){
 ?>
 
 <!-- PROFILE -->
-<?php echo '<img src="' . $post['actor']['image']['url'] . '"></img>'; ?>
+<?php echo '<img class="avatar" src="' . $post['actor']['image']['url'] . '"></img>'; ?>
 <?php echo $post['actor']['displayName']; ?>
 <!-- PROFILE -->
 
@@ -64,7 +64,7 @@ if (isset($post['title']))
 <!-- ITEM -->
 <?php
 if (isset($attachment)){
-	echo '<a href="' . $attachment['url'] . '"><img src="' . $attachment['content'] . '"></a>';
+	echo '<a href="' . $attachment['url'] . '"><img class="postimage" src="' . $attachment['content'] . '"></a>';
 
 	if (isset($attachment['description']))
 	{
@@ -72,7 +72,10 @@ if (isset($attachment)){
 	}
 	
 } else {
-	echo '<p>' . $post['object']['content'] . '</p>';
+	$patterns = array("/(?i)\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))/");
+	$replace = array('<a href="$1">$1</a>');
+	$formatted_post = preg_replace($patterns, $replace, $post['object']['content']);
+	echo '<p>' . $formatted_post . '</p>';
 }
 ?>
 <!-- ITEM -->
