@@ -52,8 +52,13 @@ class StreamsModelFlickr extends JModelAdmin
 
 		// get contents
 		$flickr = file_get_contents('http://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key='.$params->get('key').'&user_id='.$params->get('user').'&format=json&nojsoncallback=1&per_page=20');
+
+		// get profileimage
+		$profileimage = json_decode(file_get_contents('http://api.flickr.com/services/rest/?method=flickr.people.getInfo&api_key='.$params->get('key').'&user_id='.$params->get('user').'&format=json&nojsoncallback=1&per_page=20'));
+		$profileimage = 'http://farm' . $profileimage->person->iconfarm . '.staticflickr.com/' . $profileimage->person->iconserver . '/buddyicons/' . $profileimage->person->nsid . '.jpg';
 		
 		// make available to this object.
+		$this->set('profileimg', $profileimage);
 		$this->set('api', $flickr);
 		$this->set('params', $params);
 	}
@@ -98,6 +103,8 @@ class StreamsModelFlickr extends JModelAdmin
 
 				$photo_data = json_decode(file_get_contents('http://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key='.$this->params->get('key').'&photo_id='.$item->id.'&format=json&nojsoncallback=1'));
 				$item = $photo_data->photo;
+
+				$item->profileimg = $this->profileimg;
 
 				/**
 				 * Get a reference to the table
