@@ -19,15 +19,29 @@ $post = $this->post;
 // format according element
 if (isset($post['object']['attachments'])){
 
-	if ($post['object']['attachments'][0]['objectType'] == 'photo' ||  $post['object']['attachments'][0]['objectType'] == 'video'){
+	if ($post['object']['attachments'][0]['objectType'] == 'photo'){
 		$content = $post['object']['attachments'][0]['image']['url'];
-		$permalink = $post['object']['attachments'][0]['url'];
+		$link = $post['object']['attachments'][0]['url'];
+		$description = '';
 	} elseif ($post['object']['attachments'][0]['objectType'] == 'article'){
 		$content = $post['object']['attachments'][0]['fullImage']['url'];
-		$permalink = $post['object']['attachments'][0]['url'];
+		$link = $post['object']['attachments'][0]['url'];
+		if (isset($post['object']['attachments'][0]['content'])){
+			$description = $post['object']['attachments'][0]['content'];
+		} else {
+			$description = '';
+		}
+	} elseif ($post['object']['attachments'][0]['objectType'] == 'video'){
+		$content = $post['object']['attachments'][0]['image']['url'];
+		$link = $post['object']['attachments'][0]['url'];
+		if (isset($post['object']['attachments'][0]['content'])){
+			$description = $post['object']['attachments'][0]['content'];
+		} else {
+			$description = '';
+		}
 	}
 
-	$attachment = array('type' => $post['object']['attachments'][0]['objectType'], 'content' => $content, 'url' => $permalink);
+	$attachment = array('type' => $post['object']['attachments'][0]['objectType'], 'content' => $content, 'url' => $link, 'description' => $description);
 }
 ?>
 
@@ -47,16 +61,14 @@ if (isset($post['title']))
 
 <!-- ITEM -->
 <?php
-if (isset($attachment)){
+if (isset($attachment))
+{
+	echo '<a href="' . $attachment['url'] . '"><img src="' . $attachment['content'] . '"></a>';
 
-		if ($attachment['type'] == 'photo' || $attachment['type'] == 'video')
-		{
-			echo '<a href="' . $attachment['url'] . '"><img src="' . $attachment['content'] . '"></a>';
-		}
-		elseif ($attachment['type'] == 'article')
-		{
-			echo '<a href="' . $attachment['url'] . '"><img src="' . $attachment['content'] . '"></a>';
-		}
+	if (isset($attachment['description']))
+	{
+		echo '<p>' . $attachment['description'] . '</p>';
 	}
-	?>
+}
+?>
 <!-- ITEM -->
