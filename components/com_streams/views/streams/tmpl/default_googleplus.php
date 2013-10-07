@@ -20,23 +20,17 @@ $post = $this->post;
 if (isset($post['object']['attachments'])){
 
 	if ($post['object']['attachments'][0]['objectType'] == 'photo'){
-		$type = 'photo';
 		$content = $post['object']['attachments'][0]['image']['url'];
-		$permalink = $post['url'];
+		$permalink = $post['object']['attachments'][0]['url'];;
 	} elseif ($post['object']['attachments'][0]['objectType'] == 'video'){
-		$type = 'video';
 		$content = strtok($post['object']['attachments'][0]['embed']['url'], '?') . '?feature=player_embedded&autoplay=0';
-		$permalink = '';
+		$permalink = $post['object']['attachments'][0]['url'];
 	} elseif ($post['object']['attachments'][0]['objectType'] == 'article'){
-		$type = 'url';
-		$content = $post['object']['attachments'][0]['image']['url'];
+		$content = $post['object']['attachments'][0]['fullImage']['url'];
 		$permalink = $post['object']['attachments'][0]['url'];
 	}
 
-	$element = array('type' => $type, 'content' => $content, 'permalink' => $permalink);
-
-} else {
-	$element = '';
+	$attachment = array('type' => $post['object']['attachments'][0]['objectType'], 'content' => $content, 'link' => $permalink);
 }
 ?>
 
@@ -46,9 +40,30 @@ if (isset($post['object']['attachments'])){
 <!-- PROFILE -->
 
 <!-- TITLE -->
-<?php echo '<h1>' . $post['title'] .'</h1>'; ?>
+<?php
+if (isset($post['title']))
+{
+	echo '<h1>' . $post['title'] .'</h1>';
+}
+?>
 <!-- TITLE -->
 
 <!-- ITEM -->
-<?php var_dump($element); ?>
+<?php
+if (isset($attachment)){
+
+		if ($attachment['type'] == 'photo')
+		{
+			echo 'PHOTO';
+		}
+		elseif ($attachment['type'] == 'video')
+		{
+			echo 'VIDEO';
+		}
+		elseif ($attachment['type'] == 'article')
+		{
+			echo 'ARTICLE';
+		}
+	}
+	?>
 <!-- ITEM -->
