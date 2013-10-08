@@ -9,16 +9,19 @@
 
 defined('_JEXEC') or die;
 ?>
+
 <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
 <script>
 $(function() {
   $(".scrollable").scrollable();
 });
 </script>
+
 <style>
 .scrollable {
   position:relative;
   overflow:hidden;
+  height:200px;
 }
 
 .scrollable .items {
@@ -26,93 +29,109 @@ $(function() {
   position:absolute;
 }
 
-article
+.scrollable .items div {
+  float: left;
+}
+
+.stream
 {
 	float: left;
-	width: 150px;
-	height: 200px;
-	overflow: hidden;
+	width: 300px;
+	height: 175px;
+  	overflow: hidden;
 }
 
-div .grouped
+img
 {
-	float: left;
-}
-
-.avatar
-{
-	width: 32px;
-	height: 32px;
-}
-
-.postimage
-{
-	width: 64px;
-	height: 64px;
-}
-
-.intro
-{
-	background-color: grey;
-	width: 550px;
-	height: 200px;
+	width: 0px;
 }
 </style>
 
-<div class="scrollable" id="scrollable" style="height: 205px;">
-  <div class="items">
+<a class="prev browse left">Back</a>
+<a class="prev browse right" style="float: right;">Next</a>
 
-  	<article class="stream intro">
-  		<p>
-  			Hello, this is a small intro block.
-  			I describe unnecessery info here.
-  			And this is also not interesting.
-  		</p>
-  	</article>
+<div class="scrollable" id="scrollable">
 
-  <?php
+	<div class="items">
 
-  	$count = 1;
+		<div>
+			  	<article class="stream intro">
+			  		<p>
+			  			Hello, this is a small intro block.
+			  			I describe unnecessery info here.
+			  			And this is also not interesting.
+			  		</p>
+			  	</article>
 
-	foreach($this->items as $item) 
-	{
+			  	<?php
+			  	$date = new JDate($this->items[0]->date_created);
+				$this->items[0]->date_created = $date->format(JText::_('DATE_FORMAT_LC2'));
+				$platform = $this->items[0]->platform;
+				$this->post = $this->items[0]->php;
+				?>
+
+			  	<article class="stream <?php echo $this->items[0]->platform; ?>">
+		  		<?php echo $this->loadTemplate($this->items[0]->platform); ?>
+		  		<time><?php echo $this->items[0]->date_created; ?></time>
+		  		</article>
+
+		  		<?php
+			  	$date = new JDate($this->items[1]->date_created);
+				$this->items[1]->date_created = $date->format(JText::_('DATE_FORMAT_LC2'));
+				$platform = $this->items[1]->platform;
+				$this->post = $this->items[1]->php;
+				?>
+
+			  	<article class="stream <?php echo $this->items[1]->platform; ?>">
+		  		<?php echo $this->loadTemplate($this->items[1]->platform); ?>
+		  		<time><?php echo $this->items[1]->date_created; ?></time>
+		  		</article>
+
+		</div>
+
+		<?php
+		/**
+		*
+		* Remove the first two items because we allready printed those.
+		*
+		*/
+		unset($this->items[0]);
+		unset($this->items[1]);
+		?>
+
+		<?php $count = 1; foreach($this->items as $item): ?>
+
+			<?php if ($count%4 == 1): ?>
+	        	<div>
+		    <?php endif; ?>
+
+	    <?php
 		$date = new JDate($item->date_created);
+		$item->date_created = $date->format(JText::_('DATE_FORMAT_LC2'));
 		$platform = $item->platform;
 		$this->post = $item->php;
+		?>
 
-	    if ($count%4 == 1)
-	    {  
-	         echo '<div class="grouped">';
-	    }
+		<article class="stream <?php echo $platform; ?>">
+		<?php echo $this->loadTemplate($platform); ?>
+		<time><?php echo $item->date_created; ?></time>
+		</article>
 
-	    echo '<article class="stream ' . $platform . '">';
-	    echo $this->loadTemplate($platform);
-	    echo '<time>' . $item->date_created = $date->format( JText::_('DATE_FORMAT_LC2') ) . '</time>';
-	    echo '</article>';
+			<?php if ($count%4 == 0): ?>
+	        	</div>
+		    <?php endif; ?>
+		
+		<?php $count++; endforeach; ?>
 
-	    if ($count%4 == 0)
-	    {
-	        echo '</div>';
-	    }
+		<?php if ($count%4 != 1) echo "</div>"; ?>
 
-	    $count++;
-	}
+	</div>
 
-	//This is to ensure there is no open div if it's not a multiple of 4 at the end
-	if ($count%4 != 1) echo "</div>";
-
-?>
-
-  </div>
 </div>
 
-<a class="prev browse left">back</a>&nbsp;
-<a class="next browse right">next</a>
-</div>
-
-<div class="pagination" style="display: none;">
+<div class="pagination">
 	<p class="counter pull-right">
 		<?php echo $this->pagination->getPagesCounter(); ?>
+		<?php echo $this->pagination->getPagesLinks(); ?>
 	</p>
-	<?php echo $this->pagination->getPagesLinks(); ?>
 </div>
