@@ -9,7 +9,6 @@
 
 defined('_JEXEC') or die;
 ?>
-
 <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
 <script>
 $(function() {
@@ -18,14 +17,11 @@ $(function() {
 </script>
 <style>
 .scrollable {
-  /* required settings */
   position:relative;
   overflow:hidden;
-  width: 605px;
 }
- 
+
 .scrollable .items {
-  /* this cannot be too large */
   width:20000em;
   position:absolute;
 }
@@ -33,8 +29,14 @@ $(function() {
 article
 {
 	float: left;
-	width: 300px;
+	width: 150px;
 	height: 200px;
+	overflow: hidden;
+}
+
+div .grouped
+{
+	float: left;
 }
 
 .avatar
@@ -45,13 +47,15 @@ article
 
 .postimage
 {
-	width: 32px;
-	height: 32px;
+	width: 64px;
+	height: 64px;
 }
 
 .intro
 {
 	background-color: grey;
+	width: 550px;
+	height: 200px;
 }
 </style>
 
@@ -66,31 +70,38 @@ article
   		</p>
   	</article>
 
-<?php if ( empty($this->items) ):
-	?>
-	<p>Geen resultaten</p>
-	<?php else: 
+  <?php
 
-			// echo '<pre>';
-			// print_r($this->items);
-			// echo '</pre>';
+  	$count = 1;
 
-			foreach ($this->items as $item) :
+	foreach($this->items as $item) 
+	{
+		$date = new JDate($item->date_created);
+		$platform = $item->platform;
+		$this->post = $item->php;
 
-			// echo '<pre>';
-			// print_r($item);
-			// echo '</pre>';
-			$date = new JDate($item->date_created);
-			$platform = $item->platform;
+	    if ($count%4 == 1)
+	    {  
+	         echo '<div class="grouped">';
+	    }
 
-			$this->post = $item->php;
-			?>
-			<article class="stream <?php echo $platform; ?>">
-				<?php echo $this->loadTemplate($platform); ?>
-				<time><?php echo $item->date_created = $date->format( JText::_('DATE_FORMAT_LC2') ); ?></time>
-			</article>
-		<?php endforeach; ?>
-<?php endif; ?>
+	    echo '<article class="stream ' . $platform . '">';
+	    echo $this->loadTemplate($platform);
+	    echo '<time>' . $item->date_created = $date->format( JText::_('DATE_FORMAT_LC2') ) . '</time>';
+	    echo '</article>';
+
+	    if ($count%4 == 0)
+	    {
+	        echo '</div>';
+	    }
+
+	    $count++;
+	}
+
+	//This is to ensure there is no open div if it's not a multiple of 4 at the end
+	if ($count%4 != 1) echo "</div>";
+
+?>
 
   </div>
 </div>
