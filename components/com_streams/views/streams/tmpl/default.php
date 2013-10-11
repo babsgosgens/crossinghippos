@@ -8,6 +8,8 @@
  */
 
 defined('_JEXEC') or die;
+require_once( JPATH_SITE.'/libraries/mobiledetect/Mobile_Detect.php' );
+$detect = new Mobile_Detect;
 ?>
 
 <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
@@ -43,7 +45,7 @@ $(function() {
 
 img
 {
-	width: 0px;
+	width: 32px;
 }
 </style>
 
@@ -53,6 +55,8 @@ img
 <div class="scrollable" id="scrollable">
 
 	<div class="items">
+
+	<?php if(!$detect->isMobile()): ?>
 
 		<div>
 			  	<article class="stream intro">
@@ -99,9 +103,11 @@ img
 		unset($this->items[1]);
 		?>
 
+	<?php endif; ?>
+
 		<?php $count = 1; foreach($this->items as $item): ?>
 
-			<?php if ($count%4 == 1): ?>
+			<?php if ($count%4 == 1 && !$detect->isMobile()): ?>
 	        	<div>
 		    <?php endif; ?>
 
@@ -117,13 +123,13 @@ img
 		<time><?php echo $item->date_created; ?></time>
 		</article>
 
-			<?php if ($count%4 == 0): ?>
+			<?php if ($count%4 == 0 && !$detect->isMobile()): ?>
 	        	</div>
 		    <?php endif; ?>
 		
 		<?php $count++; endforeach; ?>
 
-		<?php if ($count%4 != 1) echo "</div>"; ?>
+		<?php if ($count%4 != 1 && !$detect->isMobile()) echo "</div>"; ?>
 
 	</div>
 
