@@ -687,8 +687,8 @@ q {
 /* line 2, ../sass/crossinghippos.nl/behavior/_streams.scss */
 .stream {
   float: left;
-  width: 300px;
-  height: 600px;
+  width: 220px;
+  height: 350px;
 }
 /* line 7, ../sass/crossinghippos.nl/behavior/_streams.scss */
 .stream .avatar {
@@ -704,15 +704,15 @@ q {
 /* line 16, ../sass/crossinghippos.nl/behavior/_streams.scss */
 .intro {
   background-color: white;
-  width: 300px;
-  height: 500px;
+  width: 440px;
+  height: 350px;
 }
 
 /* line 22, ../sass/crossinghippos.nl/behavior/_streams.scss */
 .scrollable {
   position: relative;
   overflow: hidden;
-  height: 500px;
+  height: 350px;
 }
 
 /* line 28, ../sass/crossinghippos.nl/behavior/_streams.scss */
@@ -741,6 +741,8 @@ q {
   text-align: center;
   line-height: 37px;
   margin: 10px 0;
+  color: white;
+  cursor: pointer;
 }
 
 /* line 1, ../sass/crossinghippos.nl/behavior/_template.scss */
