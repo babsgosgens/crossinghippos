@@ -12,12 +12,7 @@ require_once( JPATH_SITE.'/libraries/mobiledetect/Mobile_Detect.php' );
 $detect = new Mobile_Detect;
 ?>
 
-<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
 <style>
-/*
-root element for the scrollable.  when scrolling occurs this
-element stays still.
-*/
 .scrollable {
   position:relative;
   overflow:hidden;
@@ -40,12 +35,6 @@ element stays still.
 	float: left;
 }
 </style>
-
-<script>
-$(function() {
-  $(".scrollable").scrollable();
-});
-</script>
 
 <a class="prev browse left">left</a>
 <div class="scrollable" id="scrollable">
@@ -136,3 +125,9 @@ $(function() {
 		<?php echo $this->pagination->getPagesLinks(); ?>
 	</p>
 </div>
+
+<script>
+$(function() {
+  $(".scrollable").scrollable();
+});
+</script>
