@@ -12,7 +12,7 @@ require_once( JPATH_SITE.'/libraries/mobiledetect/Mobile_Detect.php' );
 $detect = new Mobile_Detect;
 ?>
 
-<a class="prev browse left">left</a>
+
 <div class="scrollable" id="scrollable">
   <div class="scrollable__items">
 
@@ -94,6 +94,7 @@ $detect = new Mobile_Detect;
   </div>
 </div>
 <a class="next browse right">right</a>
+<a class="prev browse left">left</a>
 
 <script>
 if(jQuery().scrollable) {
