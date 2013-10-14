@@ -93,8 +93,8 @@ $detect = new Mobile_Detect;
 </div>
 
 <?php if (!$detect->isMobile()): ?>
-<a class="next browse right">right</a>
-<a class="prev browse left">left</a>
+<a class="next browse right">></a>
+<a class="prev browse left"><</a>
 <?php endif; ?>
 
 <script>
