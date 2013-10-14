@@ -27,13 +27,6 @@ $detect = new Mobile_Detect;
 .items div {
   float:left;
 }
-
-.stream
-{
-	height: 200px;
-	width: 175px;
-	float: left;
-}
 </style>
 
 <a class="prev browse left">left</a>
