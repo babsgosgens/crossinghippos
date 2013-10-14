@@ -726,6 +726,11 @@ q {
   float: left;
 }
 
+/* line 38, ../sass/crossinghippos.nl/behavior/_streams.scss */
+.right {
+  float: right;
+}
+
 /* line 1, ../sass/crossinghippos.nl/behavior/_template.scss */
 .page-header {
   color: white;

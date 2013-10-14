@@ -12,10 +12,6 @@ require_once( JPATH_SITE.'/libraries/mobiledetect/Mobile_Detect.php' );
 $detect = new Mobile_Detect;
 ?>
 
-<?php if (!$detect->isMobile()): ?>
-<a class="prev browse left">left</a>
-<?php endif; ?>
-
 <div class="scrollable" id="scrollable">
   	<div class="scrollable__items">
 	<?php if(!$detect->isMobile()): ?>
@@ -98,6 +94,7 @@ $detect = new Mobile_Detect;
 
 <?php if (!$detect->isMobile()): ?>
 <a class="next browse right">right</a>
+<a class="prev browse left">left</a>
 <?php endif; ?>
 
 <script>
