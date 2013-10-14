@@ -13,13 +13,11 @@ $detect = new Mobile_Detect;
 ?>
 
 <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
-<script>
-$(function() {
-  $(".scrollable").scrollable();
-});
-</script>
-
 <style>
+/*
+root element for the scrollable.  when scrolling occurs this
+element stays still.
+*/
 .scrollable {
   position:relative;
   overflow:hidden;
@@ -31,30 +29,27 @@ $(function() {
   position:absolute;
 }
 
-.scrollable .items div {
-  float: left;
+.items div {
+  float:left;
 }
 
 .stream
 {
+	height: 200px;
+	width: 175px;
 	float: left;
-	width: 300px;
-	height: 175px;
-  	overflow: hidden;
-}
-
-img
-{
-	width: 32px;
 }
 </style>
 
-<a class="prev browse left">Back</a>
-<a class="prev browse right" style="float: right;">Next</a>
+<script>
+$(function() {
+  $(".scrollable").scrollable();
+});
+</script>
 
+<a class="prev browse left">left</a>
 <div class="scrollable" id="scrollable">
-
-	<div class="items">
+  <div class="items">
 
 	<?php if(!$detect->isMobile()): ?>
 
@@ -131,9 +126,9 @@ img
 
 		<?php if ($count%4 != 1 && !$detect->isMobile()) echo "</div>"; ?>
 
-	</div>
-
+  </div>
 </div>
+<a class="next browse right">right</a>
 
 <div class="pagination">
 	<p class="counter pull-right">
