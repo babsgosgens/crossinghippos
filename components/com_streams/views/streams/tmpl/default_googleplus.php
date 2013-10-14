@@ -48,7 +48,7 @@ if (isset($post['object']['attachments'])){
 ?>
 
 <!-- PROFILE -->
-<?php echo '<img class="avatar" src="' . $post['actor']['image']['url'] . '"></img>'; ?>
+<?php echo '<img class="avatar" src="' . $post['actor']['image']['url'] . '">'; ?>
 <?php echo $post['actor']['displayName']; ?>
 <!-- PROFILE -->
 

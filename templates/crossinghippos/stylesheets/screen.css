@@ -618,42 +618,36 @@ q {
    License: GNU General Public License version 2 or later; see LICENSE.txt
 */
 /* line 1, ../sass/crossinghippos.nl/behavior/_jelle.scss */
-.stream {
-  margin: 5px;
-  padding: 5px;
-}
-
-/* line 6, ../sass/crossinghippos.nl/behavior/_jelle.scss */
 .twitter {
   background-color: #00ACED;
 }
 
-/* line 10, ../sass/crossinghippos.nl/behavior/_jelle.scss */
+/* line 5, ../sass/crossinghippos.nl/behavior/_jelle.scss */
 .github {
   background-color: #7BBF6A;
 }
 
-/* line 14, ../sass/crossinghippos.nl/behavior/_jelle.scss */
+/* line 9, ../sass/crossinghippos.nl/behavior/_jelle.scss */
 .dribbble {
   background-color: #F05F96;
 }
 
-/* line 18, ../sass/crossinghippos.nl/behavior/_jelle.scss */
+/* line 13, ../sass/crossinghippos.nl/behavior/_jelle.scss */
 .flickr {
   background-color: #0063DB;
 }
 
-/* line 22, ../sass/crossinghippos.nl/behavior/_jelle.scss */
+/* line 17, ../sass/crossinghippos.nl/behavior/_jelle.scss */
 .behance {
   background-color: #4797D0;
 }
 
-/* line 26, ../sass/crossinghippos.nl/behavior/_jelle.scss */
+/* line 21, ../sass/crossinghippos.nl/behavior/_jelle.scss */
 .facebook {
   background-color: #3B5998;
 }
 
-/* line 30, ../sass/crossinghippos.nl/behavior/_jelle.scss */
+/* line 25, ../sass/crossinghippos.nl/behavior/_jelle.scss */
 .googleplus {
   background-color: #DC513D;
 }
@@ -666,6 +660,7 @@ q {
 /* line 1, ../sass/crossinghippos.nl/behavior/_footer.scss */
 .footer {
   background-color: white;
+  color: #2a1f0c;
 }
 
 /* line 5, ../sass/crossinghippos.nl/behavior/_navbar.scss */
@@ -687,6 +682,48 @@ q {
 /* line 21, ../sass/crossinghippos.nl/behavior/_navbar.scss */
 .navbar a, .navbar:visited, .navbar:active {
   color: inherit;
+}
+
+/* line 2, ../sass/crossinghippos.nl/behavior/_streams.scss */
+.stream {
+  float: left;
+  width: 300px;
+  height: 600px;
+}
+/* line 7, ../sass/crossinghippos.nl/behavior/_streams.scss */
+.stream .avatar {
+  width: 32px;
+  height: 32px;
+}
+
+/* line 11, ../sass/crossinghippos.nl/behavior/_streams.scss */
+.postimage {
+  width: 100%;
+}
+
+/* line 16, ../sass/crossinghippos.nl/behavior/_streams.scss */
+.intro {
+  background-color: white;
+  width: 300px;
+  height: 500px;
+}
+
+/* line 22, ../sass/crossinghippos.nl/behavior/_streams.scss */
+.scrollable {
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+}
+
+/* line 28, ../sass/crossinghippos.nl/behavior/_streams.scss */
+.scrollable__items {
+  width: 20000em;
+  position: absolute;
+}
+
+/* line 33, ../sass/crossinghippos.nl/behavior/_streams.scss */
+.scrollable__items div {
+  float: left;
 }
 
 /* line 1, ../sass/crossinghippos.nl/behavior/_template.scss */

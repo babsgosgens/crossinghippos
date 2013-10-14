@@ -12,26 +12,9 @@ require_once( JPATH_SITE.'/libraries/mobiledetect/Mobile_Detect.php' );
 $detect = new Mobile_Detect;
 ?>
 
-<style>
-.scrollable {
-  position:relative;
-  overflow:hidden;
-  height:200px;
-}
-
-.scrollable .items {
-  width:20000em;
-  position:absolute;
-}
-
-.items div {
-  float:left;
-}
-</style>
-
 <a class="prev browse left">left</a>
 <div class="scrollable" id="scrollable">
-  <div class="items">
+  <div class="scrollable__items">
 
 	<?php if(!$detect->isMobile()): ?>
 
