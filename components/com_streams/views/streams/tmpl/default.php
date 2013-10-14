@@ -95,15 +95,15 @@ $detect = new Mobile_Detect;
 </div>
 <a class="next browse right">right</a>
 
+<script>
+if(jQuery().scrollable) {
+    $(".scrollable").scrollable();
+}
+</script>
+
 <div class="pagination">
 	<p class="counter pull-right">
 		<?php echo $this->pagination->getPagesCounter(); ?>
 		<?php echo $this->pagination->getPagesLinks(); ?>
 	</p>
 </div>
-
-<script>
-$(function() {
-  $(".scrollable").scrollable();
-});
-</script>

@@ -90,7 +90,8 @@ $path_to_local_jquery  = $doc->baseurl.'/templates/'.$doc->template.'/javascript
 $doc->addScript($path_to_remote_jquery);
 
 // Add jQuery Tools
-$doc->addScript('http://cdn.jquerytools.org/'.$params->get('jQueryToolsVersion').'/all/jquery.tools.min.js');
+$path_to_remote_jquerytools = 'http://cdn.jquerytools.org/'.$params->get('jQueryToolsVersion').'/all/jquery.tools.min.js';
+$doc->addScript($path_to_remote_jquerytools);
 
 // Add Modernizr and HTML5 shiv
 $path_to_local_modernizr  = $doc->baseurl.'/templates/'.$doc->template.'/javascripts/modernizr.custom.55528.js';
