@@ -55,7 +55,7 @@ $detect = new Mobile_Detect;
 
 <script>
 var count = 0;
-var items = 20;
+var items = <?php echo ((count($this->items) - 2) / 2); ?>;
 
 $(document).ready(function() {
     $('a.left').click(function() {
@@ -69,7 +69,7 @@ $(document).ready(function() {
     });
 
     $('a.right').click(function() {
-    	if (count < (items - 2) / 2){
+    	if (count < items){
 			$('.stream').animate({
            		left: '-=10%'
         	}, 300);
