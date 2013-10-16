@@ -12,6 +12,49 @@ require_once( JPATH_SITE.'/libraries/mobiledetect/Mobile_Detect.php' );
 $detect = new Mobile_Detect;
 ?>
 
+<style>
+article.stream
+{
+	width: 50%;
+	height: 300px;
+	float: left;
+}
+
+article .intro
+{
+	width: 50%;
+	height: 300px;
+	float: left;
+}
+
+.items
+{
+	width: 50%;
+	overflow-x: scroll;
+	float: left;
+}
+
+.items div {
+	float: left;
+}
+
+img
+{
+	width: 64px;
+	height: 64px;
+}
+
+.pagination
+{
+	display: none;
+}
+
+.intro
+{
+	width: 50%;
+}
+</style>
+
 <article class="stream intro">
 	<p>
 		Hello, this is a small intro block.
@@ -20,8 +63,7 @@ $detect = new Mobile_Detect;
 	</p>
 </article>
 
-<div class="scrollable" id="scrollable">
-	 <div class="scrollable__items">
+<div class="items">
 			<?php $count = 1; foreach($this->items as $item): ?>
 
 				<?php if ($count%2 == 1 && !$detect->isMobile()): ?>
@@ -48,17 +90,7 @@ $detect = new Mobile_Detect;
 
 			<?php if ($count%2 != 1 && !$detect->isMobile()) echo "</div>"; ?>
 
-	 </div>
 </div>
-
-<a class="next browse right">></a>
-<a class="prev browse left"><</a>
-
-<script>
-if(jQuery().scrollable) {
-    $(".scrollable").scrollable({touch: false});
-}
-</script>
 
 <div class="pagination">
 	<p class="counter pull-right">
