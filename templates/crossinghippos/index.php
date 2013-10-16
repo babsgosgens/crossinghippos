@@ -40,7 +40,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
   </header>
   <div class="body">
     <span class="page-header"><?php echo $pageTitle;?></span>
-    <div class="root">
+    <div class="root" style="min-height: 500px;">
       <nav class="navbar">
         <jdoc:include type="modules" name="breadcrumbs" />
       </nav>

@@ -701,23 +701,24 @@ q {
 .itemswrapper {
   width: 50%;
   height: 300px;
-  float: right;
-  overflow-x: scroll;
+  overflow-x: hidden;
 }
 
-/* line 23, ../sass/crossinghippos.nl/behavior/_streams.scss */
+/* line 22, ../sass/crossinghippos.nl/behavior/_streams.scss */
 .items {
   width: 1000%;
   float: left;
-  height: 283px;
+  height: 300px;
 }
 
-/* line 30, ../sass/crossinghippos.nl/behavior/_streams.scss */
+/* line 28, ../sass/crossinghippos.nl/behavior/_streams.scss */
 .stream {
   float: left;
-  width: 5%;
-  height: 283px;
+  height: 300px;
+  margin: 0 0.15%;
   overflow: hidden;
+  padding: 10px;
+  width: 4.7%;
 }
 
 /* line 38, ../sass/crossinghippos.nl/behavior/_streams.scss */
@@ -726,6 +727,19 @@ img {
   height: 64px;
 }
 
+@media only screen and (max-device-width: 480px) {
+  /* line 44, ../sass/crossinghippos.nl/behavior/_streams.scss */
+  .itemswrapper {
+    overflow-x: scroll;
+    width: 100%;
+  }
+
+  /* line 49, ../sass/crossinghippos.nl/behavior/_streams.scss */
+  .streamintro {
+    width: 100%;
+    height: 100px;
+  }
+}
 /* line 1, ../sass/crossinghippos.nl/behavior/_template.scss */
 .page-header {
   color: white;
