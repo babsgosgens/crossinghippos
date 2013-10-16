@@ -684,6 +684,48 @@ q {
   color: inherit;
 }
 
+/* line 2, ../sass/crossinghippos.nl/behavior/_streams.scss */
+.streamwrapper {
+  height: 300px;
+  float: left;
+}
+
+/* line 8, ../sass/crossinghippos.nl/behavior/_streams.scss */
+.streamintro {
+  width: 50%;
+  float: left;
+  height: 300px;
+}
+
+/* line 15, ../sass/crossinghippos.nl/behavior/_streams.scss */
+.itemswrapper {
+  width: 50%;
+  height: 300px;
+  float: right;
+  overflow-x: scroll;
+}
+
+/* line 23, ../sass/crossinghippos.nl/behavior/_streams.scss */
+.items {
+  width: 1000%;
+  float: left;
+  height: 283px;
+}
+
+/* line 30, ../sass/crossinghippos.nl/behavior/_streams.scss */
+.stream {
+  float: left;
+  width: 5%;
+  height: 283px;
+  overflow: hidden;
+}
+
+/* line 38, ../sass/crossinghippos.nl/behavior/_streams.scss */
+img {
+  width: 64px;
+  height: 64px;
+}
+
 /* line 1, ../sass/crossinghippos.nl/behavior/_template.scss */
 .page-header {
   color: white;
