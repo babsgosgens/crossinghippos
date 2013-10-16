@@ -48,7 +48,6 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
       <jdoc:include type="modules" name="content-top" />
       <jdoc:include type="component" />
       <jdoc:include type="modules" name="component-modules" style="raw" />
-    </div>
   </div>
   <footer class="footer">
     <div class="root">

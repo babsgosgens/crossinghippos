@@ -21,35 +21,34 @@ $detect = new Mobile_Detect;
 </article>
 
 <div class="scrollable" id="scrollable">
-  	<div class="scrollable__items">
+	 <div class="scrollable__items">
+			<?php $count = 1; foreach($this->items as $item): ?>
 
-		<?php $count = 1; foreach($this->items as $item): ?>
+				<?php if ($count%2 == 1 && !$detect->isMobile()): ?>
+		        	<div>
+			    <?php endif; ?>
 
-			<?php if ($count%2 == 1 && !$detect->isMobile()): ?>
-	        	<div>
-		    <?php endif; ?>
+		    <?php
+			$date = new JDate($item->date_created);
+			$item->date_created = $date->format(JText::_('DATE_FORMAT_LC2'));
+			$platform = $item->platform;
+			$this->post = $item->php;
+			?>
 
-	    <?php
-		$date = new JDate($item->date_created);
-		$item->date_created = $date->format(JText::_('DATE_FORMAT_LC2'));
-		$platform = $item->platform;
-		$this->post = $item->php;
-		?>
+			<article class="stream <?php echo $platform; ?>">
+			<?php echo $this->loadTemplate($platform); ?>
+			<time><?php echo $item->date_created; ?></time>
+			</article>
 
-		<article class="stream <?php echo $platform; ?>">
-		<?php echo $this->loadTemplate($platform); ?>
-		<time><?php echo $item->date_created; ?></time>
-		</article>
+				<?php if ($count%2 == 0 && !$detect->isMobile()): ?>
+		        	</div>
+			    <?php endif; ?>
+			
+			<?php $count++; endforeach; ?>
 
-			<?php if ($count%2 == 0 && !$detect->isMobile()): ?>
-	        	</div>
-		    <?php endif; ?>
-		
-		<?php $count++; endforeach; ?>
+			<?php if ($count%2 != 1 && !$detect->isMobile()) echo "</div>"; ?>
 
-		<?php if ($count%2 != 1 && !$detect->isMobile()) echo "</div>"; ?>
-
-  </div>
+	 </div>
 </div>
 
 <a class="next browse right">></a>
