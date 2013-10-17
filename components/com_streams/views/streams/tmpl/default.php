@@ -50,28 +50,30 @@ $detect = new Mobile_Detect;
 	</p>
 </div>
 
-<a href="#" class="left"><</a>
-<a href="#" class="right">></a>
+<a href="#left" class="left"><</a>
+<a href="#right" class="right">></a>
 
 <script>
 var count = 0;
 var items = <?php echo round((count($this->items) - 2) / 2); ?>;
 
 $(document).ready(function() {
-    $('a.left').click(function() {
+    $('a.left').click(function(event) {
+    	event.preventDefault();
     	if (count > 0){
 			$('.stream').animate({
            		left: '+=10%'
-        	}, 300);
+        	}, 400);
         	count--;
         }
     });
 
-    $('a.right').click(function() {
+    $('a.right').click(function(event) {
+    	event.preventDefault();
     	if (count < items){
 			$('.stream').animate({
            		left: '-=10%'
-        	}, 300);
+        	}, 400);
         	count++;
         }
     });
