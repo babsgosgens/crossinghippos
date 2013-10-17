@@ -50,12 +50,12 @@ $detect = new Mobile_Detect;
 	</p>
 </div>
 
-<a class="left">left</a>
-<a class="right">right</a>
+<a href="#" class="left"><</a>
+<a href="#" class="right">></a>
 
 <script>
 var count = 0;
-var items = <?php echo ((count($this->items) - 2) / 2); ?>;
+var items = <?php echo round((count($this->items) - 2) / 2); ?>;
 
 $(document).ready(function() {
     $('a.left').click(function() {
@@ -64,7 +64,6 @@ $(document).ready(function() {
            		left: '+=10%'
         	}, 300);
         	count--;
-        	console.log(count);
         }
     });
 
@@ -74,7 +73,6 @@ $(document).ready(function() {
            		left: '-=10%'
         	}, 300);
         	count++;
-        	console.log(count);
         }
     });
 });

@@ -740,6 +740,50 @@ img {
     height: 100px;
   }
 }
+/* line 55, ../sass/crossinghippos.nl/behavior/_streams.scss */
+.left, .right, .right {
+  display: block;
+  float: left;
+  background-color: darkred;
+  border-radius: 2px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+/* line 18, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.9/scss/pg/helpers/mixins/_anchors.scss */
+.left, .right {
+  color: white;
+}
+/* line 72, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.9/scss/pg/helpers/mixins/_anchors.scss */
+.left:hover, .right:hover {
+  color: #fffff9;
+}
+/* line 77, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.9/scss/pg/helpers/mixins/_anchors.scss */
+.left:active, .right:active {
+  color: #fffff8;
+}
+/* line 82, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.9/scss/pg/helpers/mixins/_anchors.scss */
+.left:visited, .right:visited {
+  color: #fffff7;
+}
+/* line 85, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.9/scss/pg/helpers/mixins/_anchors.scss */
+.left:visited:hover, .right:visited:hover {
+  color: #fffff9;
+}
+/* line 90, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.9/scss/pg/helpers/mixins/_anchors.scss */
+.left:visited:active, .right:visited:active {
+  color: #fffff8;
+}
+
+/* line 70, ../sass/crossinghippos.nl/behavior/_streams.scss */
+.right {
+  float: right;
+}
+
 /* line 1, ../sass/crossinghippos.nl/behavior/_template.scss */
 .page-header {
   color: white;
