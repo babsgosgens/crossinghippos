@@ -8,8 +8,14 @@
  */
 
 defined('_JEXEC') or die;
-require_once( JPATH_SITE.'/libraries/mobiledetect/Mobile_Detect.php' );
-$detect = new Mobile_Detect;
+
+function replaceLinks($string){
+    if (preg_replace_callback("/(?i)\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))/", function($m) { return strlen($m[0]); }, $string) >= 20){
+        return preg_replace_callback("/(?i)\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))/", function($m) { return '<a href="' . $m[0] . '">' . trim(substr($m[0], 0, 20)) . '&hellip;</a>'; }, $string);
+    } else {
+        return preg_replace("/(?i)\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))/", '<a href="$1">$1</a>', $string);
+    }
+}
 ?>
 
 <div class="streamwrapper">
