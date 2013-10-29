@@ -1,0 +1,19 @@
+
+/* Defines padding and block*/
+.box {
+	display: block;
+	@include vertical-rhythm(1, padding);
+	@include horizontal-rhythm(1, padding);
+	// padding: v-rhtym() h-rhythm();
+}
+
+.box--small {
+	display: block;
+	@include vertical-rhythm(1/4, padding);
+	@include horizontal-rhythm(.25, padding);
+}
+
+.box--box-list {
+	background: rgba($dirt--rgb, .15);
+	@include border-radius(10px);
+}
