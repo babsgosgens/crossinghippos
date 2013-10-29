@@ -35,11 +35,11 @@ function replaceLinks($string){
 					$date = new JDate($item->date_created);
 					$item->date_created = $date->format(JText::_('DATE_FORMAT_LC2'));
 					$platform = $item->platform;
-					$this->post = $item->php;
+					$post = $item->php;
 					?>
 
 					<article style="position: relative;" class="stream <?php echo $platform; ?>">
-					<?php echo $this->loadTemplate($platform); ?>
+					<?php require('default_' . $platform . '.php'); ?>
 					<time><?php echo $item->date_created; ?></time>
 					</article>
 					
@@ -55,33 +55,3 @@ function replaceLinks($string){
 		<?php echo $this->pagination->getPagesLinks(); ?>
 	</p>
 </div>
-
-<a href="#left" class="left"><</a>
-<a href="#right" class="right">></a>
-
-<script>
-var count = 0;
-var items = <?php echo round((count($this->items) - 2) / 2); ?>;
-
-$(document).ready(function() {
-    $('a.left').click(function(event) {
-    	event.preventDefault();
-    	if (count > 0){
-			$('.stream').animate({
-           		left: '+=10%'
-        	}, 400);
-        	count--;
-        }
-    });
-
-    $('a.right').click(function(event) {
-    	event.preventDefault();
-    	if (count < items){
-			$('.stream').animate({
-           		left: '-=10%'
-        	}, 400);
-        	count++;
-        }
-    });
-});
-</script>

@@ -9,8 +9,6 @@
 
 defined('_JEXEC') or die;
 
-$post = $this->post;
-
 // Uncomment for available attributes
 // echo '<pre>';
 //print_r($post);
