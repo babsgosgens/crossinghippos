@@ -10,10 +10,18 @@
 defined('_JEXEC') or die;
 ?>
 
-<script src="media/mod_streams/js/script.js"></script>
+<script>
+$(document).ready(function() {
+	if (typeof sliderLoaded === 'undefined') {
+		$.getScript("media/mod_streams/js/script.js");
+		sliderLoaded = true;
+		console.log('jQuery loaded: media/mod_streams/js/script.js');
+	}
+});
+</script>
 
 <div class="streamwrapper">
-	<div class="streamintro">X</div>
+	<div class="streamintro"></div>
 	<div class="itemswrapper">
 		<div class="items">
 
