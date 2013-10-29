@@ -1,15 +1,13 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_weblinks
+ * @subpackage  com_streams
  *
  * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
-
-$post = $this->post;
 
 // Uncomment for available attributes
 // echo '<pre>';
@@ -19,9 +17,7 @@ $post = $this->post;
 // Format the content
 if (isset($post->message))
 {
-	$patterns = array("/(?i)\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))/", '/@(\w+)/', '/#(\w+)/');
-	$replace = array('<a href="$1">$1</a>', '<a href="https://www.facebook.com/$1">@$1</a>&nbsp;', '<a href="https://www.facebook.com/hashtag/$1">#$1</a>');
-	$formatted_post = preg_replace($patterns, $replace, $post->message);
+	$formatted_post = replaceLinks($post->message);
 }
 ?>
 

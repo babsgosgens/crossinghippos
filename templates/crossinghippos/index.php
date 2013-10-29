@@ -44,11 +44,12 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
       <nav class="navbar">
         <jdoc:include type="modules" name="breadcrumbs" />
       </nav>
-      <jdoc:include type="message" />
+      <jdoc:include type="message"/>
       <jdoc:include type="modules" name="content-top" />
       <jdoc:include type="component" />
       <jdoc:include type="modules" name="component-modules" style="raw" />
   </div>
+        <jdoc:include type="modules" name="position-6" />
   <footer class="footer">
     <div class="root">
       <article class="fourth column">

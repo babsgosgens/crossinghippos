@@ -65,7 +65,7 @@ class StreamsModelDribbble extends JModelAdmin
 		/**
 		 * Only fetch items if the response is empty
 		 */
-		if ( is_null($this->_response) )
+		if ( is_null($this->response) )
 		{
 			$this->setResponse();
 		}

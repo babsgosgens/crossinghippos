@@ -8,8 +8,14 @@
  */
 
 defined('_JEXEC') or die;
-require_once( JPATH_SITE.'/libraries/mobiledetect/Mobile_Detect.php' );
-$detect = new Mobile_Detect;
+
+function replaceLinks($string){
+    if (preg_replace_callback("/(?i)\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))/", function($m) { return strlen($m[0]); }, $string) >= 20){
+        return preg_replace_callback("/(?i)\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))/", function($m) { return '<a href="' . $m[0] . '">' . trim(substr($m[0], 0, 20)) . '&hellip;</a>'; }, $string);
+    } else {
+        return preg_replace("/(?i)\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))/", '<a href="$1">$1</a>', $string);
+    }
+}
 ?>
 
 <div class="streamwrapper">
@@ -29,11 +35,11 @@ $detect = new Mobile_Detect;
 					$date = new JDate($item->date_created);
 					$item->date_created = $date->format(JText::_('DATE_FORMAT_LC2'));
 					$platform = $item->platform;
-					$this->post = $item->php;
+					$post = $item->php;
 					?>
 
 					<article style="position: relative;" class="stream <?php echo $platform; ?>">
-					<?php echo $this->loadTemplate($platform); ?>
+					<?php require('default_' . $platform . '.php'); ?>
 					<time><?php echo $item->date_created; ?></time>
 					</article>
 					
@@ -49,31 +55,3 @@ $detect = new Mobile_Detect;
 		<?php echo $this->pagination->getPagesLinks(); ?>
 	</p>
 </div>
-
-<a href="#" class="left"><</a>
-<a href="#" class="right">></a>
-
-<script>
-var count = 0;
-var items = <?php echo round((count($this->items) - 2) / 2); ?>;
-
-$(document).ready(function() {
-    $('a.left').click(function() {
-    	if (count > 0){
-			$('.stream').animate({
-           		left: '+=10%'
-        	}, 300);
-        	count--;
-        }
-    });
-
-    $('a.right').click(function() {
-    	if (count < items){
-			$('.stream').animate({
-           		left: '-=10%'
-        	}, 300);
-        	count++;
-        }
-    });
-});
-</script>
