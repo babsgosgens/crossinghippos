@@ -1,0 +1,17 @@
+.masthead {
+	text-align: center;
+}
+	.masthead__title {
+		@include adjust-font-size-to($xxxl, 3);
+
+	}
+	.masthead__tagline {
+		display: block;
+		font-size: .6em;
+		line-height: 1;
+	}
+
+	.masthead__link-list {
+		background: $dirt--hex;
+		width: 100%;
+	}

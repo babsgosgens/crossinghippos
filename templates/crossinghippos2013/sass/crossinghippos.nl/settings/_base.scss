@@ -1,0 +1,46 @@
+//  ================================================================================================================================
+//  Typography settings
+//  ================================================================================================================================
+
+	@import "type/bree";
+	@import "type/bree-serif";
+
+    $base-font-size: $m;
+    $base-line-height: $l; // 1.5*16px
+
+    $type-default: $bree-serif-light;
+    $type-heading: $bree-serif-regular;
+
+//  ================================================================================================================================
+//  Colour settings
+//  ================================================================================================================================
+
+	$pure--hex: #00E4CF;
+	$pure--rgb: rgb(0,228,207);
+
+	$got-it--hex: #00B09E;
+	$got-it--rgb: rgb(0,176,158);
+
+	$dirt--hex: #2A1F0C;
+	$dirt--rgb: rgb(42,31,12);
+
+	$whipped-cream--hex: #FFFEF4;
+	$whipped-cream--rgb: rgb(255,254,244);
+
+	$bee--hex: #FFCC00;
+	$bee--rgb: rgb(255,204,0);
+
+	$color-background: $whipped-cream--hex;
+	$color-body: $dirt--hex;
+	$color-theme: $dirt--hex;
+	$color-primary: $got-it--hex;
+	$color-attn-one: $pure--hex;
+	$color-success: $green;
+	$color-info: $yellow;
+	$color-warning: $orange;
+	$color-error: $red;
+
+	$anchor-color: $color-primary;
+	$anchor-color-hover: $bee--hex;
+	$anchor-color-active: $color-attn-one;
+	$anchor-color-visited: $color-attn-one;
