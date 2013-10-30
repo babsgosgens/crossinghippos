@@ -14,8 +14,7 @@ defined('_JEXEC') or die;
 <html lang="<?php echo $this->language; ?>">
 <head>
 	
-	<meta charset="utf-8" />
-	<title>Crossing Hippos</title>
+	<jdoc:include type="head" />	
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="http://use.typekit.net/ztu5gmc.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
@@ -24,11 +23,7 @@ defined('_JEXEC') or die;
 </head>
 <body>
 
-<!-- DEFAULT JOOMLA -->
 <jdoc:include type="modules" name="top" /> 
-<jdoc:include type="component" />
-<jdoc:include type="modules" name="bottom" />
-<!-- DEFAULT JOOMLA -->
 
 <header class="masthead">
 	<div class="masthead__link-list">
@@ -58,7 +53,12 @@ defined('_JEXEC') or die;
 </header>
 
 <div class="root">
+	 <jdoc:include type="message" />
+     <jdoc:include type="modules" name="content-top" />
+     <jdoc:include type="modules" name="position-6" />
+     <jdoc:include type="modules" name="component-modules" style="raw" />
 
+<jdoc:include type="modules" name="bottom" />
 	<section>
 		<h1 class="hd--section">Articles</h1>
 		<ul class="box-list">

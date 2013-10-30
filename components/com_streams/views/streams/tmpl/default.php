@@ -26,9 +26,8 @@ function replaceLinks($string){
 			And this is also not interesting.
 		</p>
 	</div>
-	<div class="itemswrapper">
-		<div class="items">
-
+	<ul class="box-list">
+		<li class="lt lt--third box-list__item">
 					<?php foreach($this->items as $item): ?>
 
 				    <?php
@@ -38,13 +37,13 @@ function replaceLinks($string){
 					$post = $item->php;
 					?>
 
-					<article style="position: relative;" class="stream <?php echo $platform; ?>">
+					<article class="box--small box--box-list <?php echo $platform; ?>">
 					<?php require('default_' . $platform . '.php'); ?>
 					<time><?php echo $item->date_created; ?></time>
 					</article>
 					
 					<?php endforeach; ?>
-
+			</div>
 		</div>
 	</div>
 </div>
