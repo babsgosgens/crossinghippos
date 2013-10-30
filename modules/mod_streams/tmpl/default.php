@@ -19,7 +19,7 @@ defined('_JEXEC') or die;
 
 					<?php foreach($items as $item): ?>
 
-					<article style="position: relative;" class="stream <?php echo $item->platform; ?>">
+					<article class="stream <?php echo $item->platform; ?>">
 
 					    <?php
 						$date = new JDate($item->date_created);

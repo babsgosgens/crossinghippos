@@ -24,11 +24,7 @@ defined('_JEXEC') or die;
 </head>
 <body>
 
-<!-- DEFAULT JOOMLA -->
 <jdoc:include type="modules" name="top" /> 
-<jdoc:include type="component" />
-<jdoc:include type="modules" name="bottom" />
-<!-- DEFAULT JOOMLA -->
 
 <header class="masthead">
 	<div class="masthead__link-list">
@@ -58,7 +54,12 @@ defined('_JEXEC') or die;
 </header>
 
 <div class="root">
+	 <jdoc:include type="message" />
+     <jdoc:include type="modules" name="content-top" />
+     <jdoc:include type="modules" name="position-6" />
+     <jdoc:include type="modules" name="component-modules" style="raw" />
 
+<jdoc:include type="modules" name="bottom" />
 	<section>
 		<h1 class="hd--section">Articles</h1>
 		<ul class="box-list">
