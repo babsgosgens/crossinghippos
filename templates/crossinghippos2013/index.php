@@ -14,8 +14,7 @@ defined('_JEXEC') or die;
 <html lang="<?php echo $this->language; ?>">
 <head>
 	
-	<meta charset="utf-8" />
-	<title>Crossing Hippos</title>
+	<jdoc:include type="head" />	
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="http://use.typekit.net/ztu5gmc.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>

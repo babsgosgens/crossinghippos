@@ -23,11 +23,11 @@ $(document).ready(function() {
 <div class="streamwrapper">
 	<div class="streamintro"></div>
 	<div class="itemswrapper">
-		<div class="items">
-
+		<ul class="box-list">
+			<li class="lt lt--third box-list__item">
 					<?php foreach($items as $item): ?>
 
-					<article class="stream <?php echo $item->platform; ?>">
+					<article class="stream box--small box--box-list <?php echo $item->platform; ?>">
 
 					    <?php
 						$date = new JDate($item->date_created);
@@ -41,8 +41,8 @@ $(document).ready(function() {
 					</article>
 					
 					<?php endforeach; ?>
-
-		</div>
+			</li>
+		</ul>
 	</div>	
 
 	<a href="#left" class="left"><</a>
