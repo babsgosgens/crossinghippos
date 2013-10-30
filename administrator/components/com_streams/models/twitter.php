@@ -61,6 +61,7 @@ class StreamsModelTwitter extends JModelAdmin
 
 		$twitter = new TwitterAPIExchange( $params->toArray() );
 		$this->set('api', $twitter);
+		$this->set('params', $params);
 	}
 
 	/**
@@ -73,7 +74,7 @@ class StreamsModelTwitter extends JModelAdmin
 		/**
 		 * Only fetch items if the response is empty
 		 */
-		if ( is_null($this->_response) )
+		if ( is_null($this->response) )
 		{
 			$this->setResponse();
 		}
@@ -159,21 +160,18 @@ class StreamsModelTwitter extends JModelAdmin
 	 */
 	protected function setResponse()
 	{
-		$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
+		$url = 'https://api.twitter.com/1.1/statuses/tweets.json';
 
 		if ( $this->response==null ) 
 		{
 			$twitter =& $this->api;
 			
-			$twitter->buildOauth($url, 'GET');
+			$request = $twitter->buildOauth($url, 'GET')
+							   ->performRequest();
 
-			if($config)
-			{
-				$twitter->setGetfield($config);
-			}
-
-			$this->response = json_decode( $twitter->performRequest() );
+			$this->response = json_decode($request);
 		}
+
 	}
 
 	/**
