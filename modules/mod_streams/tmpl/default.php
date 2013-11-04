@@ -8,17 +8,11 @@
  */
 
 defined('_JEXEC') or die;
-?>
 
-<script>
-$(document).ready(function() {
-	if (typeof sliderLoaded === 'undefined') {
-		$.getScript("media/mod_streams/js/script.js");
-		sliderLoaded = true;
-		console.log('jQuery loaded: media/mod_streams/js/script.js');
-	}
-});
-</script>
+// Include slider script.
+$document = JFactory::getDocument();
+$document->addScript('media/mod_streams/js/slider.js');
+?>
 
 <div class="streamwrapper">
 	<div class="streamintro"></div>

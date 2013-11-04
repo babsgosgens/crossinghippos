@@ -15,7 +15,6 @@ defined('_JEXEC') or die;
 <head>
 	
 	<jdoc:include type="head" />	
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="http://use.typekit.net/ztu5gmc.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<link href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />

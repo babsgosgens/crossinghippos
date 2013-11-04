@@ -1,24 +1,26 @@
 var count = 0;
 var items = 6;
 
-$(document).ready(function() {
-    $('a.left').click(function(event) {
+jQuery(document).ready(function() {
+    jQuery('a.left').click(function(event) {
     	event.preventDefault();
     	if (count > 0){
-			$('.stream').animate({
+			jQuery('.stream').animate({
            		left: '+=10%'
         	}, 400);
         	count--;
         }
     });
 
-    $('a.right').click(function(event) {
+    jQuery('a.right').click(function(event) {
     	event.preventDefault();
     	if (count < items){
-			$('.stream').animate({
+			jQuery('.stream').animate({
            		left: '-=10%'
         	}, 400);
         	count++;
         }
     });
 });
+
+console.log('Slider Loaded!');
