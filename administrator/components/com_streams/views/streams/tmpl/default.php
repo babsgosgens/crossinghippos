@@ -184,6 +184,16 @@ $sortFields = $this->getSortFields();
 							$postContent = $post['title'];
 						}
 						break;
+					case 'tumblr':
+						$post = $item->php;
+
+						if (isset($post->title)){
+							$postContent = $post->title;
+						} else {
+							$postContent = $post->slug;
+						}
+						
+						break;
 				}
 
 				?>
