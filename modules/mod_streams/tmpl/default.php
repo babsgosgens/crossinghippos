@@ -24,9 +24,9 @@ $(document).ready(function() {
 	<div class="streamintro"></div>
 	<div class="itemswrapper">
 		<ul class="box-list">
+			<?php foreach($items as $item): ?>
+			
 			<li class="lt lt--third box-list__item">
-					<?php foreach($items as $item): ?>
-
 					<article class="stream box--small box--box-list <?php echo $item->platform; ?>">
 
 					    <?php

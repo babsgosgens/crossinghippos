@@ -22,41 +22,31 @@ defined('_JEXEC') or die;
 
 </head>
 <body>
+<div class="root">
+	<jdoc:include type="modules" name="top" /> 
 
-<jdoc:include type="modules" name="top" /> 
-
-<header class="masthead">
-	<div class="masthead__link-list">
+	<nav class="main-nav lt--fourth">
 		<ul>
-			<li>twitter</li>
-			<li>facebook</li>
-		</ul><!--
-		--><ul>
-			<li>Dutch</li>
-			<li>Search</li>
-		</ul>
-	</div>
-	<h1 class="masthead__title">
-		<a href="#" class="anchor--incognito">
-			<span class="hd hd--masthead">Crossing Hippos</span>
-			<span class="masthead__tagline" style="font-weight: 300;">webdesign &amp; development</span>
-		</a>
-	</h1>
-
-	<nav class="main-nav">
-		<ul>
-			   <li class="lt__item--horizontal"><a href="#" class="box--small main-nav__item">Stuff I do.</a></li><!--
-			--><li class="lt__item--horizontal"><a href="#" class="box--small main-nav__item">Stuff I write.</a></li><!--
-			--><li class="lt__item--horizontal"><a href="#" class="box--small main-nav__item">Stuff I like.</a></li>
+			   <li class="lt__item--vertical"><a href="#" class="box--small main-nav__item">About</a></li><!--
+			--><li class="lt__item--vertical"><a href="#" class="box--small main-nav__item">Work</a></li><!--
+			--><li class="lt__item--vertical"><a href="#" class="box--small main-nav__item">fun</a></li><!--
+			--><li class="lt__item--vertical"><a href="#" class="box--small main-nav__item">fun</a></li>
 		</ul>
 	</nav>
-</header>
+	<header class="masthead lt--half">
+		<h1 class="masthead__title">
+			<a href="#" class="anchor--incognito">
+				<span class="hd hd--masthead">Crossing Hippos</span>
+				<span class="masthead__tagline" style="font-weight: 300;">webdesign &amp; development</span>
+			</a>
+		</h1>
+	</header>
 
-<div class="root">
-	 <jdoc:include type="message" />
-     <jdoc:include type="modules" name="content-top" />
-     <jdoc:include type="modules" name="position-6" />
-     <jdoc:include type="modules" name="component-modules" style="raw" />
+	<div class="lt--half">	 
+	<jdoc:include type="message" />
+    <jdoc:include type="modules" name="content-top" />
+    <jdoc:include type="modules" name="position-6" />
+    <jdoc:include type="modules" name="component-modules" style="raw" />
 
 <jdoc:include type="modules" name="bottom" />
 	<section>
@@ -105,6 +95,7 @@ defined('_JEXEC') or die;
 				</div>
 			</li>
 		</ul>
+	</div>
 	</section>
 
 <?php /*	

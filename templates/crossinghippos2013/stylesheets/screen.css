@@ -959,11 +959,16 @@ q {
 }
 
 /* line 23, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+.lt__item--vertical {
+  line-height: 0;
+}
+
+/* line 27, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
 .span {
   width: 100%;
 }
 
-/* line 27, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+/* line 31, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
 .avatar {
   width: 50px;
   height: 50px;
@@ -1055,6 +1060,11 @@ q {
   border-radius: 10px;
 }
 
+/* line 5, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.postimage {
+  max-width: 100%;
+}
+
 /* SKIN...........Theme variations */
 /* TRUMPS.........Style overrides */
 /* line 1, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
@@ -1139,4 +1149,9 @@ q {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   border-radius: 10px;
+}
+
+/* line 5, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.postimage {
+  max-width: 100%;
 }
