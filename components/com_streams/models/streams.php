@@ -87,12 +87,12 @@ class StreamsModelStreams extends JModelList
 			->join('LEFT', $db->quoteName('#__streams_apis') . ' AS aa ON aa.id = a.api_id');
 
 		// Only show published items
-
 		$query->where('a.state = 1');
 
-		if (isset($_GET['sid']) && is_int(intval($_GET['sid'])))
+		// Filter on id
+		if (isset($_GET['type']) && is_int(intval($_GET['type'])))
 		{
-			$query->where('a.api_id = ' . $_GET['sid']);
+			$query->where('a.api_id = ' . intval($_GET['type']));
 		}
 
 		// Sort on date
