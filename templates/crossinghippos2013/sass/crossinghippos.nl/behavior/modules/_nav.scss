@@ -8,6 +8,7 @@
 .main-nav {
 	@include font-weight($bree-serif-regular);
 	color: $anchor-color;
+	text-align: right;
 }
 	.main-nav__item {
 		text-decoration: none;

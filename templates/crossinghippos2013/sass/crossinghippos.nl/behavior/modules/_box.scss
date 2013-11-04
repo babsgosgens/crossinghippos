@@ -8,7 +8,7 @@
 }
 
 .box--small {
-	display: block;
+	display: inline-block;
 	@include vertical-rhythm(1/4, padding);
 	@include horizontal-rhythm(.25, padding);
 }

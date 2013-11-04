@@ -1028,9 +1028,10 @@ q {
 .main-nav {
   font-weight: 400;
   color: #00b09e;
+  text-align: right;
 }
 
-/* line 12, ../sass/crossinghippos.nl/behavior/modules/_nav.scss */
+/* line 13, ../sass/crossinghippos.nl/behavior/modules/_nav.scss */
 .main-nav__item {
   text-decoration: none;
 }
@@ -1045,7 +1046,7 @@ q {
 
 /* line 10, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
 .box--small {
-  display: block;
+  display: inline-block;
   padding: 0.3125em;
   padding: 12px;
 }
@@ -1119,9 +1120,10 @@ q {
 .main-nav {
   font-weight: 400;
   color: #00b09e;
+  text-align: right;
 }
 
-/* line 12, ../sass/crossinghippos.nl/behavior/modules/_nav.scss */
+/* line 13, ../sass/crossinghippos.nl/behavior/modules/_nav.scss */
 .main-nav__item {
   text-decoration: none;
 }
@@ -1136,7 +1138,7 @@ q {
 
 /* line 10, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
 .box--small {
-  display: block;
+  display: inline-block;
   padding: 0.3125em;
   padding: 12px;
 }

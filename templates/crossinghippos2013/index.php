@@ -29,7 +29,7 @@ defined('_JEXEC') or die;
 			   <li class="lt__item--vertical"><a href="#" class="box--small main-nav__item">About</a></li><!--
 			--><li class="lt__item--vertical"><a href="#" class="box--small main-nav__item">Work</a></li><!--
 			--><li class="lt__item--vertical"><a href="#" class="box--small main-nav__item">fun</a></li><!--
-			--><li class="lt__item--vertical"><a href="#" class="box--small main-nav__item">fun</a></li>
+			--><li class="lt__item--vertical"><a href="#" class="box--small main-nav__item">Contact</a></li>
 		</ul>
 	</nav>
 	<header class="masthead lt--half">
