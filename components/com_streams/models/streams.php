@@ -5,7 +5,6 @@
  * @copyright   Copyright (C) 2010 - 2013 Crossing Hippos. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
-
 defined('_JEXEC') or die;
 
 /**
@@ -89,16 +88,54 @@ class StreamsModelStreams extends JModelList
 		// Only show published items
 		$query->where('a.state = 1');
 
-		// Filter on id
-		if (isset($_GET['type']) && is_int(intval($_GET['type'])))
-		{
-			$query->where('a.api_id = ' . intval($_GET['type']));
-		}
 
-		// Sort on date
-		$query->order('a.date_created DESC');
+		$this->filterQuery($query);
 
 		// echo nl2br(str_replace('#__','flock_',$query));
 		return $query;
+	}
+
+	/**
+	 * Build an SQL filtered query to load the list data.
+	 *
+	 * @return  JDatabaseQueryAndFilter
+	 * @since   1.6
+	 */
+	private function filterQuery($query)
+	{	
+		// get input
+		$input = JFactory::getApplication()->input;
+
+		// limit by platform
+		$list_platform_id = $this->getPlatforms();
+		$platform = $input->get('platform');
+
+		if (isset($list_platform_id[$platform]))
+		{
+			$query->where('a.api_id = ' . $list_platform_id[$platform]);
+		}
+
+		// sort by date ascending or descending
+		$order = $input->get('order');
+		if ($order == 'ascending'){
+			$query->order('a.date_created ASC');
+		} else {
+			$query->order('a.date_created DESC');
+		}
+	}
+
+	private function getPlatforms()
+	{
+		$db = $this->getDbo();
+		$db->setQuery('SELECT id, alias FROM #__streams_apis WHERE state = 1');
+		$result = $db->loadObjectList();
+
+		$platforms_list = array();
+
+		foreach ($result as $platform) {
+			$platforms_list[$platform->alias] = intval($platform->id);
+		}
+
+		return $platforms_list;
 	}
 }
