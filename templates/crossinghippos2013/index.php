@@ -22,26 +22,32 @@ defined('_JEXEC') or die;
 </head>
 <body>
 <div class="root">
-	<jdoc:include type="modules" name="top" /> 
-
-	<nav class="main-nav lt--fourth">
+	<jdoc:include type="modules" name="top" />
+	<nav class="lt lt--fourth main-nav">
+		    <jdoc:include type="modules" name="mainnav" />
 		<ul>
-			   <li class="lt__item--vertical"><a href="#" class="box--small main-nav__item">About</a></li><!--
-			--><li class="lt__item--vertical"><a href="#" class="box--small main-nav__item">Work</a></li><!--
-			--><li class="lt__item--vertical"><a href="#" class="box--small main-nav__item">fun</a></li><!--
-			--><li class="lt__item--vertical"><a href="#" class="box--small main-nav__item">Contact</a></li>
+			   <li><a href="#" class="main-nav__item">About</a></li><!--
+			--><li><a href="#" class="main-nav__item">Work</a></li><!--
+			--><li><a href="#" class="main-nav__item">fun</a></li><!--
+			--><li><a href="#" class="main-nav__item">Contact</a></li>
 		</ul>
-	</nav>
-	<header class="masthead lt--half">
+	</nav><!--
+ --><header class="lt lt--half masthead">
 		<h1 class="masthead__title">
 			<a href="#" class="anchor--incognito">
 				<span class="hd hd--masthead">Crossing Hippos</span>
 				<span class="masthead__tagline" style="font-weight: 300;">webdesign &amp; development</span>
 			</a>
 		</h1>
-	</header>
+	</header><!--
+ --><div class="lt lt--fourth">
+		Search and direct social network icons.
+	</div>
 
-	<div class="lt--half">	 
+	<div class="lt lt--fourth">
+		social media filter
+	</div><!--
+ --><div class="lt lt--half">	 
 	<jdoc:include type="message" />
     <jdoc:include type="modules" name="content-top" />
     <jdoc:include type="modules" name="position-6" />
@@ -94,6 +100,9 @@ defined('_JEXEC') or die;
 				</div>
 			</li>
 		</ul>
+	</div><!--
+ --><div class="lt lt--fourth">
+		social media filter
 	</div>
 	</section>
 
