@@ -101,8 +101,11 @@ class StreamsModelStreams extends JModelList
 	/**
 	 * Build an SQL filtered query to load the list data.
 	 *
-	 * @return  JDatabaseQueryAndFilter
-	 * @since   1.6
+	 * @param	Object Joomla Database
+	 * @param	Object Joomla Query
+	 *
+	 * @return	JDatabaseQueryAndFilter
+	 * @since	1.6
 	 */
 	private function filterQuery($db, $query)
 	{	
