@@ -25,6 +25,12 @@ defined('_JEXEC') or die;
 	<jdoc:include type="modules" name="top" />
 	<nav class="lt lt--fourth main-nav">
 		    <jdoc:include type="modules" name="mainnav" />
+		<ul>
+			   <li><a href="#" class="main-nav__item">About</a></li><!--
+			--><li><a href="#" class="main-nav__item">Work</a></li><!--
+			--><li><a href="#" class="main-nav__item">fun</a></li><!--
+			--><li><a href="#" class="main-nav__item">Contact</a></li>
+		</ul>
 	</nav><!--
  --><header class="lt lt--half masthead">
 		<h1 class="masthead__title">
