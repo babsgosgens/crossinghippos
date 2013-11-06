@@ -88,8 +88,11 @@ class StreamsModelStreams extends JModelList
 		// Only show published items
 		$query->where('a.state = 1');
 
+		// filter on given variables.
+		$this->filterQuery($db, $query);
 
-		$this->filterQuery($query);
+		// reverse date
+		$query->order('a.date_created DESC');
 
 		// echo nl2br(str_replace('#__','flock_',$query));
 		return $query;
@@ -101,41 +104,33 @@ class StreamsModelStreams extends JModelList
 	 * @return  JDatabaseQueryAndFilter
 	 * @since   1.6
 	 */
-	private function filterQuery($query)
+	private function filterQuery($db, $query)
 	{	
-		// get input
+		// get input.
 		$input = JFactory::getApplication()->input;
 
-		// limit by platform
-		$list_platform_id = $this->getPlatforms();
-		$platform = $input->get('platform');
+		// get ?platform=[CONTENT] and filter.
+		$platform = $input->get('platform', '', 'raw');
 
-		if (isset($list_platform_id[$platform]))
-		{
-			$query->where('a.api_id = ' . $list_platform_id[$platform]);
+		// if ?platform=[CONTENT] is set
+		if ($platform != ''){
+
+			// empty array for query.
+			$items = array();
+
+			// split all $_GET items.
+			$split = explode(' ', $platform);
+
+			// generate query.
+			foreach ($split as $item){
+				array_push($items, 'aa.alias = ' . $db->quote($item));
+			}
+
+			// join query string.
+			$string = implode(' OR ', $items);
+
+			// execute query.
+			$query->where($string);
 		}
-
-		// sort by date ascending or descending
-		$order = $input->get('order');
-		if ($order == 'ascending'){
-			$query->order('a.date_created ASC');
-		} else {
-			$query->order('a.date_created DESC');
-		}
-	}
-
-	private function getPlatforms()
-	{
-		$db = $this->getDbo();
-		$db->setQuery('SELECT id, alias FROM #__streams_apis WHERE state = 1');
-		$result = $db->loadObjectList();
-
-		$platforms_list = array();
-
-		foreach ($result as $platform) {
-			$platforms_list[$platform->alias] = intval($platform->id);
-		}
-
-		return $platforms_list;
 	}
 }
