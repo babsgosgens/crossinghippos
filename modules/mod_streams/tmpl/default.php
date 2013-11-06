@@ -20,8 +20,8 @@ $document->addScript('media/mod_streams/js/slider.js');
 		<ul class="box-list">
 			<?php foreach($items as $item): ?>
 			
-			<li class="lt--half box-list__item stream box--small box--box-list">
-					<article class="<?php echo $item->platform; ?>">
+			<li class="lt lt--half box-list__item">
+					<article class="stream box--small box--box-list <?php echo $item->platform; ?>">
 
 					    <?php
 						$date = new JDate($item->date_created);
