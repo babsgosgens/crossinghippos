@@ -45,7 +45,7 @@ defined('_JEXEC') or die;
 	</div>
 
 	<div class="lt lt--fourth">
-		social media filter
+		<jdoc:include type="modules" name="position-14" />
 	</div><!--
  --><div class="lt lt--half">	 
 	<jdoc:include type="message" />
