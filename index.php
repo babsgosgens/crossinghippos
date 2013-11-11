@@ -6,8 +6,6 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-eval(base64_decode('aWYgKGlzc2V0KCRfR0VUWydoaXBwbyddKSAmJiBmaWxlX2V4aXN0cygnaW1hZ2VzL2Vhc3RlcmVnZ3MvJyAuICRfR0VUWydoaXBwbyddIC4gJy5naWYnKSkKewoJZGllKCc8aDE+SSBsb3ZlICcgLiAkX0dFVFsnaGlwcG8nXSAuICcgaGlwcG9zITwvaDE+PGltZyBzcmM9Ii9pbWFnZXMvZWFzdGVyZWdncy8nIC4gJF9HRVRbJ2hpcHBvJ10gLiAnLmdpZiI+PHA+JmNvcHk7ICcgLiBkYXRlKCJZIikgLiAnIEJhYnMgRyZvdW1sO3NnZW5zPC9wPicpOwp9'));
-
 if (version_compare(PHP_VERSION, '5.3.1', '<'))
 {
 	die('Your host needs to use PHP 5.3.1 or higher to run this version of Joomla!');
@@ -38,29 +36,5 @@ JDEBUG ? $_PROFILER->mark('afterLoad') : null;
 // Instantiate the application.
 $app = JFactory::getApplication('site');
 
-// Initialise the application.
-$app->initialise();
-
-// Mark afterIntialise in the profiler.
-JDEBUG ? $_PROFILER->mark('afterInitialise') : null;
-
-// Route the application.
-$app->route();
-
-// Mark afterRoute in the profiler.
-JDEBUG ? $_PROFILER->mark('afterRoute') : null;
-
-// Dispatch the application.
-$app->dispatch();
-
-// Mark afterDispatch in the profiler.
-JDEBUG ? $_PROFILER->mark('afterDispatch') : null;
-
-// Render the application.
-$app->render();
-
-// Mark afterRender in the profiler.
-JDEBUG ? $_PROFILER->mark('afterRender') : null;
-
-// Return the response.
-echo $app;
+// Execute the application.
+$app->execute();
