@@ -22,13 +22,12 @@ defined('_JEXEC') or die;
 </head>
 <body>
 <div class="root">
-	<jdoc:include type="modules" name="top" />
 	<nav class="lt lt--fourth main-nav">
 		    <jdoc:include type="modules" name="mainnav" />
 		<ul>
 			   <li><a href="#" class="main-nav__item">About</a></li><!--
 			--><li><a href="#" class="main-nav__item">Work</a></li><!--
-			--><li><a href="#" class="main-nav__item">fun</a></li><!--
+			--><li><a href="#" class="main-nav__item">Fun</a></li><!--
 			--><li><a href="#" class="main-nav__item">Contact</a></li>
 		</ul>
 	</nav><!--
@@ -46,65 +45,25 @@ defined('_JEXEC') or die;
 
 	<div class="lt lt--fourth">
 		<jdoc:include type="modules" name="position-14" />
-	</div><!--
- --><div class="lt lt--half">	 
-	<jdoc:include type="message" />
-    <jdoc:include type="modules" name="content-top" />
-    <jdoc:include type="modules" name="position-6" />
-    <jdoc:include type="modules" name="component-modules" style="raw" />
-
-<jdoc:include type="modules" name="bottom" />
-	<section>
-		<h1 class="hd--section">Articles</h1>
-		<ul class="box-list">
-			<li class="lt lt--third box-list__item">
-				<div class="box--small box--box-list">1</div>
-			</li><!--
-		 --><li class="lt lt--third box-list__item">
-				<div class="box--small box--box-list">2</div>
-			</li><!--
-		 --><li class="lt lt--third box-list__item">
-				<div class="box--small box--box-list">3</div>
-			</li>
-		</ul>
-	</section>
-	<section>
-		<h1 class="hd--section">Stream</h1>
-		<ul class="box-list">
-			<li class="lt lt--third box-list__item">
-				<h2 class="hd--a hd--item">Twitter</h2>
-				<div class="box--small box--box-list">
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec nisi tempor sem rhoncus tincidunt id ut magna. 
-						Integer sapien sapien, egestas sed urna suscipit, mollis porta massa. 
-					</p>
-				</div>
-			</li><!--
-		 --><li class="lt lt--third box-list__item">
-		 		<h2 class="hd--a hd--item">Facebook</h2>
-				<div class="box--small box--box-list">
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec nisi tempor sem rhoncus tincidunt id ut magna. 
-						Integer sapien sapien, egestas sed urna suscipit, mollis porta massa. Morbi sed ultrices mauris. Donec condimentum 
-						mollis arcu nec iaculis. Phasellus a mauris vel arcu dictum tristique. Morbi placerat nisl id venenatis pharetra
-					</p>
-				</div>
-				</li><!--
-		 --><li class="lt lt--third box-list__item">
-		 		<h2 class="hd--a hd--item">Dribbble</h2>
-				<div class="box--small box--box-list">
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec nisi tempor sem rhoncus tincidunt id ut magna. 
-						Integer sapien sapien, egestas sed urna suscipit, mollis porta massa. Morbi sed ultrices mauris.
-					</p>
-				</div>
-			</li>
-		</ul>
-	</div><!--
- --><div class="lt lt--fourth">
-		social media filter
 	</div>
-	</section>
+
+	<div class="lt lt--half">
+
+		<jdoc:include type="message" />
+	    <jdoc:include type="modules" name="content-top" />
+	    <jdoc:include type="modules" name="component-modules" style="raw" />
+
+		<section>
+			<h1 class="hd--section">Articles</h1>
+			<jdoc:include type="modules" name="content_articles" />
+		</section>
+
+		<section>
+			<h1 class="hd--section">Stream</h1>
+			<jdoc:include type="modules" name="content_streams" />
+		</section>
+
+	</div>
 
 <?php /*	
 <dl class="global-style-classification">
