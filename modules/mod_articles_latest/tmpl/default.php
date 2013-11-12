@@ -9,11 +9,25 @@
 
 defined('_JEXEC') or die;
 ?>
-<ul class="latestnews<?php echo $moduleclass_sfx; ?>">
+
+<ul class="box-list">
 <?php foreach ($list as $item) :  ?>
-	<li>
-		<a href="<?php echo $item->link; ?>">
-			<?php echo $item->title; ?></a>
+	<li class="lt box-list__item">
+		<div class="box--small box--box-list">
+			<a href="<?php echo $item->link; ?>"><?php echo $item->title; ?></a>
+
+			<?php
+			if (strlen($item->introtext) > 200) {
+				echo (substr($item->introtext, 0, 200)) . "&hellip;";
+			} else {
+				echo $item->introtext;
+			}
+			?>
+
+			<?php foreach ($item->tags->itemTags as $tag) : ?>
+				<?php echo $tag->title; ?>
+			<?php endforeach; ?>
+		</div>
 	</li>
 <?php endforeach; ?>
 </ul>
