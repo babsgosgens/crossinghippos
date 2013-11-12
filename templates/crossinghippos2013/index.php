@@ -42,29 +42,37 @@ defined('_JEXEC') or die;
  --><div class="lt lt--fourth">
 		Search and direct social network icons.
 	</div>
+	<!-- articles -->
+	<div class="root">
+		<div class="lt lt--fourth">
+			Viewed or not
+		</div><!--
+	 --><div class="lt lt--half">
 
-	<div class="lt lt--fourth">
-		<jdoc:include type="modules" name="position-14" />
-	</div>
+			<jdoc:include type="message" />
+		    <jdoc:include type="modules" name="content-top" />
+		    <jdoc:include type="modules" name="component-modules" style="raw" />
 
-	<div class="lt lt--half">
-
-		<jdoc:include type="message" />
-	    <jdoc:include type="modules" name="content-top" />
-	    <jdoc:include type="modules" name="component-modules" style="raw" />
-
-		<section>
-			<h1 class="hd--section">Articles</h1>
 			<jdoc:include type="modules" name="content_articles" />
-		</section>
-
-		<section>
-			<h1 class="hd--section">Stream</h1>
-			<jdoc:include type="modules" name="content_streams" />
-		</section>
-
+		</div><!--
+	 --><div class="lt lt--fourth">
+			tags
+		</div>
 	</div>
 
+	<!-- streams -->
+	<div class="root"><!--
+	 --><div class="lt lt--fourth">
+			<jdoc:include type="modules" name="position-14" /><!--
+	 --></div>
+		<div class="lt lt--half">
+			<jdoc:include type="modules" name="content_streams" />
+		</div><!--
+	 --><div class="lt lt--fourth">
+			Empty
+		</div>
+	</div>
+	
 <?php /*	
 <dl class="global-style-classification">
 	   <dt class="lt lt--fourth">.lt</dt><!--

@@ -17,4 +17,4 @@ defined('_JEXEC') or die;
 ?>
 
 	<a href="http://dribbble.com/<?php echo $post->player->username; ?>"><span><?php echo $post->player->name;?></span></a></p>
-	<p><a href="<?php echo $post->url; ?>"> <img class="postimage" src="<?php echo $post->image_url; ?>" width="150"></a></p>
+	<p><a href="<?php echo $post->url; ?>"> <img class="postimage" src="<?php echo $post->image_url; ?>"></a></p>
