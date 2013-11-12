@@ -43,21 +43,13 @@ defined('_JEXEC') or die;
 		Search and direct social network icons.
 	</div>
 	<!-- articles -->
-	<div class="root">
-		<div class="lt lt--fourth">
-			Viewed or not
-		</div><!--
-	 --><div class="lt lt--half">
-
-			<jdoc:include type="message" />
-		    <jdoc:include type="modules" name="content-top" />
-		    <jdoc:include type="modules" name="component-modules" style="raw" />
-
-			<jdoc:include type="modules" name="content_articles" />
-		</div><!--
-	 --><div class="lt lt--fourth">
-			tags
-		</div>
+	<div>			
+		<jdoc:include type="message" />
+		<jdoc:include type="modules" name="content-top" />
+		<jdoc:include type="modules" name="component-modules" style="raw" />
+	</div>
+	<div class="lt root">
+		<jdoc:include type="modules" name="content_articles" />
 	</div>
 
 	<!-- streams -->
