@@ -15,12 +15,11 @@ $document->addScript('media/mod_streams/js/slider.js');
 ?>
 
 <div class="streamwrapper">
-	<div class="streamintro"></div>
 	<div class="itemswrapper">
 		<ul class="box-list">
 			<?php foreach($items as $item): ?>
 			
-			<li class="lt lt--half box-list__item box--box-list box--small stream <?php echo $item->platform; ?>">
+			<li class="lt box-list__item box--box-list box--small stream <?php echo $item->platform; ?>">
 					    <?php
 						$date = new JDate($item->date_created);
 						$date_created = $date->format(JText::_('DATE_FORMAT_LC2'));

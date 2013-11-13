@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
 		<div class="lt lt--fourth">
 			Eye icon
 		</div><!--
-	 --><div class="lt lt--half"
+	 --><div class="lt lt--half">
 			<a href="<?php echo $item->link; ?>"><?php echo $item->title; ?></a>
 
 			<?php
