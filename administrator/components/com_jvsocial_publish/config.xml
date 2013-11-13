@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <fieldset name="general" label="COM_JVSOCIAL_PUBLISH_CONFIG_GENERAL">
+        <field name="allow_font_end" type="radio" default="0" label="COM_JVSOCIAL_PUBLISH_CONFIG_ALLOW_FRONT_END_LBL" description="COM_JVSOCIAL_PUBLISH_CONFIG_ALLOW_FRONT_END_DESC">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+        <field name="font_end_message" type="radio" default="1" label="COM_JVSOCIAL_PUBLISH_CONFIG_FRONT_END_MESSAGE_LBL" description="COM_JVSOCIAL_PUBLISH_CONFIG_FRONT_END_MESSAGE_DESC">
+            <option value="0">JHIDE</option>
+            <option value="1">JSHOW</option>
+        </field>
+        <field name="save_to_request" type="radio" default="1" label="COM_JVSOCIAL_PUBLISH_CONFIG_SAVE_TO_REQUEST_LBL" description="COM_JVSOCIAL_PUBLISH_CONFIG_SAVE_TO_REQUEST_DESC">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+        <field name="user_short_url" type="radio" default="1" label="COM_JVSOCIAL_PUBLISH_CONFIG_USE_SHORT_URL_LBL" description="COM_JVSOCIAL_PUBLISH_CONFIG_USE_SHORT_URL_DESC">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+    </fieldset>
+
+	<fieldset name="facebook" label="COM_JVSOCIAL_PUBLISH_CONFIG_FACEBOOK">
+        <field name="message_template" size="50" type="text" default="{title}" label="COM_JVSOCIAL_PUBLISH_CONFIG_MESSAGE_TEMPLATE_LBL" description="COM_JVSOCIAL_PUBLISH_CONFIG_MESSAGE_TEMPLATE_DESC"/>
+        <field name="caption_template" size="50" type="text" default="{root}" label="COM_JVSOCIAL_PUBLISH_CONFIG_CAPTION_TEMPLATE_LBL" description="COM_JVSOCIAL_PUBLISH_CONFIG_CAPTION_TEMPLATE_DESC"/>
+        <field name="max_length_desc" size="50" type="text" default="100" label="COM_JVSOCIAL_PUBLISH_CONFIG_MAX_LENGTH_DESC_LBL" description="COM_JVSOCIAL_PUBLISH_CONFIG_MAX_LENGTH_DESC_DESC"/>
+        <field name="end_char_desc" size="50" type="text" default="..." label="COM_JVSOCIAL_PUBLISH_CONFIG_END_CHAR_DESC_LBL" description="COM_JVSOCIAL_PUBLISH_CONFIG_END_CHAR_DESC_DESC"/>
+	</fieldset>
+
+    <fieldset name="twitter" label="COM_JVSOCIAL_PUBLISH_CONFIG_TWITTER">
+        <field name="status_template" size="50" type="text" default="{title} {link}" label="COM_JVSOCIAL_PUBLISH_CONFIG_STATUS_TEMPLATE_LBL" description="COM_JVSOCIAL_PUBLISH_CONFIG_STATUS_TEMPLATE_DESC"/>
+    </fieldset>
+
+	<fieldset name="permissions" description="JCONFIG_PERMISSIONS_DESC" label="JCONFIG_PERMISSIONS_LABEL">
+		<field name="rules" type="rules" component="com_jvsocial_publish" class="inputbox" filter="rules" validate="rules" label="JCONFIG_PERMISSIONS_LABEL" section="component" />
+	</fieldset>
+</config>

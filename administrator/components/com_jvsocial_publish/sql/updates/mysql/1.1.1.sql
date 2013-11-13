@@ -1,0 +1,1 @@
+ALTER TABLE #__jvsocial_publish_requests ADD COLUMN `created_by` INT(11) NOT NULL DEFAULT 0;

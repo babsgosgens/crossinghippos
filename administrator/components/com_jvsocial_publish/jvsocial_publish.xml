@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="2.5" method="upgrade">
+    <name>com_jvsocial_publish</name>
+    <creationDate>2013-07-27</creationDate>
+    <copyright>Copyright (C) 2013. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <author>joomlavi</author>
+    <authorEmail>info@joomlavi.com</authorEmail>
+    <authorUrl>http://www.joomlavi.com</authorUrl>
+    <version>1.1.2</version>
+    <description>JV Social Publish post content from Joomla to Facebook and Twitter</description>
+    
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+    <update> <!-- Runs on update; New in 2.5 -->
+        <schemas>
+            <schemapath type="mysql">sql/updates/mysql</schemapath>
+        </schemas>
+    </update>
+
+    <administration>
+        <menu img="components/com_jvsocial_publish/assets/images/s_com_jvsocial_publish.png" >COM_JVSOCIAL_PUBLISH</menu>
+        <submenu>
+			<menu link="option=com_jvsocial_publish&amp;view=channels" view="channels" img="components/com_jvsocial_publish/assets/images/s_com_jvsocial_publish_channels.png" alt="Jvsocial_publish/Channels">COM_JVSOCIAL_PUBLISH_TITLE_CHANNELS</menu>
+			<menu link="option=com_jvsocial_publish&amp;view=requests" view="requests" img="components/com_jvsocial_publish/assets/images/s_com_jvsocial_publish_requests.png" alt="Jvsocial_publish/Requests">COM_JVSOCIAL_PUBLISH_TITLE_REQUESTS</menu>
+            <menu link="option=com_jvsocial_publish&amp;view=manual_post" view="manual_post" img="components/com_jvsocial_publish/assets/images/s_com_jvsocial_publish_manual_post.png" alt="Jvsocial_publish/Manual Post">COM_JVSOCIAL_PUBLISH_MANUAL_POST</menu>
+            <menu link="option=com_jvsocial_publish&amp;view=guide" view="guide" img="components/com_jvsocial_publish/assets/images/s_com_jvsocial_publish_guide.gif" alt="Jvsocial_publish/Guide">COM_JVSOCIAL_PUBLISH_GUIDE</menu>
+        </submenu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>index.html</filename>
+            <filename>changelog.txt</filename>
+            <filename>jvsocial_publish.php</filename>
+            <folder>controllers</folder>
+            <folder>assets</folder>
+            <folder>helpers</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+            <folder>language</folder>
+        </files>
+        <languages folder="administrator">
+			<language tag="en-GB">language/en-GB/en-GB.com_jvsocial_publish.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_jvsocial_publish.sys.ini</language>
+        </languages>
+    </administration>
+</extension>
+
