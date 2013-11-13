@@ -18,6 +18,7 @@ defined('_JEXEC') or die;
 	<script type="text/javascript" src="http://use.typekit.net/ztu5gmc.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<link href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 </head>
 <body>
@@ -61,7 +62,7 @@ defined('_JEXEC') or die;
 			<jdoc:include type="modules" name="content_streams" />
 		</div><!--
 	 --><div class="lt lt--fourth">
-			Empty
+
 		</div>
 	</div>
 	
