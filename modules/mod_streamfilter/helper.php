@@ -18,6 +18,12 @@ defined('_JEXEC') or die;
  */
 class ModStreamfilterHelper
 {
+	public static function splitNewLine($text)
+	{
+    	$code = preg_replace('/\n$/','', preg_replace('/^\n/','', preg_replace('/[\r\n]+/',"\n", $text)));
+    	return explode("\n", $code);
+	}
+
 	public static function getPlatforms()
 	{
 		$db = JFactory::getDBO();
@@ -30,5 +36,17 @@ class ModStreamfilterHelper
     	}
 
     	return $platforms_list;
+	}
+
+	public static function getIcons()
+	{
+		$db = JFactory::getDBO();
+		$db->setQuery('SELECT alias, params FROM #__streams_apis WHERE state = 1');
+		$result = $db->loadObjectList();
+
+		foreach ($result as $item) {
+		}
+    	
+    	return;
 	}
 }

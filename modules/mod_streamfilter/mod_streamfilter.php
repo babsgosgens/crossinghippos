@@ -11,5 +11,6 @@ defined('_JEXEC') or die;
 require_once __DIR__ . '/helper.php';
 
 $platforms = ModStreamfilterHelper::getPlatforms();
+$icons = ModStreamfilterHelper::getIcons();
 $layout = $params->get('layout', 'default');
 require JModuleHelper::getLayoutPath('mod_streamfilter', $layout);
