@@ -13,6 +13,6 @@ defined('_JEXEC') or die;
 
 <?php foreach ($platforms as $item): ?>
 
-<a href="?platform=<?php echo $item; ?>"><?php echo $item; ?></a>
+<i class="fa fa-<?php echo $item; ?>-square fa-2x"></i>
 
 <?php endforeach; ?>

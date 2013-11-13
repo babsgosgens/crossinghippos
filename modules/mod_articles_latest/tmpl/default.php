@@ -13,7 +13,10 @@ defined('_JEXEC') or die;
 <ul class="box-list">
 <?php foreach ($list as $item) :  ?>
 	<li class="lt box-list__item">
-		<div class="box--small box--box-list">
+		<div class="lt lt--fourth">
+			Eye icon
+		</div><!--
+	 --><div class="lt lt--half">
 			<a href="<?php echo $item->link; ?>"><?php echo $item->title; ?></a>
 
 			<?php
@@ -23,9 +26,11 @@ defined('_JEXEC') or die;
 				echo $item->introtext;
 			}
 			?>
-
+		</div><!--
+	 --><div class="lt lt--fourth">
 			<?php foreach ($item->tags->itemTags as $tag) : ?>
 				<?php echo $tag->title; ?>
+			
 			<?php endforeach; ?>
 		</div>
 	</li>

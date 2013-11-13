@@ -18,6 +18,7 @@ defined('_JEXEC') or die;
 	<script type="text/javascript" src="http://use.typekit.net/ztu5gmc.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<link href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 </head>
 <body>
@@ -42,29 +43,29 @@ defined('_JEXEC') or die;
  --><div class="lt lt--fourth">
 		Search and direct social network icons.
 	</div>
-
-	<div class="lt lt--fourth">
-		<jdoc:include type="modules" name="position-14" />
-	</div>
-
-	<div class="lt lt--half">
-
+	<!-- articles -->
+	<div>			
 		<jdoc:include type="message" />
-	    <jdoc:include type="modules" name="content-top" />
-	    <jdoc:include type="modules" name="component-modules" style="raw" />
-
-		<section>
-			<h1 class="hd--section">Articles</h1>
-			<jdoc:include type="modules" name="content_articles" />
-		</section>
-
-		<section>
-			<h1 class="hd--section">Stream</h1>
-			<jdoc:include type="modules" name="content_streams" />
-		</section>
-
+		<jdoc:include type="modules" name="content-top" />
+		<jdoc:include type="modules" name="component-modules" style="raw" />
+	</div>
+	<div class="lt root">
+		<jdoc:include type="modules" name="content_articles" />
 	</div>
 
+	<!-- streams -->
+	<div class="root"><!--
+	 --><div class="lt lt--fourth">
+			<jdoc:include type="modules" name="position-14" /><!--
+	 --></div>
+		<div class="lt lt--half">
+			<jdoc:include type="modules" name="content_streams" />
+		</div><!--
+	 --><div class="lt lt--fourth">
+
+		</div>
+	</div>
+	
 <?php /*	
 <dl class="global-style-classification">
 	   <dt class="lt lt--fourth">.lt</dt><!--
