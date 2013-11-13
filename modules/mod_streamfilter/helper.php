@@ -40,13 +40,6 @@ class ModStreamfilterHelper
 
 	public static function getIcons()
 	{
-		$db = JFactory::getDBO();
-		$db->setQuery('SELECT alias, params FROM #__streams_apis WHERE state = 1');
-		$result = $db->loadObjectList();
-
-		foreach ($result as $item) {
-		}
-    	
-    	return;
+		
 	}
 }
