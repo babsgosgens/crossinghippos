@@ -18,11 +18,10 @@ $icons = array('twitter' => 'fa fa-twitter-square fa-2x',
 			   'googleplus' => 'fa fa-google-plus-square fa-2x',
 			   'linkedin' => 'fa fa-linkedin-square fa-2x',
 			   'tumblr' => 'fa fa-tumblr-square fa-2x');
-
 ?>
 
 <?php foreach ($platforms as $item): ?>
 
-	<a href="?=<?php echo $item; ?>"><i class="<?php echo $icons[$item]; ?>"></i></a>
+	<a href="?platform=<?php echo $item; ?>"><i class="<?php echo $icons[$item]; ?>"></i></a>
 
 <?php endforeach; ?>
