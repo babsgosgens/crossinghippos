@@ -41,7 +41,9 @@ defined('_JEXEC') or die;
 		</h1>
 	</header><!--
  --><div class="lt lt--fourth">
-		Search and direct social network icons.
+		<i class="fa fa-github-alt fa-2x"></i>
+		<i class="fa fa-twitter fa-2x"></i>
+		<i class="fa fa-linkedin-square fa-2x"></i>
 	</div>
 	<!-- articles -->
 	<div>			
