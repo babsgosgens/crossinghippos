@@ -15,3 +15,14 @@
 		background: $dirt--hex;
 		width: 100%;
 	}
+
+	.masthead__logo {
+	    background-image: url("../../../images/logo.svg");
+	    height: 179px;
+	    width: 76px;
+	}
+
+
+	.no-svg .masthead__logo {
+		background-image: url(../../../images/crossinghippos_x1.png);
+	}
