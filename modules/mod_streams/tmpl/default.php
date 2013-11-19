@@ -28,9 +28,9 @@ $document->addScript('media/mod_streams/js/slider.js');
 						require(JPATH_SITE . '/components/com_streams/views/streams/tmpl/default_' . $platform . '.php');
 						echo '<time>' . $date_created . '</time>';
 						?>
-
-					<?php endforeach; ?>
 			</li>
+					<?php endforeach; ?>
+
 		</ul>
 	</div>	
 

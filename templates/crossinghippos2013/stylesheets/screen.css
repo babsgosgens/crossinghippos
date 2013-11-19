@@ -1123,7 +1123,7 @@ q {
 
 /* line 16, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
 .box--box-list {
-  width: 48%;
+  width: 47%;
   margin: 1%;
   background: rgba(42, 31, 12, 0.15);
   -webkit-border-radius: 10px;
@@ -1145,7 +1145,8 @@ q {
 
 /* line 5, ../sass/crossinghippos.nl/behavior/modules/_articles.scss */
 .articles--center {
-  border-right: 1px dotted #a49990;
+  border-right: 1px dashed #a49990;
+  padding: 0 10px;
 }
 
 /* SKIN...........Theme variations */
@@ -1277,7 +1278,7 @@ q {
 
 /* line 16, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
 .box--box-list {
-  width: 48%;
+  width: 47%;
   margin: 1%;
   background: rgba(42, 31, 12, 0.15);
   -webkit-border-radius: 10px;
@@ -1299,5 +1300,6 @@ q {
 
 /* line 5, ../sass/crossinghippos.nl/behavior/modules/_articles.scss */
 .articles--center {
-  border-right: 1px dotted #a49990;
+  border-right: 1px dashed #a49990;
+  padding: 0 10px;
 }
