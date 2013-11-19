@@ -13,6 +13,6 @@ defined('_JEXEC') or die;
 
 <?php foreach ($platforms as $item): ?>
 
-		<a href="?platform=<?php echo $item; ?>"><i class="<?php echo $icons[$item] ?>"></i></a>
+		<a href="?platform=<?php echo $item; ?>"><i class="fa <?php echo $icons[$item] ?> fa-2x hd--iconlink"></i></a>
 
 <?php endforeach; ?>
