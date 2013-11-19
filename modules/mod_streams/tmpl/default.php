@@ -17,20 +17,22 @@ $document->addScript('media/mod_streams/js/slider.js');
 <div class="streamwrapper">
 	<div class="itemswrapper">
 		<ul class="box-list">
+			
 			<?php foreach($items as $item): ?>
 			
-			<li class="lt box-list__item box--box-list box--small stream <?php echo $item->platform; ?>">
-					    <?php
-						$date = new JDate($item->date_created);
-						$date_created = $date->format(JText::_('DATE_FORMAT_LC2'));
-						$platform = $item->platform;
-						$post = unserialize(base64_decode($item->raw));
-						require(JPATH_SITE . '/components/com_streams/views/streams/tmpl/default_' . $platform . '.php');
-						echo '<time>' . $date_created . '</time>';
-						?>
+				<li class="lt box-list__item box--box-list box--small stream <?php echo $item->platform; ?>">
+				    <?php
+					$date = new JDate($item->date_created);
+					$date_created = $date->format(JText::_('DATE_FORMAT_LC2'));
+					$platform = $item->platform;
+					$post = unserialize(base64_decode($item->raw));
+					require(JPATH_SITE . '/components/com_streams/views/streams/tmpl/default_' . $platform . '.php');
+					echo '<time>' . $date_created . '</time>';
+					?>
+				</li>
 
-					<?php endforeach; ?>
-			</li>
+			<?php endforeach; ?>
+			
 		</ul>
 	</div>	
 
