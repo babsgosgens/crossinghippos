@@ -28,10 +28,12 @@ defined('_JEXEC') or die;
 			?>
 		</div><!--
 	 --><div class="lt lt--fourth">
-			<?php foreach ($item->tags->itemTags as $tag) : ?>
-				<?php echo $tag->title; ?>
-			
-			<?php endforeach; ?>
+	 		<i class="fa fa-tags"></i>
+	 		<ul class="lt--tags">
+				<?php foreach ($item->tags->itemTags as $tag) : ?>
+					<li><?php echo $tag->title; ?></li>
+				<?php endforeach; ?>
+			</ul>
 		</div>
 	</li>
 <?php endforeach; ?>

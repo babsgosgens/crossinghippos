@@ -13,8 +13,8 @@ defined('_JEXEC') or die;
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>">
 <head>
-	
-	<jdoc:include type="head" />	
+	<jdoc:include type="head" />
+	<script type="text/javascript" src="media/modernizr/modernizr.custom.85231.js"></script>
 	<script type="text/javascript" src="http://use.typekit.net/ztu5gmc.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<link href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
@@ -44,13 +44,17 @@ defined('_JEXEC') or die;
  --><header class="lt lt--half masthead">
 		<h1 class="masthead__title">
 			<a href="#" class="anchor--incognito">
+				<div class="masthead__logo">
+				</div>
 				<span class="hd hd--masthead">Crossing Hippos</span>
 				<span class="masthead__tagline" style="font-weight: 300;">webdesign &amp; development</span>
 			</a>
 		</h1>
 	</header><!--
  --><div class="lt lt--fourth">
-		Search and direct social network icons.
+		<i class="fa fa-github-alt fa-2x"></i>
+		<i class="fa fa-twitter fa-2x"></i>
+		<i class="fa fa-linkedin-square fa-2x"></i>
 	</div>
 	<!-- articles -->
 	<div>			
