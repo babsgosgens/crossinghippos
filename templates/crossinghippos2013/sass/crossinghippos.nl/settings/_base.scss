@@ -4,11 +4,12 @@
 
 	@import "type/bree";
 	@import "type/bree-serif";
+	@import "type/pt-sans";
 
     $base-font-size: $m;
     $base-line-height: $l; // 1.5*16px
 
-    $type-default: $bree-serif-light;
+    $type-default: $pt-sans-regular;
     $type-heading: $bree-serif-regular;
 
 //  ================================================================================================================================
@@ -29,6 +30,12 @@
 
 	$bee--hex: #FFCC00;
 	$bee--rgb: rgb(255,204,0);
+
+	$chred--hex: #c12b34;
+	$chred--rgb: rbg(193,43,52);
+
+	$chgrey--hex: #a49990;
+	$chgrey--rgb: rbg(164,153,144);
 
 	$color-background: $whipped-cream--hex;
 	$color-body: $dirt--hex;

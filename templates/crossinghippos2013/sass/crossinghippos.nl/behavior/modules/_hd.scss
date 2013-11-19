@@ -19,3 +19,32 @@
 .hd--item {
 
 }
+
+.hd__article--title{
+    @include adjust-font-size-to($l);
+    line-height: 30px;
+}
+
+.hd--bribold {
+	font: $bree-bold;
+}
+
+.hd--iconlink {
+	color: $chgrey--hex;
+}
+
+.hd--iconlink:hover {
+	color: $chred--hex;
+}
+
+.hd--iconlink:visited {
+	color: $chgrey--hex;
+}
+
+.hd--iconlink:visited:hover {
+	color: $chred--hex;
+}
+
+.hd--colorred {
+	color: $chred--hex;
+}

@@ -69,7 +69,7 @@ time, mark, audio, video {
  */
 /* line 27, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
 html {
-  font: normal normal 200 1em/1.25em "bree-serif", sans-serif;
+  font: normal normal 400 1em/1.25em "PT Sans", sans-serif;
 }
 
 /* line 60, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/_behavior.scss */
@@ -203,7 +203,7 @@ caption, th, td {
    */
   text-align: left;
   /* 1 */
-  font-weight: 200;
+  font-weight: 400;
   /* 2 */
   vertical-align: middle;
   /* 3 */
@@ -366,7 +366,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 400;
+  font-family: "bree-serif", sans-serif;
 }
 
 /* line 64, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/baserules/_behavior.scss */
@@ -654,7 +654,6 @@ q {
   /*
    * Font and text treatments
    */
-  font-weight: 400;
   font-family: sans-serif;
   color: darkslategrey;
   text-align: left;
@@ -782,7 +781,6 @@ q {
   *display: inline;
   margin: 0 0;
   padding: 0.375em 0;
-  font-weight: 400;
   font-family: sans-serif;
   color: darkslategrey;
   text-align: left;
@@ -815,7 +813,6 @@ q {
   text-align: center;
   text-decoration: none;
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
-  font-weight: 400;
   font-family: sans-serif;
 }
 /* line 49, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/buttons/_behavior.scss */
@@ -970,15 +967,32 @@ q {
 }
 
 /* line 32, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+.lt--eyeicon {
+  text-align: right;
+  padding-right: 10px;
+}
+
+/* line 37, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
 .span {
   width: 100%;
 }
 
-/* line 36, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+/* line 41, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
 .avatar {
   width: 50px;
   height: 50px;
   border-radius: 5px;
+}
+
+/* line 47, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+.lt--tagicon {
+  width: 7%;
+  margin-left: 10px;
+}
+
+/* line 52, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+.lt--taglist {
+  width: 85%;
 }
 
 /* GUI............UI Components and modules */
@@ -1003,6 +1017,43 @@ q {
 .hd--section {
   font-size: 1.25em;
   line-height: 2em;
+}
+
+/* line 23, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd__article--title {
+  font-size: 1.25em;
+  line-height: 2em;
+  line-height: 30px;
+}
+
+/* line 28, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--bribold {
+  font: normal, normal, 700, "bree", sans-serif;
+}
+
+/* line 32, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--iconlink {
+  color: #a49990;
+}
+
+/* line 36, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--iconlink:hover {
+  color: #c12b34;
+}
+
+/* line 40, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--iconlink:visited {
+  color: #a49990;
+}
+
+/* line 44, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--iconlink:visited:hover {
+  color: #c12b34;
+}
+
+/* line 48, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--colorred {
+  color: #c12b34;
 }
 
 /* line 1, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
@@ -1044,15 +1095,15 @@ q {
 /* Styling for main navigation */
 /* line 8, ../sass/crossinghippos.nl/behavior/modules/_nav.scss */
 .main-nav {
-  font-weight: 400;
-  color: #00b09e;
+  font-family: "bree-serif", sans-serif;
   text-align: right;
   padding: 0 30px;
 }
 
-/* line 14, ../sass/crossinghippos.nl/behavior/modules/_nav.scss */
-.main-nav__item {
+/* line 13, ../sass/crossinghippos.nl/behavior/modules/_nav.scss */
+.main-nav__item, .main-nav__item:visited {
   text-decoration: none;
+  color: #c12b34;
 }
 
 /* Defines padding and block*/
@@ -1085,6 +1136,16 @@ q {
 /* line 5, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
 .postimage {
   max-width: 100%;
+}
+
+/* line 1, ../sass/crossinghippos.nl/behavior/modules/_articles.scss */
+.articles {
+  padding: 25px 0;
+}
+
+/* line 5, ../sass/crossinghippos.nl/behavior/modules/_articles.scss */
+.articles--center {
+  border-right: 1px dotted #a49990;
 }
 
 /* SKIN...........Theme variations */
@@ -1112,6 +1173,43 @@ q {
   line-height: 2em;
 }
 
+/* line 23, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd__article--title {
+  font-size: 1.25em;
+  line-height: 2em;
+  line-height: 30px;
+}
+
+/* line 28, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--bribold {
+  font: normal, normal, 700, "bree", sans-serif;
+}
+
+/* line 32, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--iconlink {
+  color: #a49990;
+}
+
+/* line 36, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--iconlink:hover {
+  color: #c12b34;
+}
+
+/* line 40, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--iconlink:visited {
+  color: #a49990;
+}
+
+/* line 44, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--iconlink:visited:hover {
+  color: #c12b34;
+}
+
+/* line 48, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--colorred {
+  color: #c12b34;
+}
+
 /* line 1, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
 .masthead {
   text-align: center;
@@ -1151,15 +1249,15 @@ q {
 /* Styling for main navigation */
 /* line 8, ../sass/crossinghippos.nl/behavior/modules/_nav.scss */
 .main-nav {
-  font-weight: 400;
-  color: #00b09e;
+  font-family: "bree-serif", sans-serif;
   text-align: right;
   padding: 0 30px;
 }
 
-/* line 14, ../sass/crossinghippos.nl/behavior/modules/_nav.scss */
-.main-nav__item {
+/* line 13, ../sass/crossinghippos.nl/behavior/modules/_nav.scss */
+.main-nav__item, .main-nav__item:visited {
   text-decoration: none;
+  color: #c12b34;
 }
 
 /* Defines padding and block*/
@@ -1192,4 +1290,14 @@ q {
 /* line 5, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
 .postimage {
   max-width: 100%;
+}
+
+/* line 1, ../sass/crossinghippos.nl/behavior/modules/_articles.scss */
+.articles {
+  padding: 25px 0;
+}
+
+/* line 5, ../sass/crossinghippos.nl/behavior/modules/_articles.scss */
+.articles--center {
+  border-right: 1px dotted #a49990;
 }

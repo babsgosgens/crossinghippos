@@ -38,7 +38,7 @@ $icons = array('twitter' => 'fa fa-twitter-square fa-2x',
 		</style>
 		<a href="?platform=<?php echo $item; ?>"><img class="behance-icon-style" src="images/behance.png"></a>
 	<?php else: ?>
-		<a href="?platform=<?php echo $item; ?>"><i class="<?php echo $icons[$item]; ?>"></i></a>
+		<a class="hd--iconlink" href="?platform=<?php echo $item; ?>"><i class="<?php echo $icons[$item]; ?>"></i></a>
 	<?php endif; ?>
 
 <?php endforeach; ?>
