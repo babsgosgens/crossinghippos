@@ -18,7 +18,6 @@ defined('_JEXEC') or die;
 		</div><!--
 	 --><div class="lt lt--half articles--center">
 			<a class="hd hd--masthead hd__article--title" href="<?php echo $item->link; ?>"><?php echo $item->title; ?></a>
-
 			<?php
 			if (strlen($item->introtext) > 200) {
 				echo (substr($item->introtext, 0, 200)) . "&hellip;";
@@ -26,6 +25,7 @@ defined('_JEXEC') or die;
 				echo $item->introtext;
 			}
 			?>
+			<p class="hd hd--masthead hd__article--date"><?php echo date("l, F d Y", strtotime($item->publish_up)); ?></p>
 		</div><!--
 	 --><div class="lt lt--fourth">
 	 		<div class="lt lt--tagicon">
