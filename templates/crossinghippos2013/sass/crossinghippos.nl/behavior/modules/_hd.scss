@@ -8,10 +8,6 @@
 	@include font-style($bree-regular-italic);
 }
 
-.hd--masthead {
-	text-decoration: none;
-}
-
 .hd--section {
 	@include adjust-font-size-to($l);
 }
@@ -21,8 +17,14 @@
 }
 
 .hd__article--title{
-    @include adjust-font-size-to($l);
+	color: $chgrey--hex;
+	@include adjust-font-size-to($l);
     line-height: 30px;
+    text-decoration: none;
+}
+
+.hd__article--title:visited{
+    color: $chred--hex;
 }
 
 .hd--bribold {

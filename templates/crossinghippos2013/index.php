@@ -46,7 +46,7 @@ defined('_JEXEC') or die;
 						<div class="masthead__logo">
 						</div>
 						<span class="hd hd--masthead">Crossing Hippos</span>
-						<span class="masthead__tagline" style="font-weight: 300;">webdesign &amp; development</span>
+						<span class="masthead__tagline">webdesign &amp; development</span>
 					</a>
 				</h1>
 			</header><!--
@@ -78,7 +78,15 @@ defined('_JEXEC') or die;
 				</div>
 			</div>
 			<footer>
-				
+				<div class="lt lt--fourth">
+
+				</div>
+				<div class="lt lt--half articles--center">
+					<jdoc:include type="modules" name="footer-center" />
+				</div>
+				<div class="lt lt--fourth">
+
+				</div>
 			</footer>
 			
 		<?php /*	

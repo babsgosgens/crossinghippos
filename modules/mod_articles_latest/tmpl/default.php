@@ -17,7 +17,7 @@ defined('_JEXEC') or die;
 			<i class="fa fa-eye fa-2x"></i>
 		</div><!--
 	 --><div class="lt lt--half articles--center">
-			<a class="hd hd--masthead hd__article--title" href="<?php echo $item->link; ?>"><?php echo $item->title; ?></a>
+			<a class="hd hd__article--title" href="<?php echo $item->link; ?>"><?php echo $item->title; ?></a>
 
 			<?php
 			if (strlen($item->introtext) > 200) {
