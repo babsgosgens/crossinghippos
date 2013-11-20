@@ -6,7 +6,7 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-eval(base64_decode('aWYgKGlzc2V0KCRfR0VUWydoaXBwbyddKSAmJiBmaWxlX2V4aXN0cygnaW1hZ2VzL2Vhc3RlcmVnZ3MvJyAuICRfR0VUWydoaXBwbyddIC4gJy5naWYnKSkKewoJZGllKCc8aDE+SSBsb3ZlICcgLiAkX0dFVFsnaGlwcG8nXSAuICcgaGlwcG9zITwvaDE+PGltZyBzcmM9Ii9pbWFnZXMvZWFzdGVyZWdncy8nIC4gJF9HRVRbJ2hpcHBvJ10gLiAnLmdpZiI+PHA+JmNvcHk7ICcgLiBkYXRlKCJZIikgLiAnIEJhYnMgRyZvdW1sO3NnZW5zPC9wPicpOwp9'));
+eval(base64_decode('aWYgKGlzc2V0KCRfR0VUWydoaXBwbyddKSAmJiBmaWxlX2V4aXN0cygnaW1hZ2VzL2Vhc3RlcmVnZ3MvJyAuICRfR0VUWydoaXBwbyddIC4gJy5naWYnKSkKewoJZGllKCc8aDE+SSBsb3ZlICcgLiAkX0dFVFsnaGlwcG8nXSAuICcgaGlwcG9zITwvaDE+PGltZyBzcmM9ImltYWdlcy9lYXN0ZXJlZ2dzLycgLiAkX0dFVFsnaGlwcG8nXSAuICcuZ2lmIj48cD4mY29weTsgJyAuIGRhdGUoIlkiKSAuICcgQmFicyBHJm91bWw7c2dlbnM8L3A+Jyk7Cn0='));
 
 if (version_compare(PHP_VERSION, '5.3.1', '<'))
 {
