@@ -1,0 +1,50 @@
+.lt-gutters--half {
+	@include column-spacing(1/4);
+}
+.lt-gutters--fourth {
+	@include column-spacing(1/8);
+}
+.lt-vertical-padding {
+	@include padding-leader(.5);
+	@include padding-trailer(.5);
+}
+.lt-primary {
+
+}
+.lt-secondary {
+	text-align: right;
+}
+.lt-tertiary {
+	
+}
+
+.main {
+	@include vertical-rhythm(4, margin-top);	
+}
+
+@include breakpoint($lt-large) {
+	.lt-primary {
+		@include column-width(1/1);
+	}
+	.lt-secondary,
+	.lt-tertiary {
+		@include column-width(1/2);
+	}
+}
+
+
+@include breakpoint($gt-medium) {
+	.lt-primary {
+		@include column-width(1/2);
+	}
+	.lt-secondary,
+	.lt-tertiary {
+		@include column-width(1/4);
+	}
+	.lt-push--secondary {
+		@include move(1/4);
+	}
+	.lt-pull--primary {
+		@include move(-1/2);
+	}
+}

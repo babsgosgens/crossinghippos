@@ -1,0 +1,94 @@
+/*
+-----------------------------------------------------------------------------
+Masthead
+-----------------------------------------------------------------------------
+*/
+
+.masthead {
+	position: relative;
+	@include vertical-rhythm(7, padding-top);
+}
+	.masthead__title {
+		text-align: center;
+		@include adjust-font-size-to(64px, 3);
+		@include transition(font-size .3s ease-in);
+	}
+	.masthead__tagline {
+		font-size: .5em;
+		@include adjust-leading-to(1.5);
+		@include font-weight($bree-serif-light);
+		color: $got-it;
+	}
+	.masthead__logo {
+		position: absolute;
+		left: -.75em;
+		top: -.4em;
+	    height: 100%;
+	    background: url(../images/crossinghippos.svg) no-repeat;
+	    // @include background-size(auto 100%);
+	}
+		.no-svg .masthead__logo {
+			background-image: url(../images/crossinghippos_x1.png);
+		}
+
+
+	/*
+	-----------------------------------------------------------------------------
+	Tablet
+	-----------------------------------------------------------------------------
+	*/
+
+	@include breakpoint($lt-large) {
+		.masthead__title {
+			@include adjust-font-size-to(56px, 3);
+		}
+		.masthead__logo {
+		    // @include background-size(auto 50%);
+		}
+	}
+
+	/*
+	-----------------------------------------------------------------------------
+	Mobile
+	-----------------------------------------------------------------------------
+	*/
+
+	@include breakpoint($lt-small) {
+		.masthead__title {
+			@include adjust-font-size-to(38px, 3);
+		}
+		.masthead__tagline {
+				@include adjust-leading-to(1);
+		}
+	}
+
+
+/*
+-----------------------------------------------------------------------------
+Align all elements at masthead level
+-----------------------------------------------------------------------------
+*/
+
+.masthead-sibling {
+	vertical-align: bottom;
+}
+	.masthead-sibling--icons {
+		@include vertical-rhythm(2, line-height);
+	}
+	.masthead-sibling--links {
+		position: relative;
+		top: rhythm(1.5,18px);
+	}
+
+
+
+	/*
+	-----------------------------------------------------------------------------
+	Search box
+	-----------------------------------------------------------------------------
+	*/
+
+	.form-search {
+		position: absolute;
+		@include vertical-rhythm(1, top);
+	}

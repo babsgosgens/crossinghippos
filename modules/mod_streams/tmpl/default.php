@@ -34,23 +34,21 @@ $count = 0;
 					<div class="box-list__group">
 				<?php endif; ?>
 			
-					<li class="lt box-list__item box--box-list box--small stream <?php echo $item->platform; ?>">
-					    <?php
-						$date = new JDate($item->date_created);
-						$date_created = $date->format(JText::_('DATE_FORMAT_LC2'));
-						$platform = $item->platform;
-						$post = unserialize(base64_decode($item->raw));
-						require(JPATH_SITE . '/components/com_streams/views/streams/tmpl/default_' . $platform . '.php');
-						echo '<time>' . $date_created . '</time>';
-						?>
-					</li>
-
-				<?php if ($count % 4 == 0): ?>
+				<li class="lt-base lt-column--half lt-gutters--half lt-vertical-padding  box-list__item <?php echo $item->platform; ?>">
+					<div class="lt-column box  box--padded box--stream">
+				    <?php
+					$date = new JDate($item->date_created);
+					$date_created = $date->format(JText::_('DATE_FORMAT_LC2'));
+					$platform = $item->platform;
+					$post = unserialize(base64_decode($item->raw));
+					require(JPATH_SITE . '/components/com_streams/views/streams/tmpl/default_' . $platform . '.php');
+					echo '<time>' . $date_created . '</time>';
+					?>
 					</div>
-				<?php endif; ?>
+				</li>
 
-			<?php $count++; endforeach; ?>
-				
+			<?php endforeach; ?>
+			
 		</ul>
 
 	</div>

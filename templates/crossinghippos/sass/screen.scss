@@ -1,9 +1,10 @@
 /* http://persistent-grid.com
    v1.0 | 20130701
    Copyright: Copyright (C) 2013 Crossing Hippos - Babs Gösgens. All rights reserved.
-   License: GNU General Public License version 2 or later; see LICENSE.txt
+   License: MIT; see LICENSE
 */
 $trace-imports: false;
+
 
 
 //  ==========================================================================
@@ -11,32 +12,54 @@ $trace-imports: false;
 //  ==========================================================================
 	@import "Compass";
 
-//  ==========================================================================
-//  Helpers
-//  ==========================================================================
-	@import "pg/helpers";
-	@import "pg/base/helpers";
-	@import "pg/grid/helpers";
 
 //  ==========================================================================
-//  Settings
-//  --------------------------------------------------------------------------
-//  Import the settings, in this order: 
-//  1) pg settings
-//  2) project settings
+//  Utilities
 //  ==========================================================================
-	@import "pg/base/settings";
-	@import "pg/grid/settings";
+	@import "persistentgrid/utilities/all";
 
+
+//  ==========================================================================
+//  Project utilities -- if you have 'm
+//  ==========================================================================
+
+
+//  ==========================================================================
+//  Settings -- These are located in your local Compass
+//  ==========================================================================
+	@import "settings/utilities",
+			"settings/typography",
+			"settings/reset",
+			"settings/baserules",
+			"settings/layout",
+			"settings/lists",
+			"settings/forms",
+			"settings/buttons"
+			;
+
+
+//  ==========================================================================
+//  Project settings -- if you have 'm
+//  ==========================================================================
 	@import "crossinghippos.nl/settings";
 
 
 //  ==========================================================================
-//  Settings
+//  Behavior
 //  --------------------------------------------------------------------------
-//  Import the behavior (in the order you want rules to render): 
+//  Import the behavior you want (in the order you want rules to render): 
 //  ==========================================================================
-	@import "pg/base/behavior";
-	@import "pg/grid/behavior";
+	@import "persistentgrid/reset/behavior",
+			"persistentgrid/typography/behavior",
+			"persistentgrid/baserules/behavior",
+			"persistentgrid/layout/behavior",
+			"persistentgrid/forms/behavior",
+			"persistentgrid/lists/behavior",
+			"persistentgrid/buttons/behavior"
+			;
+	
 
+//  ==========================================================================
+//  Project behavior -- you should have those ;)
+//  ==========================================================================
 	@import "crossinghippos.nl/behavior";

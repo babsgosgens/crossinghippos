@@ -1,131 +1,116 @@
 <?php
 /**
- * @package     WinTOP
- * @subpackage  tmp_nszonetaxi
- * @author      Babs Gösgens <babs@crossinghippos.nl>
- * @copyright   Copyright (C) 2013 Transvision B.V., Netherlands
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla.Site
+ * @subpackage  Templates.crossinghippos
+ *
+ * @copyright   Copyright (C) 2013 Babs Gösgens. All rights reserved.
  */
 
 // No direct access.
 defined('_JEXEC') or die;
-include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 ?>
 
 <!DOCTYPE html>
-<!-- <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" class="no-js"> -->
-<html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" class="no-js">
-<head>
-    <meta http-equiv="x-ua-compatible" content="IE=9">
-    <jdoc:include type="head" />
-    <link rel="apple-touch-icon" href="webclip-72x72v2.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="webclip-72x72v2.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="webclip-114x114v2.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="webclip-144x144v2.png" />
-    <!-- <link href='http://fonts.googleapis.com/css?family=Asap:400,700,700italic,400italic' rel='stylesheet' type='text/css'> -->
-    <style type="text/css">
-    .root {
-      overflow: auto;
-    }
-    </style>
-</head>
-<body>
-  <header role="banner" class="banner">
-    <div class="root">
-      <h1 class="banner-title">Crossing Hippos<span class="banner-subtitle">webdesign met overbite</span></h1>
-      <nav role="navigation" class="navbar">
-        <jdoc:include type="modules" name="mainnav" />
-      </nav>
-    </div>
-  </header>
-  <div class="body">
-    <span class="page-header"><?php echo $pageTitle;?></span>
-    <div class="root" style="min-height: 500px;">
-      <nav class="navbar">
-        <jdoc:include type="modules" name="breadcrumbs" />
-      </nav>
-      <jdoc:include type="message"/>
-      <jdoc:include type="modules" name="content-top" />
-      <jdoc:include type="modules" name="position-6" />
-      <jdoc:include type="modules" name="component-modules" style="raw" />
-  </div>
-  <footer class="footer">
-    <div class="root">
-      <article class="fourth column">
-        <h1>Lorem ipsum</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
-          ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
-        </p>
-      </article>
-      <article class="fourth column">
-        <h1>Lorem ipsum</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
-          ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
-        </p>
-      </article>
-      <article class="fourth column">
-        <h1>Lorem ipsum</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
-          ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
-        </p>
-      </article>
-      <article class="fourth column">
-        <h1>Lorem ipsum</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
-          ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
-        </p>
-      </article>
-    </div>
-  </footer>
-    <jdoc:include type="modules" name="debug" />
+<html lang="<?php echo $this->language; ?>">
+	<head>
+		<jdoc:include type="head" />
+		<script type="text/javascript" src="media/modernizr/modernizr.custom.85231.js"></script>
+		<script type="text/javascript" src="http://use.typekit.net/ztu5gmc.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<link href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+		<script>
+		jQuery( document ).ready(function() {
+			jQuery('.fa-dribble').css('color', 'red');
 
-    <script type="text/javascript">
+			jQuery('.stream').hover(function() {
+				streamType = jQuery(this).attr("class").split(" ")[5];
+			});
+		});
+		</script>
+	</head>
+	<body>
 
-      // Fonts
-      var webkit = "WebkitAppearance" in document.body.style;
-      if(webkit) {
-        document.getElementsByTagName('html')[0].className+=' webkit';
-      }
+		<!-- Wraps the main section of the page -->
+		<div class="lt-root">
 
-      var i = 0;
-      // Fonts
-      WebFontConfig = {<?php echo $params->get('webFontConfig'); ?>};
-      (function() {
-        var wf   = document.createElement('script');
-        wf.src   = ('https:' == document.location.protocol ? 'https' : 'http') + '://ajax.googleapis.com/ajax/libs/webfont/<?php echo $params->get('webFontVersion'); ?>/webfont.js';
-        wf.type  = 'text/javascript';
-        wf.async = 'false';
-        var s    = document.getElementsByTagName('script')[i]; s.parentNode.insertBefore(wf, s);
-        i++;
-      })();
 
-      // jQuery
-      (function() {
-        if(window.jQuery == undefined) {
-          var jq = document.createElement('script'); jq.type = 'text/javascript'; jq.async = true;
-          jq.src = '<?php echo $path_to_local_jquery ?>';
-          var s = document.getElementsByTagName('script')[i]; s.parentNode.insertBefore(jq, s);
-          i++;
-        }
-      })();
+			<header role="banner" class="lt-base lt-primary lt-push lt-push--secondary  masthead">
+				<h1 class="masthead__title">
+					<a href="#" class="anchor--incognito">
+						<span class="lt-column  masthead__logo"></span>
+						<span class="lt-column  hd">Crossing Hippos</span>
+						<span class="lt-column  masthead__tagline">webdesign &amp; development</span>
+					</a>
+				</h1>
+			</header>
+			<nav role="navigation" class="lt-base lt-gutters lt-secondary lt-pull lt-pull--primary main-nav  masthead-sibling masthead-sibling--links">
+				<jdoc:include type="modules" name="position-7" />
+			</nav>
+			<div class="lt-base lt-gutters lt-tertiary  masthead-sibling masthead-sibling--icons">
+				<jdoc:include type="modules" name="position-0" />
+				<ul class="list-inline list-icons">
+					<li class="list-icons__icon"><a href="https://github.com/babsgosgens" title="<?php echo JText::_('TPL_ANCHOR_TITLE_GITHUB'); ?>"><i class="fa fa-github-alt fa-2x"></i></a></li>
+					<li class="list-icons__icon"><a href="https://twitter.com/crossinghippos" title="<?php echo JText::_('TPL_ANCHOR_TITLE_TWITTER'); ?>"><i class="fa fa-twitter fa-2x"></i></a></li>
+					<li class="list-icons__icon"><a href="http://www.linkedin.com/in/babsgosgens" title="<?php echo JText::_('TPL_ANCHOR_TITLE_LINKEDIN'); ?>"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+				</ul>
+			</div>
 
-      // Google Analytics Tracking Code
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-12737688-1']);
-      _gaq.push(['_setDomainName', 'crossinghippos.com']);
-      _gaq.push(['_setAllowLinker', true]);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[i]; s.parentNode.insertBefore(ga, s);
-        i++;
-      })();
 
-    </script>
-</body>
+			<!-- articles -->
+			<div role="main" class="lt-root main">
+				<jdoc:include type="message" />
+				<jdoc:include type="component" />
+			</div>
+
+			<!-- streams -->
+			<aside class="lt-root">
+				<div class="lt-base lt-secondary">
+					<jdoc:include type="modules" name="position-2-left" />
+				</div>
+				<div class="lt-base lt-primary">
+					<jdoc:include type="modules" name="position-2" />
+				</div>
+				<div class="lt-base lt-tertiary">
+					<jdoc:include type="modules" name="position-2-right" />
+				</div>
+			</aside>
+
+
+			<footer>
+				<div class="lt-base lt-column--fourth">
+
+				</div>
+				<div class="lt-base lt-column--half articles--center">
+					<jdoc:include type="modules" name="footer-center" />
+				</div>
+				<div class="lt-base lt-column--fourth">
+
+				</div>
+			</footer>
+			
+		<?php /*	
+		<dl class="global-style-classification">
+			   <dt class="lt lt--fourth">.lt</dt><!--
+			--><dd class="lt lt--fourth">Abstractions (PG)</dd><!--
+			--><dd class="lt lt--half">Layout</dd>
+			   <dt class="lt lt--fourth">.btn</dt><!--
+			--><dd class="lt lt--fourth">Buttons</dd><!--
+			--><dd class="lt lt--half">Abstractions, GUI</dd>
+			   <dt class="lt lt--fourth">.hd</dt><!--
+			--><dd class="lt lt--fourth">Titels</dd><!--
+			--><dd class="lt lt--half">Abstractions, GUI</dd>
+			   <dt class="lt lt--fourth">.txt</dt><!--
+			--><dd class="lt lt--fourth">Text</dd><!--
+			--><dd class="lt lt--half">Abstractions, GUI</dd>
+			   <dt class="lt lt--fourth">.nav</dt><!--
+			--><dd class="lt lt--fourth">Navigatie</dd><!--
+			--><dd class="lt lt--half">Abstractions, GUI</dd>
+			   <dt class="lt lt--fourth">.lst</dt><!--
+			--><dd class="lt lt--fourth">Lijsten</dd><!--
+			--><dd class="lt lt--half">Abstractions</dd>
+		</dl>
+		*/ ?>
+		</div>
+	</body>
 </html>

@@ -1,0 +1,14 @@
+/*
+-----------------------------------------------------------------------------
+Box
+-----------------------------------------------------------------------------
+*/
+
+.box {
+	background: rgba($dirt, .15);
+	@include border-radius(10px);
+	padding: inherit;
+}
+	.box--stream {
+		@include vertical-rhythm(12, min-height);
+	}
