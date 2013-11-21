@@ -30,61 +30,61 @@ defined('_JEXEC') or die;
 		</script>
 	</head>
 	<body>
+
+		<!-- Wraps the main section of the page -->
 		<div class="root">
-			<nav class="lt lt--fourth main-nav">
-				    <jdoc:include type="modules" name="mainnav" />
-				<ul>
-					   <li><a href="#" class="main-nav__item">About</a></li><!--
-					--><li><a href="#" class="main-nav__item">Work</a></li><!--
-					--><li><a href="#" class="main-nav__item">Fun</a></li><!--
-					--><li><a href="#" class="main-nav__item">Contact</a></li>
-				</ul>
-			</nav><!--
-		 --><header class="lt lt--half masthead">
+
+
+			<header role="banner" class="lt-base lt-column--half lt-push lt-push--fourth  masthead">
 				<h1 class="masthead__title">
 					<a href="#" class="anchor--incognito">
-						<div class="masthead__logo">
-						</div>
-						<span class="hd hd--masthead">Crossing Hippos</span>
-						<span class="masthead__tagline">webdesign &amp; development</span>
+						<span class="lt-column  masthead__logo"></span>
+						<span class="lt-column  hd">Crossing Hippos</span>
+						<span class="lt-column  masthead__tagline">webdesign &amp; development</span>
 					</a>
 				</h1>
-			</header><!--
-		 --><div class="lt lt--fourth ">
-				<i class="hd--iconlink hd--colorred fa fa-github-alt fa-2x"></i>
-				<i class="hd--iconlink hd--colorred fa fa-twitter fa-2x"></i>
-				<i class="hd--iconlink hd--colorred fa fa-linkedin-square fa-2x"></i>
+			</header>
+			<nav role="navigation" class="lt-base lt-gutters lt-column--fourth lt-pull lt-pull--half main-nav  masthead-sibling masthead-sibling--links">
+				<jdoc:include type="modules" name="position-7" />
+			</nav>
+			<div class="lt-base lt-gutters lt-column--fourth  masthead-sibling masthead-sibling--icons">
+				<jdoc:include type="modules" name="position-0" />
+				<ul class="list-inline list-icons">
+					<li class="list-icons__icon"><a href="https://github.com/babsgosgens" title="<?php echo JText::_('TPL_ANCHOR_TITLE_GITHUB'); ?>"><i class="hd--iconlink hd--colorred fa fa-github-alt fa-2x"></i></a></li>
+					<li class="list-icons__icon"><a href="https://twitter.com/crossinghippos" title="<?php echo JText::_('TPL_ANCHOR_TITLE_TWITTER'); ?>"><i class="hd--iconlink hd--colorred fa fa-twitter fa-2x"></i></a></li>
+					<li class="list-icons__icon"><a href="http://www.linkedin.com/in/babsgosgens" title="<?php echo JText::_('TPL_ANCHOR_TITLE_LINKEDIN'); ?>"><i class="hd--iconlink hd--colorred fa fa-linkedin-square fa-2x"></i></a></li>
+				</ul>
 			</div>
+
+
 			<!-- articles -->
-			<div>			
+			<div role="main" class="lt-root">
 				<jdoc:include type="message" />
-				<jdoc:include type="modules" name="content-top" />
-				<jdoc:include type="modules" name="component-modules" style="raw" />
-			</div>
-			<div class="lt root">
-				<jdoc:include type="modules" name="content_articles" />
+				<jdoc:include type="component" />
 			</div>
 
 			<!-- streams -->
-			<div class="root"><!--
-			 --><div class="lt lt--fourth">
-					<jdoc:include type="modules" name="position-14" /><!--
-			 --></div>
-				<div class="lt lt--half">
-					<jdoc:include type="modules" name="content_streams" />
-				</div><!--
-			 --><div class="lt lt--fourth">
-
+			<aside class="lt-root">
+				<div class="lt-base lt-column--fourth lt-secondary">
+					<jdoc:include type="modules" name="position-2-left" />
 				</div>
-			</div>
+				<div class="lt-base lt-column--half lt-primary">
+					<jdoc:include type="modules" name="position-2" />
+				</div>
+				<div class="lt-base lt-column--fourth lt-tertiary">
+					<jdoc:include type="modules" name="position-2-right" />
+				</div>
+			</aside>
+
+
 			<footer>
-				<div class="lt lt--fourth">
+				<div class="lt-base lt-column--fourth">
 
 				</div>
-				<div class="lt lt--half articles--center">
+				<div class="lt-base lt-column--half articles--center">
 					<jdoc:include type="modules" name="footer-center" />
 				</div>
-				<div class="lt lt--fourth">
+				<div class="lt-base lt-column--fourth">
 
 				</div>
 			</footer>

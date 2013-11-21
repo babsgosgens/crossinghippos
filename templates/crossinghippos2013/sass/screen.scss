@@ -6,43 +6,60 @@
 $trace-imports: false;
 
 
+
 //  ==========================================================================
 //  Dependencies
 //  ==========================================================================
 	@import "Compass";
 
-//  ==========================================================================
-//  Helpers
-//  ==========================================================================
-	@import "persistentgrid/utilities",
-			"persistentgrid/base/helpers",
-			"persistentgrid/layout/helpers",
-			"persistentgrid/modules/helpers"
-			;
 
 //  ==========================================================================
-//  Settings
-//  --------------------------------------------------------------------------
-//  Import the settings, in this order: 
-//  1) project settings
-//  2) base settings
-//  3) grid settings
-//  4) module settings
+//  Utilities
 //  ==========================================================================
-	@import "persistentgrid/base/settings",
-			"persistentgrid/layout/settings",
-			"persistentgrid/modules/settings"
+	@import "persistentgrid/utilities/all";
+
+
+//  ==========================================================================
+//  Project utilities -- if you have 'm
+//  ==========================================================================
+
+
+//  ==========================================================================
+//  Settings -- These are located in your local Compass
+//  ==========================================================================
+	@import "settings/utilities",
+			"settings/typography",
+			"settings/reset",
+			"settings/baserules",
+			"settings/layout",
+			"settings/lists",
+			"settings/forms",
+			"settings/buttons"
 			;
 
+
+//  ==========================================================================
+//  Project settings -- if you have 'm
+//  ==========================================================================
 	@import "crossinghippos.nl/settings";
 
+
 //  ==========================================================================
-//  Settings
+//  Behavior
 //  --------------------------------------------------------------------------
-//  Import the behavior (in the order you want rules to render): 
+//  Import the behavior you want (in the order you want rules to render): 
 //  ==========================================================================
-	@import "persistentgrid/base/behavior",
+	@import "persistentgrid/reset/behavior",
+			"persistentgrid/typography/behavior",
+			"persistentgrid/baserules/behavior",
 			"persistentgrid/layout/behavior",
-			"persistentgrid/modules/behavior";
+			"persistentgrid/forms/behavior",
+			"persistentgrid/lists/behavior",
+			"persistentgrid/buttons/behavior"
+			;
 	
+
+//  ==========================================================================
+//  Project behavior -- you should have those ;)
+//  ==========================================================================
 	@import "crossinghippos.nl/behavior";

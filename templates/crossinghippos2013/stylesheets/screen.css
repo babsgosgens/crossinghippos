@@ -1,10 +1,10 @@
-@charset "CP850";
+@charset "UTF-8";
 /* http://persistent-grid.com
    v1.0 | 20130701
    Copyright: Copyright (C) 2013 Crossing Hippos - Babs Gösgens. All rights reserved.
    License: MIT; see LICENSE
 */
-/* line 28, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/_behavior.scss */
+/* line 28, ../extensions/persistentgrid/scss/persistentgrid/reset/_behavior.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -16,7 +16,7 @@ fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
+main, menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   /*
    * Reset margin, padding and border
@@ -59,7 +59,7 @@ time, mark, audio, video {
  * whose root is set in ems. So we set the root font size in percentages of
  * the default font size.
  */
-/* line 19, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 19, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 * html {
   font-size: 100%;
 }
@@ -67,12 +67,12 @@ time, mark, audio, video {
 /*
  * Set the font properties on the html tag.
  */
-/* line 27, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 27, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 html {
   font: normal normal 400 1em/1.25em "PT Sans", sans-serif;
 }
 
-/* line 60, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/_behavior.scss */
+/* line 60, ../extensions/persistentgrid/scss/persistentgrid/reset/_behavior.scss */
 html {
   /*
    * It's good practice to set the background color of the html tag
@@ -93,7 +93,7 @@ html {
 /**
  * Correct `block` display not defined in IE 8/9.
  */
-/* line 127, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 127, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 article,
 aside,
 details,
@@ -112,7 +112,7 @@ summary {
 /**
  * Correct `inline-block` display not defined in IE 8/9.
  */
-/* line 137, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 137, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 audio,
 canvas,
 video {
@@ -123,7 +123,7 @@ video {
  * Prevent modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.
  */
-/* line 146, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 146, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 audio:not([controls]) {
   display: none;
   height: 0;
@@ -133,7 +133,7 @@ audio:not([controls]) {
  * Address `[hidden]` styling not present in IE 8/9.
  * Hide the `template` element in IE, Safari, and Firefox < 22.
  */
-/* line 157, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 157, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 [hidden],
 template {
   display: none;
@@ -144,17 +144,17 @@ template {
  	 * 2. Address `outline` inconsistency between Chrome and other browsers.
  	 * 3. Improve readability when focused and also mouse hovered in all browsers.
 	 */
-/* line 189, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 189, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 a {
   background: transparent;
   /* 1 */
 }
-/* line 191, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 191, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 a:focus {
   outline: thin dotted;
   /* 2 */
 }
-/* line 195, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 195, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 a:active, a:hover {
   outline: 0;
   /* 3 */
@@ -163,7 +163,7 @@ a:active, a:hover {
 /**
  * Remove border when inside `a` element in IE 8/9.
  */
-/* line 211, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 211, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 img {
   border: 0;
 }
@@ -171,12 +171,12 @@ img {
 /**
  * Correct overflow displayed oddly in IE 9.
  */
-/* line 219, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 219, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 svg:not(:root) {
   overflow: hidden;
 }
 
-/* line 87, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/_behavior.scss */
+/* line 87, ../extensions/persistentgrid/scss/persistentgrid/reset/_behavior.scss */
 ol,
 ul {
   /*
@@ -185,7 +185,7 @@ ul {
   list-style: none;
 }
 
-/* line 93, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/_behavior.scss */
+/* line 93, ../extensions/persistentgrid/scss/persistentgrid/reset/_behavior.scss */
 table {
   /**
    * Remove most spacing between table cells.
@@ -194,7 +194,7 @@ table {
   border-spacing: 0;
 }
 
-/* line 99, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/_behavior.scss */
+/* line 99, ../extensions/persistentgrid/scss/persistentgrid/reset/_behavior.scss */
 caption, th, td {
   /**
    * 1. Align all content to the left.
@@ -215,7 +215,7 @@ caption, th, td {
  * 3. Correct font family not being inherited in all browsers.
  * 4. Correct font size not being inherited in all browsers.
  */
-/* line 284, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 284, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 button,
 input,
 select,
@@ -238,7 +238,7 @@ textarea {
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
-/* line 298, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 298, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 button,
 input {
   line-height: inherit;
@@ -250,7 +250,7 @@ input {
  * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
  * Correct `select` style inheritance in Firefox 4+ and Opera.
  */
-/* line 310, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 310, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 button,
 select {
   text-transform: none;
@@ -263,7 +263,7 @@ select {
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
  */
-/* line 325, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 325, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 button,
 html input[type="button"],
 input[type="reset"],
@@ -277,7 +277,7 @@ input[type="submit"] {
 /**
  * Re-set default cursor for disabled elements.
  */
-/* line 335, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 335, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 button[disabled],
 html input[disabled] {
   cursor: default;
@@ -287,7 +287,7 @@ html input[disabled] {
  * 1. Address box sizing set to `content-box` in IE 8/9.
  * 2. Remove excess padding in IE 8/9.
  */
-/* line 345, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 345, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
@@ -301,7 +301,7 @@ input[type="radio"] {
  * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
  *    (include `-moz` to future-proof).
  */
-/* line 356, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 356, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
@@ -311,7 +311,7 @@ input[type="search"] {
  * Remove inner padding and search cancel button in Safari 5 and Chrome
  * on OS X.
  */
-/* line 367, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 367, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
@@ -320,7 +320,7 @@ input[type="search"]::-webkit-search-decoration {
 /**
  * Remove inner padding and border in Firefox 4+.
  */
-/* line 376, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 376, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -331,7 +331,7 @@ input::-moz-focus-inner {
  * 1. Remove default vertical scrollbar in IE 8/9.
  * 2. Improve readability and alignment in all browsers.
  */
-/* line 386, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/reset/helpers/_mixins.scss */
+/* line 386, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
 textarea {
   overflow: auto;
   /* 1 */
@@ -339,27 +339,12 @@ textarea {
   /* 2 */
 }
 
-/* line 18, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/utilities/_anchors.scss */
+/* line 18, ../extensions/persistentgrid/scss/persistentgrid/utilities/_anchors.scss */
 a {
   color: #00b09e;
 }
 
-/* line 100, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/utilities/_anchors.scss */
-.is-a-hover, a:hover, .is-a-visited:hover, a:hover:visited {
-  color: #ffcc00;
-}
-
-/* line 105, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/utilities/_anchors.scss */
-.is-a-active, a:active, .is-a-visited:active, a:active:visited {
-  color: #ffcc00;
-}
-
-/* line 110, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/utilities/_anchors.scss */
-.is-a-visited, a:visited {
-  color: #00e4cf;
-}
-
-/* line 50, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/baserules/_behavior.scss */
+/* line 50, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
 h1,
 h2,
 h3,
@@ -369,12 +354,12 @@ h6 {
   font-family: "bree-serif", sans-serif;
 }
 
-/* line 64, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/baserules/_behavior.scss */
+/* line 64, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
 abbr[title] {
   border-bottom: 1px dotted;
 }
 
-/* line 67, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/baserules/_behavior.scss */
+/* line 67, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
 hr {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
@@ -382,7 +367,7 @@ hr {
   height: 0;
 }
 
-/* line 74, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/baserules/_behavior.scss */
+/* line 74, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
 code,
 kbd,
 pre,
@@ -391,17 +376,17 @@ samp {
   font-size: 1em;
 }
 
-/* line 78, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/baserules/_behavior.scss */
+/* line 78, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
 pre {
   white-space: pre-wrap;
 }
 
-/* line 81, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/baserules/_behavior.scss */
+/* line 81, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
 small {
   font-size: 80%;
 }
 
-/* line 85, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/baserules/_behavior.scss */
+/* line 85, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
 sub,
 sup {
   font-size: 75%;
@@ -410,12 +395,12 @@ sup {
   vertical-align: baseline;
 }
 
-/* line 91, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/baserules/_behavior.scss */
+/* line 91, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
 sup {
   top: -0.5em;
 }
 
-/* line 94, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/baserules/_behavior.scss */
+/* line 94, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
 sub {
   bottom: -0.25em;
 }
@@ -423,200 +408,263 @@ sub {
 /**
  * Set consistent quote types.
  */
-/* line 104, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/baserules/_behavior.scss */
+/* line 104, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
 q {
   quotes: "\201C" "\201D" "\2018" "\2019";
 }
 
-/* line 114, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/baserules/_behavior.scss */
+/* line 114, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
 .is-hidden {
   position: absolute;
   left: -9999em;
 }
 
-/* line 117, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/baserules/_behavior.scss */
+/* line 117, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
 .is-not-hidden {
   position: static;
 }
 
-/* line 120, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/baserules/_behavior.scss */
+/* line 120, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
 .is-visible {
   display: block;
 }
 
-/* line 123, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/base/baserules/_behavior.scss */
+/* line 123, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
 .is-not-visible {
   display: none;
 }
 
-/* line 10, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.root {
+/* line 10, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-root {
   margin: 0 auto;
   max-width: 72em;
 }
 
-/* line 17, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt {
+/* line 17, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-base, .lt-column {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: top;
   *vertical-align: auto;
   zoom: 1;
   *display: inline;
+}
+
+/* line 21, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column {
   width: 100%;
 }
 @media only screen and (max-width: 30em) {
-  /* line 17, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-  .lt {
+  /* line 21, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+  .lt-column {
     width: 100%;
   }
 }
 
-/* line 25, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--padded {
+/* line 29, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-gutter-left {
+  padding-left: 24px;
+}
+@media only screen and (max-width: 30em) {
+  /* line 29, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+  .lt-gutter-left {
+    padding-left: 12px;
+  }
+}
+
+/* line 32, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-gutter-right {
+  padding-right: 24px;
+}
+@media only screen and (max-width: 30em) {
+  /* line 32, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+  .lt-gutter-right {
+    padding-right: 12px;
+  }
+}
+
+/* line 35, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-gutters {
   padding-left: 24px;
   padding-right: 24px;
 }
 @media only screen and (max-width: 30em) {
-  /* line 25, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-  .lt--padded {
+  /* line 35, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+  .lt-gutters {
     padding-left: 12px;
     padding-right: 12px;
   }
 }
 
-/* line 32, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--bleed {
+/* line 42, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-bleed-left {
+  margin-left: -24px;
+}
+@media only screen and (max-width: 30em) {
+  /* line 42, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+  .lt-bleed-left {
+    margin-left: -12px;
+  }
+}
+
+/* line 45, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-bleed-right {
+  margin-right: -24px;
+}
+@media only screen and (max-width: 30em) {
+  /* line 45, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+  .lt-bleed-right {
+    margin-right: -12px;
+  }
+}
+
+/* line 48, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-bleed {
   margin-left: -24px;
   margin-right: -24px;
 }
 @media only screen and (max-width: 30em) {
-  /* line 32, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-  .lt--bleed {
+  /* line 48, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+  .lt-bleed {
     margin-left: -12px;
     margin-right: -12px;
   }
 }
 
-/* line 42, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--half {
+/* line 58, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column--half {
   width: 50%;
 }
 
-/* line 45, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--half-persistent {
+/* line 61, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column--half-persistent {
   width: 50% !important;
 }
 
-/* line 42, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--fourth {
+/* line 58, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column--fourth {
   width: 25%;
 }
 
-/* line 45, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--fourth-persistent {
+/* line 61, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column--fourth-persistent {
   width: 25% !important;
 }
 
-/* line 42, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--third {
+/* line 58, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column--third {
   width: 33.33333%;
 }
 
-/* line 45, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--third-persistent {
+/* line 61, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column--third-persistent {
   width: 33.33333% !important;
 }
 
-/* line 42, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--two-third {
+/* line 58, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column--two-third {
   width: 66.66667%;
 }
 
-/* line 45, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--two-third-persistent {
+/* line 61, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column--two-third-persistent {
   width: 66.66667% !important;
 }
 
-/* line 42, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--three-fourth {
+/* line 58, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column--three-fourth {
   width: 75%;
 }
 
-/* line 45, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--three-fourth-persistent {
+/* line 61, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column--three-fourth-persistent {
   width: 75% !important;
 }
 
-/* line 55, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--push,
-.lt--pull {
+/* line 71, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-push,
+.lt-pull {
   position: relative;
 }
 @media only screen and (max-width: 30em) {
-  /* line 55, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-  .lt--push,
-  .lt--pull {
+  /* line 71, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+  .lt-push,
+  .lt-pull {
     position: static;
     position: initial;
   }
 }
 
-/* line 64, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--push-half {
+/* line 80, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-push--half {
   left: 50%;
 }
 
-/* line 67, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--pull-half {
+/* line 83, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-pull--half {
   left: -50%;
 }
 
-/* line 64, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--push-fourth {
+/* line 80, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-push--fourth {
   left: 25%;
 }
 
-/* line 67, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--pull-fourth {
+/* line 83, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-pull--fourth {
   left: -25%;
 }
 
-/* line 64, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--push-third {
+/* line 80, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-push--third {
   left: 33.33333%;
 }
 
-/* line 67, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--pull-third {
+/* line 83, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-pull--third {
   left: -33.33333%;
 }
 
-/* line 64, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--push-two-third {
+/* line 80, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-push--two-third {
   left: 66.66667%;
 }
 
-/* line 67, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--pull-two-third {
+/* line 83, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-pull--two-third {
   left: -66.66667%;
 }
 
-/* line 64, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--push-three-fourth {
+/* line 80, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-push--three-fourth {
   left: 75%;
 }
 
-/* line 67, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/layout/_behavior.scss */
-.lt--pull-three-fourth {
+/* line 83, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-pull--three-fourth {
   left: -75%;
 }
 
+@media only screen and (max-width: 30em) {
+  /* line 94, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+  .lt-base, .lt-column {
+    width: 100%;
+  }
+}
 /*
- * Field styles
+-----------------------------------------------------------------------------
+Field base
+-----------------------------------------------------------------------------
+*/
+/*
+ * Input base - applies to all form elements except:
+ 	- buttons
+ 	- [type="submit"]
+ 	- fieldsets
+ 	- radio and check buttons
  */
-/* line 15, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/forms/_behavior.scss */
-.input-field, .input-dropdown, .input-textarea {
+/* line 37, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld, .fld-input, .fld-select, .fld-textarea {
   /*
    * Box-model treatments
    */
@@ -626,31 +674,14 @@ q {
   box-sizing: border-box;
   display: -moz-inline-stack;
   display: inline-block;
-  vertical-align: baseline;
+  vertical-align: "baseline";
   *vertical-align: auto;
   zoom: 1;
   *display: inline;
   margin: 0 0;
-  padding: 0.375em 24px;
-  padding-left: 24px;
-  padding-right: 24px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #b3b3b3;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
-  border-radius: 0;
-  background-color: white;
-  -webkit-box-shadow: #e6e6e6 1px 1px 1px 0 inset;
-  -moz-box-shadow: #e6e6e6 1px 1px 1px 0 inset;
-  box-shadow: #e6e6e6 1px 1px 1px 0 inset;
-  -webkit-appearance: none;
-  /* mobile firefox too! */
-  -moz-appearance: none;
-  /* mobile firefox too! */
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  padding-top: 0.375em;
+  padding-bottom: 0.375em;
+  border: 1px solid #b3b3b3;
   /*
    * Font and text treatments
    */
@@ -659,28 +690,21 @@ q {
   text-align: left;
   text-decoration: none;
 }
-@media only screen and (max-width: 30em) {
-  /* line 15, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/forms/_behavior.scss */
-  .input-field, .input-dropdown, .input-textarea {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-}
-/* line 76, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/forms/helpers/_mixins.scss */
-.input-field::-webkit-input-placeholder, .input-dropdown::-webkit-input-placeholder, .input-textarea::-webkit-input-placeholder, .input-field:-moz-placeholder, .input-dropdown:-moz-placeholder, .input-textarea:-moz-placeholder, .input-field::-moz-placeholder, .input-dropdown::-moz-placeholder, .input-textarea::-moz-placeholder, .input-field:-ms-placeholder, .input-dropdown:-ms-placeholder, .input-textarea:-ms-placeholder {
+/* line 76, ../extensions/persistentgrid/scss/persistentgrid/utilities/forms/_mixins.scss */
+.fld::-webkit-input-placeholder, .fld-input::-webkit-input-placeholder, .fld-select::-webkit-input-placeholder, .fld-textarea::-webkit-input-placeholder, .fld:-moz-placeholder, .fld-input:-moz-placeholder, .fld-select:-moz-placeholder, .fld-textarea:-moz-placeholder, .fld::-moz-placeholder, .fld-input::-moz-placeholder, .fld-select::-moz-placeholder, .fld-textarea::-moz-placeholder, .fld:-ms-placeholder, .fld-input:-ms-placeholder, .fld-select:-ms-placeholder, .fld-textarea:-ms-placeholder {
   color: #00b09e;
 }
 
 /*
  * Field focus styles
  */
-/* line 52, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/forms/_behavior.scss */
-.input-field:focus, .input-dropdown:focus, .input-textarea:focus {
+/* line 70, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld--state-focus, .fld:focus, .fld-input:focus, .fld-select:focus, .fld-textarea:focus {
   border-color: blue;
   background-color: whitesmoke;
-  -webkit-box-shadow: 0 0 4px blue;
-  -moz-box-shadow: 0 0 4px blue;
-  box-shadow: 0 0 4px blue;
+  -webkit-box-shadow: 0 0 4px blue false;
+  -moz-box-shadow: 0 0 4px blue false;
+  box-shadow: 0 0 4px blue false;
   -webkit-appearance: none;
   /* mobile firefox too! */
   -moz-appearance: none;
@@ -690,40 +714,78 @@ q {
 }
 
 /*
- * Override some properties for the search field
- */
-/* line 94, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/forms/_behavior.scss */
-.input-search {
+-----------------------------------------------------------------------------
+Field
+-----------------------------------------------------------------------------
+*/
+/* line 87, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-input {
+  background-color: white;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: darkslategrey 1px 1px 2px 0 #e6e6e6 1px 1px 1px 0 inset;
+  -moz-box-shadow: darkslategrey 1px 1px 2px 0 #e6e6e6 1px 1px 1px 0 inset;
+  box-shadow: darkslategrey 1px 1px 2px 0 #e6e6e6 1px 1px 1px 0 inset;
+  -webkit-appearance: none;
+  /* mobile firefox too! */
+  -moz-appearance: none;
+  /* mobile firefox too! */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-indent: 48px;
+}
+
+/*
+-----------------------------------------------------------------------------
+Search Field
+-----------------------------------------------------------------------------
+*/
+/* line 102, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-input--search {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 /*
- * Override some properties for the color field
- */
+-----------------------------------------------------------------------------
+Color Field
+-----------------------------------------------------------------------------
+*/
 /*
- * Override some properties for the range field
- */
-/* line 114, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/forms/_behavior.scss */
-.input-range {
+-----------------------------------------------------------------------------
+Range Field
+-----------------------------------------------------------------------------
+*/
+/* line 130, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-input--range {
   width: 100%;
 }
 
 /*
- * Override some properties for the range and color field
- */
-/* line 124, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/forms/_behavior.scss */
-.input-color,
-.input-range {
+-----------------------------------------------------------------------------
+Color Field & Range Field
+-----------------------------------------------------------------------------
+*/
+/* line 144, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-input--color,
+.fld-input--range {
   padding: 0;
   height: 2em;
 }
 
-/* line 139, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/forms/_behavior.scss */
-.input-dropdown optgroup,
-.input-dropdown option {
-  padding: 0.375em 24px;
+/*
+-----------------------------------------------------------------------------
+Select and Datalists
+-----------------------------------------------------------------------------
+*/
+/* line 158, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-select optgroup,
+.fld-select option {
+  padding-top: 0.375em;
+  padding-bottom: 0.375em;
   padding-left: 24px;
   padding-right: 24px;
   font-weight: inherit;
@@ -734,16 +796,16 @@ q {
   line-height: inherit;
 }
 @media only screen and (max-width: 30em) {
-  /* line 139, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/forms/_behavior.scss */
-  .input-dropdown optgroup,
-  .input-dropdown option {
+  /* line 158, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+  .fld-select optgroup,
+  .fld-select option {
     padding-left: 12px;
     padding-right: 12px;
   }
 }
 
-/* line 151, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/forms/_behavior.scss */
-.input-dropdown {
+/* line 170, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-select {
   -webkit-appearance: menulist;
   /* mobile firefox too! */
   -moz-appearance: menulist;
@@ -751,28 +813,163 @@ q {
   height: 2em;
 }
 
-/* line 173, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/forms/_behavior.scss */
-.input-textarea.large {
+/*
+-----------------------------------------------------------------------------
+Textarea
+-----------------------------------------------------------------------------
+*/
+/* line 194, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-textarea {
+  background-color: white;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: darkslategrey 1px 1px 2px 0 #e6e6e6 1px 1px 1px 0 inset;
+  -moz-box-shadow: darkslategrey 1px 1px 2px 0 #e6e6e6 1px 1px 1px 0 inset;
+  box-shadow: darkslategrey 1px 1px 2px 0 #e6e6e6 1px 1px 1px 0 inset;
+  -webkit-appearance: none;
+  /* mobile firefox too! */
+  -moz-appearance: none;
+  /* mobile firefox too! */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+/* line 199, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-textarea.large {
   height: 12.5em;
 }
-/* line 176, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/forms/_behavior.scss */
-.input-textarea.medium {
+/* line 202, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-textarea.medium {
   height: 7.5em;
 }
-/* line 179, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/forms/_behavior.scss */
-.input-textarea.small {
+/* line 205, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-textarea.small {
   height: 2.5em;
 }
 
-/* line 190, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/forms/_behavior.scss */
-.label, .legend {
+/*
+-----------------------------------------------------------------------------
+Field Label
+-----------------------------------------------------------------------------
+*/
+/* line 217, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-label {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: baseline;
   *vertical-align: auto;
   zoom: 1;
   *display: inline;
-  width: 100%;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: baseline;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin: 0 0;
+  padding: 0 0;
+  font-family: sans-serif;
+  color: darkslategrey;
+  text-align: left;
+  text-decoration: none;
+}
+
+/*
+-----------------------------------------------------------------------------
+Fieldset Legend
+-----------------------------------------------------------------------------
+*/
+/* line 12, ../extensions/persistentgrid/scss/persistentgrid/lists/_behavior.scss */
+ol, ul {
+  list-style-type: none;
+}
+
+/* line 26, ../extensions/persistentgrid/scss/persistentgrid/lists/_behavior.scss */
+li {
+  list-style-type: inherit;
+  list-style-position: inherit;
+  list-style-image: inherit;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--circle {
+  list-style-type: circle;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--decimal {
+  list-style-type: decimal;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--disc {
+  list-style-type: disc;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--inherit {
+  list-style-type: inherit;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--lower-alpha {
+  list-style-type: lower-alpha;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--lower-latin {
+  list-style-type: lower-latin;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--lower-roman {
+  list-style-type: lower-roman;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--square {
+  list-style-type: square;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--upper-alpha {
+  list-style-type: upper-alpha;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--upper-latin {
+  list-style-type: upper-latin;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--upper-roman {
+  list-style-type: upper-roman;
+}
+
+/* line 105, ../extensions/persistentgrid/scss/persistentgrid/lists/_behavior.scss */
+.list-inline > li {
+  display: inline-block;
+}
+
+/* line 110, ../extensions/persistentgrid/scss/persistentgrid/lists/_behavior.scss */
+.list--outside {
+  list-style-position: outside;
+}
+
+/* line 114, ../extensions/persistentgrid/scss/persistentgrid/lists/_behavior.scss */
+.list--inside {
+  list-style-position: inside;
+}
+
+/*
+-----------------------------------------------------------------------------
+Button base
+-----------------------------------------------------------------------------
+*/
+/* line 14, ../extensions/persistentgrid/scss/persistentgrid/buttons/_behavior.scss */
+.btn-base {
+  cursor: pointer;
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: baseline;
@@ -781,165 +978,25 @@ q {
   *display: inline;
   margin: 0 0;
   padding: 0.375em 0;
-  font-family: sans-serif;
-  color: darkslategrey;
+  background-color: transparent;
+  border: 1px solid transparent;
   text-align: left;
-  text-decoration: none;
-}
-
-/* line 20, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/buttons/_behavior.scss */
-.btn {
-  cursor: pointer;
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: inline-block;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  padding: 0.375em 24px;
-  background-color: whitesmoke;
-  border-width: 1px;
-  border-style: solid;
-  border-color: whitesmoke;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
-  border-radius: 0;
-  -webkit-box-shadow: false false;
-  -moz-box-shadow: false false;
-  box-shadow: false false;
-  color: darkslategrey;
-  text-align: center;
   text-decoration: none;
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
   font-family: sans-serif;
-}
-/* line 49, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/buttons/_behavior.scss */
-.btn a, .btn span, .btn em, .btn i, .btn b {
-  color: inherit;
-}
-
-/* line 20, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/buttons/_behavior.scss */
-.is-btn-hover, .btn:hover {
-  background-color: gainsboro;
-  border-color: gainsboro;
   color: darkslategrey;
 }
-/* line 49, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/buttons/_behavior.scss */
-.is-btn-hover a, .btn:hover a, .is-btn-hover span, .btn:hover span, .is-btn-hover em, .btn:hover em, .is-btn-hover i, .btn:hover i, .is-btn-hover b, .btn:hover b {
+/* line 25, ../extensions/persistentgrid/scss/persistentgrid/buttons/_behavior.scss */
+.btn-base a, .btn-base span, .btn-base em, .btn-base i, .btn-base b, .btn-base:visited, .btn-base:active {
   color: inherit;
-}
-
-/* line 20, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/buttons/_behavior.scss */
-.is-btn-active, .btn:active {
-  background-color: white;
-  border-color: white;
-  color: darkslategrey;
-}
-/* line 49, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/buttons/_behavior.scss */
-.is-btn-active a, .btn:active a, .is-btn-active span, .btn:active span, .is-btn-active em, .btn:active em, .is-btn-active i, .btn:active i, .is-btn-active b, .btn:active b {
-  color: inherit;
-}
-
-/* line 80, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/buttons/_behavior.scss */
-.btn-align-top {
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: top;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-}
-
-/* line 83, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/buttons/_behavior.scss */
-.btn-small {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-/* line 87, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/buttons/_behavior.scss */
-.btn-big {
-  font-size: 1.618em;
-  line-height: 1.15884em;
-}
-
-/* line 90, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/buttons/_behavior.scss */
-.btn-stretch {
-  width: 100%;
-}
-
-/* line 8, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/lists/_helpers.scss */
-.list-circle {
-  list-style-type: circle;
-}
-
-/* line 8, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/lists/_helpers.scss */
-.list-decimal, ol.list {
-  list-style-type: decimal;
-}
-
-/* line 8, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/lists/_helpers.scss */
-.list-disc, ul.list {
-  list-style-type: disc;
-}
-
-/* line 8, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/lists/_helpers.scss */
-.list-inherit {
-  list-style-type: inherit;
-}
-
-/* line 8, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/lists/_helpers.scss */
-.list-lower-alpha {
-  list-style-type: lower-alpha;
-}
-
-/* line 8, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/lists/_helpers.scss */
-.list-lower-latin {
-  list-style-type: lower-latin;
-}
-
-/* line 8, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/lists/_helpers.scss */
-.list-lower-roman {
-  list-style-type: lower-roman;
-}
-
-/* line 8, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/lists/_helpers.scss */
-.list-square {
-  list-style-type: square;
-}
-
-/* line 8, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/lists/_helpers.scss */
-.list-upper-alpha {
-  list-style-type: upper-alpha;
-}
-
-/* line 8, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/lists/_helpers.scss */
-.list-upper-latin {
-  list-style-type: upper-latin;
-}
-
-/* line 8, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/lists/_helpers.scss */
-.list-upper-roman {
-  list-style-type: upper-roman;
-}
-
-/* line 96, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/lists/_behavior.scss */
-.list-inline > li {
-  display: inline-block;
-}
-
-/* line 101, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/lists/_behavior.scss */
-.outside {
-  list-style-position: outside;
-}
-
-/* line 105, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/persistentgrid-0.0.1.beta.12/scss/persistentgrid/modules/lists/_behavior.scss */
-.inside {
-  list-style-position: inside;
 }
 
 /* base...........Basic HTML elements */
+/* line 4, ../sass/crossinghippos.nl/behavior/_layout.scss */
+.lt-secondary {
+  text-align: right;
+}
+
 /* ABSTRACTIONS...Objects, abstractions, design patterns (often blocklevel styling) */
 /* Disguises an anchor element as a "plain" text element */
 /* a */
@@ -1058,54 +1115,89 @@ q {
   color: #c12b34;
 }
 
-/* line 1, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+/*
+-----------------------------------------------------------------------------
+Masthead
+-----------------------------------------------------------------------------
+*/
+/* line 7, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
 .masthead {
+  position: relative;
+  padding-top: 10em;
+}
+
+/* line 11, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead__title {
   text-align: center;
+  font-size: 4.5em;
+  line-height: 0.83333em;
 }
 
-/* line 4, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
-.hd--masthead {
-  font-size: 3.51563em;
-  line-height: 1.06667em;
-  text-decoration: none;
-}
-
-/* line 9, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+/* line 15, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
 .masthead__tagline {
-  font-size: 1.875em;
-  line-height: 1.33333em;
-  display: block;
-  line-height: 1;
+  font-size: 0.5em;
+  line-height: 1.66667em;
+  font-weight: 200;
   color: #00b09e;
 }
 
-/* line 16, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
-.masthead__link-list {
-  background: #2a1f0c;
-  width: 100%;
-}
-
-/* line 21, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+/* line 20, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
 .masthead__logo {
-  background-image: url("../../../images/logo.svg");
-  height: 179px;
-  width: 76px;
+  position: absolute;
+  left: -.5em;
+  top: -.4em;
+  height: 100%;
+  background: url(../images/crossinghippos.svg) no-repeat;
 }
 
-/* line 28, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+/* line 27, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
 .no-svg .masthead__logo {
-  background-image: url(../../../images/crossinghippos_x1.png);
+  background-image: url(../images/crossinghippos_x1.png);
+}
+
+/*
+-----------------------------------------------------------------------------
+Align all elements at masthead level
+-----------------------------------------------------------------------------
+*/
+/* line 38, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead-sibling {
+  vertical-align: bottom;
+}
+
+/* line 41, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead-sibling--icons {
+  line-height: 2.5em;
+}
+
+/* line 44, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead-sibling--links {
+  position: relative;
+  bottom: -1.25em;
+}
+
+/*
+-----------------------------------------------------------------------------
+Search box
+-----------------------------------------------------------------------------
+*/
+/* line 57, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.form-search {
+  position: absolute;
+  top: 1.25em;
 }
 
 /* Styling for main navigation */
-/* line 8, ../sass/crossinghippos.nl/behavior/modules/_nav.scss */
+/* line 2, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
 .main-nav {
   font-family: "bree-serif", sans-serif;
+  font-size: 1.375em;
+  line-height: 1.36364em;
   text-align: right;
   padding: 0 30px;
 }
 
-/* line 13, ../sass/crossinghippos.nl/behavior/modules/_nav.scss */
+/* line 8, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
 .main-nav__item, .main-nav__item:visited {
   text-decoration: none;
   color: #c12b34;
@@ -1159,6 +1251,15 @@ q {
 .articles--center {
   border-right: 1px dashed #a49990;
   padding: 0 10px;
+}
+
+/* line 4, ../sass/crossinghippos.nl/behavior/modules/_list-icons.scss */
+.list-icons__icon {
+  padding-left: 0.625em;
+}
+/* line 6, ../sass/crossinghippos.nl/behavior/modules/_list-icons.scss */
+.list-icons__icon:first-child {
+  padding-left: 0;
 }
 
 /* SKIN...........Theme variations */
@@ -1225,54 +1326,89 @@ q {
   color: #c12b34;
 }
 
-/* line 1, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+/*
+-----------------------------------------------------------------------------
+Masthead
+-----------------------------------------------------------------------------
+*/
+/* line 7, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
 .masthead {
+  position: relative;
+  padding-top: 10em;
+}
+
+/* line 11, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead__title {
   text-align: center;
+  font-size: 4.5em;
+  line-height: 0.83333em;
 }
 
-/* line 4, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
-.hd--masthead {
-  font-size: 3.51563em;
-  line-height: 1.06667em;
-  text-decoration: none;
-}
-
-/* line 9, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+/* line 15, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
 .masthead__tagline {
-  font-size: 1.875em;
-  line-height: 1.33333em;
-  display: block;
-  line-height: 1;
+  font-size: 0.5em;
+  line-height: 1.66667em;
+  font-weight: 200;
   color: #00b09e;
 }
 
-/* line 16, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
-.masthead__link-list {
-  background: #2a1f0c;
-  width: 100%;
-}
-
-/* line 21, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+/* line 20, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
 .masthead__logo {
-  background-image: url("../../../images/logo.svg");
-  height: 179px;
-  width: 76px;
+  position: absolute;
+  left: -.5em;
+  top: -.4em;
+  height: 100%;
+  background: url(../images/crossinghippos.svg) no-repeat;
 }
 
-/* line 28, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+/* line 27, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
 .no-svg .masthead__logo {
-  background-image: url(../../../images/crossinghippos_x1.png);
+  background-image: url(../images/crossinghippos_x1.png);
+}
+
+/*
+-----------------------------------------------------------------------------
+Align all elements at masthead level
+-----------------------------------------------------------------------------
+*/
+/* line 38, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead-sibling {
+  vertical-align: bottom;
+}
+
+/* line 41, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead-sibling--icons {
+  line-height: 2.5em;
+}
+
+/* line 44, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead-sibling--links {
+  position: relative;
+  bottom: -1.25em;
+}
+
+/*
+-----------------------------------------------------------------------------
+Search box
+-----------------------------------------------------------------------------
+*/
+/* line 57, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.form-search {
+  position: absolute;
+  top: 1.25em;
 }
 
 /* Styling for main navigation */
-/* line 8, ../sass/crossinghippos.nl/behavior/modules/_nav.scss */
+/* line 2, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
 .main-nav {
   font-family: "bree-serif", sans-serif;
+  font-size: 1.375em;
+  line-height: 1.36364em;
   text-align: right;
   padding: 0 30px;
 }
 
-/* line 13, ../sass/crossinghippos.nl/behavior/modules/_nav.scss */
+/* line 8, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
 .main-nav__item, .main-nav__item:visited {
   text-decoration: none;
   color: #c12b34;
@@ -1326,4 +1462,13 @@ q {
 .articles--center {
   border-right: 1px dashed #a49990;
   padding: 0 10px;
+}
+
+/* line 4, ../sass/crossinghippos.nl/behavior/modules/_list-icons.scss */
+.list-icons__icon {
+  padding-left: 0.625em;
+}
+/* line 6, ../sass/crossinghippos.nl/behavior/modules/_list-icons.scss */
+.list-icons__icon:first-child {
+  padding-left: 0;
 }
