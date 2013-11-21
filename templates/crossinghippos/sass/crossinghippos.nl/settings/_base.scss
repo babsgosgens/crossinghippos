@@ -1,0 +1,14 @@
+//  ================================================================================================================================
+//  Typography settings
+//  ================================================================================================================================
+
+	@import "type/bree";
+	@import "type/bree-serif";
+	@import "type/pt-sans";
+
+    $base-font-size: $m;
+    $base-line-height: $l; // 1.5*16px
+
+    $type-default: $pt-sans-regular;
+    $type-heading: $bree-serif-regular;
+

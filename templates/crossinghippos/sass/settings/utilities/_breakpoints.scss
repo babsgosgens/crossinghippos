@@ -1,0 +1,19 @@
+// /**
+//  * Copyright (C) 2013 Crossing Hippos - Babs Gösgens. All rights reserved.
+//  * Licensed under MIT; see LICENSE.txt
+//  */
+@if $trace-imports { @debug 'imported'; }
+
+$small: 500px;
+$medium: 800px;
+$large: 1024px;
+
+$lt-small: (max-width smaller-then($small));
+$gt-small: (min-width larger-then($small));
+$lt-medium: (max-width smaller-then($medium));
+$gt-medium: (min-width larger-then($medium));
+$lt-large: (max-width smaller-then($large));
+$gt-large: (min-width larger-then($large));
+
+$portrait: (orientation portrait);
+$landscape: (orientation landscape);

@@ -20,7 +20,8 @@ $document->addScript('media/mod_streams/js/slider.js');
 			
 			<?php foreach($items as $item): ?>
 			
-				<li class="lt box-list__item box--box-list box--small stream <?php echo $item->platform; ?>">
+				<li class="lt-base lt-column--half lt-gutters--half lt-vertical-padding  box-list__item <?php echo $item->platform; ?>">
+					<div class="lt-column box  box--padded box--stream">
 				    <?php
 					$date = new JDate($item->date_created);
 					$date_created = $date->format(JText::_('DATE_FORMAT_LC2'));
@@ -29,6 +30,7 @@ $document->addScript('media/mod_streams/js/slider.js');
 					require(JPATH_SITE . '/components/com_streams/views/streams/tmpl/default_' . $platform . '.php');
 					echo '<time>' . $date_created . '</time>';
 					?>
+					</div>
 				</li>
 
 			<?php endforeach; ?>

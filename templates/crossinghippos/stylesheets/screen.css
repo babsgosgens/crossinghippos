@@ -1,0 +1,1617 @@
+@charset "UTF-8";
+/* http://persistent-grid.com
+   v1.0 | 20130701
+   Copyright: Copyright (C) 2013 Crossing Hippos - Babs Gösgens. All rights reserved.
+   License: MIT; see LICENSE
+*/
+/* line 28, ../extensions/persistentgrid/scss/persistentgrid/reset/_behavior.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  /*
+   * Reset margin, padding and border
+   */
+  margin: 0;
+  padding: 0;
+  border: 0;
+  /*
+   * Reset to box-sizing to border-box
+   */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /*
+   * Make sure these elements inherit any font settings from their parent
+   */
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  /*
+   * See: http://www.usabilitypost.com/2012/11/06/optimize-legibility/
+   */
+  text-rendering: optimizeLegibility;
+  /*
+   * Prevents the browser from using synthesized font-weights.
+   */
+  font-synthesis: none;
+  /*
+   * See: http://meyerweb.com/eric/css/tests/css3/font-variant-ligatures.html
+   */
+  font-variant-ligatures: common-ligatures;
+  /*
+   * See: http://meyerweb.com/eric/css/tests/css3/font-variant-numeric.html
+   */
+  font-variant-numeric: oldstyle-nums diagonal-fractions;
+}
+
+/*
+ * IE 6 refuses to resize fonts set in pixels and it weirdly resizes fonts
+ * whose root is set in ems. So we set the root font size in percentages of
+ * the default font size.
+ */
+/* line 19, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+* html {
+  font-size: 100%;
+}
+
+/*
+ * Set the font properties on the html tag.
+ */
+/* line 27, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+html {
+  font: normal normal 400 1em/1.25em "PT Sans", sans-serif;
+}
+
+/* line 60, ../extensions/persistentgrid/scss/persistentgrid/reset/_behavior.scss */
+html {
+  /*
+   * It's good practice to set the background color of the html tag
+   */
+  background-color: #fffef4;
+  /*
+   * Set the default color
+   */
+  color: #2a1f0c;
+  /**
+   * Prevent iOS text size adjust after orientation change, 
+   * without disabling user zoom.
+   */
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/**
+ * Correct `block` display not defined in IE 8/9.
+ */
+/* line 127, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 8/9.
+ */
+/* line 137, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+/* line 146, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9.
+ * Hide the `template` element in IE, Safari, and Firefox < 22.
+ */
+/* line 157, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+[hidden],
+template {
+  display: none;
+}
+
+	/**
+	 * 1. Remove the gray background color from active links in IE 10.
+ 	 * 2. Address `outline` inconsistency between Chrome and other browsers.
+ 	 * 3. Improve readability when focused and also mouse hovered in all browsers.
+	 */
+/* line 189, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+a {
+  background: transparent;
+  /* 1 */
+}
+/* line 191, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+a:focus {
+  outline: thin dotted;
+  /* 2 */
+}
+/* line 195, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+a:active, a:hover {
+  outline: 0;
+  /* 3 */
+}
+
+/**
+ * Remove border when inside `a` element in IE 8/9.
+ */
+/* line 211, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+/* line 219, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* line 87, ../extensions/persistentgrid/scss/persistentgrid/reset/_behavior.scss */
+ol,
+ul {
+  /*
+   * Render lists without list style
+   */
+  list-style: none;
+}
+
+/* line 93, ../extensions/persistentgrid/scss/persistentgrid/reset/_behavior.scss */
+table {
+  /**
+   * Remove most spacing between table cells.
+   */
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 99, ../extensions/persistentgrid/scss/persistentgrid/reset/_behavior.scss */
+caption, th, td {
+  /**
+   * 1. Align all content to the left.
+   * 2. Set font-weight to default font and weight
+   * 3. Re-align vertically
+   */
+  text-align: left;
+  /* 1 */
+  font-weight: 400;
+  /* 2 */
+  vertical-align: middle;
+  /* 3 */
+}
+
+/**
+ * 1. Prepare for easy styling
+ * 2. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ * 3. Correct font family not being inherited in all browsers.
+ * 4. Correct font size not being inherited in all browsers.
+ */
+/* line 284, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+button,
+input,
+select,
+textarea {
+  display: inline-block;
+  /* 1 */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  font-family: inherit;
+  /* 3 */
+  font-size: 100%;
+  /* 4 */
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+/* line 298, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+button,
+input {
+  line-height: inherit;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+/* line 310, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+/* line 325, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+/* line 335, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ */
+/* line 345, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+/* line 356, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+/* line 367, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+/* line 376, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+/* line 386, ../extensions/persistentgrid/scss/persistentgrid/utilities/reset/_mixins.scss */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+
+/* line 18, ../extensions/persistentgrid/scss/persistentgrid/utilities/_anchors.scss */
+a {
+  color: #c12b34;
+}
+/* line 72, ../extensions/persistentgrid/scss/persistentgrid/utilities/_anchors.scss */
+a:hover {
+  color: #00b09e;
+}
+/* line 77, ../extensions/persistentgrid/scss/persistentgrid/utilities/_anchors.scss */
+a:active {
+  color: #00b09e;
+}
+
+/* line 50, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "bree-serif", sans-serif;
+}
+
+/* line 64, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/* line 67, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
+hr {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/* line 74, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace;
+  font-size: 1em;
+}
+
+/* line 78, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
+pre {
+  white-space: pre-wrap;
+}
+
+/* line 81, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
+small {
+  font-size: 80%;
+}
+
+/* line 85, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 91, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 94, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/**
+ * Set consistent quote types.
+ */
+/* line 104, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/* line 114, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
+.is-hidden {
+  position: absolute;
+  left: -9999em;
+}
+
+/* line 117, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
+.is-not-hidden {
+  position: static;
+}
+
+/* line 120, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
+.is-visible {
+  display: block;
+}
+
+/* line 123, ../extensions/persistentgrid/scss/persistentgrid/baserules/_behavior.scss */
+.is-not-visible {
+  display: none;
+}
+
+/* line 10, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-root {
+  margin: 0 auto;
+  max-width: 72em;
+}
+
+/* line 17, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-base, .lt-column {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+}
+
+/* line 21, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column {
+  width: 100%;
+}
+@media only screen and (max-width: 31.1875em) {
+  /* line 21, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+  .lt-column {
+    width: 100%;
+  }
+}
+
+/* line 29, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-gutter-left {
+  padding-left: 24px;
+}
+@media only screen and (max-width: 31.1875em) {
+  /* line 29, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+  .lt-gutter-left {
+    padding-left: 12px;
+  }
+}
+
+/* line 32, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-gutter-right {
+  padding-right: 24px;
+}
+@media only screen and (max-width: 31.1875em) {
+  /* line 32, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+  .lt-gutter-right {
+    padding-right: 12px;
+  }
+}
+
+/* line 35, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-gutters {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+@media only screen and (max-width: 31.1875em) {
+  /* line 35, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+  .lt-gutters {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/* line 42, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-bleed-left {
+  margin-left: -24px;
+}
+@media only screen and (max-width: 31.1875em) {
+  /* line 42, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+  .lt-bleed-left {
+    margin-left: -12px;
+  }
+}
+
+/* line 45, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-bleed-right {
+  margin-right: -24px;
+}
+@media only screen and (max-width: 31.1875em) {
+  /* line 45, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+  .lt-bleed-right {
+    margin-right: -12px;
+  }
+}
+
+/* line 48, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-bleed {
+  margin-left: -24px;
+  margin-right: -24px;
+}
+@media only screen and (max-width: 31.1875em) {
+  /* line 48, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+  .lt-bleed {
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+}
+
+/* line 58, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column--half {
+  width: 50%;
+}
+
+/* line 61, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column--half-persistent {
+  width: 50% !important;
+}
+
+/* line 58, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column--fourth {
+  width: 25%;
+}
+
+/* line 61, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column--fourth-persistent {
+  width: 25% !important;
+}
+
+/* line 58, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column--third {
+  width: 33.33333%;
+}
+
+/* line 61, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column--third-persistent {
+  width: 33.33333% !important;
+}
+
+/* line 58, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column--two-third {
+  width: 66.66667%;
+}
+
+/* line 61, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column--two-third-persistent {
+  width: 66.66667% !important;
+}
+
+/* line 58, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column--three-fourth {
+  width: 75%;
+}
+
+/* line 61, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-column--three-fourth-persistent {
+  width: 75% !important;
+}
+
+/* line 71, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-push,
+.lt-pull {
+  position: relative;
+}
+@media only screen and (max-width: 31.1875em) {
+  /* line 71, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+  .lt-push,
+  .lt-pull {
+    position: static;
+    position: initial;
+  }
+}
+
+/* line 80, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-push--half {
+  left: 50%;
+}
+
+/* line 83, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-pull--half {
+  left: -50%;
+}
+
+/* line 80, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-push--fourth {
+  left: 25%;
+}
+
+/* line 83, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-pull--fourth {
+  left: -25%;
+}
+
+/* line 80, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-push--third {
+  left: 33.33333%;
+}
+
+/* line 83, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-pull--third {
+  left: -33.33333%;
+}
+
+/* line 80, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-push--two-third {
+  left: 66.66667%;
+}
+
+/* line 83, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-pull--two-third {
+  left: -66.66667%;
+}
+
+/* line 80, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-push--three-fourth {
+  left: 75%;
+}
+
+/* line 83, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+.lt-pull--three-fourth {
+  left: -75%;
+}
+
+@media only screen and (max-width: 31.1875em) {
+  /* line 94, ../extensions/persistentgrid/scss/persistentgrid/layout/_behavior.scss */
+  .lt-base, .lt-column {
+    width: 100%;
+  }
+}
+/*
+-----------------------------------------------------------------------------
+Field base
+-----------------------------------------------------------------------------
+*/
+/*
+ * Input base - applies to all form elements except:
+ 	- buttons
+ 	- [type="submit"]
+ 	- fieldsets
+ 	- radio and check buttons
+ */
+/* line 37, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld, .fld-input, .fld-select, .fld-textarea {
+  /*
+   * Box-model treatments
+   */
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: "baseline";
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin: 0 0;
+  padding-top: 0.375em;
+  padding-bottom: 0.375em;
+  border: 1px solid #fff05b;
+  /*
+   * Font and text treatments
+   */
+  font-family: sans-serif;
+  color: #2a1f0c;
+  text-align: left;
+  text-decoration: none;
+}
+/* line 76, ../extensions/persistentgrid/scss/persistentgrid/utilities/forms/_mixins.scss */
+.fld::-webkit-input-placeholder, .fld-input::-webkit-input-placeholder, .fld-select::-webkit-input-placeholder, .fld-textarea::-webkit-input-placeholder, .fld:-moz-placeholder, .fld-input:-moz-placeholder, .fld-select:-moz-placeholder, .fld-textarea:-moz-placeholder, .fld::-moz-placeholder, .fld-input::-moz-placeholder, .fld-select::-moz-placeholder, .fld-textarea::-moz-placeholder, .fld:-ms-placeholder, .fld-input:-ms-placeholder, .fld-select:-ms-placeholder, .fld-textarea:-ms-placeholder {
+  color: #00b09e;
+}
+
+/*
+ * Field focus styles
+ */
+/* line 70, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld--state-focus, .fld:focus, .fld-input:focus, .fld-select:focus, .fld-textarea:focus {
+  border-color: #00b09e;
+  background-color: whitesmoke;
+  -webkit-box-shadow: 0 0 4px #00b09e false;
+  -moz-box-shadow: 0 0 4px #00b09e false;
+  box-shadow: 0 0 4px #00b09e false;
+  -webkit-appearance: none;
+  /* mobile firefox too! */
+  -moz-appearance: none;
+  /* mobile firefox too! */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
+/*
+-----------------------------------------------------------------------------
+Field
+-----------------------------------------------------------------------------
+*/
+/* line 87, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-input {
+  background-color: #fffef4;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: #2a1f0c 1px 1px 2px 0 #fff9c1 1px 1px 1px 0 inset;
+  -moz-box-shadow: #2a1f0c 1px 1px 2px 0 #fff9c1 1px 1px 1px 0 inset;
+  box-shadow: #2a1f0c 1px 1px 2px 0 #fff9c1 1px 1px 1px 0 inset;
+  -webkit-appearance: none;
+  /* mobile firefox too! */
+  -moz-appearance: none;
+  /* mobile firefox too! */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-indent: 48px;
+}
+
+/*
+-----------------------------------------------------------------------------
+Search Field
+-----------------------------------------------------------------------------
+*/
+/* line 102, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-input--search {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*
+-----------------------------------------------------------------------------
+Color Field
+-----------------------------------------------------------------------------
+*/
+/*
+-----------------------------------------------------------------------------
+Range Field
+-----------------------------------------------------------------------------
+*/
+/* line 130, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-input--range {
+  width: 100%;
+}
+
+/*
+-----------------------------------------------------------------------------
+Color Field & Range Field
+-----------------------------------------------------------------------------
+*/
+/* line 144, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-input--color,
+.fld-input--range {
+  padding: 0;
+  height: 2em;
+}
+
+/*
+-----------------------------------------------------------------------------
+Select and Datalists
+-----------------------------------------------------------------------------
+*/
+/* line 158, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-select optgroup,
+.fld-select option {
+  padding-top: 0.375em;
+  padding-bottom: 0.375em;
+  padding-left: 24px;
+  padding-right: 24px;
+  font-weight: inherit;
+  font-style: inherit;
+  font-variant: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+@media only screen and (max-width: 31.1875em) {
+  /* line 158, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+  .fld-select optgroup,
+  .fld-select option {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/* line 170, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-select {
+  -webkit-appearance: menulist;
+  /* mobile firefox too! */
+  -moz-appearance: menulist;
+  /* mobile firefox too! */
+  height: 2em;
+}
+
+/*
+-----------------------------------------------------------------------------
+Textarea
+-----------------------------------------------------------------------------
+*/
+/* line 194, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-textarea {
+  background-color: #fffef4;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: #2a1f0c 1px 1px 2px 0 #fff9c1 1px 1px 1px 0 inset;
+  -moz-box-shadow: #2a1f0c 1px 1px 2px 0 #fff9c1 1px 1px 1px 0 inset;
+  box-shadow: #2a1f0c 1px 1px 2px 0 #fff9c1 1px 1px 1px 0 inset;
+  -webkit-appearance: none;
+  /* mobile firefox too! */
+  -moz-appearance: none;
+  /* mobile firefox too! */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+/* line 199, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-textarea.large {
+  height: 12.5em;
+}
+/* line 202, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-textarea.medium {
+  height: 7.5em;
+}
+/* line 205, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-textarea.small {
+  height: 2.5em;
+}
+
+/*
+-----------------------------------------------------------------------------
+Field Label
+-----------------------------------------------------------------------------
+*/
+/* line 217, ../extensions/persistentgrid/scss/persistentgrid/forms/_behavior.scss */
+.fld-label {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: baseline;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: baseline;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin: 0 0;
+  padding: 0 0;
+  font-family: sans-serif;
+  color: #2a1f0c;
+  text-align: left;
+  text-decoration: none;
+}
+
+/*
+-----------------------------------------------------------------------------
+Fieldset Legend
+-----------------------------------------------------------------------------
+*/
+/* line 12, ../extensions/persistentgrid/scss/persistentgrid/lists/_behavior.scss */
+ol, ul {
+  list-style-type: none;
+}
+
+/* line 26, ../extensions/persistentgrid/scss/persistentgrid/lists/_behavior.scss */
+li {
+  list-style-type: inherit;
+  list-style-position: inherit;
+  list-style-image: inherit;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--circle {
+  list-style-type: circle;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--decimal {
+  list-style-type: decimal;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--disc {
+  list-style-type: disc;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--inherit {
+  list-style-type: inherit;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--lower-alpha {
+  list-style-type: lower-alpha;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--lower-latin {
+  list-style-type: lower-latin;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--lower-roman {
+  list-style-type: lower-roman;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--square {
+  list-style-type: square;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--upper-alpha {
+  list-style-type: upper-alpha;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--upper-latin {
+  list-style-type: upper-latin;
+}
+
+/* line 8, ../extensions/persistentgrid/scss/persistentgrid/utilities/_lists.scss */
+.list--upper-roman {
+  list-style-type: upper-roman;
+}
+
+/* line 105, ../extensions/persistentgrid/scss/persistentgrid/lists/_behavior.scss */
+.list-inline > li {
+  display: inline-block;
+}
+
+/* line 110, ../extensions/persistentgrid/scss/persistentgrid/lists/_behavior.scss */
+.list--outside {
+  list-style-position: outside;
+}
+
+/* line 114, ../extensions/persistentgrid/scss/persistentgrid/lists/_behavior.scss */
+.list--inside {
+  list-style-position: inside;
+}
+
+/*
+-----------------------------------------------------------------------------
+Button base
+-----------------------------------------------------------------------------
+*/
+/* line 14, ../extensions/persistentgrid/scss/persistentgrid/buttons/_behavior.scss */
+.btn-base {
+  cursor: pointer;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: baseline;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin: 0 0;
+  padding: 0.375em 0;
+  background-color: transparent;
+  border: 1px solid transparent;
+  text-align: left;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+  font-family: sans-serif;
+  color: #2a1f0c;
+}
+/* line 25, ../extensions/persistentgrid/scss/persistentgrid/buttons/_behavior.scss */
+.btn-base a, .btn-base span, .btn-base em, .btn-base i, .btn-base b, .btn-base:visited, .btn-base:active {
+  color: inherit;
+}
+
+/* base...........Basic HTML elements */
+/* line 1, ../sass/crossinghippos.nl/behavior/_layout.scss */
+.lt-gutters--half {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+@media only screen and (max-width: 31.1875em) {
+  /* line 1, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  .lt-gutters--half {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+}
+
+/* line 4, ../sass/crossinghippos.nl/behavior/_layout.scss */
+.lt-gutters--fourth {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+@media only screen and (max-width: 31.1875em) {
+  /* line 4, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  .lt-gutters--fourth {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+}
+
+/* line 7, ../sass/crossinghippos.nl/behavior/_layout.scss */
+.lt-vertical-padding {
+  padding-top: 0.625em;
+  padding-bottom: 0.625em;
+}
+
+/* line 14, ../sass/crossinghippos.nl/behavior/_layout.scss */
+.lt-secondary {
+  text-align: right;
+}
+
+/* line 21, ../sass/crossinghippos.nl/behavior/_layout.scss */
+.main {
+  margin-top: 5em;
+}
+
+@media only screen and (max-width: 63.9375em) {
+  /* line 26, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  .lt-primary {
+    width: 100%;
+  }
+
+  /* line 30, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  .lt-secondary,
+  .lt-tertiary {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 50em) {
+  /* line 37, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  .lt-primary {
+    width: 50%;
+  }
+
+  /* line 41, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  .lt-secondary,
+  .lt-tertiary {
+    width: 25%;
+  }
+
+  /* line 44, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  .lt-push--secondary {
+    left: 25%;
+  }
+
+  /* line 47, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  .lt-pull--primary {
+    left: -50%;
+  }
+}
+/* ABSTRACTIONS...Objects, abstractions, design patterns (often blocklevel styling) */
+/* Disguises an anchor element as a "plain" text element */
+/* a */
+/* line 2, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+.anchor--incognito, .anchor--incognito:hover, .anchor--incognito:active, .anchor--incognito:visited, .anchor--incognito:hover:visited, .anchor--incognito:active:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Aligns list elements horizontally */
+/* line 19, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+.lt__item--horizontal {
+  display: inline-block;
+}
+
+/* line 23, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+.lt__item--vertical {
+  line-height: 0;
+}
+
+/* line 27, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+.lt--tags {
+  width: 75%;
+  display: inline-block;
+}
+
+/* line 32, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+.lt--eyeicon {
+  text-align: right;
+  padding-right: 10px;
+}
+
+/* line 37, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+.span {
+  width: 100%;
+}
+
+/* line 41, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+/* line 47, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+.lt--tagicon {
+  width: 7%;
+  margin-left: 10px;
+}
+
+/* line 52, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+.lt--taglist {
+  width: 85%;
+}
+
+/* GUI............UI Components and modules */
+/* line 1, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd {
+  font-family: "bree", sans-serif;
+  font-weight: 700;
+}
+
+/* line 6, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--a {
+  font-family: "bree", sans-serif;
+  font-style: italic;
+}
+
+/* line 11, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--section {
+  font-size: 1.25em;
+  line-height: 2em;
+}
+
+/* line 19, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd__article--title {
+  color: #a49990;
+  font-size: 1.25em;
+  line-height: 2em;
+  line-height: 30px;
+  text-decoration: none;
+}
+
+/* line 26, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd__article--title:visited {
+  color: #c12b34;
+}
+
+/* line 30, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--bribold {
+  font: normal, normal, 700, "bree", sans-serif;
+}
+
+/* line 34, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--iconlink {
+  color: #a49990;
+}
+
+/* line 38, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--iconlink:hover {
+  color: #c12b34;
+}
+
+/* line 42, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--iconlink:visited {
+  color: #a49990;
+}
+
+/* line 46, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--iconlink:visited:hover {
+  color: #c12b34;
+}
+
+/* line 50, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--colorred {
+  color: #c12b34;
+}
+
+/*
+-----------------------------------------------------------------------------
+Masthead
+-----------------------------------------------------------------------------
+*/
+/* line 7, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead {
+  position: relative;
+  padding-top: 8.75em;
+}
+
+/* line 11, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead__title {
+  text-align: center;
+  font-size: 4em;
+  line-height: 0.9375em;
+  -webkit-transition: font-size 0.3s ease-in;
+  -moz-transition: font-size 0.3s ease-in;
+  -o-transition: font-size 0.3s ease-in;
+  transition: font-size 0.3s ease-in;
+}
+
+/* line 16, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead__tagline {
+  font-size: .5em;
+  line-height: 1.875em;
+  font-weight: 200;
+  color: #00b09e;
+}
+
+/* line 22, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead__logo {
+  position: absolute;
+  left: -.75em;
+  top: -.4em;
+  height: 100%;
+  background: url(../images/crossinghippos.svg) no-repeat;
+}
+
+/* line 30, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.no-svg .masthead__logo {
+  background-image: url(../images/crossinghippos_x1.png);
+}
+
+/*
+-----------------------------------------------------------------------------
+Tablet
+-----------------------------------------------------------------------------
+*/
+@media only screen and (max-width: 63.9375em) {
+  /* line 42, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+  .masthead__title {
+    font-size: 3.5em;
+    line-height: 1.07143em;
+  }
+}
+/*
+-----------------------------------------------------------------------------
+Mobile
+-----------------------------------------------------------------------------
+*/
+@media only screen and (max-width: 31.1875em) {
+  /* line 57, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+  .masthead__title {
+    font-size: 2.375em;
+    line-height: 1.57895em;
+  }
+
+  /* line 60, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+  .masthead__tagline {
+    line-height: 1.25em;
+  }
+}
+/*
+-----------------------------------------------------------------------------
+Align all elements at masthead level
+-----------------------------------------------------------------------------
+*/
+/* line 72, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead-sibling {
+  vertical-align: bottom;
+}
+
+/* line 75, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead-sibling--icons {
+  line-height: 2.5em;
+}
+
+/* line 78, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead-sibling--links {
+  position: relative;
+  top: 1.66667em;
+}
+
+/*
+-----------------------------------------------------------------------------
+Search box
+-----------------------------------------------------------------------------
+*/
+/* line 91, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.form-search {
+  position: absolute;
+  top: 1.25em;
+}
+
+/* Styling for main navigation */
+/* line 2, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
+.main-nav {
+  font-family: "bree-serif", sans-serif;
+  font-size: 1.125em;
+  line-height: 1.66667em;
+  text-align: right;
+  padding: 0 30px;
+}
+
+/* line 8, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
+.main-nav__item, .main-nav__item:visited {
+  text-decoration: none;
+  color: #c12b34;
+}
+
+/*
+-----------------------------------------------------------------------------
+Box
+-----------------------------------------------------------------------------
+*/
+/* line 7, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
+.box {
+  background: rgba(42, 31, 12, 0.15);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  padding: inherit;
+}
+
+/* line 12, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
+.box--stream {
+  min-height: 15em;
+}
+
+/*
+-----------------------------------------------------------------------------
+List of boxes
+-----------------------------------------------------------------------------
+*/
+/* line 5, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.postimage {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+/* line 11, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.lt.box-list__item.box--box-list.box--small a {
+  color: #00b09e;
+  text-decoration: none;
+}
+
+/* line 1, ../sass/crossinghippos.nl/behavior/modules/_articles.scss */
+.articles {
+  padding: 25px 0;
+}
+
+/* line 5, ../sass/crossinghippos.nl/behavior/modules/_articles.scss */
+.articles--center {
+  border-right: 1px dashed #a49990;
+  padding: 0 10px;
+}
+
+/* line 4, ../sass/crossinghippos.nl/behavior/modules/_list-icons.scss */
+.list-icons__icon {
+  padding-left: 0.625em;
+}
+/* line 6, ../sass/crossinghippos.nl/behavior/modules/_list-icons.scss */
+.list-icons__icon:first-child {
+  padding-left: 0;
+}
+
+/* SKIN...........Theme variations */
+/* TRUMPS.........Style overrides */
+/* line 1, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd {
+  font-family: "bree", sans-serif;
+  font-weight: 700;
+}
+
+/* line 6, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--a {
+  font-family: "bree", sans-serif;
+  font-style: italic;
+}
+
+/* line 11, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--section {
+  font-size: 1.25em;
+  line-height: 2em;
+}
+
+/* line 19, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd__article--title {
+  color: #a49990;
+  font-size: 1.25em;
+  line-height: 2em;
+  line-height: 30px;
+  text-decoration: none;
+}
+
+/* line 26, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd__article--title:visited {
+  color: #c12b34;
+}
+
+/* line 30, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--bribold {
+  font: normal, normal, 700, "bree", sans-serif;
+}
+
+/* line 34, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--iconlink {
+  color: #a49990;
+}
+
+/* line 38, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--iconlink:hover {
+  color: #c12b34;
+}
+
+/* line 42, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--iconlink:visited {
+  color: #a49990;
+}
+
+/* line 46, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--iconlink:visited:hover {
+  color: #c12b34;
+}
+
+/* line 50, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+.hd--colorred {
+  color: #c12b34;
+}
+
+/*
+-----------------------------------------------------------------------------
+Masthead
+-----------------------------------------------------------------------------
+*/
+/* line 7, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead {
+  position: relative;
+  padding-top: 8.75em;
+}
+
+/* line 11, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead__title {
+  text-align: center;
+  font-size: 4em;
+  line-height: 0.9375em;
+  -webkit-transition: font-size 0.3s ease-in;
+  -moz-transition: font-size 0.3s ease-in;
+  -o-transition: font-size 0.3s ease-in;
+  transition: font-size 0.3s ease-in;
+}
+
+/* line 16, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead__tagline {
+  font-size: .5em;
+  line-height: 1.875em;
+  font-weight: 200;
+  color: #00b09e;
+}
+
+/* line 22, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead__logo {
+  position: absolute;
+  left: -.75em;
+  top: -.4em;
+  height: 100%;
+  background: url(../images/crossinghippos.svg) no-repeat;
+}
+
+/* line 30, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.no-svg .masthead__logo {
+  background-image: url(../images/crossinghippos_x1.png);
+}
+
+/*
+-----------------------------------------------------------------------------
+Tablet
+-----------------------------------------------------------------------------
+*/
+@media only screen and (max-width: 63.9375em) {
+  /* line 42, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+  .masthead__title {
+    font-size: 3.5em;
+    line-height: 1.07143em;
+  }
+}
+/*
+-----------------------------------------------------------------------------
+Mobile
+-----------------------------------------------------------------------------
+*/
+@media only screen and (max-width: 31.1875em) {
+  /* line 57, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+  .masthead__title {
+    font-size: 2.375em;
+    line-height: 1.57895em;
+  }
+
+  /* line 60, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+  .masthead__tagline {
+    line-height: 1.25em;
+  }
+}
+/*
+-----------------------------------------------------------------------------
+Align all elements at masthead level
+-----------------------------------------------------------------------------
+*/
+/* line 72, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead-sibling {
+  vertical-align: bottom;
+}
+
+/* line 75, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead-sibling--icons {
+  line-height: 2.5em;
+}
+
+/* line 78, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.masthead-sibling--links {
+  position: relative;
+  top: 1.66667em;
+}
+
+/*
+-----------------------------------------------------------------------------
+Search box
+-----------------------------------------------------------------------------
+*/
+/* line 91, ../sass/crossinghippos.nl/behavior/modules/_masthead.scss */
+.form-search {
+  position: absolute;
+  top: 1.25em;
+}
+
+/* Styling for main navigation */
+/* line 2, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
+.main-nav {
+  font-family: "bree-serif", sans-serif;
+  font-size: 1.125em;
+  line-height: 1.66667em;
+  text-align: right;
+  padding: 0 30px;
+}
+
+/* line 8, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
+.main-nav__item, .main-nav__item:visited {
+  text-decoration: none;
+  color: #c12b34;
+}
+
+/*
+-----------------------------------------------------------------------------
+Box
+-----------------------------------------------------------------------------
+*/
+/* line 7, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
+.box {
+  background: rgba(42, 31, 12, 0.15);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  padding: inherit;
+}
+
+/* line 12, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
+.box--stream {
+  min-height: 15em;
+}
+
+/*
+-----------------------------------------------------------------------------
+List of boxes
+-----------------------------------------------------------------------------
+*/
+/* line 5, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.postimage {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+/* line 11, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.lt.box-list__item.box--box-list.box--small a {
+  color: #00b09e;
+  text-decoration: none;
+}
+
+/* line 1, ../sass/crossinghippos.nl/behavior/modules/_articles.scss */
+.articles {
+  padding: 25px 0;
+}
+
+/* line 5, ../sass/crossinghippos.nl/behavior/modules/_articles.scss */
+.articles--center {
+  border-right: 1px dashed #a49990;
+  padding: 0 10px;
+}
+
+/* line 4, ../sass/crossinghippos.nl/behavior/modules/_list-icons.scss */
+.list-icons__icon {
+  padding-left: 0.625em;
+}
+/* line 6, ../sass/crossinghippos.nl/behavior/modules/_list-icons.scss */
+.list-icons__icon:first-child {
+  padding-left: 0;
+}
