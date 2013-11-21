@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.6" type="plugin" group="content" method="upgrade">
+    <name>Content - JV Social Publish</name>
+    <creationDate>2013-07-27</creationDate>
+    <copyright>Copyright (C) 2013. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <author>joomlavi</author>
+    <authorEmail>info@joomlavi.com</authorEmail>
+    <authorUrl>http://www.joomlavi.com</authorUrl>
+    <version>1.1.0</version>
+	<description>JV Social Publish posts content from Joomla to Facebook and Twitter</description>
+    
+    <files>
+        <filename plugin="jvsocial_publish_content">jvsocial_publish_content.php</filename>
+        <filename>index.html</filename>
+		<folder>language</folder>
+    </files>
+	
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_jvsocial_publish_content.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_jvsocial_publish_content.sys.ini</language>        
+    </languages>	
+	
+    <config>
+        <fields name="params">
+        </fields>
+    </config>
+</extension>

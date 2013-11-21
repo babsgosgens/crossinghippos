@@ -29,50 +29,57 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
     }
     </style>
 </head>
-<body class="root">
-  <header>
-    <h1>Crossing Hippos</h1><h2>webdesign met overbite</h2>
-    <nav>
-      <jdoc:include type="modules" name="position-7" />
-    </nav>
+<body>
+  <header role="banner" class="banner">
+    <div class="root">
+      <h1 class="banner-title">Crossing Hippos<span class="banner-subtitle">webdesign met overbite</span></h1>
+      <nav role="navigation" class="navbar">
+        <jdoc:include type="modules" name="mainnav" />
+      </nav>
+    </div>
   </header>
-  <section>
-    <jdoc:include type="modules" name="position-2" />
-    <article>
-      <jdoc:include type="message" />
-      <jdoc:include type="component" />
+  <div class="body">
+    <span class="page-header"><?php echo $pageTitle;?></span>
+    <div class="root" style="min-height: 500px;">
+      <nav class="navbar">
+        <jdoc:include type="modules" name="breadcrumbs" />
+      </nav>
+      <jdoc:include type="message"/>
+      <jdoc:include type="modules" name="content-top" />
+      <jdoc:include type="modules" name="position-6" />
       <jdoc:include type="modules" name="component-modules" style="raw" />
-    </article>
-  </section>
-  <footer>
-    <article class="fourth column">
-      <h1>Lorem ipsum</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
-        ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
-      </p>
-    </article>
-    <article class="fourth column">
-      <h1>Lorem ipsum</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
-        ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
-      </p>
-    </article>
-    <article class="fourth column">
-      <h1>Lorem ipsum</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
-        ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
-      </p>
-    </article>
-    <article class="fourth column">
-      <h1>Lorem ipsum</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
-        ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
-      </p>
-    </article>
+  </div>
+  <footer class="footer">
+    <div class="root">
+      <article class="fourth column">
+        <h1>Lorem ipsum</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
+          ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
+        </p>
+      </article>
+      <article class="fourth column">
+        <h1>Lorem ipsum</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
+          ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
+        </p>
+      </article>
+      <article class="fourth column">
+        <h1>Lorem ipsum</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
+          ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
+        </p>
+      </article>
+      <article class="fourth column">
+        <h1>Lorem ipsum</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula nisl 
+          ac justo tempus, ac lacinia massa bibendum. Proin nec diam egestas, dignissim purus ac, volutpat leo
+        </p>
+      </article>
+    </div>
   </footer>
     <jdoc:include type="modules" name="debug" />
 

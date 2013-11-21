@@ -61,21 +61,24 @@ class StreamsModelFacebook extends JModelAdmin
 		$table->load(2);
 		$params = new JRegistry( $table->get('params') );
 
-		// Call the URI object to get the current request
-		$uri = JFactory::getUri();
-		$params->set('app_redirect', $uri->toString());
+		// Remove 'fb' from app_id.
+		$params->set('app_id', str_replace('fb', '', $params->get('app_id')));
 
 		// Build the options object
+		$uri = JFactory::getUri();
 		$options = new JRegistry;
 		$options->set('clientid', $params->get('app_id'));
 		$options->set('clientsecret', $params->get('app_secret'));
-		$options->set('redirecturi', $params->get('app_redirect'));
+		$options->set('redirecturi', $uri->toString());
 		$options->set('sendheaders', true);
 		$options->set('authmethod', 'get');
+		$options->set('scope', 'user_status');
 
 		// Authenticate 
-		$oauth = new JFacebookOAuth($options);
-		$access_token = $oauth->authenticate();
+		if (!isset($_GET['error_reason'])){
+			$oauth = new JFacebookOAuth($options);
+			$access_token = $oauth->authenticate();
+		}
 
 		// Create the Facebook object
 		$facebook = new JFacebook($oauth);
@@ -125,6 +128,7 @@ class StreamsModelFacebook extends JModelAdmin
 			$c = 0;
 			foreach ($response->data as $item)
 			{
+
 				/**
 				 * Get a reference to the table
 				 */
@@ -194,7 +198,7 @@ class StreamsModelFacebook extends JModelAdmin
 
 			// Get the feed and store it in the class attribute
 			$user = $facebook->user;
-			$this->response = $user->getFeed("me");
+			$this->response = $user->getStatuses('me', 20);
 		}
 	}
 

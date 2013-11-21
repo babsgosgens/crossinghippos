@@ -1,0 +1,1 @@
+var $JVSP = jQuery.noConflict();

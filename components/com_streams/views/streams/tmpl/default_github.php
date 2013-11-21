@@ -9,10 +9,12 @@
 
 defined('_JEXEC') or die;
 
-$post = $this->post;
-
 // Uncomment for available attributes
 // echo '<pre>';
 // print_r($post);
 // echo '</pre>';
+// exit;
 ?>
+
+	<a href="<?php echo $post->author->html_url; ?>"><span><?php echo $post->commit->author->name; ?></span></a>
+	<p><?php echo $post->commit->message; ?></p>

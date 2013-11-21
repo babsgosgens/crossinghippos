@@ -1,0 +1,82 @@
+.icon-48-channels {
+      background-image: url(../images/l_com_jvsocial_publish_channels.png);
+      padding-left:60px!important;
+}
+
+.icon-48-channel {
+      background-image: url(../images/l_com_jvsocial_publish_channels.png);
+      padding-left:60px!important;
+}
+
+.icon-48-requests {
+      background-image: url(../images/l_com_jvsocial_publish_requests.png);
+      padding-left:60px!important;
+}
+
+.icon-48-request {
+      background-image: url(../images/l_com_jvsocial_publish_requests.png);
+      padding-left:60px!important;
+}
+
+.icon-48-manual-post {
+     background-image: url(../images/l_com_jvsocial_publish_manual_post.png);
+     padding-left:60px!important;
+ }
+
+.icon-48-guide {
+    background-image: url(../images/l_com_jvsocial_publish_guide.gif);
+    padding-left:60px!important;
+}
+
+img.jvsocial-loading{width: 20px; margin-top: 5px}
+
+.jvsocial-form [class^="icon-"],
+.jvsocial-form [class*=" icon-"]{
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-top: 1px;
+    *margin-right: .3em;
+    line-height: 14px;
+    vertical-align: text-top;
+    background-image: url("../bootstrap/img/glyphicons-halflings.png");
+    background-position: 14px 14px;
+    background-repeat: no-repeat;
+}
+
+.ui-pnotify [class^="icon-"],
+.ui-pnotify [class*=" icon-"] {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-top: 1px;
+    *margin-right: .3em;
+    line-height: 14px;
+    vertical-align: text-top;
+    background-image: url("../bootstrap/img/glyphicons-halflings.png");
+    background-repeat: no-repeat;
+}
+
+[class^="jvsocial-cus-"],
+[class*=" jvsocial-cus-"] {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    *margin-right: .3em;
+    line-height: 14px;
+    vertical-align: text-top;
+    background-repeat: no-repeat;
+}
+[class^="jvsocial-cus-"]:last-child,
+[class*=" jvsocial-cus-"]:last-child {
+    *margin-left: 0;
+}
+.jvsocial-cus-facebook{ background-image: url("../images/facebook-icon.png");  }
+.jvsocial-cus-twitter{ background-image: url("../images/twitter-icon.png");  }
+.jvsocial-cus-content{ background-image: url("../images/joomla-icon.png");  }
+.jvsocial-cus-k2{ background-image: url("../images/k2-icon.png");  }
+#channel_loading{
+    text-align: center;
+    margin: 40px 0;
+}
+

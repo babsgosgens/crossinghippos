@@ -8,6 +8,10 @@
 
 defined('_JEXEC') or die;
 
+// google libraries
+require_once( JPATH_SITE.'/libraries/googleplus/Google_Client.php' );
+require_once( JPATH_SITE.'/libraries/googleplus/contrib/Google_PlusService.php' );
+
 /**
  * Methods supporting a list of weblink records.
  *
@@ -24,13 +28,7 @@ class StreamsModelGoogleplus extends JModelAdmin
 
 	/**
 	 * var
-	 * JRegistry The authentication object
-	 */
-	protected $options = null;
-
-	/**
-	 * var
-	 * JTwitter An instance of the api object
+	 * Dribbble An instance of the api object
 	 */
 	protected $api = null;
 
@@ -51,40 +49,36 @@ class StreamsModelGoogleplus extends JModelAdmin
 	{
 		parent::__construct($config);
 
-		/**
-		 *
-		 * SEE: https://github.com/babsgosgens/joomla-framework/blob/staging/src/Joomla/Google/README.md
-		 *
-		 */
-
-		// Load this item's parameters
+		// Load this items parameters
 		$table =& $this->getTable('Api', 'StreamsTable');
 		$table->load(8);
 		$params = new JRegistry( $table->get('params') );
 
-		// Call the URI object to get the current request
+		// main vars
 		$uri = JFactory::getUri();
-		$params->set('app_redirect', $uri->toString());
+		$client = new Google_Client();
 
-		// Build the options object
-		$options = new JRegistry;
-		$options->set('clientid', $params->get('app_id'));
-		$options->set('clientsecret', $params->get('app_secret'));
-		$options->set('redirecturi', $params->get('app_redirect'));
-		$options->set('sendheaders', true);
-		$options->set('authmethod', 'get');
+		// settings
+		$client->setApplicationName("Crossing Hippos Backend Login");
+		$client->setClientId($params->get('clientid'));
+		$client->setClientSecret($params->get('clientsecret'));
+		$client->setDeveloperKey($params->get('developerkey'));
+		$client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?option=com_streams&task=update.' . $table->get('alias'));
 
-		// // Authenticate 
-		// $oauth = new JFacebookOAuth($options);
-		// $access_token = $oauth->authenticate();
+		// create plus auth instance
+		$plus = new Google_PlusService($client);
 
-		// Create the Facebook object
-		$google = new JGoogle($options);
+		// check if received code else get one
+		if (isset($_GET['code'])){
+			$client->authenticate($_GET['code']);
+			$client->getAccessToken();
+		} else {
+			header("Location: " . $client->createAuthUrl());
+			exit;
+		}
 
-		// Make it accessible to this object
-		$this->set('api', $google);
-		$this->set('params', $params);
-		$this->set('options', $options);
+		// get contents
+		$this->set('api', $plus);
 	}
 
 	/**
@@ -109,31 +103,49 @@ class StreamsModelGoogleplus extends JModelAdmin
 	 * Method to update the database with the new items
 	 *
 	 */
-	public function update($response = null)
+	public function update( $response=null )
 	{
+		/**
+		 * Dribbble returns an array of items if the call wass succesful
+		 */
 		$response = $response ? $response : $this->getResponse();
 
-		/**
-		 * Facebook returns an object with two attributes: data and paginate if the call was succesful
-		 */
-		if ( property_exists($response, 'data') && $response->data[0] )
+		if ( is_array($response) && isset($response[items][0]) )
 		{
 			// Keep counter for update items
 			$c = 0;
-			foreach ($response->data as $item)
+			foreach ($response[items] as $item)
 			{
+				$data = null;
+
 				/**
 				 * Get a reference to the table
 				 */
 				$table =& $this->getTable('Stream', 'StreamsTable');
 
 				/**
-				 * Create two arrays with data for storage,
+				 * Reformat the date
+				 */
+				$date_created = new JDate($item[published]);
+
+				/**
+				 * Create two array with data for storage,
 				 * use the first array to determine if the item exists
 				 */
 				$id = array(
-					'api_id' => 2,
-					'post_id' => $item->id
+					'api_id' => 8,
+					'post_id' => $item[id]
+				);
+				$post = array(
+					'date_created' => $date_created->toSql(),
+					'raw' => base64_encode(serialize($item)), // http://stackoverflow.com/a/1058294
+					'metadata' => null,
+					'permalink' => $item[url],
+					'params' => null,
+					'language' => '*',
+					'state' => 1,
+					'publish_up' => null,
+					'publish_down' => null,
 				);
 
 				/**
@@ -141,37 +153,18 @@ class StreamsModelGoogleplus extends JModelAdmin
 				 */
 				if ( $table->load($id) )
 				{
-					// Do nothing if this item exists in the table
 				}
 				else
 				{
-					/**
-					 * Reformat the date
-					 */
-					$date_created = new JDate($item->updated_time);
-
-					$data = array(
-						'date_created' => $date_created->toSql(),
-						'raw' => base64_encode(serialize($item)), // http://stackoverflow.com/a/1058294
-						'metadata' => null,
-						'permalink' => null,
-						'params' => null,
-						'language' => '*',
-						'state' => 1,
-						'publish_up' => null,
-						'publish_down' => null,
-					);
-
-					$row = array_merge($id,$data);
-					$table->bind($row);
-					$table->store($row);
+					$data = array_merge($id,$post);
+					$table->bind($data);
+					$table->store($data);
 
 					// Update the counter
 					$c++;
 				}
 			}
-
-			JFactory::getApplication()->enqueueMessage( JText::sprintf('COM_STREAMS_UPDATE_SUCCESS', 'Facebook', $c), 'message');
+			JFactory::getApplication()->enqueueMessage( JText::sprintf('COM_STREAMS_UPDATE_SUCCESS', 'Google+', $c), 'message');
 		}
 	}
 
@@ -184,15 +177,12 @@ class StreamsModelGoogleplus extends JModelAdmin
 	 */
 	protected function setResponse()
 	{
-		// Only call the data once
 		if ( $this->response==null ) 
 		{
-			// Get a reference to the api object
-			$facebook =& $this->api;
+			$params = array('maxResults' => 100);
+  			$activities = $this->api->activities->listActivities('me', 'public', $params);
 
-			// Get the feed and store it in the class attribute
-			$user = $facebook->user;
-			$this->response = $user->getFeed("me");
+			$this->response = $activities;
 		}
 	}
 

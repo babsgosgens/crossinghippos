@@ -5,7 +5,6 @@
  * @copyright   Copyright (C) 2010 - 2013 Crossing Hippos. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
-
 defined('_JEXEC') or die;
 
 /**
@@ -43,6 +42,7 @@ class StreamsModelStreams extends JModelList
 	public function getItems()
 	{
 		$items = parent::getItems();
+		$store = 'streams';
 
 		// Unserialize raw attribute into PHP array
 		foreach ($items as $key => &$item)
@@ -88,7 +88,52 @@ class StreamsModelStreams extends JModelList
 		// Only show published items
 		$query->where('a.state = 1');
 
+		// filter on given variables.
+		$this->filterQuery($db, $query);
+
+		// reverse date
+		$query->order('a.date_created DESC');
+
 		// echo nl2br(str_replace('#__','flock_',$query));
 		return $query;
+	}
+
+	/**
+	 * Build an SQL filtered query to load the list data.
+	 *
+	 * @param	Object Joomla Database
+	 * @param	Object Joomla Query
+	 *
+	 * @return	JDatabaseQueryAndFilter
+	 * @since	1.6
+	 */
+	private function filterQuery($db, $query)
+	{	
+		// get input.
+		$input = JFactory::getApplication()->input;
+
+		// get ?platform=[CONTENT] and filter.
+		$platform = $input->get('platform', '', 'raw');
+
+		// if ?platform=[CONTENT] is set
+		if ($platform != ''){
+
+			// empty array for query.
+			$items = array();
+
+			// split all $_GET items.
+			$split = explode(' ', $platform);
+
+			// generate query.
+			foreach ($split as $item){
+				array_push($items, 'aa.alias = ' . $db->quote($item));
+			}
+
+			// join query string.
+			$string = implode(' OR ', $items);
+
+			// execute query.
+			$query->where($string);
+		}
 	}
 }

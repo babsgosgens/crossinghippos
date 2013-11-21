@@ -16,7 +16,6 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
 $_platforms = array('jtwitter', 'twitter', 'facebook', 'github', 'dribbble', 'googleplus');
 ?>
 
-
 <?php
 JHtml::_('bootstrap.tooltip');
 JHtml::_('behavior.multiselect');
@@ -134,13 +133,69 @@ $sortFields = $this->getSortFields();
 						break;
 					case 'facebook':
 						$post = $item->php;
-						$postContent = $post->message;
+
+						if(isset($post->message)) {
+							$postContent = $post->message;
+						} else {
+							$postContent = '';
+						}
 						break;
 					case 'github':
 						$post = $item->php;
 						$postContent = $post->commit->message;
 						break;
+					case 'dribbble':
+						$post = $item->php;
+
+						if($this->get('State')->get('filter.api') == 'dribbble'){
+							$postContent = '<img src="'.$post->image_teaser_url.'"> '.$post->title;
+						} else {
+							$postContent = $post->title;
+						}
+						break;
+					case 'flickr':
+						$post = $item->php;
+
+						if($this->get('State')->get('filter.api') == 'flickr'){
+							$postContent = '<img src="http://farm'.$post->farm.'.staticflickr.com/'.$post->server.'/'.$post->id.'_'.$post->secret.'_s.jpg"> '.$post->title->_content;
+						} else {
+							$postContent = $post->title->_content;
+						}
+						break;
+					case 'behance':
+						$post = $item->php;
+
+						if($this->get('State')->get('filter.api') == 'behance'){
+							$postContent = '<img src="'.$post->covers->{115}.'"> '.$post->name;
+						} else {
+							$postContent = $post->name;
+						}
+						break;
+					case 'googleplus':
+						$post = $item->php;
+
+						if($this->get('State')->get('filter.api') == 'googleplus'){
+							if (isset($post['object']['attachments'][0]['image']['url'])){
+								$postContent = '<img width="115" src="'.$post['object']['attachments'][0]['image']['url'].'"> '.$post['title'];
+							} else {
+								$postContent = $post['title'];
+							}
+						} else {
+							$postContent = $post['title'];
+						}
+						break;
+					case 'tumblr':
+						$post = $item->php;
+
+						if (isset($post->title)){
+							$postContent = $post->title;
+						} else {
+							$postContent = $post->slug;
+						}
+						
+						break;
 				}
+
 				?>
 				<tr class="row<?php echo $i % 2; ?>">
 					<td class="center hidden-phone">

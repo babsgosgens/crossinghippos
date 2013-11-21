@@ -1,0 +1,16 @@
+.nav {
+}
+	.nav__item {
+
+	}
+
+/* Styling for main navigation */
+.main-nav {
+	@include font-family($bree-serif-regular);
+	text-align: right;
+	padding: 0 30px;
+}
+	.main-nav__item,.main-nav__item:visited {
+		text-decoration: none;
+		color: $chred--hex;
+	}

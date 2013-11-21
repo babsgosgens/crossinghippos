@@ -1,0 +1,15 @@
+.jvsocial-form #jform_params_target{width: 220px !important;}
+.filter-search-lbl{
+    font-size: 13px;
+    line-height: 28px;
+    margin-right: 5px;
+}
+
+.ui-pnotify, .jvsocial-form, .jvsocial-form a{
+    font-size: 13px !important;
+}
+
+.pagination div.limit select#limit{
+    margin-left: 10px;
+    width: 70px !important;
+}

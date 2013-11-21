@@ -1,0 +1,52 @@
+.hd {
+	@include font-family($bree-bold);
+	@include font-weight($bree-bold);
+}
+
+.hd--a {
+	@include font-family($bree-regular-italic);
+	@include font-style($bree-regular-italic);
+}
+
+.hd--section {
+	@include adjust-font-size-to($l);
+}
+
+.hd--item {
+
+}
+
+.hd__article--title{
+	color: $chgrey--hex;
+	@include adjust-font-size-to($l);
+    line-height: 30px;
+    text-decoration: none;
+}
+
+.hd__article--title:visited{
+    color: $chred--hex;
+}
+
+.hd--bribold {
+	font: $bree-bold;
+}
+
+.hd--iconlink {
+	color: $chgrey--hex;
+}
+
+.hd--iconlink:hover {
+	color: $chred--hex;
+}
+
+.hd--iconlink:visited {
+	color: $chgrey--hex;
+}
+
+.hd--iconlink:visited:hover {
+	color: $chred--hex;
+}
+
+.hd--colorred {
+	color: $chred--hex;
+}
