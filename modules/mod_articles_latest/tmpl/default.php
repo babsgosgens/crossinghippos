@@ -24,8 +24,11 @@ defined('_JEXEC') or die;
 			} else {
 				echo $item->introtext;
 			}
+
+			$date = new JDate($item->publish_up);
+			$date_created = $date->format(JText::_('DATE_FORMAT_LC'));
 			?>
-			<p class="hd hd__article--date"><?php echo date("l, F d Y", strtotime($item->publish_up)); ?></p>
+			<p class="hd hd__article--date"><?php echo $date_created; ?></p>
 		</div><!--
 	 --><div class="lt lt--fourth">
 	 		<div class="lt lt--tagicon">
