@@ -17,4 +17,4 @@ defined('_JEXEC') or die;
 ?>
 
 	<p><?php echo $post->blog_name; ?></p>
-	<p><?php if (isset($post->title)){ echo $post->title; } ?></p>
+	<p><a href="<?php echo $post->short_url ?>"><?php if (isset($post->title)){ echo $post->title; } ?></a></p>

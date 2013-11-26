@@ -16,6 +16,5 @@ defined('_JEXEC') or die;
 	<li class="tl-base  list-icons__icon">
 		<a href="?platform=<?php echo $item; ?>"><i class="fa <?php echo $icons[$item] ?> fa-2x hd--iconlink"></i></a>
 	</li>
-
 <?php endforeach; ?>
 </ul>
