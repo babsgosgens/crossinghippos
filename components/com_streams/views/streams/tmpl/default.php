@@ -39,7 +39,7 @@ function replaceLinks($string){
 
 					<article class="box--small box--box-list <?php echo $platform; ?>">
 					<?php require('default_' . $platform . '.php'); ?>
-					<time><?php echo $item->date_created; ?></time>
+					<time><p class=""><?php echo $item->date_created; ?></p></time>
 					</article>
 					
 					<?php endforeach; ?>

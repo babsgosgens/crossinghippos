@@ -4,12 +4,52 @@
 
 .postimage {
 	max-width: 100%;
-	border-radius: 6px;
+	border-radius: 5px;
+    margin-top: 15px;
 }
 
-.lt.box-list__item.box--box-list.box--small{
-	a {
-		color: $got-it--hex;
-		text-decoration: none;
-	}
+.post__title {
+    margin-top: 10px;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.box__userlink {
+	text-decoration: none;
+	color: $lightseagreen
+}
+
+.box__username {
+	margin-left: 5px;
+}
+
+.box__posttime {
+	font-size: $font-size-s;
+}
+
+.description
+{
+	border-radius: 5px;
+    margin-top: 15px;
+    max-height: 200px;
+    min-height: 130px;
+    overflow: hidden;
+    max-width: 100%;
+
+    img {
+    	max-width: 100%;
+    	border-radius: 5px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.description--small
+{ 
+    max-height: 100px;
+    min-height: 50px;
 }

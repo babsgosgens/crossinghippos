@@ -42,7 +42,7 @@ $count = 0;
 					$platform = $item->platform;
 					$post = unserialize(base64_decode($item->raw));
 					require(JPATH_SITE . '/components/com_streams/views/streams/tmpl/default_' . $platform . '.php');
-					echo '<time>' . $date_created . '</time>';
+					echo '<time class="box__posttime">' . $date_created . '</time>';
 					?>
 					</div>
 				</li>

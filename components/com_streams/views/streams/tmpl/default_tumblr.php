@@ -15,6 +15,17 @@ defined('_JEXEC') or die;
 // echo '</pre>';
 // exit;
 ?>
-
-	<p><?php echo $post->blog_name; ?></p>
-	<p><a href="<?php echo $post->short_url ?>"><?php if (isset($post->title)){ echo $post->title; } ?></a></p>
+	<p>
+		<a class="box__userlink" href="http://<?php echo $post->blog_name ?>.tumblr.com"> 	
+			<i class="fa fa-tumblr"></i>
+			<span class="box__username"><?php echo $post->blog_name; ?></span>
+		</a>
+	</p>
+	<p class="post__title">
+		<a href="<?php echo $post->short_url ?>">
+			<?php if (isset($post->title)){ echo $post->title; } ?>
+		</a>	
+	</p>
+	<div class="description">
+		<?php if (isset($post->description)){ echo $post->description; } ?>
+	</div>

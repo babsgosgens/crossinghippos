@@ -16,7 +16,15 @@ defined('_JEXEC') or die;
 // exit;
 ?>
 
-	<p><img class="avatar" src="<?php echo $post->profileimg; ?>"></p>
-	<p><a href="http://www.flickr.com/photos/<?php echo $post->owner->nsid; ?>"><span><?php echo $post->owner->username; ?></span></a></p>
-	<p><a href="<?php echo $post->urls->url[0]->_content; ?>"><span><?php echo $post->title->_content; ?></span></p>
-	<p><img class="postimage" src="<?php echo 'http://farm'.$post->farm.'.staticflickr.com/'.$post->server.'/'.$post->id.'_'.$post->secret.'_m.jpg'; ?>" width="150"></a></p>
+	<p>
+		<a class="box__userlink" href="http://www.flickr.com/photos/<?php echo $post->owner->nsid; ?>">
+			<i class="fa fa-flickr"></i>
+			<span class="box__username"><?php echo $post->owner->username; ?></span>
+		</a>
+	</p>
+
+	<p>
+		<a href="<?php echo $post->urls->url[0]->_content; ?>">
+			<img class="postimage" src="<?php echo 'http://farm'.$post->farm.'.staticflickr.com/'.$post->server.'/'.$post->id.'_'.$post->secret.'_m.jpg'; ?>">
+		</a>
+	</p>
