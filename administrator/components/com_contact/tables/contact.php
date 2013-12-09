@@ -18,11 +18,11 @@ class ContactTableContact extends JTable
 	/**
 	 * Constructor
 	 *
-	 * @param  JDatabase  Database connector object
+	 * @param   JDatabaseDriver  &$db  Database connector object
 	 *
-	 * @since 1.0
+	 * @since   1.0
 	 */
-	public function __construct(& $db)
+	public function __construct(&$db)
 	{
 		parent::__construct('#__contact_details', 'id', $db);
 	}
@@ -58,7 +58,7 @@ class ContactTableContact extends JTable
 	/**
 	 * Stores a contact
 	 *
-	 * @param   boolean	True to update fields even if they are null.
+	 * @param   boolean  True to update fields even if they are null.
 	 *
 	 * @return  boolean  True on success, false on failure.
 	 *
@@ -115,6 +115,12 @@ class ContactTableContact extends JTable
 			$this->xreference = '';
 		}
 
+		// Store utf8 email as punycode
+		$this->email_to = JStringPunycode::emailToPunycode($this->email_to);
+
+		// Convert IDN urls to punycode
+		$this->webpage = JStringPunycode::urlToPunycode($this->webpage);
+
 		// Verify that the alias is unique
 		$table = JTable::getInstance('Contact', 'ContactTable');
 		if ($table->load(array('alias' => $this->alias, 'catid' => $this->catid)) && ($table->id != $this->id || $this->id == 0))
@@ -124,46 +130,7 @@ class ContactTableContact extends JTable
 			return false;
 		}
 
-		$tagsHelper = new JHelperTags;
-		$tags = $tagsHelper->convertTagsMetadata($this->metadata);
-		$tagsHelper->getMetaTagNames($this->metadata);
-
-		if (empty($tags))
-		{
-			$tagHelper = new JHelperTags;
-			$itemTags = $tagHelper->getItemTags('com_contact.contact', $this->id);
-			if (!empty($itemTags))
-			{
-				$tagHelper->unTagItem($this->id, 'com_contact.contact');
-			}
-		}
-
-		$return = parent::store($updateNulls);
-
-		if ($return == false)
-		{
-			return false;
-		}
-
-		// Store the tag data if the article data was saved and run related methods.
-		if (empty($tags) == false)
-		{
-			$rowdata = new JHelperContent;
-			$data = $rowdata->getRowData($this);
-
-			$typeAlias = 'com_contact.contact';
-			$ucm = new JUcmContent($this, $typeAlias);
-			$ucm->save($data);
-
-			$ucmId = $ucm->getPrimaryKey($ucm->type->type->type_id, $this->id);
-
-			$isNew = $data['id'] ? 0 : 1;
-
-			$tagsHelper = new JHelperTags;
-			$tagsHelper->tagItem($data['id'], $typeAlias, $isNew, $ucmId, $tags);
-		}
-
-		return $return;
+		return parent::store($updateNulls);
 	}
 
 	/**
@@ -217,8 +184,6 @@ class ContactTableContact extends JTable
 
 			return false;
 		}
-
-		return true;
 
 		// Clean up keywords -- eliminate extra spaces between phrases
 		// and cr (\r) and lf (\n) characters from string

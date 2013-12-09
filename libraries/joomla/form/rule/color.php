@@ -39,9 +39,8 @@ class JFormRuleColor extends JFormRule
 
 		if (empty($value))
 		{
-			// A color field can't be empty, we default to black. This is the same as the HTML5 spec.
-			$value = '#000000';
-			return true;
+			// A color field can't be empty
+			return false;
 		}
 
 		if ($value[0] != '#')
@@ -57,9 +56,6 @@ class JFormRuleColor extends JFormRule
 		{
 			return false;
 		}
-
-		// Prepend the # again
-		$value = '#' . $value;
 
 		return true;
 	}

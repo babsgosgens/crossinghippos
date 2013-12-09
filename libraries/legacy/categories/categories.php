@@ -207,7 +207,6 @@ class JCategories
 	protected function _load($id)
 	{
 		$db = JFactory::getDbo();
-		$app = JFactory::getApplication();
 		$user = JFactory::getUser();
 		$extension = $this->_extension;
 
@@ -283,15 +282,6 @@ class JCategories
 			 c.lft, c.metadata, c.metadesc, c.metakey, c.modified_time, c.note, c.params, c.parent_id,
 			 c.path, c.published, c.rgt, c.title, c.modified_user_id, c.version'
 		);
-
-		// Filter by language
-		if (empty($this->_options['allLanguages']) && $app->isSite() && JLanguageMultilang::isEnabled())
-		{
-			$query->where(
-				'(' . ($id != 'root' ? 'c.id=s.id OR ' : '') . 'c.language in (' . $db->quote(JFactory::getLanguage()->getTag()) . ',' .
-					$db->quote('*') . '))'
-			);
-		}
 
 		// Get the results
 		$db->setQuery($query);

@@ -35,7 +35,7 @@ class CacheController extends JControllerLegacy
 		// Set the default view name and format from the Request.
 		$vName   = $this->input->get('view', 'cache');
 		$vFormat = $document->getType();
-		$lName   = $this->input->get('layout', 'default');
+		$lName   = $this->input->get('layout', 'default', 'string');
 
 		// Get and render the view.
 		if ($view = $this->getView($vName, $vFormat))
@@ -97,7 +97,7 @@ class CacheController extends JControllerLegacy
 
 		if ($ret === false)
 		{
-			$msg = JText::_('Error purging expired items');
+			$msg = JText::_('COM_CACHE_EXPIRED_ITEMS_PURGING_ERROR');
 			$msgType = 'error';
 		}
 

@@ -15,6 +15,7 @@ defined('JPATH_PLATFORM') or die;
  * @package     Joomla.Legacy
  * @subpackage  Table
  * @since       11.1
+ * @deprecated  Class will be removed upon completion of transition to UCM
  */
 class JTableContent extends JTable
 {
@@ -25,9 +26,20 @@ class JTableContent extends JTable
 	 *
 	 * @since   11.1
 	 */
-	public function __construct($db)
+	public function __construct(JDatabaseDriver $db)
 	{
 		parent::__construct('#__content', 'id', $db);
+
+		/*
+		 * This is left here for reference:
+		 *
+		 * This would set up the tags observer in $this from here (so not entirely decoupled):
+		 * JTableObserverTags::createObserver($this, array('typeAlias' => 'com_content.article'));
+		 *
+		 * But this makes the relation between content and tags completely external to Content as JTable is observable:
+		 * So we are doing this only once in libraries/cms.php:
+		 * JObserverFactory::addObserverClassToClass('JTableObserverTags', 'JTableContent', array('typeAlias' => 'com_content.article'));
+		 */
 	}
 
 	/**
@@ -42,6 +54,7 @@ class JTableContent extends JTable
 	protected function _getAssetName()
 	{
 		$k = $this->_tbl_key;
+
 		return 'com_content.article.' . (int) $this->$k;
 	}
 
@@ -67,7 +80,7 @@ class JTableContent extends JTable
 	 *
 	 * @since   11.1
 	 */
-	protected function _getAssetParentId($table = null, $id = null)
+	protected function _getAssetParentId(JTable $table = null, $id = null)
 	{
 		$assetId = null;
 
@@ -82,6 +95,7 @@ class JTableContent extends JTable
 
 			// Get the asset id from the database.
 			$this->_db->setQuery($query);
+
 			if ($result = $this->_db->loadResult())
 			{
 				$assetId = (int) $result;
@@ -108,7 +122,7 @@ class JTableContent extends JTable
 	 *
 	 * @return  mixed  Null if operation was satisfactory, otherwise returns an error string
 	 *
-	 * @see     JTable::bind
+	 * @see     JTable::bind()
 	 * @since   11.1
 	 */
 	public function bind($array, $ignore = '')
@@ -159,7 +173,7 @@ class JTableContent extends JTable
 	 *
 	 * @return  boolean  True on success, false on failure
 	 *
-	 * @see     JTable::check
+	 * @see     JTable::check()
 	 * @since   11.1
 	 */
 	public function check()
@@ -167,6 +181,7 @@ class JTableContent extends JTable
 		if (trim($this->title) == '')
 		{
 			$this->setError(JText::_('COM_CONTENT_WARNING_PROVIDE_VALID_NAME'));
+
 			return false;
 		}
 
@@ -265,52 +280,15 @@ class JTableContent extends JTable
 
 		// Verify that the alias is unique
 		$table = JTable::getInstance('Content', 'JTable');
+
 		if ($table->load(array('alias' => $this->alias, 'catid' => $this->catid)) && ($table->id != $this->id || $this->id == 0))
 		{
 			$this->setError(JText::_('JLIB_DATABASE_ERROR_ARTICLE_UNIQUE_ALIAS'));
+
 			return false;
 		}
 
-		$tagsHelper = new JHelperTags;
-		$tags = $tagsHelper->convertTagsMetadata($this->metadata);
-		$tagsHelper->getMetaTagNames($this->metadata);
-
-		if (empty($tags))
-		{
-			$tagHelper = new JHelperTags;
-			$itemTags = $tagHelper->getItemTags('com_content.article', $this->id);
-			if (!empty($itemTags))
-			{
-				$tagHelper->unTagItem($this->id, 'com_content.article');
-			}
-		}
-
-		$return = parent::store($updateNulls);
-
-		if ($return == false)
-		{
-			return false;
-		}
-
-		// Store the tag data if the article data was saved and run related methods.
-		if (empty($tags) == false)
-		{
-			$rowdata = new JHelperContent;
-			$data = $rowdata->getRowData($this);
-
-			$typeAlias = 'com_content.article';
-			$ucm = new JUcmContent($this, $typeAlias);
-			$ucm->save($data);
-
-			$ucmId = $ucm->getPrimaryKey($ucm->type->type->type_id, $this->id);
-
-			$isNew = $data['id'] ? 0 : 1;
-
-			$tagsHelper = new JHelperTags;
-			$tagsHelper->tagItem($data['id'], $typeAlias, $isNew, $ucmId, $tags);
-		}
-
-		return $return;
+		return parent::store($updateNulls);
 	}
 
 	/**
@@ -346,6 +324,7 @@ class JTableContent extends JTable
 			else
 			{
 				$this->setError(JText::_('JLIB_DATABASE_ERROR_NO_ROWS_SELECTED'));
+
 				return false;
 			}
 		}
@@ -363,11 +342,9 @@ class JTableContent extends JTable
 			$checkin = ' AND (checked_out = 0 OR checked_out = ' . (int) $userId . ')';
 		}
 
-		// Get the JDatabaseQuery object
-		$query = $this->_db->getQuery(true);
-
 		// Update the publishing state for rows with the given primary keys.
-		$query->update($this->_db->quoteName($this->_tbl))
+		$query = $this->_db->getQuery(true)
+			->update($this->_db->quoteName($this->_tbl))
 			->set($this->_db->quoteName('state') . ' = ' . (int) $state)
 			->where('(' . $where . ')' . $checkin);
 		$this->_db->setQuery($query);
@@ -379,6 +356,7 @@ class JTableContent extends JTable
 		catch (RuntimeException $e)
 		{
 			$this->setError($e->getMessage());
+
 			return false;
 		}
 
