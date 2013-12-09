@@ -27,7 +27,7 @@ defined('_JEXEC') or die;
 				streamType = jQuery(this).attr("class").split(" ")[5];
 			});
 		});
-		</script>
+		</script>  
 	</head>
 	<body>
 

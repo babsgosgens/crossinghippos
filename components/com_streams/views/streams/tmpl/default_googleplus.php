@@ -46,34 +46,32 @@ if (isset($post['object']['attachments'])){
 ?>
 
 <!-- PROFILE -->
-<?php echo '<img class="avatar" src="' . $post['actor']['image']['url'] . '">'; ?>
-<?php echo $post['actor']['displayName']; ?>
+<a class="box__userlink" href="<?php echo $post['actor']['url']; ?>">
+	<!--<?php echo '<img class="avatar" src="' . $post['actor']['image']['url'] . '">'; ?>-->
+	<i class="fa fa-google-plus"></i>
+	<span class="box__username"><?php echo $post['actor']['displayName']; ?></span>
+</a>
 <!-- PROFILE -->
 
 <!-- TITLE -->
-<?php
-if (isset($post['title']))
-{
-	echo '<h1>' . $post['title'] .'</h1>';
-}
-?>
+
 <!-- TITLE -->
 
 <!-- ITEM -->
 <?php
 if (isset($attachment)){
-	echo '<a href="' . $attachment['url'] . '"><img class="postimage" src="' . $attachment['content'] . '"></a>';
+	echo '<div class="description"><a href="' . $attachment['url'] . '"><img class="postimage" src="' . $attachment['content'] . '"></a></div>';
 
 	if (isset($attachment['description']))
 	{
-		echo '<p>' . $attachment['description'] . '</p>';
+		echo '<p class="description description--small">' . $attachment['description'] . '</p>';
 	}
 	
 } else {
 	$patterns = array("/(?i)\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))/");
 	$replace = array('<a href="$1">$1</a>');
 	$formatted_post = preg_replace($patterns, $replace, $post['object']['content']);
-	echo '<p>' . $formatted_post . '</p>';
+	echo '<p class="description">' . $formatted_post . '</p>';
 }
 ?>
 <!-- ITEM -->

@@ -18,14 +18,17 @@ defined('_JEXEC') or die;
 		</div><!--
 	 --><div class="lt lt--half articles--center">
 			<a class="hd hd__article--title" href="<?php echo $item->link; ?>"><?php echo $item->title; ?></a>
-
 			<?php
 			if (strlen($item->introtext) > 200) {
 				echo (substr($item->introtext, 0, 200)) . "&hellip;";
 			} else {
 				echo $item->introtext;
 			}
+
+			$date = new JDate($item->publish_up);
+			$date_created = $date->format(JText::_('DATE_FORMAT_LC'));
 			?>
+			<p class="hd hd__article--date"><?php echo $date_created; ?></p>
 		</div><!--
 	 --><div class="lt lt--fourth">
 	 		<div class="lt lt--tagicon">

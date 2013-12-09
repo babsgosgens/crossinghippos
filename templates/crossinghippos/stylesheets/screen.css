@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset "CP850";
 /* http://persistent-grid.com
    v1.0 | 20130701
    Copyright: Copyright (C) 2013 Crossing Hippos - Babs Gösgens. All rights reserved.
@@ -1344,13 +1344,58 @@ List of boxes
 /* line 5, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
 .postimage {
   max-width: 100%;
-  border-radius: 6px;
+  border-radius: 5px;
+  margin-top: 15px;
 }
 
 /* line 11, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
-.lt.box-list__item.box--box-list.box--small a {
-  color: #00b09e;
+.post__title {
+  margin-top: 10px;
+}
+/* line 14, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.post__title a {
   text-decoration: none;
+}
+
+/* line 19, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.box__userlink {
+  text-decoration: none;
+  color: lightseagreen;
+}
+
+/* line 24, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.box__username {
+  margin-left: 5px;
+}
+
+/* line 28, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.box__posttime {
+  font-size: 9.88875px;
+}
+
+/* line 33, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.description {
+  border-radius: 5px;
+  margin-top: 15px;
+  max-height: 200px;
+  min-height: 130px;
+  overflow: hidden;
+  max-width: 100%;
+}
+/* line 41, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.description img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+/* line 46, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.description a {
+  text-decoration: none;
+}
+
+/* line 52, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.description--small {
+  max-height: 100px;
+  min-height: 50px;
 }
 
 /* line 1, ../sass/crossinghippos.nl/behavior/modules/_articles.scss */
@@ -1587,13 +1632,58 @@ List of boxes
 /* line 5, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
 .postimage {
   max-width: 100%;
-  border-radius: 6px;
+  border-radius: 5px;
+  margin-top: 15px;
 }
 
 /* line 11, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
-.lt.box-list__item.box--box-list.box--small a {
-  color: #00b09e;
+.post__title {
+  margin-top: 10px;
+}
+/* line 14, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.post__title a {
   text-decoration: none;
+}
+
+/* line 19, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.box__userlink {
+  text-decoration: none;
+  color: lightseagreen;
+}
+
+/* line 24, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.box__username {
+  margin-left: 5px;
+}
+
+/* line 28, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.box__posttime {
+  font-size: 9.88875px;
+}
+
+/* line 33, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.description {
+  border-radius: 5px;
+  margin-top: 15px;
+  max-height: 200px;
+  min-height: 130px;
+  overflow: hidden;
+  max-width: 100%;
+}
+/* line 41, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.description img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+/* line 46, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.description a {
+  text-decoration: none;
+}
+
+/* line 52, ../sass/crossinghippos.nl/behavior/modules/_streams.scss */
+.description--small {
+  max-height: 100px;
+  min-height: 50px;
 }
 
 /* line 1, ../sass/crossinghippos.nl/behavior/modules/_articles.scss */
