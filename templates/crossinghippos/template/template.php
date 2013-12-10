@@ -25,15 +25,18 @@ unset($doc->_scripts[JURI::root(true) . '/media/system/js/core.js']);
 unset($doc->_scripts[JURI::root(true) . '/media/system/js/modal.js']);
 unset($doc->_scripts[JURI::root(true) . '/media/system/js/caption.js']);
 // unset($doc->_scripts[JURI::root(true) . '/media/jui/js/jquery.min.js']);
-// unset($doc->_scripts[JURI::root(true) . '/media/jui/js/jquery-noconflict.js']);
+unset($doc->_scripts[JURI::root(true) . '/media/jui/js/jquery-noconflict.js']);
 // unset($doc->_scripts[JURI::root(true) . '/media/jui/js/bootstrap.min.js']);
 unset($doc->_scripts[JURI::root(true) . '/media/jui/js/jquery-migrate.min.js']);
-// unset($doc->_scripts[JURI::root(true) . '/media/system/js/tabs-state.js']);
+unset($doc->_scripts[JURI::root(true) . '/media/system/js/tabs-state.js']);
 // echo '<pre>';
 // // print_r($head['scripts']);
 // print_r($head['script']);
 // echo '</pre>';
 
+// $this->_script['text/javascript'] = 'jQuery.noConflict();'."\n" . $this->_scripts['text/javascript'];
+
+$doc->addScriptDeclaration('jQuery.noConflict();');
 /**
  * Remove inline scripts
  *

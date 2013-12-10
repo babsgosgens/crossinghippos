@@ -341,7 +341,7 @@ textarea {
 
 /* line 18, ../extensions/persistentgrid/scss/persistentgrid/utilities/_anchors.scss */
 a {
-  color: #ff3042;
+  color: #c12b34;
 }
 /* line 72, ../extensions/persistentgrid/scss/persistentgrid/utilities/_anchors.scss */
 a:hover {
@@ -1257,7 +1257,7 @@ Button base
 
 /* line 35, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
 .hd__article--title:visited {
-  color: #ff3042;
+  color: #c12b34;
 }
 
 /* line 39, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
@@ -1272,7 +1272,7 @@ Button base
 
 /* line 47, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
 .hd--iconlink:hover {
-  color: #ff3042;
+  color: #c12b34;
 }
 
 /* line 51, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
@@ -1282,12 +1282,12 @@ Button base
 
 /* line 55, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
 .hd--iconlink:visited:hover {
-  color: #ff3042;
+  color: #c12b34;
 }
 
 /* line 59, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
 .hd--colorred {
-  color: #ff3042;
+  color: #c12b34;
 }
 
 /* line 1, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
@@ -1530,7 +1530,7 @@ Search box
 .item-110,
 .item-111,
 .item-112 {
-  color: #ff3042;
+  color: #c12b34;
 }
 /* line 17, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
 .item-101.current,
@@ -1676,7 +1676,7 @@ Tags
 */
 /* line 7, ../sass/crossinghippos.nl/behavior/modules/_tags.scss */
 .tags {
-  color: #ff3042;
+  color: #c12b34;
   font: normal normal 200 16px/24px "bree", sans-serif;
 }
 
@@ -1733,7 +1733,7 @@ Tags
 
 /* line 35, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
 .hd__article--title:visited {
-  color: #ff3042;
+  color: #c12b34;
 }
 
 /* line 39, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
@@ -1748,7 +1748,7 @@ Tags
 
 /* line 47, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
 .hd--iconlink:hover {
-  color: #ff3042;
+  color: #c12b34;
 }
 
 /* line 51, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
@@ -1758,12 +1758,12 @@ Tags
 
 /* line 55, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
 .hd--iconlink:visited:hover {
-  color: #ff3042;
+  color: #c12b34;
 }
 
 /* line 59, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
 .hd--colorred {
-  color: #ff3042;
+  color: #c12b34;
 }
 
 /* line 1, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
@@ -2006,7 +2006,7 @@ Search box
 .item-110,
 .item-111,
 .item-112 {
-  color: #ff3042;
+  color: #c12b34;
 }
 /* line 17, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
 .item-101.current,
@@ -2152,7 +2152,7 @@ Tags
 */
 /* line 7, ../sass/crossinghippos.nl/behavior/modules/_tags.scss */
 .tags {
-  color: #ff3042;
+  color: #c12b34;
   font: normal normal 200 16px/24px "bree", sans-serif;
 }
 

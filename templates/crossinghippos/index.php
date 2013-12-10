@@ -27,7 +27,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 
 		<header role="banner" class="masthead">
 			<div class="lt-root">
-				<h1 class="lt-prime lt-prime--alpha  masthead__title">
+				<h1 class="lt-prime  masthead__title">
 					<a href="<?php echo $this->baseurl; ?>" class="anchor--incognito">
 						<span class="hd">Crossing Hippos</span>
 						<img src="<?php echo $this->baseurl; ?>/templates/crossinghippos/images/crossinghippos.svg" class="masthead__logo top" alt="Logo Crossing Hippos">

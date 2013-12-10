@@ -311,7 +311,14 @@ class PlgContentProject extends JPlugin
             $row->project[$attribute] = $value;
         }
 
-        return true;
+        if ($this->isCategory)
+        {
+            return $row;
+        }
+        else
+        {
+            return true;
+        }
     }
 
 
