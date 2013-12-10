@@ -1,0 +1,159 @@
+/*
+-----------------------------------------------------------------------------
+Masthead
+-----------------------------------------------------------------------------
+*/
+
+.masthead {
+	@include vertical-rhythm(4, padding-top);
+	@include vertical-rhythm(3, margin-bottom);
+}
+	.masthead__title {
+		text-align: center;
+		@include adjust-font-size-to(52px, 3);
+		@include transition(font-size .3s ease-in);
+		&>a {
+			position: relative; // This allows for the logo to be positioned relative to the logo
+		}
+	}
+	.masthead__tagline {
+		float: left;
+		width: 100%;
+		@include font($bree-serif-light, .5em);
+		color: $got-it;
+	}
+	.masthead__logo {
+		display: inline-block;
+		position: absolute;
+		left: -100%;
+		@include vertical-rhythm(-1.25, top);
+		// vertical-align: middle;
+	    width: 20%;
+		@include transition(left .1s ease-out, top .5s ease-out, width 1s ease-out);
+	    animation:float 10s infinite;
+            -moz-animation:float 10s infinite; /* Firefox */
+            -webkit-animation:float 10s infinite; /* Safari and Chrome */
+        &.top{
+			left: -21%;
+        }
+        &.bottom {
+			left: 35%;
+        }
+	}
+		.no-svg .masthead__logo {
+		}
+
+
+	/*
+	-----------------------------------------------------------------------------
+	Tablet
+	-----------------------------------------------------------------------------
+	*/
+
+	@include breakpoint($lt-large) {
+		.masthead__title {
+			@include adjust-font-size-to(48px);
+		}
+		.masthead__logo {
+		    // @include background-size(auto 50%);
+			left: -70%;
+		}
+	}
+
+	/*
+	-----------------------------------------------------------------------------
+	Mobile
+	-----------------------------------------------------------------------------
+	*/
+
+	@include breakpoint($lt-medium) {
+		.masthead__logo {
+			left: 40%;
+		}
+	}
+
+	/*
+	-----------------------------------------------------------------------------
+	Mobile
+	-----------------------------------------------------------------------------
+	*/
+
+	@include breakpoint($lt-small) {
+		.masthead__title {
+			@include adjust-font-size-to(32px);
+		}
+		.masthead__tagline {
+		}
+		.masthead__logo {
+		}
+	}
+
+
+
+
+
+
+	/*
+	-----------------------------------------------------------------------------
+	Search box
+	-----------------------------------------------------------------------------
+	*/
+
+	.form-search {
+		position: absolute;
+		@include vertical-rhythm(1, top);
+	}
+
+	@mixin float-position($prefix: false)
+	{
+		from {
+			@if $prefix {
+				-#{$prefix}-transform:translate(0, 0px);
+			}
+			@else {
+				transform:translate(0, 0px);
+			}
+		}
+		25% {
+			@if $prefix {
+				-#{$prefix}-transform:translate(1px, 10px);
+			}
+			@else {
+				transform:translate(1px, 10px);
+			}
+	    }
+		50% {
+			@if $prefix {
+				-#{$prefix}-transform:translate(-2px, 5px);
+			}
+			@else {
+				transform:translate(-2px, 5px);
+			}
+	    }
+		75% {
+			@if $prefix {
+				-#{$prefix}-transform:translate(-2px, 15px);
+			}
+			@else {
+				transform:translate(-2px, 15px);
+			}
+	    }
+		to {
+			@if $prefix {
+				-#{$prefix}-transform:translate(0, 0);
+			}
+			@else {
+				transform:translate(0, 0);
+			}
+	    }
+	}
+
+	@keyframes float {
+	    @include float-position(); 
+    }
+    @-moz-keyframes float {
+	    @include float-position("moz"); 
+    }
+    @-webkit-keyframes float {
+	    @include float-position("webkit"); 
+	}

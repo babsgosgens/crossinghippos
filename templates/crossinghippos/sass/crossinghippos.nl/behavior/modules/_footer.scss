@@ -1,0 +1,22 @@
+.footer {
+	background: $color-body;
+	color: mix($color-background, $color-body);
+	@include font($bree-light);
+}
+	.footer__artwork {
+		@include vertical-rhythm(5, padding-top);	
+		@include vertical-rhythm(2, margin-bottom);	
+		background: $color-background;
+		border-bottom: vertical-rhythm(.25) solid $color-body;
+	}
+	.footer__image {
+		vertical-align: bottom;
+	}
+
+	.copyright {
+		@include vertical-rhythm(3, margin-top);	
+		@include vertical-rhythm(.25, padding-top);	
+		@include vertical-rhythm(.25, padding-bottom);	
+		border-top: 1px dashed mix($color-background, $color-body);
+		@include adjust-font-size-to($s);
+	}

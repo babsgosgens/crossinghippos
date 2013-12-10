@@ -1,0 +1,12 @@
+.article__date {
+	@include font($bree-bold, $s);
+	color: $got-it;
+}
+
+.article .lt-prime,
+.lt-prime--tags {
+	border-right: 1px dashed rgba($dirt--rgb,0.15);
+}
+.article {
+	@include vertical-rhythm(1, margin-bottom);
+}

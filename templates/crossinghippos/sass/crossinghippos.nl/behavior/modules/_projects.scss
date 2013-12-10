@@ -1,0 +1,14 @@
+.projects {
+	text-align: center;
+
+	.tags {
+		@include font($bree-light);
+		@include adjust-font-size-to($s, 1);
+	}
+	.tags__anchor {
+		@include font($bree-light);
+		color: $color-body;
+	}
+
+
+}

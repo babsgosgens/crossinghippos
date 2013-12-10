@@ -1,0 +1,38 @@
+/* Styling for main navigation */
+.main-nav {
+	position: fixed;
+	z-index: 1;
+	width: 100%;
+	border-bottom: 1px solid rgba($dirt--rgb, .2);
+	padding: vertical-rhythm(.5) 0;
+	background: rgba($whipped-cream--rgb, .8);
+	@include font($bree-serif-regular);
+}
+	.item-101,
+	.item-106,
+	.item-107,
+	.item-108,
+	.item-109 {
+		color: $anchor-color;
+		&.current {
+			color: $color-body;
+		}
+	}
+	.item-106,
+	.item-107,
+	.item-108,
+	.item-109 {
+		@include column-spacing(1);
+	}
+	.item-101 {
+		@include horizontal-rhythm(1/2, padding-left);
+		@include horizontal-rhythm(1, padding-right);
+	}
+	.main-nav__item,
+	.main-nav__item:visited {
+		text-decoration: none;
+		color: inherit;
+		&:hover {
+			color: $anchor-color-hover;
+		}
+	}

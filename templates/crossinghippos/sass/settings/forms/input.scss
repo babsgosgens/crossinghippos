@@ -1,0 +1,211 @@
+// /**
+//  * Copyright (C) 2013 Crossing Hippos - Babs Gösgens. All rights reserved.
+//  * Licensed under MIT; see LICENSE.txt
+//  */
+@if $trace-imports { @debug 'imported'; }
+
+
+// Form Fields
+// =======================================
+// .fld
+// .fld-input
+// 	.fld-input--{type}
+// .fld-select
+// .fld-textarea
+
+
+// Field Labels
+// =======================================
+// .fld-label
+
+
+// Field/Label Groups
+// =======================================
+// .fld-group
+
+
+
+//  ==========================================================================
+//  Input default properties
+//  ==========================================================================
+
+	$input-field-class: "input";
+	$input-width: 100%;
+	$input-height: $base-line-height;
+
+
+	// -----------------------------------------------------------------------
+	// Input margin (top, right, left, bottom)
+	// -----------------------------------------------------------------------
+
+	$input-margin-top: 0;
+	$input-margin-right: 0;
+	$input-margin-bottom: 0;
+	$input-margin-left: 0;
+
+	// -----------------------------------------------------------------------
+	// Input padding (top, right, left, bottom)
+	// -----------------------------------------------------------------------
+
+	$input-padding-top: vertical-rhythm(.25);
+	$input-padding-right: false;
+	$input-padding-bottom: vertical-rhythm(.25);
+	$input-padding-left: false;
+
+	// -----------------------------------------------------------------------
+	// Input background (background-color, background-image)
+	// -----------------------------------------------------------------------
+
+	$input-background-color: $color-background;
+	$input-background-image: false;
+
+
+	// -----------------------------------------------------------------------
+	// Input border (top, right, left, bottom)
+	// -----------------------------------------------------------------------
+
+	$input-border-width: 1px;
+	$input-border-style: solid;
+	$input-border-color: darken($color-background, 30%);
+
+
+	// -----------------------------------------------------------------------
+	// Input corner (top-left, top-right, bottom-left, bottom-right)
+	// -----------------------------------------------------------------------
+	
+	$input-border-radius-top-left: $corner-radius;
+	$input-border-radius-top-right: $corner-radius;
+	$input-border-radius-bottom-right: $corner-radius;
+	$input-border-radius-bottom-left: $corner-radius;
+	$input-border-radius: $corner-radius;
+
+
+	// -----------------------------------------------------------------------
+	// Input shadow (box-shadow, inner-shadow)
+	// -----------------------------------------------------------------------
+
+	$input-shadow-box: $color-body 1px 1px 2px 0;
+	$input-shadow-inner: darken($input-background-color, 10%) 1px 1px 1px 0 inset;
+
+
+	// -----------------------------------------------------------------------
+	// Input text (color, shadow, align, decoration, indent)
+	// -----------------------------------------------------------------------
+
+	$input-text-color: $color-body;
+	$input-text-shadow: false;
+	$input-text-align: left;
+	$input-text-decoration: none;
+	$input-text-indent: $column-spacing;
+
+
+	// -----------------------------------------------------------------------
+	// Input type (type, size, leading)
+	// -----------------------------------------------------------------------
+
+	$input-type-type: $type-default;
+	$input-type-size: $base-font-size;
+	$input-type-rhythm: 1;
+
+
+//  ==========================================================================
+//  Input Color properties
+//  ==========================================================================
+
+	$input-color-class: $input-base-class + '-color';
+	$input-color-width: false;
+
+
+//  ==========================================================================
+//  Input Range properties
+//  ==========================================================================
+
+	$input-range-class: $input-base-class + '-range';
+	$input-range-width: 100%;
+
+	
+//  ==========================================================================
+//  Input Search properties
+//  ==========================================================================
+
+	$input-search-class: $input-base-class + '-search';
+	$input-search-border-radius: $input-border-radius;
+
+	
+//  ==========================================================================
+//  Input Checkbox/Radio properties
+//  ==========================================================================
+
+	$input-check-class: $input-base-class + '-check';
+
+	
+//  ==========================================================================
+//  Textarea properties
+//  ==========================================================================
+
+	$textarea-class: $input-base-class + '-textarea';
+
+
+//  ==========================================================================
+//  Select properties
+//  ==========================================================================
+
+	$select-dropdown-class: $input-base-class + '-dropdown';
+	$select-multiple-class: $input-base-class + '-selectbox';
+
+	$select-appearance-default: true;
+	$select-webkit: false;
+
+
+//  ==========================================================================
+//  Input focus properties
+//  ==========================================================================
+
+
+	// -----------------------------------------------------------------------
+	// Input background (background-color, background-image)
+	// -----------------------------------------------------------------------
+
+	$input-focussed-background-color: $whitesmoke;
+	$input-focussed-background-image: linear-gradient(lighten($input-focussed-background-color,5), darken($input-focussed-background-color,5));
+
+
+	// -----------------------------------------------------------------------
+	// Input border (top, right, left, bottom)
+	// -----------------------------------------------------------------------
+
+	$input-focussed-border-width: false; // Inherit
+	$input-focussed-border-style: false; // Inherit
+	$input-focussed-border-color: $color-primary;
+
+
+	// -----------------------------------------------------------------------
+	// Input outline (top, right, left, bottom)
+	// -----------------------------------------------------------------------
+
+	$input-focussed-outline-border: none;
+	$input-focussed-outline-offset: if($input-focussed-outline-border==none, false, 0); // disable Safari's default - we're using box-shadows cross-browser
+
+	// -----------------------------------------------------------------------
+	// Input corner (top-left, top-right, bottom-left, bottom-right)
+	// -----------------------------------------------------------------------
+	
+	$input-focussed-border-radius: false;
+
+
+	// -----------------------------------------------------------------------
+	// Input shadow (box-shadow, inner-shadow)
+	// -----------------------------------------------------------------------
+
+	$input-focussed-shadow-box: 0 0 4px $input-focussed-border-color;
+	$input-focussed-shadow-inner: false;
+
+
+	// -----------------------------------------------------------------------
+	// Input text (color, shadow, align, decoration)
+	// -----------------------------------------------------------------------
+
+	$input-focussed-text-color: $color-body;
+	$input-focussed-text-shadow: false;
+	$input-focussed-text-align: left;
+	$input-focussed-text-decoration: none;

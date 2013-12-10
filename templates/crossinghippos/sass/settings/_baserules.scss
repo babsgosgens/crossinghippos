@@ -1,0 +1,70 @@
+// /**
+//  * Copyright (C) 2013 Crossing Hippos - Babs Gösgens. All rights reserved.
+//  * Licensed under MIT; see LICENSE.txt
+//  */
+@if $trace-imports { @debug 'imported'; }
+
+
+//  ================================================================================================================================
+//  Colour settings
+//  ================================================================================================================================
+
+	$pure--hex: #00E4CF;
+	$pure--rgb: rgb(0,228,207);
+	$pure: $pure--hex;
+
+	$got-it--hex: #00B09E;
+	$got-it--rgb: rgb(0,176,158);
+	$got-it: $got-it--hex;
+
+	$dirt--hex: #251C0F;
+	$dirt--rgb: rgb(37,28,15);
+	$dirt: $dirt--hex;
+
+	$whipped-cream--hex: #FFFEF4;
+	$whipped-cream--rgb: rgb(255,254,244);
+	$whipped-cream: $whipped-cream--hex;
+
+	$bee--hex: #FFCC00;
+	$bee--rgb: rgb(255,204,0);
+	$bee: $bee--hex;
+
+	// $chred--hex: #c12b34;
+	// $chred--rgb: rbg(193,43,52);
+	$chred--hex: #FF3042;
+	$chred--rgb: rbg(255,48,66);
+	$chred: $chred--hex;
+
+	$chgrey--hex: #a49990;
+	$chgrey--rgb: rbg(164,153,144);
+	$chgrey: $chgrey--hex;
+
+
+	$color-background: $whipped-cream;
+	$color-body: $dirt;
+	$color-theme: $dirt;
+	$color-primary: $got-it;
+	$color-attn-one: $pure;
+	$color-success: $green;
+	$color-info: $yellow;
+	$color-warning: $orange;
+	$color-error: $red;
+
+	$anchor-color: $chred;
+	$anchor-color-hover: $color-primary;
+	$anchor-color-active: $color-primary;
+	$anchor-color-visited: $anchor-color;
+
+
+//  ==========================================================================
+//  Border Radius
+//  ==========================================================================
+
+	$corner-radius: 0;
+
+
+//  ==========================================================================
+//  Quotes
+//  ==========================================================================
+
+	$base-quote-quotes: true;
