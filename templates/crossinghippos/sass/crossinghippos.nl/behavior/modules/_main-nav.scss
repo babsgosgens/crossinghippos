@@ -9,19 +9,19 @@
 	@include font($bree-serif-regular);
 }
 	.item-101,
-	.item-106,
-	.item-107,
-	.item-108,
-	.item-109 {
+	.item-109,
+	.item-110,
+	.item-111,
+	.item-112 {
 		color: $anchor-color;
 		&.current {
 			color: $color-body;
 		}
 	}
-	.item-106,
-	.item-107,
-	.item-108,
-	.item-109 {
+	.item-109,
+	.item-110,
+	.item-111,
+	.item-112 {
 		@include column-spacing(1);
 	}
 	.item-101 {

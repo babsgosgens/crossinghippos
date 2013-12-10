@@ -1526,35 +1526,35 @@ Search box
 
 /* line 15, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
 .item-101,
-.item-106,
-.item-107,
-.item-108,
-.item-109 {
+.item-109,
+.item-110,
+.item-111,
+.item-112 {
   color: #ff3042;
 }
 /* line 17, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
 .item-101.current,
-.item-106.current,
-.item-107.current,
-.item-108.current,
-.item-109.current {
+.item-109.current,
+.item-110.current,
+.item-111.current,
+.item-112.current {
   color: #251c0f;
 }
 
 /* line 24, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
-.item-106,
-.item-107,
-.item-108,
-.item-109 {
+.item-109,
+.item-110,
+.item-111,
+.item-112 {
   padding-left: 20.8px;
   padding-right: 20.8px;
 }
 @media only screen and (max-width: 31.1875em) {
   /* line 24, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
-  .item-106,
-  .item-107,
-  .item-108,
-  .item-109 {
+  .item-109,
+  .item-110,
+  .item-111,
+  .item-112 {
     padding-left: 10.4px;
     padding-right: 10.4px;
   }
@@ -2002,35 +2002,35 @@ Search box
 
 /* line 15, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
 .item-101,
-.item-106,
-.item-107,
-.item-108,
-.item-109 {
+.item-109,
+.item-110,
+.item-111,
+.item-112 {
   color: #ff3042;
 }
 /* line 17, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
 .item-101.current,
-.item-106.current,
-.item-107.current,
-.item-108.current,
-.item-109.current {
+.item-109.current,
+.item-110.current,
+.item-111.current,
+.item-112.current {
   color: #251c0f;
 }
 
 /* line 24, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
-.item-106,
-.item-107,
-.item-108,
-.item-109 {
+.item-109,
+.item-110,
+.item-111,
+.item-112 {
   padding-left: 20.8px;
   padding-right: 20.8px;
 }
 @media only screen and (max-width: 31.1875em) {
   /* line 24, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
-  .item-106,
-  .item-107,
-  .item-108,
-  .item-109 {
+  .item-109,
+  .item-110,
+  .item-111,
+  .item-112 {
     padding-left: 10.4px;
     padding-right: 10.4px;
   }
