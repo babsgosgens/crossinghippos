@@ -30,8 +30,20 @@ unset($doc->_scripts[JURI::root(true) . '/media/system/js/caption.js']);
 unset($doc->_scripts[JURI::root(true) . '/media/jui/js/jquery-migrate.min.js']);
 // unset($doc->_scripts[JURI::root(true) . '/media/system/js/tabs-state.js']);
 // echo '<pre>';
-// print_r($head['scripts']);
+// // print_r($head['scripts']);
+// print_r($head['script']);
 // echo '</pre>';
+
+/**
+ * Remove inline scripts
+ *
+ */
+if (isset($this->_script['text/javascript']))
+{
+    $this->_script['text/javascript'] = preg_replace("%jQuery\(.+\)\s*\{\s*new\s*JCaption\s*\('img.caption'\);\s*\}\);\%", '', $this->_script['text/javascript']);
+    if (empty($this->_script['text/javascript']))
+        unset($this->_script['text/javascript']);
+}
 
 /**
  * Get language object

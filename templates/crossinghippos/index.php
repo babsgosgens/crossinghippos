@@ -113,7 +113,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 	</footer>
 
 	<script type="text/javascript">
-	jQuery(document).ready(function() {
+	jQuery(document).ready(function($) {
 
 	    var img    = $(".masthead__logo"),
 	    	imgOrigPosition = $(".masthead__logo").position();

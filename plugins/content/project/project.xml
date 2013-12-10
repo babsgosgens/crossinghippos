@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+   <extension version="2.5" type="plugin" group="content" method="upgrade">
+      <name>Content - Project</name>
+      <author>Babs Gosgens</author>
+      <creationDate>December 2013</creationDate>
+      <copyright>Copyright (C) 2013 Babs Gösgens, Netherlands</copyright>
+      <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+      <authorEmail>babsgosgens@gmail.com</authorEmail>
+      <authorUrl>www.crossinghippos.com</authorUrl>
+      <version>3.0</version>
+      <description>PLG_CONTENT_PROJECT_XML_DESCRIPTION</description>
+      <files>
+         <folder>language</folder>
+         <folder>rating</folder>
+         <filename plugin="project">project.php</filename>
+         <filename>index.html</filename>
+      </files>
+   </extension>

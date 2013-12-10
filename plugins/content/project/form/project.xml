@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+   <fields name="params" label="PLG_CONTENT_PROJECT_FIELDS">
+      <fieldset name="projects" label="PLG_CONTENT_PROJECT_FIELDSET">
+         <field
+            name="projectclient"
+            type="text"
+            id="projectclient"
+            description="PLG_CONTENT_PROJECT_CLIENT_DESC"
+            label="PLG_CONTENT_PROJECT_CLIENT_LABEL"
+            message="PLG_CONTENT_PROJECT_CLIENT_MESSAGE"
+            size="30"
+         />
+         <field
+            name="projectcontractor"
+            type="text"
+            id="projectcontractor"
+            description="PLG_CONTENT_PROJECT_CONTRACTOR_DESC"
+            label="PLG_CONTENT_PROJECT_CONTRACTOR_LABEL"
+            message="PLG_CONTENT_PROJECT_CONTRACTOR_MESSAGE"
+            size="30"
+         />
+         <field
+            name="projectstart"
+            type="text"
+            id="projectstart"
+            description="PLG_CONTENT_PROJECT_START_DESC"
+            label="PLG_CONTENT_PROJECT_START_LABEL"
+            message="PLG_CONTENT_PROJECT_START_MESSAGE"
+            size="30"
+         />
+         <field
+            name="projectend"
+            type="text"
+            id="projectend"
+            description="PLG_CONTENT_PROJECT_END_DESC"
+            label="PLG_CONTENT_PROJECT_END_LABEL"
+            message="PLG_CONTENT_PROJECT_END_MESSAGE"
+            size="30"
+         />
+         <field
+            name="projecturl"
+            type="text"
+            id="projecturl"
+            description="PLG_CONTENT_PROJECT_URL_DESC"
+            label="PLG_CONTENT_PROJECT_URL_LABEL"
+            message="PLG_CONTENT_PROJECT_URL_MESSAGE"
+            size="30"
+         />
+      </fieldset>
+   </fields>
+</form>
