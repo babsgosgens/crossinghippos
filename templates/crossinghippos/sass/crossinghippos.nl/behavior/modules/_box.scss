@@ -5,10 +5,15 @@ Box
 */
 
 .box {
-	border: 1px solid rgba($dirt, .15);
+	border: 1px solid lighten($dirt, 20%);
+	border-color: rgba($dirt, .15);
 	@include border-radius(10px);
 	padding: inherit;
 }
+	.box--filled {
+		background: lighten($dirt, 20%);
+		background: rgba($dirt, .15);
+	}
 	.box--stream {
 		@include vertical-rhythm(12, min-height);
 	}

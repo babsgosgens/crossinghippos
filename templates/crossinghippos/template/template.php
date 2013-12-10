@@ -98,8 +98,10 @@ $doc->setGenerator('');
 $doc->setMetaData('viewport', 'initial-scale = 1.0, width = device-width');
 
 // Add CSS
-$screen = $this->baseurl.'/templates/'.$this->template.'/stylesheets/screen.css';
-$print  = $this->baseurl.'/templates/'.$this->template.'/stylesheets/print.css';
+$path = JPATH_SITE.'/templates/'.$this->template.'/stylesheets/';
+
+$screen = $this->baseurl.'/templates/'.$this->template.'/stylesheets/screen.css?' . filemtime($path.'screen.css');
+$print  = $this->baseurl.'/templates/'.$this->template.'/stylesheets/print.css?' . filemtime($path.'print.css');
 
 $doc->addStyleSheet($screen,'text/css','screen');
 $doc->addStyleSheet($print,'text/css','print');

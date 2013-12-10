@@ -68,6 +68,21 @@
 	@include box-shadow(0 -35px 35px 10px rgba($whipped-cream--rgb, .8), 0 35px 35px 10px rgba($whipped-cream--rgb, .8));
 }
 
-.txt-center {
+.txt-center,
+.centered {
 	text-align: center;
+}
+
+.outline {
+	border: 1px solid lighten($dirt, 20%);
+	border-color: rgba($dirt, .15);
+}
+
+.image-whitespace {
+	display: inline-block;
+	@include vertical-rhythm(1, 'padding');
+	@include vertical-rhythm(6, 'height');
+	img {
+	@include vertical-rhythm(6, 'line-height');
+	}
 }

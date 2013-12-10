@@ -29,10 +29,10 @@ $image 	 = isset($displayData['image']) ? $displayData['image'] : false;
 	<?php if ($image['caption']!=''): ?>
 	<figure>
 		<figcaption><?php echo $image['caption']; ?></figcaption>
-		<img src="<?php echo $image['src']; ?>" alt="<?php echo $image['alt']; ?>">
+		<img src="<?php echo $image['src']; ?>" alt="<?php echo $image['alt']; ?>" class="soft media">
 	</figure>
 	<?php else: ?>
-		<img src="<?php echo $image['src']; ?>" alt="<?php echo $image['alt']; ?>">
+		<img src="<?php echo $image['src']; ?>" alt="<?php echo $image['alt']; ?>" class="media">
 	<?php endif; ?>
 <?php endif; ?>
 

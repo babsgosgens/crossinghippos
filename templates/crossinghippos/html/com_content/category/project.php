@@ -40,7 +40,7 @@ else {
 		</div>
 		<?php endif; ?>
 		<?php if ($this->params->get('show_category_title', 1) or $this->params->get('page_subheading')) : ?>
-		<h1 class="hd hd-section lt-prime"> <?php echo $this->escape($this->params->get('page_subheading')); ?>
+		<h1 class="hd hd-section lt-prime lt-gutters"> <?php echo $this->escape($this->params->get('page_subheading')); ?>
 			<?php if ($this->params->get('show_category_title')) : ?>
 			<span class="subheading-category"><?php echo $this->category->title;?></span>
 			<?php endif; ?>
@@ -127,56 +127,27 @@ else {
 
 </section>
 
-<section class="section<?php echo $this->pageclass_sfx;?>">
 
-	<h1><?php echo JText::sprintf('TPL_CROSSINGHIPPOS_CONTENT_CATEGORY_BLOGTITLE', $this->category->title); ?></h1>
-	<?php if (empty($this->lead_items) && empty($this->link_items) && empty($this->intro_items)) : ?>
-		<?php if ($this->params->get('show_no_articles', 1)) : ?>
-			<p><?php echo JText::_('COM_CONTENT_NO_ARTICLES'); ?></p>
-		<?php endif; ?>
-	<?php endif; ?>
-
-	<?php $leadingcount = 0; ?>
-	<?php if (!empty($this->lead_items)) : ?>
-	<div class="items-leading clearfix">
-		<?php foreach ($this->lead_items as &$item) : ?>
-		<div class="leading-<?php echo $leadingcount; ?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?>">
-			<?php
-				$this->item = &$item;
-				echo $this->loadTemplate('item');
-			?>
-		</div>
-		<?php $leadingcount++; ?>
-		<?php endforeach; ?>
-	</div><!-- end items-leading -->
-	<?php endif; ?>
-
-	<?php
-	$introcount = (count($this->intro_items));
-	$counter = 0;
-	?>
-
-	<?php if (!empty($this->intro_items)) : ?>
+<?php
+/*
+ * ------------------------------------------------------------------------------------------------------------------
+ * Articles
+ * ------------------------------------------------------------------------------------------------------------------
+ */
+?>
+<?php if (!empty($this->intro_items)) : ?>
+<aside>
+	<?php /* <h1><?php echo JText::sprintf('TPL_CROSSINGHIPPOS_CONTENT_CATEGORY_BLOGTITLE', $this->category->title); ?></h1> */ ?>
+	<div class="lt-prime">
 	<?php foreach ($this->intro_items as $key => &$item) : ?>
-		<?php $rowcount = ((int) $key % (int) $this->columns) + 1; ?>
-		<?php if ($rowcount == 1) : ?>
-			<?php $row = $counter / $this->columns; ?>
-		<div class="items-row cols-<?php echo (int) $this->columns;?> <?php echo 'row-'.$row; ?> row-fluid clearfix">
-		<?php endif; ?>
-			<div class="span<?php echo round((12 / $this->columns));?>">
-				<div class="item column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?>">
-					<?php
-					$this->item = &$item;
-					echo $this->loadTemplate('item');
-				?>
-				</div><!-- end item -->
-				<?php $counter++; ?>
-			</div><!-- end span -->
-			<?php if (($rowcount == $this->columns) or ($counter == $introcount)) : ?>
-		</div><!-- end row -->
-			<?php endif; ?>
+	<?php
+		$this->item = &$item;
+		echo $this->loadTemplate('box');
+	?>
 	<?php endforeach; ?>
+	</div>
 	<?php endif; ?>
+
 
 	<?php if (!empty($this->link_items)) : ?>
 	<div class="items-more">
@@ -197,5 +168,5 @@ else {
 		<p class="counter pull-right"> <?php echo $this->pagination->getPagesCounter(); ?> </p>
 		<?php endif; ?>
 		<?php echo $this->pagination->getPagesLinks(); ?> </div>
-	<?php  endif; ?>
-</section>
+</aside>
+<?php  endif; ?>

@@ -25,10 +25,12 @@ $app = JFactory::getApplication('site');
 		//echo '</pre>';
 	?>
 	<div class="lt-column lt-column--half lt-gutters lt-vertical-padding  projects__item project">
-		<div class="box box--projects" style="height: 100%;">
+		<div class="box box--projects">
 			<h1 class="hd box__title">
 				<a href="<?php echo $itemUrl; ?>" class="anchor--incognito">
+				<div class="image-whitespace">
 				<img src="<?php echo $itemImage; ?>" class="project__image media soft" alt="<?php echo JText::sprintf('TPL_CROSSINGHIPPOS_ALT_PROJECTIMAGE', $itemTitle); ?>">
+				</div>
 				<?php echo $this->escape($item->title); ?>
 				</a>
 			</h1>

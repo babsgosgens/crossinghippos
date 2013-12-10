@@ -36,6 +36,10 @@ $useDefList = (
 	$params->get('show_author')
 );
 
+// echo '<pre>';
+// print_r($this->item);
+// echo '</pre>';
+
 // Prepare display data for article layout
 $article = array();
 $article['params'] = &$params;
@@ -119,258 +123,43 @@ $article['article'] = array(
 	 */
 	?>
 	<div class="lt-beta lt-gutters">
-	$this->item->project
-		<?php if (!$useDefList && $this->print) : ?>
-			<div id="pop-print" class="btn">
-				<?php echo JHtml::_('icon.print_screen', $this->item, $params); ?>
-			</div>
-			<div class="clearfix"> </div>
-		<?php endif; ?>
-		<?php if ($params->get('show_title') || $params->get('show_author')) : ?>
-		<div class="page-header">
-			<h2>
-				<?php if ($this->item->state == 0) : ?>
-					<span class="label label-warning"><?php echo JText::_('JUNPUBLISHED'); ?></span>
-				<?php endif; ?>
-			</h2>
-		</div>
-		<?php endif; ?>
-		<?php if (!$this->print) : ?>
-			<?php if ($canEdit || $params->get('show_print_icon') || $params->get('show_email_icon')) : ?>
-			<div class="btn-group pull-right">
-				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> <span class="icon-cog"></span> <span class="caret"></span> </a>
-				<?php // Note the actions class is deprecated. Use dropdown-menu instead. ?>
-				<ul class="dropdown-menu actions">
-					<?php if ($params->get('show_print_icon')) : ?>
-					<li class="print-icon"> <?php echo JHtml::_('icon.print_popup', $this->item, $params); ?> </li>
-					<?php endif; ?>
-					<?php if ($params->get('show_email_icon')) : ?>
-					<li class="email-icon"> <?php echo JHtml::_('icon.email', $this->item, $params); ?> </li>
-					<?php endif; ?>
-					<?php if ($canEdit) : ?>
-					<li class="edit-icon"> <?php echo JHtml::_('icon.edit', $this->item, $params); ?> </li>
-					<?php endif; ?>
-				</ul>
-			</div>
+		<?php if (isset($this->item->project)): ?>
+		<?php $project = $this->item->project; ?>
+		<dl class="lt-column">
+
+			<?php if (!empty($this->item->parent_slug)) : ?>
+			<?php $catTitle = $this->escape($this->item->parent_title); ?>
+			<?php $catUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)); ?>
+			<dt class="lt-base lt-column--third"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_PROJECT'); ?></dt>
+			<dd class="lt-base lt-column--two-third"><a href="<?php echo $catUrl; ?>" class="anchor--incognito  hd"><?php echo $catTitle;?></a></dd>
 			<?php endif; ?>
-		<?php else : ?>
-			<?php if ($useDefList) : ?>
-				<div id="pop-print" class="btn">
-					<?php echo JHtml::_('icon.print_screen', $this->item, $params); ?>
-				</div>
+
+			<?php if (isset($project['projectclient']) && !empty($project['projectclient'])): ?>
+			<dt class="lt-base lt-column--third"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_CLIENT'); ?></dt>
+			<dd class="lt-base lt-column--two-third"><?php echo $project['projectclient']; ?></dd>
 			<?php endif; ?>
-		<?php endif; ?>
 
-		<?php if ($useDefList && ($info == 0 || $info == 2)) : ?>
-			<div class="article-info muted">
-				<dl class="article-info">
-				<dt class="article-info-term"><?php echo JText::_('COM_CONTENT_ARTICLE_INFO'); ?></dt>
+			<?php if (isset($project['projectcontractor']) && !empty($project['projectcontractor'])): ?>
+			<dt class="lt-base lt-column--third"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_CONTRACTOR'); ?></dt>
+			<dd class="lt-base lt-column--two-third"><?php echo $project['projectcontractor']; ?></dd>
+			<?php endif; ?>
 
-				<?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
-					<dd class="createdby">
-						<?php $author = $this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author; ?>
-						<?php if (!empty($this->item->contactid) && $params->get('link_author') == true) : ?>
-							<?php
-							$needle = 'index.php?option=com_contact&view=contact&id=' . $this->item->contactid;
-							$menu = JFactory::getApplication()->getMenu();
-							$item = $menu->getItems('link', $needle, true);
-							$cntlink = !empty($item) ? $needle . '&Itemid=' . $item->id : $needle;
-							?>
-							<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', JHtml::_('link', JRoute::_($cntlink), $author)); ?>
-						<?php else: ?>
-							<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
-						<?php endif; ?>
-					</dd>
-				<?php endif; ?>
-				<?php if ($params->get('show_parent_category') && !empty($this->item->parent_slug)) : ?>
-					<dd class="parent-category-name">
-						<?php $title = $this->escape($this->item->parent_title);
-						$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)).'">'.$title.'</a>';?>
-						<?php if ($params->get('link_parent_category') && !empty($this->item->parent_slug)) : ?>
-							<?php echo JText::sprintf('COM_CONTENT_PARENT', $url); ?>
-						<?php else : ?>
-							<?php echo JText::sprintf('COM_CONTENT_PARENT', $title); ?>
-						<?php endif; ?>
-					</dd>
-				<?php endif; ?>
-				<?php if ($params->get('show_category')) : ?>
-					<dd class="category-name">
-						<?php $title = $this->escape($this->item->category_title);
-						$url = '<a href="' . JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)) . '">' . $title . '</a>';?>
-						<?php if ($params->get('link_category') && $this->item->catslug) : ?>
-							<?php echo JText::sprintf('COM_CONTENT_CATEGORY', $url); ?>
-						<?php else : ?>
-							<?php echo JText::sprintf('COM_CONTENT_CATEGORY', $title); ?>
-						<?php endif; ?>
-					</dd>
-				<?php endif; ?>
+			<?php if (isset($project['projectstart']) && !empty($project['projectstart'])): ?>
+			<dt class="lt-base lt-column--third"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_PROJECTSTART'); ?></dt>
+			<dd class="lt-base lt-column--two-third"><?php echo $project['projectstart']; ?></dd>
+			<?php endif; ?>
 
-				<?php if ($params->get('show_publish_date')) : ?>
-					<dd class="published">
-						<span class="icon-calendar"></span> <?php echo JText::sprintf('COM_CONTENT_PUBLISHED_DATE_ON', JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3'))); ?>
-					</dd>
-				<?php endif; ?>
+			<?php if (isset($project['projectend']) && !empty($project['projectend'])): ?>
+			<dt class="lt-base lt-column--third"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_PROJECTEND'); ?></dt>
+			<dd class="lt-base lt-column--two-third"><?php echo $project['projectend']; ?></dd>
+			<?php endif; ?>
 
-				<?php if ($info == 0) : ?>
-					<?php if ($params->get('show_modify_date')) : ?>
-						<dd class="modified">
-							<span class="icon-calendar"></span> <?php echo JText::sprintf('COM_CONTENT_LAST_UPDATED', JHtml::_('date', $this->item->modified, JText::_('DATE_FORMAT_LC3'))); ?>
-						</dd>
-					<?php endif; ?>
-					<?php if ($params->get('show_create_date')) : ?>
-						<dd class="create">
-							<span class="icon-calendar"></span> <?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC3'))); ?>
-						</dd>
-					<?php endif; ?>
-
-					<?php if ($params->get('show_hits')) : ?>
-						<dd class="hits">
-							<span class="icon-eye-open"></span> <?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', $this->item->hits); ?>
-						</dd>
-					<?php endif; ?>
-				<?php endif; ?>
-				</dl>
-			</div>
-		<?php endif; ?>
-
-
-		<?php if (!$params->get('show_intro')) : echo $this->item->event->afterDisplayTitle; endif; ?>
-		<?php echo $this->item->event->beforeDisplayContent; ?>
-
-		<?php if (isset($urls) && ((!empty($urls->urls_position) && ($urls->urls_position == '0')) || ($params->get('urls_position') == '0' && empty($urls->urls_position)))
-			|| (empty($urls->urls_position) && (!$params->get('urls_position')))) : ?>
-		<?php echo $this->loadTemplate('links'); ?>
-		<?php endif; ?>
-		<?php if ($params->get('access-view')):?>
-		<?php if (isset($images->image_fulltext) && !empty($images->image_fulltext)) : ?>
-		<?php $imgfloat = (empty($images->float_fulltext)) ? $params->get('float_fulltext') : $images->float_fulltext; ?>
-		<div class="pull-<?php echo htmlspecialchars($imgfloat); ?> item-image"> <img
-		<?php if ($images->image_fulltext_caption):
-			echo 'class="caption"'.' title="' .htmlspecialchars($images->image_fulltext_caption) . '"';
-		endif; ?>
-		src="<?php echo htmlspecialchars($images->image_fulltext); ?>" alt="<?php echo htmlspecialchars($images->image_fulltext_alt); ?>"/> </div>
-		<?php endif; ?>
-		<?php
-		if (!empty($this->item->pagination) && $this->item->pagination && !$this->item->paginationposition && !$this->item->paginationrelative):
-			echo $this->item->pagination;
-		endif;
-		?>
-
-		<?php if ($useDefList && ($info == 1 || $info == 2)) : ?>
-			<div class="article-info muted">
-				<dl class="article-info">
-				<dt class="article-info-term"><?php echo JText::_('COM_CONTENT_ARTICLE_INFO'); ?></dt>
-
-				<?php if ($info == 1) : ?>
-					<?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
-						<dd class="createdby">
-							<?php $author = $this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author; ?>
-							<?php if (!empty($this->item->contactid) && $params->get('link_author') == true) : ?>
-							<?php
-							$needle = 'index.php?option=com_contact&view=contact&id=' . $this->item->contactid;
-							$menu = JFactory::getApplication()->getMenu();
-							$item = $menu->getItems('link', $needle, true);
-							$cntlink = !empty($item) ? $needle . '&Itemid=' . $item->id : $needle;
-							?>
-							<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', JHtml::_('link', JRoute::_($cntlink), $author)); ?>
-							<?php else: ?>
-							<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
-							<?php endif; ?>
-						</dd>
-					<?php endif; ?>
-					<?php if ($params->get('show_parent_category') && !empty($this->item->parent_slug)) : ?>
-						<dd class="parent-category-name">
-							<?php	$title = $this->escape($this->item->parent_title);
-							$url = '<a href="' . JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)) . '">' . $title . '</a>';?>
-							<?php if ($params->get('link_parent_category') && $this->item->parent_slug) : ?>
-								<?php echo JText::sprintf('COM_CONTENT_PARENT', $url); ?>
-							<?php else : ?>
-								<?php echo JText::sprintf('COM_CONTENT_PARENT', $title); ?>
-							<?php endif; ?>
-						</dd>
-					<?php endif; ?>
-					<?php if ($params->get('show_category')) : ?>
-						<dd class="category-name">
-							<?php 	$title = $this->escape($this->item->category_title);
-							$url = '<a href="' . JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)) . '">' . $title . '</a>';?>
-							<?php if ($params->get('link_category') && $this->item->catslug) : ?>
-								<?php echo JText::sprintf('COM_CONTENT_CATEGORY', $url); ?>
-							<?php else : ?>
-								<?php echo JText::sprintf('COM_CONTENT_CATEGORY', $title); ?>
-							<?php endif; ?>
-						</dd>
-					<?php endif; ?>
-					<?php if ($params->get('show_publish_date')) : ?>
-						<dd class="published">
-							<span class="icon-calendar"></span>
-							<?php echo JText::sprintf('COM_CONTENT_PUBLISHED_DATE_ON', JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3'))); ?>
-						</dd>
-					<?php endif; ?>
-				<?php endif; ?>
-
-				<?php if ($params->get('show_create_date')) : ?>
-					<dd class="create">
-						<span class="icon-calendar"></span>
-						<?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC3'))); ?>
-					</dd>
-				<?php endif; ?>
-				<?php if ($params->get('show_modify_date')) : ?>
-					<dd class="modified">
-						<span class="icon-calendar"></span>
-						<?php echo JText::sprintf('COM_CONTENT_LAST_UPDATED', JHtml::_('date', $this->item->modified, JText::_('DATE_FORMAT_LC3'))); ?>
-					</dd>
-				<?php endif; ?>
-				<?php if ($params->get('show_hits')) : ?>
-					<dd class="hits">
-						<span class="icon-eye-open"></span> <?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', $this->item->hits); ?>
-					</dd>
-				<?php endif; ?>
-				</dl>
-			</div>
-		<?php endif; ?>
-
-		<?php
-	if (!empty($this->item->pagination) && $this->item->pagination && $this->item->paginationposition && !$this->item->paginationrelative):
-		echo $this->item->pagination;
-	?>
-		<?php endif; ?>
-		<?php if (isset($urls) && ((!empty($urls->urls_position) && ($urls->urls_position == '1')) || ($params->get('urls_position') == '1'))) : ?>
-		<?php echo $this->loadTemplate('links'); ?>
-		<?php endif; ?>
-		<?php // Optional teaser intro text for guests ?>
-		<?php elseif ($params->get('show_noauth') == true && $user->get('guest')) : ?>
-		<?php echo $this->item->introtext; ?>
-		<?php //Optional link to let them register to see the whole article. ?>
-		<?php if ($params->get('show_readmore') && $this->item->fulltext != null) :
-			$link1 = JRoute::_('index.php?option=com_users&view=login');
-			$link = new JUri($link1);?>
-		<p class="readmore">
-			<a href="<?php echo $link; ?>">
-			<?php $attribs = json_decode($this->item->attribs); ?>
-			<?php
-			if ($attribs->alternative_readmore == null) :
-				echo JText::_('COM_CONTENT_REGISTER_TO_READ_MORE');
-			elseif ($readmore = $this->item->alternative_readmore) :
-				echo $readmore;
-				if ($params->get('show_readmore_title', 0) != 0) :
-					echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
-				endif;
-			elseif ($params->get('show_readmore_title', 0) == 0) :
-				echo JText::sprintf('COM_CONTENT_READ_MORE_TITLE');
-			else :
-				echo JText::_('COM_CONTENT_READ_MORE');
-				echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
-			endif; ?>
-			</a>
-		</p>
-		<?php endif; ?>
-		<?php endif; ?>
-		<?php
-	if (!empty($this->item->pagination) && $this->item->pagination && $this->item->paginationposition && $this->item->paginationrelative) :
-		echo $this->item->pagination;
-	?>
-		<?php endif; ?>
-		</div>
-
+			<?php if (isset($project['projecturl']) && !empty($project['projecturl'])): ?>
+			<dt class="lt-base lt-column--third"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_WEBSITE'); ?></dt>
+			<dd class="lt-base lt-column--two-third"><a href="<?php echo $project['projecturl']; ?>"><?php echo $project['projecturl']; ?></a></dd>
+			<?php endif; ?>
+		</dl>
+	<?php endif; ?>
 	</div>
+
 </article>
