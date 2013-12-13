@@ -39,10 +39,10 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 
 
 		<!-- Wraps the main section of the page -->
-		<div class="lt-root">
+		<div>
 
 			<!-- component output -->
-			<div role="main" class="lt-root main">
+			<div role="main" class="main">
 				<jdoc:include type="message" />
 				<jdoc:include type="component" />
 			</div>

@@ -17,7 +17,6 @@ JLoader::register('TagsHelperRoute', JPATH_BASE . '/components/com_tags/helpers/
 		<?php $tagsTotal = count($displayData); ?>
 		<?php $i=0; foreach ($displayData as $i => $tag) : ?>
 			<?php if (in_array($tag->access, JAccess::getAuthorisedViewLevels(JFactory::getUser()->get('id')))) : ?>
-				<?php $tagParams = new JRegistry($tag->params); ?>
 				<?php $link_class = 'tags__anchor anchor anchor--incognito'; ?>
 					<?php if($i==0): ?><a href="" class="fa fa-tags"></a>&nbsp;&nbsp;<?php endif; ?>
 					<a href="<?php echo JRoute::_(TagsHelperRoute::getTagRoute($tag->tag_id . '-' . $tag->alias)) ?>" class="<?php echo $link_class; ?>">

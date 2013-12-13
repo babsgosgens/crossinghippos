@@ -1,6 +1,6 @@
 /* base...........Basic HTML elements */
-@import "base";
 @import "layout";
+@import "base";
 
 /* ABSTRACTIONS...Objects, abstractions, design patterns (often blocklevel styling) */
 @import "abstractions";
@@ -11,4 +11,4 @@
 /* SKIN...........Theme variations */
 
 /* TRUMPS.........Style overrides */
-@import "trumps";
+@import "base";

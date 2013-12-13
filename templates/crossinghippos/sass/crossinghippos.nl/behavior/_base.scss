@@ -1,10 +1,48 @@
 .media {
 	width: 100%;
-	height: auto;
+	// height: auto;
 	max-width: 100%;
-	max-height: 100%;
+	// max-height: 100%;
+}
+.media--max-height {
+	height: auto;
+	// height: auto;
+	max-height: auto;
+	max-width: 100%;
+	// max-height: 100%;
 }
 
 .soft {
 	@include border-radius(6px);
 }
+
+.underline {
+	border-bottom: 1px solid $line-dirt;
+}
+	.underline--dashed {
+		border-bottom: 1px dashed $line-dirt;
+	}
+
+.valign-bottom {
+	vertical-align: bottom;
+}
+
+.leader {
+	@include leader;
+}
+	.leader--half {
+		@include leader(.5);
+	}
+	.leader--double {
+		@include leader(2);
+	}
+
+.trailer {
+	@include trailer;
+}
+	.trailer--half {
+		@include trailer(.5);
+	}
+	.trailer--double {
+		@include trailer(2);
+	}

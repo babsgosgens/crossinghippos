@@ -16,7 +16,8 @@
 
 .lt-prime,
 .lt-alpha,
-.lt-beta {
+.lt-beta,
+.lt-prime-alpha {
 	@include column-behavior;
 }
 
@@ -46,19 +47,26 @@
 	.lt-alpha,
 	.lt-beta {
 		@include column-width(1/1);
-		@include column-spacing(3/1);
+		// @include column-spacing(3/1);
 	}
 }
 
 @include breakpoint($gt-medium) {
+	.lt-prime-alpha,
 	.lt-prime,
 	.lt-alpha,
 	.lt-beta {
 		position: relative;
 	}
+	.lt-prime,
+	.lt-prime-alpha {
+		@include move(1/4);
+	}
 	.lt-prime {
 		@include column-width(1/2);
-		@include move(1/4);
+	}
+	.lt-prime-alpha {
+		@include column-width(3/4);
 	}
 	.lt-alpha,
 	.lt-beta {
@@ -71,6 +79,11 @@
 	.lt-prime--alpha-beta {
 		&+.lt-alpha {
 			@include move(1/4);
+		}
+	}
+	.lt-prime-alpha {
+		&+.lt-beta {
+			@include move(-3/4);
 		}
 	}
 	.lt-prime--beta {

@@ -36,6 +36,8 @@ $useDefList = (
 	$params->get('show_author')
 );
 
+$hasIntroImage = isset($images->image_intro) && !empty($images->image_intro);
+
 // echo '<pre>';
 // print_r($this->item);
 // echo '</pre>';
@@ -51,12 +53,14 @@ $article['title'] = array(
 		'after' => $this->item->event->afterDisplayTitle
 		)
 	);
-if (isset($images->image_intro) && !empty($images->image_intro)) {
+if ($hasIntroImage) {
 $article['image'] = array(
 		'caption' => $images->image_intro_caption ? htmlspecialchars($images->image_intro_caption) : '',
 		'src' => htmlspecialchars($images->image_intro),
 		'alt' => $images->image_intro_alt ? htmlspecialchars($images->image_intro_alt) : '',
-		'float' => 	empty($images->float_intro) ? $params->get('float_intro') : $images->float_intro
+		'float' => 	empty($images->float_intro) ? $params->get('float_intro') : $images->float_intro,
+		'figureClass' => '',
+		'imageClass' => 'lt-prime lt-gutters'
 	);		
 }
 $article['article'] = array(
@@ -69,8 +73,32 @@ $article['article'] = array(
 	);
 ?>
 
-<article class="article<?php echo $this->pageclass_sfx?>">
-	
+<header class="underline--dashed">
+	<div class="lt-root">
+		<a href="" class="anchor--incognito title-selector__parent  txt-l lt-gutters">Projects</a>
+		<h1 class="hd title-selector__title  txt-l">
+			<span class="subheading-category">Valys</span>&nbsp;
+			<span class="fa fa-sort title-selector__trigger"></span>
+		</h1>
+	</div>
+</header>
+
+<?php if ($hasIntroImage) :?>
+<div class="box--filled">
+	<div class="lt-root">
+		<?php $articleLayout = new JLayoutFile('content.image', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
+		<?php echo $articleLayout->render($article['image']); ?>
+	</div>
+</div>	
+<?php endif; ?>
+
+<article class="article<?php echo $this->pageclass_sfx?> lt-root">
+
+<<?php echo $article['title']['tag']; ?> class="hd hd--article leader--half">
+	<a href="<?php echo $article['title']['url']; ?>" class="anchor--incognito lt-prime lt-gutters"> <?php echo $article['title']['title']; ?></a>
+</<?php echo $article['title']['tag']; ?>>
+
+
 	<?php
 	/*
 	 * ------------------------------------------------------------------------------------------------------------------
@@ -80,13 +108,14 @@ $article['article'] = array(
 	?>
 	<div class="lt-prime lt-prime--alpha-beta lt-gutters">
 
-		<?php $articleLayout = new JLayoutFile('content.article', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
+		<?php $articleLayout = new JLayoutFile('content.article.body', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
 		<?php echo $articleLayout->render($article); ?>
 
 		<?php // Article date ?>
 		<?php if ($params->get('show_publish_date')) : ?>
-			<time class="article__date"><?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?></time>
+			<time class="date link-list__date"><i class="fa fa-calendar-o"></i> <?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?></time>
 		<?php endif; ?>
+
 
 		<?php echo $this->item->event->afterDisplayContent; ?>
 
@@ -109,7 +138,7 @@ $article['article'] = array(
 	?>
 	<div class="lt-alpha lt-gutters">
 		<?php if ($params->get('show_tags', 1) && !empty($this->item->tags)) : ?>
-			<?php $tagsLayout = new JLayoutFile('content.tags', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
+			<?php $tagsLayout = new JLayoutFile('content.tags.button', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
 			<?php echo $tagsLayout->render($this->item->tags->itemTags); ?>
 		<?php endif; ?>	
 	</div>
@@ -125,41 +154,43 @@ $article['article'] = array(
 	<div class="lt-beta lt-gutters">
 		<?php if (isset($this->item->project)): ?>
 		<?php $project = $this->item->project; ?>
-		<dl class="lt-column">
+		<dl class="lt-column lt-gutter-right">
 
 			<?php if (!empty($this->item->parent_slug)) : ?>
 			<?php $catTitle = $this->escape($this->item->parent_title); ?>
 			<?php $catUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)); ?>
-			<dt class="lt-base lt-column--third"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_PROJECT'); ?></dt>
-			<dd class="lt-base lt-column--two-third"><a href="<?php echo $catUrl; ?>" class="anchor--incognito  hd"><?php echo $catTitle;?></a></dd>
+			<dt  class="lt-base lt-column--third-persistent  underline--dashed"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_PROJECT'); ?></dt>
+			<dd class="lt-base lt-column--two-third-persistent  underline--dashed"><a href="<?php echo $catUrl; ?>" class="anchor--incognito  hd"><?php echo $catTitle;?></a></dd>
 			<?php endif; ?>
 
 			<?php if (isset($project['projectclient']) && !empty($project['projectclient'])): ?>
-			<dt class="lt-base lt-column--third"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_CLIENT'); ?></dt>
-			<dd class="lt-base lt-column--two-third"><?php echo $project['projectclient']; ?></dd>
+			<dt class="lt-base lt-column--third-persistent  underline--dashed"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_CLIENT'); ?></dt>
+			<dd class="lt-base lt-column--two-third-persistent  underline--dashed"><?php echo $project['projectclient']; ?></dd>
 			<?php endif; ?>
 
 			<?php if (isset($project['projectcontractor']) && !empty($project['projectcontractor'])): ?>
-			<dt class="lt-base lt-column--third"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_CONTRACTOR'); ?></dt>
-			<dd class="lt-base lt-column--two-third"><?php echo $project['projectcontractor']; ?></dd>
+			<dt class="lt-base lt-column--third-persistent  underline--dashed"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_CONTRACTOR'); ?></dt>
+			<dd class="lt-base lt-column--two-third-persistent  underline--dashed"><?php echo $project['projectcontractor']; ?></dd>
 			<?php endif; ?>
 
 			<?php if (isset($project['projectstart']) && !empty($project['projectstart'])): ?>
-			<dt class="lt-base lt-column--third"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_PROJECTSTART'); ?></dt>
-			<dd class="lt-base lt-column--two-third"><?php echo $project['projectstart']; ?></dd>
+			<dt class="lt-base lt-column--third-persistent  underline--dashed"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_PROJECTSTART'); ?></dt>
+			<dd class="lt-base lt-column--two-third-persistent  underline--dashed"><?php echo $project['projectstart']; ?></dd>
 			<?php endif; ?>
 
 			<?php if (isset($project['projectend']) && !empty($project['projectend'])): ?>
-			<dt class="lt-base lt-column--third"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_PROJECTEND'); ?></dt>
-			<dd class="lt-base lt-column--two-third"><?php echo $project['projectend']; ?></dd>
+			<dt class="lt-base lt-column--third-persistent  underline--dashed"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_PROJECTEND'); ?></dt>
+			<dd class="lt-base lt-column--two-third-persistent  underline--dashed"><?php echo $project['projectend']; ?></dd>
 			<?php endif; ?>
 
 			<?php if (isset($project['projecturl']) && !empty($project['projecturl'])): ?>
-			<dt class="lt-base lt-column--third"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_WEBSITE'); ?></dt>
-			<dd class="lt-base lt-column--two-third"><a href="<?php echo $project['projecturl']; ?>"><?php echo $project['projecturl']; ?></a></dd>
+			<dt class="lt-base lt-column--third-persistent"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_WEBSITE'); ?></dt>
+			<dd class="lt-base lt-column--two-third-persistent"><a href="<?php echo $project['projecturl']; ?>"><?php echo $project['projecturl']; ?></a></dd>
 			<?php endif; ?>
 		</dl>
 	<?php endif; ?>
 	</div>
+
+
 
 </article>

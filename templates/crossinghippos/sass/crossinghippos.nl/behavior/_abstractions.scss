@@ -68,6 +68,12 @@
 	@include box-shadow(0 -35px 35px 10px rgba($whipped-cream--rgb, .8), 0 35px 35px 10px rgba($whipped-cream--rgb, .8));
 }
 
+.txt-xl {
+	@include adjust-font-size-to($xl);
+}
+.txt-l {
+	@include adjust-font-size-to($l, 2);
+}
 .txt-center,
 .centered {
 	text-align: center;

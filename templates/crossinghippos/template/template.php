@@ -43,7 +43,7 @@ $doc->addScriptDeclaration('jQuery.noConflict();');
  */
 if (isset($this->_script['text/javascript']))
 {
-    $this->_script['text/javascript'] = preg_replace("%jQuery\(.+\)\s*\{\s*new\s*JCaption\s*\('img.caption'\);\s*\}\);\%", '', $this->_script['text/javascript']);
+    $this->_script['text/javascript'] = preg_replace("%jQuery\(.+\)\s*\{\s*new\s*JCaption\s*\('img.caption'\);\s*\}\);%", '', $this->_script['text/javascript']);
     if (empty($this->_script['text/javascript']))
         unset($this->_script['text/javascript']);
 }

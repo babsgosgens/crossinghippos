@@ -6,9 +6,12 @@ Tags
 
 .tags {
 	color: $anchor-color;
-	@include font($bree-light);
+	@include font($bree-regular);
+	// @include adjust-font-size-to($s);
 }
 .tags__item {
-		@include column-spacing(1/4);
 }
 
+.tags__anchor {
+		@include column-spacing(1/4);
+}
