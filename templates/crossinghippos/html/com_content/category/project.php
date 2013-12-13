@@ -13,6 +13,7 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 
 
 $dummyClass = array();
+$document	= JFactory::getDocument();
 
 
 /*
@@ -23,6 +24,7 @@ $this->category->text = ''; // LoadModule plugin expects this attribute to exist
 JPluginHelper::importPlugin('content'); 
 $dispatcher = JEventDispatcher::getInstance();
 $project = $dispatcher->trigger( 'onContentPrepare', array('com_content.category', &$this->category, &$this->params) );
+$hasTags = $this->params->get('show_tags', 1) && !empty($this->category->tags);
 
 // $context, &$row, &$params, $page = 0
 if( isset($project[0]->project) ) {
@@ -43,19 +45,34 @@ if( preg_match($pattern, $this->category->description, $images) )
 	$image = $images[0];
 }
 
+/*
+ * Use a module for the header
+ */
+$renderer	= $document->loadRenderer('module');
+$header	= JModuleHelper::getModule('mod_articles_categories');
+
 // print_r($this->category);
 ?>
 
 <section class="section lt-root">
 	
-	<header class="title-selector  txt-l  lt-gutters">
-		<a href="<?php echo JRoute::_(ContentHelperRoute::getCategoryRoute($this->category->parent_id));?>" class="anchor--incognito title-selector__parent"><?php echo $this->escape($this->params->get('page_heading', 'Projects')); ?></a>&nbsp;
-		<h1 class="hd title-selector__title">
-			<?php echo $this->escape($this->params->get('page_subheading')); ?>
-			<span class="subheading-category"><?php echo $this->category->title;?></span>&nbsp;
-			<span class="fa fa-sort title-selector__trigger"></span>
-		</h1>
+	<header>
+		<?php $title = $this->escape($this->params->get('page_heading', 'Projects')); ?>
+		<?php $url = JRoute::_(ContentHelperRoute::getCategoryRoute($this->category->parent_id)); ?>
+		<div class="lt-root">
+		<?php if (!is_null($header)) : ?>
+			<?php
+			$headerParams	= array(
+				'style' => 'catNav',
+				'parent' => array('title' => $title, 'url' => $url)
+			);
+			echo $renderer->render($header, $headerParams);
+			?>
+		<?php else: ?>
+		<?php endif; ?>
+		</div>
 	</header>
+
 
 	<div class="trailer">
 
@@ -131,7 +148,7 @@ if( preg_match($pattern, $this->category->description, $images) )
 	 * ------------------------------------------------------------------------------------------------------------------
 	 */
 	?>
-	<div class="lt-prime lt-prime--tags lt-prime--alpha-beta lt-gutters">
+	<div class="lt-prime <?php if ($hasTags) : ?> divider<?php endif; ?> lt-prime--alpha-beta lt-gutters">
 	<?php if ($this->params->get('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
 	<div class="category-desc clearfix">
 		<?php if ($this->params->get('show_description') && $this->category->description) : ?>
@@ -150,7 +167,7 @@ if( preg_match($pattern, $this->category->description, $images) )
 	 */
 	?>
 	<div class="lt-alpha lt-gutters">
-		<?php $tagsLayout = new JLayoutFile('content.tags', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
+		<?php $tagsLayout = new JLayoutFile('content.tags.button', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
 		<?php echo $tagsLayout->render($this->category->tags->itemTags); ?>
 	</div>
 

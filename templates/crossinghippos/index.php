@@ -21,7 +21,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 
 		<nav role="navigation" class="main-nav">
 			<div class="lt-root">
-			<jdoc:include type="modules" name="position-7" />
+			<jdoc:include type="modules" name="position-7" style="UiDd" />
 			</div>
 		</nav>
 
@@ -44,6 +44,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 			<!-- component output -->
 			<div role="main" class="main">
 				<jdoc:include type="message" />
+				<jdoc:include type="modules" name="title" style="header" />
 				<jdoc:include type="component" />
 			</div>
 
@@ -114,6 +115,23 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 
 	<script type="text/javascript">
 	jQuery(document).ready(function($) {
+
+
+
+	$(".ui-dd__item").addClass("ui-dd__item--inactive");
+	$(".ui-dd__trigger").toggleStateClass();
+
+	$(".adaptive-menu").addClass("is--inactive");
+	$(".adaptive-menu__trigger").toggleStateClass({
+		targetContext: ".main-nav",
+		target: ".adaptive-menu",
+		activeClass:"is--active",
+		inactiveClass:"is--inactive"});
+
+	$(".adaptive-menu__item").on("mouseleave, click",function(){
+		$(".adaptive-menu__trigger").click();
+	});
+
 
 	    var img    = $(".masthead__logo"),
 	    	imgOrigPosition = $(".masthead__logo").position();

@@ -137,6 +137,7 @@ if($msieold) {
 	 */
 
 	$doc->addScript($doc->baseurl.'/media/tpl_crossinghippos/js/modernizr.min.js');
+	$doc->addScript($doc->baseurl.'/media/tpl_crossinghippos/js/crossinghippos.js');
 
 	// Add Typekit
 	$doc->addScript('http://use.typekit.net/ztu5gmc.js');

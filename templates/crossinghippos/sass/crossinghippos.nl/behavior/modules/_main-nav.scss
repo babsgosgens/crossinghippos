@@ -1,3 +1,39 @@
+/*
+-----------------------------------------------------------------------------
+Adaptive menu
+-----------------------------------------------------------------------------
+*/
+
+.adaptive-menu {
+
+}
+	.adaptive-menu__trigger {
+		display: none;
+	}
+	.adaptive-menu__item {
+		
+	}
+		.adaptive-menu__item--active {
+			
+		}
+		.adaptive-menu__item--inactive {
+			
+		}
+
+
+
+/*
+-----------------------------------------------------------------------------
+Main Navigation
+-----------------------------------------------------------------------------
+*/
+
+/* Breakpoints */
+@include breakpoint($lt-small)
+{
+
+}
+
 /* Styling for main navigation */
 .main-nav {
 	position: fixed;
@@ -35,4 +71,59 @@
 		&:hover {
 			color: $anchor-color-hover;
 		}
+	}
+
+
+	/*
+	-------------------------------------------------------------------------
+	Adaptive menu
+	-------------------------------------------------------------------------
+	*/
+
+	@include breakpoint($lt-small)
+	{
+		.main-nav {
+			position: static;
+		}
+		.adaptive-menu {
+			&.is--active {
+				.adaptive-menu__item { width: 50%; }
+				.adaptive-menu__trigger { left: 50%; }
+			}
+			&.is--inactive {
+				.adaptive-menu__item { width: 0%; }
+				.adaptive-menu__trigger { left: 0; }
+			}
+		}
+			.adaptive-menu__trigger {
+				position: relative;
+				display: inline-block;
+				@include column-spacing();
+				@include transition(left 1s ease-in-out);
+			}
+			.adaptive-menu__item {
+				position: fixed;
+				overflow: hidden;
+				z-index: 3;
+				top: 0;
+				left: 0;
+				width: 0%;
+				height: 100%;
+				background: $color-primary;
+				background: rgba($whipped-cream--rgb, .9);
+				@include box-shadow(0 -5px 20px 0 rgba($dirt--rgb, .3), -5px 0 20px 0 rgba($dirt--rgb, .3));
+				@include transition(width 1s ease-in-out);
+			}
+
+				.item-101,
+				.item-109,
+				.item-110,
+				.item-111,
+				.item-112 {
+					/* Reset padding */padding: 0;
+					@include column(1);
+					@include vertical-rhythm(.5, padding-top);
+					@include vertical-rhythm(.5, padding-bottom);
+					border-bottom: 1px dashed $line-dirt;
+				}
 	}

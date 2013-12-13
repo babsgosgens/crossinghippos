@@ -1,0 +1,55 @@
+
+
+
+///*
+// -----------------------------------------------------------------------------
+// Mixin to hide elements
+// -----------------------------------------------------------------------------
+// http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+// -----------------------------------------------------------------------------
+//*/
+
+@mixin hide($position: absolute)
+{
+	position: $position;
+	height: 1px; width: 1px; 
+	overflow: hidden;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+
+
+///*
+// -----------------------------------------------------------------------------
+// Mixin to show elements
+// -----------------------------------------------------------------------------
+// http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+// -----------------------------------------------------------------------------
+
+
+@mixin show($position: static)
+{
+	position: $position;
+	height: auto; width: auto; 
+	// overflow: auto; // causes accidental scrolling
+	overflow-y: auto;
+	clip: auto;
+}
+
+
+///*
+// -----------------------------------------------------------------------------
+// Apply top and bottom padding
+// -----------------------------------------------------------------------------
+//*/
+
+@mixin rhythm-padding
+{
+	padding-top: vertical-rhythm(1);
+	padding-bottom: vertical-rhythm(1);
+}
+
+@mixin fond($color) {
+	background-color: #{$color};
+}

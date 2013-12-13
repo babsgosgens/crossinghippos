@@ -1,0 +1,89 @@
+/*
+*****************************************************************************
+SUCKERFISH STYLE DROPDOWN
+*****************************************************************************
+*/
+
+
+/*
+-----------------------------------------------------------------------------
+BASIC MARKUP
+A container div with class "ui-dd" and a unique id. 
+	* the id allows the menu to be used without Javascript
+A trigger (can be placed outside the containing div, 
+but then you need to specify the context of the targeted element):
+	* attributes data-target and data-context default to data-target=".ui-dd__item"
+	  and data-context=".ui-dd" and can be omitted unless target or context are different
+A target element (can be anything)
+	* state classes can be replaced
+
+SUPPORTING JAVASCRIPT
+
+This behavior requires a jQuery plugin: toggleStateClass();
+
+The behavior is supported with a jQuery plugin that can be passed a configuration 
+object (example values are the plugin's default values):
+	{   triggerEvent: "click",
+        target: ".ui-dd__item",
+        targetContext: ".ui-dd",
+        activeClass: "ui-dd__item--active",
+        inactiveClass: "ui-dd__item--inactive"   }
+-----------------------------------------------------------------------------
+  <div id="dropdown" class="ui-dd">
+    <a href="#dropdown" class="ui-dd__trigger" data-target=".ui-dd__item" data-context=".ui-dd">Trigger</a>
+    <div class="ui-dd__item ui-dd__item--inactive">Inactive item</div>
+    <div class="ui-dd__item ui-dd__item--active">Active Item</div>
+  </div>
+-----------------------------------------------------------------------------
+*/
+
+.ui-dd {
+	// overflow: hidden;
+	position: relative;
+	&:target {
+		@extend .ui-dd--state_target !optional;
+	}
+}
+	.ui-dd--state_target {
+		/* special styling for targeted menu trigger */
+		.ui-dd__trigger {
+		}
+	}
+
+	.ui-dd__trigger {
+	}
+
+		.ui-dd__item {
+			z-index: 10;
+		}
+
+		.ui-dd__item--inactive {
+			@include hide();
+		}
+
+		.ui-dd__item--active {
+			@include show(relative);
+		}
+
+		/* no-js fallback */
+		.no-js :target>.ui-dd {
+			@extend .ui-dd__item--active;
+		}
+
+
+	/*
+	-----------------------------------------------------------------------------
+	No-JS fallback
+	-----------------------------------------------------------------------------
+	*/
+
+	.no-js .ui-dd {
+		&>.btn-dropdown {
+			@include hide();
+		}
+		&:hover {
+			&>.btn-dropdown {
+				@include show();
+			}
+		}
+	}

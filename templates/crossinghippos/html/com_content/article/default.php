@@ -9,15 +9,12 @@
 
 defined('_JEXEC') or die;
 
-JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
-JHtml::_('behavior.caption');
-
 // Disallow access to disabled articles
 if ($this->item->state == 0) {
 	return false;
 }
 
-// Create shortcuts to some parameters.
+$document	= JFactory::getDocument();
 $params 	= $this->item->params;
 $images  	= json_decode($this->item->images);
 $url 		= JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid));
@@ -37,6 +34,7 @@ $useDefList = (
 );
 
 $hasIntroImage = isset($images->image_intro) && !empty($images->image_intro);
+$hasTags = $params->get('show_tags', 1) && !empty($this->item->tags);
 
 // echo '<pre>';
 // print_r($this->item);
@@ -71,17 +69,33 @@ $article['article'] = array(
 		'after' => $this->item->event->afterDisplayContent
 		)
 	);
+
+/*
+ * Use a module for the header
+ */
+$renderer	= $document->loadRenderer('module');
+$header	= JModuleHelper::getModule('mod_articles_categories');
+
 ?>
 
+
 <header class="underline--dashed">
+	<?php $title = $this->escape($this->item->parent_title); ?>
+	<?php $url = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)); ?>
 	<div class="lt-root">
-		<a href="" class="anchor--incognito title-selector__parent  txt-l lt-gutters">Projects</a>
-		<h1 class="hd title-selector__title  txt-l">
-			<span class="subheading-category">Valys</span>&nbsp;
-			<span class="fa fa-sort title-selector__trigger"></span>
-		</h1>
+	<?php if (!is_null($header)) : ?>
+		<?php
+		$headerParams	= array(
+			'style' => 'catNav',
+			'parent' => array('title' => $title, 'url' => $url)
+		);
+		echo $renderer->render($header, $headerParams);
+		?>
+	<?php else: ?>
+	<?php endif; ?>
 	</div>
 </header>
+
 
 <?php if ($hasIntroImage) :?>
 <div class="box--filled">
@@ -106,7 +120,7 @@ $article['article'] = array(
 	 * ------------------------------------------------------------------------------------------------------------------
 	 */
 	?>
-	<div class="lt-prime lt-prime--alpha-beta lt-gutters">
+	<div class="lt-prime lt-prime--alpha-beta lt-gutters<?php if ($hasTags) : ?> divider<?php endif; ?>">
 
 		<?php $articleLayout = new JLayoutFile('content.article.body', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
 		<?php echo $articleLayout->render($article); ?>
@@ -137,7 +151,7 @@ $article['article'] = array(
 	 */
 	?>
 	<div class="lt-alpha lt-gutters">
-		<?php if ($params->get('show_tags', 1) && !empty($this->item->tags)) : ?>
+		<?php if ($hasTags) : ?>
 			<?php $tagsLayout = new JLayoutFile('content.tags.button', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
 			<?php echo $tagsLayout->render($this->item->tags->itemTags); ?>
 		<?php endif; ?>	
