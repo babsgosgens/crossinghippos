@@ -130,6 +130,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 
 	$(".adaptive-menu__item").on("mouseleave, click",function(){
 		$(".adaptive-menu__trigger").click();
+		// $(".adaptive-menu__trigger").click();
 	});
 
 
