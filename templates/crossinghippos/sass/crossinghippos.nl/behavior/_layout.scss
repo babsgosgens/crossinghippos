@@ -10,10 +10,6 @@
 	@include padding-trailer(.5);
 }
 
-.main {
-	@include vertical-rhythm(2, margin-top);	
-}
-
 .lt-prime,
 .lt-alpha,
 .lt-beta,

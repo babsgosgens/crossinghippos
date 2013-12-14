@@ -72,7 +72,7 @@ function modChrome_CatNav($module, $params, $attribs)
 	?>
 		<span class="title-navigation title-navigation--closed txt-l">
 		<?php if ($module->showtitle) : ?>
-		<a href="<?php echo $parent['url'] ?>" class="lt-gutters anchor--incognito"><?php echo $parent['title'] ?></a>
+		<a href="<?php echo $parent['url'] ?>" class="lt-gutters anchor--incognito title_navigation__parent"><?php echo $parent['title'] ?></a>
 		<?php endif ?>
 		<?php echo $module->content ?>
 		</span>

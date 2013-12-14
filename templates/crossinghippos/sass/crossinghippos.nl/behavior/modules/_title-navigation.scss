@@ -11,7 +11,7 @@ Title navigation
 	.title-navigation__options {
 		position: absolute;
 		display: inline-block;
-		z-index: 2;
+		z-index: 1;
 	}
 	.title-navigation__item {
 		speak: none;
@@ -23,6 +23,9 @@ Title navigation
 	}
 	.title-navigation__trigger {
 		padding-left: .5em;
+	}
+	.title_navigation__parent {
+
 	}
 
 
@@ -52,5 +55,11 @@ Title navigation
 		}
 		.title-navigation__trigger {
 			display: none;
+		}
+	}
+
+	@include breakpoint($lt-small) {
+		.title_navigation__parent {
+			@include adjust-font-size-to($base-font-size, 1, $l);
 		}
 	}

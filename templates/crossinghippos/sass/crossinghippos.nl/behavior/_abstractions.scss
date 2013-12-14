@@ -63,9 +63,13 @@
 
 .main {
 	position: relative;
+	@include vertical-rhythm(2, margin-top);	
 	background: $color-background;
 	background: rgba($whipped-cream--rgb, .8);
 	@include box-shadow(0 -35px 35px 10px rgba($whipped-cream--rgb, .8), 0 35px 35px 10px rgba($whipped-cream--rgb, .8));
+}
+
+.main {
 }
 
 .txt-xl {
@@ -92,5 +96,13 @@
 	@include vertical-rhythm(6, 'height');
 	img {
 	@include vertical-rhythm(6, 'line-height');
+	}
+}
+
+@include breakpoint($lt-small)
+{
+	.main {
+		@include vertical-rhythm(1, margin-top);	
+		@include box-shadow(0 -15px 15px 10px rgba($whipped-cream--rgb, .8), 0 15px 15px 10px rgba($whipped-cream--rgb, .8));
 	}
 }

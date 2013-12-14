@@ -83,35 +83,40 @@ Main Navigation
 	@include breakpoint($lt-small)
 	{
 		.main-nav {
-			position: static;
+			// position: static;
 		}
 		.adaptive-menu {
+			text-align: right;
 			&.is--active {
 				.adaptive-menu__item { width: 50%; }
-				.adaptive-menu__trigger { left: 50%; }
+				.adaptive-menu__trigger { right: 50%; }
 			}
 			&.is--inactive {
 				.adaptive-menu__item { width: 0%; }
-				.adaptive-menu__trigger { left: 0; }
+				.adaptive-menu__trigger { right: 0; }
 			}
 		}
 			.adaptive-menu__trigger {
 				position: relative;
+				right: 0;
 				display: inline-block;
 				@include column-spacing();
-				@include transition(left 1s ease-in-out);
+				@include transition(right 1s ease-in-out);
+				@include adjust-font-size-to(24px,.5);
+				vertical-align: middle;
 			}
 			.adaptive-menu__item {
 				position: fixed;
 				overflow: hidden;
 				z-index: 3;
 				top: 0;
-				left: 0;
+				right: 0;
 				width: 0%;
 				height: 100%;
 				background: $color-primary;
 				background: rgba($whipped-cream--rgb, .9);
 				@include box-shadow(0 -5px 20px 0 rgba($dirt--rgb, .3), -5px 0 20px 0 rgba($dirt--rgb, .3));
+				text-align: left;
 				@include transition(width 1s ease-in-out);
 			}
 

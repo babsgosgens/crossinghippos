@@ -79,13 +79,20 @@ Masthead
 	*/
 
 	@include breakpoint($lt-small) {
-		.masthead__title {
-			@include adjust-font-size-to(32px);
+		.masthead {
+			@include vertical-rhythm(2.75, padding-top);
+			@include vertical-rhythm(0, margin-bottom);
+			position: relative;
+			z-index: 1;
 		}
-		.masthead__tagline {
-		}
-		.masthead__logo {
-		}
+			.masthead__title {
+				@include adjust-font-size-to(32px);
+			}
+			.masthead__tagline {
+				@include adjust-leading-to(.25);
+			}
+			.masthead__logo {
+			}
 	}
 
 
