@@ -41,7 +41,7 @@ Main Navigation
 	width: 100%;
 	border-bottom: 1px solid rgba($dirt--rgb, .2);
 	padding: vertical-rhythm(.5) 0;
-	background: rgba($whipped-cream--rgb, .8);
+	@include navigation-background;
 	@include font($bree-serif-regular);
 }
 	.item-101,
@@ -96,8 +96,7 @@ Main Navigation
 				right: 0;
 				width: 0%;
 				height: 100%;
-				background: $color-primary;
-				background: rgba($whipped-cream--rgb, .9);
+				@include navigation-background;
 				@include box-shadow(0 -5px 20px 0 rgba($dirt--rgb, .3), -5px 0 20px 0 rgba($dirt--rgb, .3));
 				text-align: left;
 				@include transition(width 1s ease-in-out);

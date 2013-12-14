@@ -65,9 +65,11 @@ $parentUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->category->par
 
 <section class="section lt-root">
 	
-	<header class="title-navigation lt-gutters"<?php if (!is_null($header)) : ?>data-inject="#<?php echo $identifier; ?>"<?php endif; ?>>
-		<p class="title-navigation__parent"><a href="<?php echo $parentUrl; ?>" title="<?php echo JText::sprintf('TPL_CROSSINGHIPPOS_ANCHOR_TITLE_PARENTCATEGORY', $this->params->get('page_title')); ?>" class="anchor--incognito"><?php echo $this->params->get('page_title'); ?></a></p>
-		<h1 class="title-navigation__title hd lt-gutters"><a href="<?php echo $url; ?>"><?php echo $title = $this->escape($this->category->title); ?></a></h1>
+	<header class="w-title-navigation lt-gutters">
+		<p class="parent"><a href="<?php echo $parentUrl; ?>" title="<?php echo JText::sprintf('TPL_CROSSINGHIPPOS_ANCHOR_TITLE_PARENTCATEGORY', $this->params->get('page_title')); ?>" class="btn-base anchor--incognito"><?php echo $this->params->get('page_title'); ?></a></p>
+		<?php if (!is_null($header)) : ?><div class="title-navigation" data-inject="#<?php echo $identifier; ?>"><?php endif; ?>
+		<h1 class="title-navigation__trigger hd"><a href="<?php echo $url; ?>"><?php echo $title = $this->escape($this->category->title); ?></a></h1>
+		<?php if (!is_null($header)) : ?></div><?php endif; ?>
 	</header>
 
 
@@ -96,12 +98,12 @@ $parentUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->category->par
 		?>
 		<div class="lt-beta lt-gutters valign-bottom">
 			<?php if (!empty($project)): ?>
-			<dl class="lt-column lt-gutter-right trailer--double">
+			<dl class="lt-column lt-gutter-right">
 
 				<dt class="lt-base lt-column--third-persistent  underline--dashed" style="vertical-align: bottom;"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_PROJECT'); ?></dt>
 				<dd class="lt-base lt-column--two-third-persistent  underline--dashed">
 					<?php if ($this->params->get('show_description_image') && $this->category->getParams()->get('image')) : ?>
-					<div class="lt-column lt-column--two-third-persistent trailer--half">
+					<div class="project__logo lt-column lt-column--two-third-persistent trailer--half">
 						<img src="<?php echo $this->category->getParams()->get('image'); ?>" class="media">
 					</div>
 					<?php endif; ?>

@@ -53,3 +53,8 @@
 @mixin fond($color) {
 	background-color: #{$color};
 }
+
+@mixin navigation-background {
+	background: $whipped-cream;
+	background: rgba($whipped-cream--rgb, .9);
+}

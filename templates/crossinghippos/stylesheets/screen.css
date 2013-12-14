@@ -1073,7 +1073,7 @@ Button base
 }
 
 /* line 18, ../sass/crossinghippos.nl/behavior/_base.scss */
-.soft--top, .is--active .title-navigation__title {
+.soft--top {
   -webkit-border-radius: 6px 6px 0 0;
   -moz-border-radius: 6px 6px 0 0;
   -ms-border-radius: 6px 6px 0 0;
@@ -1082,7 +1082,7 @@ Button base
 }
 
 /* line 21, ../sass/crossinghippos.nl/behavior/_base.scss */
-.soft--bottom, .is--active .title-navigation__items {
+.soft--bottom {
   -webkit-border-radius: 0 0 6px 6px;
   -moz-border-radius: 0 0 6px 6px;
   -ms-border-radius: 0 0 6px 6px;
@@ -1359,7 +1359,7 @@ Button base
 }
 
 /* line 86, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
-.outline, .is--active .title-navigation__title, .is--active .title-navigation__items {
+.outline {
   border: 1px solid #6e532c;
   border-color: rgba(37, 28, 15, 0.15);
 }
@@ -1815,7 +1815,8 @@ Main Navigation
   width: 100%;
   border-bottom: 1px solid rgba(37, 28, 15, 0.2);
   padding: 0.75em 0;
-  background: rgba(255, 254, 244, 0.8);
+  background: #fffef4;
+  background: rgba(255, 254, 244, 0.9);
   font: normal normal 400 16px/24px "bree-serif", sans-serif;
 }
 
@@ -1883,7 +1884,7 @@ Adaptive menu
     right: 0;
     width: 0%;
     height: 100%;
-    background: #00b09e;
+    background: #fffef4;
     background: rgba(255, 254, 244, 0.9);
     -webkit-box-shadow: 0 -5px 20px 0 rgba(37, 28, 15, 0.3), -5px 0 20px 0 rgba(37, 28, 15, 0.3);
     -moz-box-shadow: 0 -5px 20px 0 rgba(37, 28, 15, 0.3), -5px 0 20px 0 rgba(37, 28, 15, 0.3);
@@ -1895,7 +1896,7 @@ Adaptive menu
     transition: width 1s ease-in-out;
   }
 
-  /* line 107, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
+  /* line 106, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
   .is--active .adaptive-menu__trigger,
   .is--inactive .adaptive-menu__trigger {
     position: relative;
@@ -1912,25 +1913,25 @@ Adaptive menu
     vertical-align: middle;
   }
 
-  /* line 117, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
+  /* line 116, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
   .is--active .adaptive-menu__item {
     width: 50%;
   }
-  /* line 118, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
+  /* line 117, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
   .is--active .adaptive-menu__trigger {
     right: 50%;
   }
 
-  /* line 121, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
+  /* line 120, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
   .is--inactive .adaptive-menu__item {
     width: 0%;
   }
-  /* line 122, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
+  /* line 121, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
   .is--inactive .adaptive-menu__trigger {
     right: 0;
   }
 
-  /* line 129, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
+  /* line 128, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
   .item-101,
   .item-109,
   .item-110,
@@ -1954,89 +1955,11 @@ Adaptive menu
 }
 /*
 -----------------------------------------------------------------------------
-Title navigation
------------------------------------------------------------------------------
-*/
-/*
------------------------------------------------------------------------------
-Smalles breakpoint
------------------------------------------------------------------------------
-*/
-/* line 20, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
-.is--active a {
-  display: block;
-}
-/* line 23, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
-.is--active .title-navigation__parent {
-  display: none;
-}
-/* line 26, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
-.is--active .title-navigation__title {
-  display: block;
-  left: 0;
-  border-bottom: 0 !important;
-  -webkit-transition: left 1s ease-in;
-  -moz-transition: left 1s ease-in;
-  -o-transition: left 1s ease-in;
-  transition: left 1s ease-in;
-}
-/* line 35, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
-.is--active .title-navigation__items {
-  border-top: 0 !important;
-  top: 100%;
-}
-/* line 41, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
-.is--active .title-navigation__item {
-  padding-left: 12.8px;
-  padding-right: 12.8px;
-}
-/* line 44, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
-.is--active .title-navigation__trigger {
-  position: absolute;
-  right: 12.8px;
-  top: 0;
-  line-height: inherit !important;
-}
-
-/* line 52, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
-.is--inactive .title-navigation__items {
-  top: 0;
-  display: none;
-}
-
-/* line 59, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
-.is--inactive .title-navigation__items,
-.is-active .title-navigation__items {
-  position: relative;
-  -webkit-transition: top 1s ease-in;
-  -moz-transition: top 1s ease-in;
-  -o-transition: top 1s ease-in;
-  transition: top 1s ease-in;
-}
-
-/* line 64, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
-.title-navigation__trigger {
-  padding-left: .25em !important;
-}
-
-/* line 69, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
-.title-navigation__title {
-  position: relative;
-}
-
-/* line 74, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
-.title-navigation__parent,
-.title-navigation__title {
-  display: inline;
-}
-
-/*
------------------------------------------------------------------------------
 Box
 -----------------------------------------------------------------------------
 */
 /* line 7, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
-.box {
+.box, .title-navigation.is--active {
   border: 1px solid #6e532c;
   border-color: rgba(37, 28, 15, 0.15);
   -webkit-border-radius: 10px;
@@ -2058,7 +1981,7 @@ Box
   background: #00b09e;
 }
 /* line 19, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
-.box--primary.outline, .is--active .box--primary.title-navigation__title, .is--active .box--primary.title-navigation__items {
+.box--primary.outline {
   border-color: #251c0f;
 }
 /* line 22, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
@@ -2183,6 +2106,13 @@ List of boxes
   bottom: 0.375em;
 }
 
+@media only screen and (max-width: 49.9375em) {
+  /* line 67, ../sass/crossinghippos.nl/behavior/modules/_project.scss */
+  .project__logo {
+    display: none;
+    /* dirty hack */
+  }
+}
 /* line 1, ../sass/crossinghippos.nl/behavior/modules/_projects.scss */
 .projects {
   text-align: center;
@@ -2216,6 +2146,97 @@ Tags
   padding-right: 6.4px;
 }
 
+@media only screen and (max-width: 49.9375em) {
+  /* line 21, ../sass/crossinghippos.nl/behavior/modules/_tags.scss */
+  .tags {
+    margin-top: 0.75em;
+  }
+
+  /* line 24, ../sass/crossinghippos.nl/behavior/modules/_tags.scss */
+  .tags .lt-base, .tags .lt-column {
+    width: auto;
+    /* nasty override */
+  }
+}
+/*
+-----------------------------------------------------------------------------
+Title navigation
+-----------------------------------------------------------------------------
+*/
+/*
+-----------------------------------------------------------------------------
+All breakpoint
+-----------------------------------------------------------------------------
+*/
+/* line 14, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
+.title-navigation {
+  display: inline-block;
+  margin-left: 12.8px;
+  margin-right: 12.8px;
+}
+/* line 17, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
+.title-navigation a {
+  position: relative;
+  padding-right: 1em;
+  /* This is to allow for indication icons */
+}
+/* line 22, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
+.title-navigation .icn {
+  position: absolute;
+  right: 0;
+  line-height: inherit !important;
+}
+
+/* line 28, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
+.title-navigation.is--active {
+  position: absolute;
+  padding-left: 12.8px;
+  padding-right: 12.8px;
+  background: #fffef4;
+  background: rgba(255, 254, 244, 0.9);
+}
+/* line 33, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
+.title-navigation.is--active a {
+  display: block;
+}
+/* line 36, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
+.title-navigation.is--active .title-navigation__items {
+  position: static;
+  height: auto;
+  width: auto;
+  overflow-y: auto;
+  clip: auto;
+}
+
+/* line 40, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
+.title-navigation.is--inactive {
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 42, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
+.title-navigation.is--inactive .title-navigation__items {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* line 46, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
+.parent {
+  display: inline-block;
+  vertical-align: top;
+}
+
+@media only screen and (min-width: 30em) {
+  /* line 52, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
+  .w-title-navigation {
+    font-size: 1.125em;
+    line-height: 1.33333em;
+  }
+}
 /* SKIN...........Theme variations */
 /* TRUMPS.........Style overrides */
 /* line 1, ../sass/crossinghippos.nl/behavior/_base.scss */
@@ -2241,7 +2262,7 @@ Tags
 }
 
 /* line 18, ../sass/crossinghippos.nl/behavior/_base.scss */
-.soft--top, .is--active .title-navigation__title {
+.soft--top {
   -webkit-border-radius: 6px 6px 0 0;
   -moz-border-radius: 6px 6px 0 0;
   -ms-border-radius: 6px 6px 0 0;
@@ -2250,7 +2271,7 @@ Tags
 }
 
 /* line 21, ../sass/crossinghippos.nl/behavior/_base.scss */
-.soft--bottom, .is--active .title-navigation__items {
+.soft--bottom {
   -webkit-border-radius: 0 0 6px 6px;
   -moz-border-radius: 0 0 6px 6px;
   -ms-border-radius: 0 0 6px 6px;

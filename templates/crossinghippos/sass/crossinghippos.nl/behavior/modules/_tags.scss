@@ -15,3 +15,13 @@ Tags
 .tags__anchor {
 		@include column-spacing(1/4);
 }
+
+@include breakpoint($lt-medium)
+{
+	.tags {
+		@include leader(.5);
+	}
+	.tags .lt-base {
+		width: auto; /* nasty override */
+	}
+}

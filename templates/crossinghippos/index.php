@@ -121,11 +121,11 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 		$(".ui-dd__item").addClass("ui-dd__item--inactive");
 		$(".adaptive-menu, .title-navigation").addClass("is--inactive");
 
-		$(".title-navigation__title").append('<a class="fa fa-sort title-navigation__trigger"></a>').toggleStateClass({
-			targetContext: ".section",
+		$(".title-navigation__trigger").toggleStateClass({
+			targetContext: ".w-title-navigation",
 			target: ".title-navigation",
 			activeClass:"is--active",
-			inactiveClass:"is--inactive"});
+			inactiveClass:"is--inactive"}).find("a").append('<i class="fa fa-sort icn"></i>');
 
 		/* Initialise toggles */
 		$(".ui-dd__trigger").toggleStateClass();

@@ -61,3 +61,10 @@
 		z-index: 1;
 		@include vertical-rhythm(.25, bottom);
 	}
+
+	@include breakpoint($lt-medium)
+	{
+		.project__logo {
+			display: none; /* dirty hack */
+		}
+	}
