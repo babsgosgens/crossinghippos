@@ -50,27 +50,24 @@ if( preg_match($pattern, $this->category->description, $images) )
  */
 $renderer	= $document->loadRenderer('module');
 $header	= JModuleHelper::getModule('mod_articles_categories');
-
-// print_r($this->category);
+$identifier = 'categories';
+if (!is_null($header)) {
+	$headerAttribs	= array(
+		'style' => 'id',
+		'module_id' => $identifier
+	);
+	$titleNavigationOptions = $renderer->render($header, $headerAttribs);
+}
+$title = $this->escape($this->category->title);
+$url = JRoute::_(ContentHelperRoute::getCategoryRoute($this->category->id));
+$parentUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->category->parent_id));
 ?>
 
 <section class="section lt-root">
 	
-	<header>
-		<?php $title = $this->escape($this->params->get('page_heading', 'Projects')); ?>
-		<?php $url = JRoute::_(ContentHelperRoute::getCategoryRoute($this->category->parent_id)); ?>
-		<div class="lt-root">
-		<?php if (!is_null($header)) : ?>
-			<?php
-			$headerParams	= array(
-				'style' => 'catNav',
-				'parent' => array('title' => $title, 'url' => $url)
-			);
-			echo $renderer->render($header, $headerParams);
-			?>
-		<?php else: ?>
-		<?php endif; ?>
-		</div>
+	<header class="title-navigation lt-gutters"<?php if (!is_null($header)) : ?>data-inject="#<?php echo $identifier; ?>"<?php endif; ?>>
+		<p class="title-navigation__parent"><a href="<?php echo $parentUrl; ?>" title="<?php echo JText::sprintf('TPL_CROSSINGHIPPOS_ANCHOR_TITLE_PARENTCATEGORY', $this->params->get('page_title')); ?>" class="anchor--incognito"><?php echo $this->params->get('page_title'); ?></a></p>
+		<h1 class="title-navigation__title hd lt-gutters"><a href="<?php echo $url; ?>"><?php echo $title = $this->escape($this->category->title); ?></a></h1>
 	</header>
 
 
@@ -108,7 +105,7 @@ $header	= JModuleHelper::getModule('mod_articles_categories');
 						<img src="<?php echo $this->category->getParams()->get('image'); ?>" class="media">
 					</div>
 					<?php endif; ?>
-					<div><?php echo $this->category->title;?></div>
+					<div><?php echo $title;?></div>
 				</dd>
 
 				<?php if (isset($project['projectclient']) && !empty($project['projectclient'])): ?>
@@ -156,6 +153,8 @@ $header	= JModuleHelper::getModule('mod_articles_categories');
 		<?php endif; ?>
 	</div>
 	<?php endif; ?>
+
+
 	</div>
 
 
@@ -169,6 +168,11 @@ $header	= JModuleHelper::getModule('mod_articles_categories');
 	<div class="lt-alpha lt-gutters">
 		<?php $tagsLayout = new JLayoutFile('content.tags.button', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
 		<?php echo $tagsLayout->render($this->category->tags->itemTags); ?>
+
+		<?php if (!is_null($header)) : ?>
+			<?php echo $titleNavigationOptions; ?>
+		<?php endif; ?>
+
 	</div>
 
 

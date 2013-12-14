@@ -15,6 +15,12 @@
 .soft {
 	@include border-radius(6px);
 }
+.soft--top {
+	@include border-radius(6px 6px 0 0);
+}
+.soft--bottom {
+	@include border-radius(0 0 6px 6px);
+}
 
 .underline {
 	border-bottom: 1px solid $line-dirt;

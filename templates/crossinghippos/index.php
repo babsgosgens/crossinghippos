@@ -117,21 +117,28 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 	jQuery(document).ready(function($) {
 
 
+		/* Prepare for toggle */
+		$(".ui-dd__item").addClass("ui-dd__item--inactive");
+		$(".adaptive-menu, .title-navigation").addClass("is--inactive");
 
-	$(".ui-dd__item").addClass("ui-dd__item--inactive");
-	$(".ui-dd__trigger").toggleStateClass();
+		$(".title-navigation__title").append('<a class="fa fa-sort title-navigation__trigger"></a>').toggleStateClass({
+			targetContext: ".section",
+			target: ".title-navigation",
+			activeClass:"is--active",
+			inactiveClass:"is--inactive"});
 
-	$(".adaptive-menu").addClass("is--inactive");
-	$(".adaptive-menu__trigger").toggleStateClass({
-		targetContext: ".main-nav",
-		target: ".adaptive-menu",
-		activeClass:"is--active",
-		inactiveClass:"is--inactive"});
+		/* Initialise toggles */
+		$(".ui-dd__trigger").toggleStateClass();
+		$(".adaptive-menu__trigger").toggleStateClass({
+			targetContext: ".main-nav",
+			target: ".adaptive-menu",
+			activeClass:"is--active",
+			inactiveClass:"is--inactive"});
+		$(".adaptive-menu__item").on("click",function(){
+			$(".adaptive-menu__trigger").click();
+		});
 
-	$(".adaptive-menu__item").on("mouseleave, click",function(){
-		$(".adaptive-menu__trigger").click();
-		// $(".adaptive-menu__trigger").click();
-	});
+		$("[data-inject]").append( $( $("[data-inject]").data("inject") ).addClass("hd") );
 
 
 	    var img    = $(".masthead__logo"),
