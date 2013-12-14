@@ -2129,6 +2129,13 @@ List of boxes
   color: #251c0f;
 }
 
+@media only screen and (min-width: 64em) {
+  /* line 18, ../sass/crossinghippos.nl/behavior/modules/_projects.scss */
+  .article__intro-image {
+    padding-left: 12.8px;
+    padding-right: 12.8px;
+  }
+}
 /*
 -----------------------------------------------------------------------------
 Tags

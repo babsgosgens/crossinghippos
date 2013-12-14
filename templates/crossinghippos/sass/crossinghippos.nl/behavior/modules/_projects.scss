@@ -12,3 +12,10 @@
 
 
 }
+
+@include breakpoint($gt-large)
+{
+	.article__intro-image {
+		@include column-spacing;
+	}	
+}
