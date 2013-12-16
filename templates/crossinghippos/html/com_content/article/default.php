@@ -95,21 +95,22 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 // echo '<pre>';
 ?>
 
-	<header class="underline--dashed">
-		<div class="lt-root">
-			<div class="w-title-navigation lt-gutters">
-				<?php if ($headerIsActive) : ?>
-				<p class="parent"><a href="<?php echo $parentUrl; ?>" title="<?php echo JText::sprintf('TPL_CROSSINGHIPPOS_ANCHOR_TITLE_PARENTCATEGORY', $this->params->get('page_title')); ?>" class="btn-base anchor--incognito"><?php echo $this->params->get('page_title'); ?></a></p>
-				<div class="title-navigation" data-inject="#<?php echo $identifier; ?>">
-				<h1 class="title-navigation__trigger hd"><a href="<?php echo $categoryUrl; ?>"><?php echo $categoryTitle; ?></a></h1>
-				</div>
-				<?php else : ?>
-				<h1 class="hd hd--section"><a href="<?php echo $parentUrl; ?>" title="<?php echo JText::sprintf('TPL_CROSSINGHIPPOS_ANCHOR_TITLE_PARENTCATEGORY', $this->params->get('page_title')); ?>" class="btn-base anchor--incognito"><?php echo $this->params->get('page_title'); ?></a></h1>
-				<?php endif; ?>
+<?php if ($this->params->get('show_page_heading', 1)) : ?>
+<header class="underline--dashed">
+	<div class="lt-root">
+		<div class="w-title-navigation lt-gutters">
+			<?php if ($headerIsActive) : ?>
+			<p class="parent"><a href="<?php echo $parentUrl; ?>" title="<?php echo JText::sprintf('TPL_CROSSINGHIPPOS_ANCHOR_TITLE_PARENTCATEGORY', $this->params->get('page_title')); ?>" class="btn-base anchor--incognito"><?php echo $this->params->get('page_title'); ?></a></p>
+			<div class="title-navigation" data-inject="#<?php echo $identifier; ?>">
+			<h1 class="title-navigation__trigger hd"><a href="<?php echo $categoryUrl; ?>"><?php echo $categoryTitle; ?></a></h1>
 			</div>
+			<?php else : ?>
+			<h1 class="hd hd--section"><a href="<?php echo $parentUrl; ?>" title="<?php echo JText::sprintf('TPL_CROSSINGHIPPOS_ANCHOR_TITLE_PARENTCATEGORY', $this->params->get('page_title')); ?>" class="btn-base anchor--incognito"><?php echo $this->params->get('page_title'); ?></a></h1>
+			<?php endif; ?>
 		</div>
-	</header>
-
+	</div>
+</header>
+<?php endif; ?>
 
 <?php if ($hasIntroImage) :?>
 <div class="box--filled">
@@ -122,10 +123,11 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 
 <article class="article<?php echo $this->pageclass_sfx?> lt-root">
 
+<?php if ($params->get('show_title')) :?>
 <<?php echo $article['title']['tag']; ?> class="hd hd--article leader--half">
 	<a href="<?php echo $article['title']['url']; ?>" class="anchor--incognito lt-prime lt-gutters"> <?php echo $article['title']['title']; ?></a>
 </<?php echo $article['title']['tag']; ?>>
-
+<?php endif; ?>
 
 	<?php
 	/*
@@ -170,7 +172,7 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 			<?php echo $tagsLayout->render($this->item->tags->itemTags); ?>
 		<?php endif; ?>	
 
-		<?php if (!is_null($header)) : ?>
+		<?php if ($headerIsActive) : ?>
 			<?php echo $titleNavigationOptions; ?>
 		<?php endif; ?>
 

@@ -10,7 +10,8 @@
 
 .hd--section {
 	@include adjust-font-size-to($xl);
-	@include vertical-rhythm(1, margin-bottom);
+	@include vertical-rhythm(.5, margin-top);
+	@include vertical-rhythm(.5, margin-bottom);
 }
 
 .hd--item {

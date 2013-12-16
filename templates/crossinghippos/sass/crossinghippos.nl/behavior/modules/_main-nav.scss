@@ -126,10 +126,13 @@ Main Navigation
 				.item-110,
 				.item-111,
 				.item-112 {
+					@include column(1);
 					/* Reset padding */padding: 0;
+					border-bottom: 1px dashed $line-dirt;
+				}
+				.main-nav__item {
 					@include column(1);
 					@include vertical-rhythm(.5, padding-top);
 					@include vertical-rhythm(.5, padding-bottom);
-					border-bottom: 1px dashed $line-dirt;
 				}
 	}
