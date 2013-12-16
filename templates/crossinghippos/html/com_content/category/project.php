@@ -50,8 +50,10 @@ if( preg_match($pattern, $this->category->description, $images) )
  */
 $renderer	= $document->loadRenderer('module');
 $header	= JModuleHelper::getModule('mod_articles_categories');
+$headerIsActive = !is_null($header) && $header->id > 0;
+
 $identifier = 'categories';
-if (!is_null($header)) {
+if ($headerIsActive) {
 	$headerAttribs	= array(
 		'style' => 'id',
 		'module_id' => $identifier
@@ -66,10 +68,14 @@ $parentUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->category->par
 <section class="section lt-root">
 	
 	<header class="w-title-navigation lt-gutters">
+		<?php if ($headerIsActive) : ?>
 		<p class="parent"><a href="<?php echo $parentUrl; ?>" title="<?php echo JText::sprintf('TPL_CROSSINGHIPPOS_ANCHOR_TITLE_PARENTCATEGORY', $this->params->get('page_title')); ?>" class="btn-base anchor--incognito"><?php echo $this->params->get('page_title'); ?></a></p>
-		<?php if (!is_null($header)) : ?><div class="title-navigation" data-inject="#<?php echo $identifier; ?>"><?php endif; ?>
+		<div class="title-navigation" data-inject="#<?php echo $identifier; ?>">
 		<h1 class="title-navigation__trigger hd"><a href="<?php echo $url; ?>"><?php echo $title = $this->escape($this->category->title); ?></a></h1>
-		<?php if (!is_null($header)) : ?></div><?php endif; ?>
+		</div>
+		<?php else : ?>
+		<h1 class="hd hd--section"><a href="<?php echo $parentUrl; ?>" title="<?php echo JText::sprintf('TPL_CROSSINGHIPPOS_ANCHOR_TITLE_PARENTCATEGORY', $this->params->get('page_title')); ?>" class="btn-base anchor--incognito"><?php echo $this->params->get('page_title'); ?></a></h1>
+		<?php endif; ?>
 	</header>
 
 

@@ -17,6 +17,9 @@
 	.anchor {
 		@include font($bree-serif-regular);
 	}
+	.anchor--block {
+		display: block;
+	}
 /* No textdecoration on icons */
 .fa {
 	text-decoration: none;
