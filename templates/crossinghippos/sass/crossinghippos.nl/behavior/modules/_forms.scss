@@ -1,0 +1,57 @@
+// /**
+//  * @copyright	Copyright (C) 2013 Online Kollektief - Babs Gösgens. All rights reserved.
+//  * @license		GNU General Public License version 2 or later; see LICENSE.txt
+//  */
+
+
+/*
+-----------------------------------------------------------------------------
+Fancy Form fields
+-----------------------------------------------------------------------------
+*/
+
+// <form>
+// 	<fieldset>
+// 		<div class="fld-group--ff">
+// 			<label class="fld-group__label" for="input">
+// 				Label
+// 			</label>
+// 			<div class="fld-group__input">
+// 				<input class="fld-input" type="text">
+// 			</div>
+// 		</div>
+// 	</fieldset>
+// </form>
+
+
+.fld-group--ff {
+}
+	.is--active, {
+		.fld-group__label--ff {
+			@include triangle--after(10px, "down", $pure);
+			background-color: $pure;
+		}
+		.fld-input--ff {
+			border-color: $pure;
+		}
+	}
+	.fld-group__label--ff,
+	.fld-input--ff {
+		@include column-behavior;
+		@include column-width(1, true);
+		@include rhythm-base("vertical");
+		@include rhythm-base("horizontal");
+	}
+	.fld-group__label--ff {
+		@include border-top-radius(6px);
+		background-color: mix($got-it, $dirt);
+		color: $color-background;
+	}
+	.fld-input--ff {
+		@include border-top-radius(0);
+		border-color: mix($got-it, $dirt);
+		text-indent: 0;
+	}
+	.fld-input--textarea {
+		@include vertical-rhythm(5, "height");
+	}

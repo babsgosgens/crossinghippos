@@ -108,7 +108,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 					<li class="list-icons__icon"><a href="http://www.linkedin.com/in/babsgosgens" title="<?php echo JText::_('TPL_ANCHOR_TITLE_LINKEDIN'); ?>"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
 				</ul>
 			</div>
-			<jdoc:include type="modules" name="footer" />
+			<jdoc:include type="modules" name="footer" style="cms" />
 		</div>
 
 	</footer>
@@ -119,7 +119,13 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 
 		/* Prepare for toggle */
 		$(".ui-dd__item").addClass("ui-dd__item--inactive");
-		$(".adaptive-menu, .title-navigation").addClass("is--inactive");
+		$(".adaptive-menu, .title-navigation, .fld-group--ff").addClass("is--inactive");
+
+		$("fld-group__label--ff").toggleStateClass({
+			targetContext: ".fld-group",
+			target: ".fld-group--ff",
+			activeClass:"is--active",
+			inactiveClass:"is--inactive"});
 
 		$(".title-navigation__trigger").toggleStateClass({
 			targetContext: ".w-title-navigation",

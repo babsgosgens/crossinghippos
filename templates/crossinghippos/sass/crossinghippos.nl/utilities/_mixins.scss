@@ -58,3 +58,17 @@
 	background: $whipped-cream;
 	background: rgba($whipped-cream--rgb, .9);
 }
+
+
+
+@mixin rhythm-base($direction: "vertical", $rhythm: .5)
+{
+	@if $direction=="vertical" {
+		@include vertical-rhythm($rhythm, "padding-top");
+		@include vertical-rhythm($rhythm, "padding-bottom");
+	}
+	@else {
+		@include vertical-rhythm($rhythm, "padding-right");
+		@include vertical-rhythm($rhythm, "padding-left");
+	}
+}
