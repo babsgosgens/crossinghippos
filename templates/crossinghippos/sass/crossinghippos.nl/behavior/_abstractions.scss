@@ -90,6 +90,9 @@
 	border: 1px solid lighten($dirt, 20%);
 	border-color: rgba($dirt, .15);
 }
+	.outline--decorative {
+		border: 2px solid $got-it;
+	}
 .divider {
 	border-right: 1px dashed rgba($dirt--rgb,0.15);
 }

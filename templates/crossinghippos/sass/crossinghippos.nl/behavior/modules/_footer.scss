@@ -1,7 +1,10 @@
 .footer {
 	background: $color-body;
-	color: mix($color-background, $color-body);
-	@include font($bree-light);
+	color: $color-background;
+	// @include font($bree-light);
+	a {
+		@include font-weight($bree-regular);
+	}
 }
 	.footer__artwork {
 		@include vertical-rhythm(5, padding-top);	

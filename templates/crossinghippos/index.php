@@ -79,36 +79,9 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 		<div class="lt-root">
 			<div class="lt-base lt-prime lt-prime--alpha-beta">
 				<section id="contact">
-					<h1 class="hd lt-gutters"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_CONTACT'); ?></h1>
-
-					<address>
-						<div class="lt-column lt-column--half lt-gutters">
-							<div>Crossing Hippos</div>
-							<div>Lodeizenstraat 4</div>
-							<div>5254CT Rosmalen</div>
-						</div>
-						<div class="lt-column lt-column--half lt-gutters">
-							<div><a href="mailto:babs@crossinghippos.nl" class="anchor--incognito"><i class="fa fa-envelope"></i> babs@crossinghippos.nl</a></div>
-							<div><a href="tel:+31 (0)73 1234567" class="anchor--incognito"><i class="fa fa-phone"></i> +31 (0)73 1234567</a></div>
-						</div>
-					</address>
-
+				<jdoc:include type="modules" name="footer" style="cms" />
 				</section>
 			</div>
-			<div class="lt-base lt-alpha lt-gutters">
-				<div class="lt-column lt-column--half">
-					<img src="<?php echo $this->baseurl; ?>/images/logo-fronteers.png" class="media" alt="Member of the Dutch association of frontend developers Fronteers">
-					<img src="<?php echo $this->baseurl; ?>/images/logo-ecabo-accredited-training-company.png" class="soft" alt="Crossing Hippos is an accredited training company.">
-				</div>
-			</div>
-			<div class="lt-base lt-beta lt-gutters">
-				<ul class="list-inline list-icons">
-					<li class="list-icons__icon"><a href="https://github.com/babsgosgens" title="<?php echo JText::_('TPL_ANCHOR_TITLE_GITHUB'); ?>"><i class="fa fa-github-alt fa-2x"></i></a></li>
-					<li class="list-icons__icon"><a href="https://twitter.com/crossinghippos" title="<?php echo JText::_('TPL_ANCHOR_TITLE_TWITTER'); ?>"><i class="fa fa-twitter fa-2x"></i></a></li>
-					<li class="list-icons__icon"><a href="http://www.linkedin.com/in/babsgosgens" title="<?php echo JText::_('TPL_ANCHOR_TITLE_LINKEDIN'); ?>"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
-				</ul>
-			</div>
-			<jdoc:include type="modules" name="footer" style="cms" />
 		</div>
 
 	</footer>

@@ -649,7 +649,7 @@ Field base
   text-align: left;
   text-decoration: none;
 }
-/* line 78, ../extensions/persistentgrid/scss/persistentgrid/utilities/forms/_mixins.scss */
+/* line 76, ../extensions/persistentgrid/scss/persistentgrid/utilities/forms/_mixins.scss */
 .fld::-webkit-input-placeholder, .fld-input::-webkit-input-placeholder, .fld-select::-webkit-input-placeholder, .fld-textarea::-webkit-input-placeholder, .fld:-moz-placeholder, .fld-input:-moz-placeholder, .fld-select:-moz-placeholder, .fld-textarea:-moz-placeholder, .fld::-moz-placeholder, .fld-input::-moz-placeholder, .fld-select::-moz-placeholder, .fld-textarea::-moz-placeholder, .fld:-ms-placeholder, .fld-input:-ms-placeholder, .fld-select:-ms-placeholder, .fld-textarea:-ms-placeholder {
   color: #00b09e;
 }
@@ -932,7 +932,6 @@ Button base
   border: 1px solid transparent;
   text-align: left;
   text-decoration: none;
-  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
   color: #251c0f;
 }
 /* line 25, ../extensions/persistentgrid/scss/persistentgrid/buttons/_behavior.scss */
@@ -1050,20 +1049,20 @@ Button base
     left: -75%;
   }
 }
-/* line 1, ../sass/crossinghippos.nl/behavior/_base.scss */
+/* line 2, ../sass/crossinghippos.nl/behavior/_base.scss */
 .media {
   width: 100%;
   max-width: 100%;
 }
 
-/* line 7, ../sass/crossinghippos.nl/behavior/_base.scss */
+/* line 8, ../sass/crossinghippos.nl/behavior/_base.scss */
 .media--max-height {
   height: auto;
   max-height: auto;
   max-width: 100%;
 }
 
-/* line 15, ../sass/crossinghippos.nl/behavior/_base.scss */
+/* line 16, ../sass/crossinghippos.nl/behavior/_base.scss */
 .soft {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -1072,7 +1071,7 @@ Button base
   border-radius: 6px;
 }
 
-/* line 18, ../sass/crossinghippos.nl/behavior/_base.scss */
+/* line 19, ../sass/crossinghippos.nl/behavior/_base.scss */
 .soft--top {
   -webkit-border-radius: 6px 6px 0 0;
   -moz-border-radius: 6px 6px 0 0;
@@ -1081,7 +1080,7 @@ Button base
   border-radius: 6px 6px 0 0;
 }
 
-/* line 21, ../sass/crossinghippos.nl/behavior/_base.scss */
+/* line 22, ../sass/crossinghippos.nl/behavior/_base.scss */
 .soft--bottom {
   -webkit-border-radius: 0 0 6px 6px;
   -moz-border-radius: 0 0 6px 6px;
@@ -1091,48 +1090,67 @@ Button base
 }
 
 /* line 25, ../sass/crossinghippos.nl/behavior/_base.scss */
+.round {
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+  border-radius: 100px;
+}
+
+/* line 28, ../sass/crossinghippos.nl/behavior/_base.scss */
 .underline {
   border-bottom: 1px solid rgba(37, 28, 15, 0.2);
 }
 
-/* line 28, ../sass/crossinghippos.nl/behavior/_base.scss */
+/* line 31, ../sass/crossinghippos.nl/behavior/_base.scss */
 .underline--dashed {
   border-bottom: 1px dashed rgba(37, 28, 15, 0.2);
 }
 
-/* line 32, ../sass/crossinghippos.nl/behavior/_base.scss */
+/* line 35, ../sass/crossinghippos.nl/behavior/_base.scss */
 .valign-bottom {
   vertical-align: bottom;
 }
 
-/* line 36, ../sass/crossinghippos.nl/behavior/_base.scss */
+/* line 39, ../sass/crossinghippos.nl/behavior/_base.scss */
 .leader {
   margin-top: 1.5em;
 }
 
-/* line 39, ../sass/crossinghippos.nl/behavior/_base.scss */
+/* line 42, ../sass/crossinghippos.nl/behavior/_base.scss */
 .leader--half {
   margin-top: 0.75em;
 }
 
-/* line 42, ../sass/crossinghippos.nl/behavior/_base.scss */
+/* line 45, ../sass/crossinghippos.nl/behavior/_base.scss */
 .leader--double {
   margin-top: 3em;
 }
 
-/* line 46, ../sass/crossinghippos.nl/behavior/_base.scss */
+/* line 49, ../sass/crossinghippos.nl/behavior/_base.scss */
 .trailer {
   margin-bottom: 1.5em;
 }
 
-/* line 49, ../sass/crossinghippos.nl/behavior/_base.scss */
+/* line 52, ../sass/crossinghippos.nl/behavior/_base.scss */
 .trailer--half {
   margin-bottom: 0.75em;
 }
 
-/* line 52, ../sass/crossinghippos.nl/behavior/_base.scss */
+/* line 55, ../sass/crossinghippos.nl/behavior/_base.scss */
 .trailer--double {
   margin-bottom: 3em;
+}
+
+/* line 60, ../sass/crossinghippos.nl/behavior/_base.scss */
+.no-speak {
+  speak: none;
+}
+
+/* line 63, ../sass/crossinghippos.nl/behavior/_base.scss */
+.only-bot {
+  display: none;
 }
 
 @font-face {
@@ -1370,23 +1388,28 @@ Button base
 }
 
 /* line 93, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+.outline--decorative {
+  border: 2px solid #00b09e;
+}
+
+/* line 96, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
 .divider {
   border-right: 1px dashed rgba(37, 28, 15, 0.15);
 }
 
-/* line 96, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+/* line 99, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
 .image-whitespace {
   display: inline-block;
   padding: 1.5em;
   height: 9em;
 }
-/* line 100, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+/* line 103, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
 .image-whitespace img {
   line-height: 9em;
 }
 
 @media only screen and (max-width: 29.9375em) {
-  /* line 107, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+  /* line 110, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
   .main {
     margin-top: 1.5em;
     -webkit-box-shadow: 0 -15px 15px 10px rgba(255, 254, 244, 0.8), 0 15px 15px 10px rgba(255, 254, 244, 0.8);
@@ -1565,11 +1588,14 @@ No-JS fallback
 /* line 1, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
 .footer {
   background: #251c0f;
-  color: #928d81;
-  font: normal normal 200 16px/24px "bree", sans-serif;
+  color: #fffef4;
+}
+/* line 5, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
+.footer a {
+  font-weight: 400;
 }
 
-/* line 6, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
+/* line 9, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
 .footer__artwork {
   padding-top: 7.5em;
   margin-bottom: 3em;
@@ -1577,12 +1603,12 @@ No-JS fallback
   border-bottom: 0.375em solid #251c0f;
 }
 
-/* line 12, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
+/* line 15, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
 .footer__image {
   vertical-align: bottom;
 }
 
-/* line 16, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
+/* line 19, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
 .copyright {
   margin-top: 4.5em;
   padding-top: 0.375em;
@@ -1597,28 +1623,25 @@ No-JS fallback
 Fancy Form fields
 -----------------------------------------------------------------------------
 */
-/* line 30, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
-.is--active .fld-group__label--ff {
+/* line 31, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
+.is--active .fld-group__label--ff,
+.fld-group--ff:hover .fld-group__label--ff {
   position: relative;
-  background-color: #00e4cf;
 }
 /* line 41, ../extensions/persistentgrid/scss/persistentgrid/utilities/_css-triangle.scss */
-.is--active .fld-group__label--ff::after {
+.is--active .fld-group__label--ff::after,
+.fld-group--ff:hover .fld-group__label--ff::after {
   content: "";
   position: absolute;
   display: block;
   width: 0;
   height: 0;
   border: 10px solid transparent;
-  border-top-color: #00e4cf;
+  border-top-color: #00b09e;
   top: 100%;
 }
-/* line 34, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
-.is--active .fld-input--ff {
-  border-color: #00e4cf;
-}
 
-/* line 39, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
+/* line 36, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
 .fld-group__label--ff,
 .fld-input--ff {
   display: -moz-inline-stack;
@@ -1634,7 +1657,7 @@ Fancy Form fields
   padding-left: 0.75em;
 }
 
-/* line 45, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
+/* line 42, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
 .fld-group__label--ff {
   -moz-border-radius-topleft: 6px;
   -webkit-border-top-left-radius: 6px;
@@ -1642,11 +1665,11 @@ Fancy Form fields
   -moz-border-radius-topright: 6px;
   -webkit-border-top-right-radius: 6px;
   border-top-right-radius: 6px;
-  background-color: #126656;
+  background-color: #00b09e;
   color: #fffef4;
 }
 
-/* line 50, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
+/* line 47, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
 .fld-input--ff {
   -moz-border-radius-topleft: 0;
   -webkit-border-top-left-radius: 0;
@@ -1654,11 +1677,11 @@ Fancy Form fields
   -moz-border-radius-topright: 0;
   -webkit-border-top-right-radius: 0;
   border-top-right-radius: 0;
-  border-color: #126656;
+  border-color: #00b09e;
   text-indent: 0;
 }
 
-/* line 55, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
+/* line 52, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
 .fld-input--textarea {
   height: 7.5em;
 }
@@ -2334,6 +2357,26 @@ All breakpoint
     line-height: 1.33333em;
   }
 }
+/*
+-----------------------------------------------------------------------------
+Main Navigation
+-----------------------------------------------------------------------------
+*/
+/* line 6, ../sass/crossinghippos.nl/behavior/modules/_buttons.scss */
+.btn {
+  background: #c12b34;
+  color: #fffef4;
+}
+
+/* line 10, ../sass/crossinghippos.nl/behavior/modules/_buttons.scss */
+.btn--large {
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+  text-align: center;
+  font-size: 1.3em;
+  line-height: 1.15385em;
+}
+
 /* SKIN...........Theme variations */
 /* TRUMPS.........Style overrides */
 /* line 1, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
@@ -2410,11 +2453,14 @@ All breakpoint
 /* line 1, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
 .footer {
   background: #251c0f;
-  color: #928d81;
-  font: normal normal 200 16px/24px "bree", sans-serif;
+  color: #fffef4;
+}
+/* line 5, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
+.footer a {
+  font-weight: 400;
 }
 
-/* line 6, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
+/* line 9, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
 .footer__artwork {
   padding-top: 7.5em;
   margin-bottom: 3em;
@@ -2422,12 +2468,12 @@ All breakpoint
   border-bottom: 0.375em solid #251c0f;
 }
 
-/* line 12, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
+/* line 15, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
 .footer__image {
   vertical-align: bottom;
 }
 
-/* line 16, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
+/* line 19, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
 .copyright {
   margin-top: 4.5em;
   padding-top: 0.375em;
@@ -2442,28 +2488,25 @@ All breakpoint
 Fancy Form fields
 -----------------------------------------------------------------------------
 */
-/* line 30, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
-.is--active .fld-group__label--ff {
+/* line 31, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
+.is--active .fld-group__label--ff,
+.fld-group--ff:hover .fld-group__label--ff {
   position: relative;
-  background-color: #00e4cf;
 }
 /* line 41, ../extensions/persistentgrid/scss/persistentgrid/utilities/_css-triangle.scss */
-.is--active .fld-group__label--ff::after {
+.is--active .fld-group__label--ff::after,
+.fld-group--ff:hover .fld-group__label--ff::after {
   content: "";
   position: absolute;
   display: block;
   width: 0;
   height: 0;
   border: 10px solid transparent;
-  border-top-color: #00e4cf;
+  border-top-color: #00b09e;
   top: 100%;
 }
-/* line 34, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
-.is--active .fld-input--ff {
-  border-color: #00e4cf;
-}
 
-/* line 39, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
+/* line 36, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
 .fld-group__label--ff,
 .fld-input--ff {
   display: -moz-inline-stack;
@@ -2479,7 +2522,7 @@ Fancy Form fields
   padding-left: 0.75em;
 }
 
-/* line 45, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
+/* line 42, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
 .fld-group__label--ff {
   -moz-border-radius-topleft: 6px;
   -webkit-border-top-left-radius: 6px;
@@ -2487,11 +2530,11 @@ Fancy Form fields
   -moz-border-radius-topright: 6px;
   -webkit-border-top-right-radius: 6px;
   border-top-right-radius: 6px;
-  background-color: #126656;
+  background-color: #00b09e;
   color: #fffef4;
 }
 
-/* line 50, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
+/* line 47, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
 .fld-input--ff {
   -moz-border-radius-topleft: 0;
   -webkit-border-top-left-radius: 0;
@@ -2499,11 +2542,11 @@ Fancy Form fields
   -moz-border-radius-topright: 0;
   -webkit-border-top-right-radius: 0;
   border-top-right-radius: 0;
-  border-color: #126656;
+  border-color: #00b09e;
   text-indent: 0;
 }
 
-/* line 55, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
+/* line 52, ../sass/crossinghippos.nl/behavior/modules/_forms.scss */
 .fld-input--textarea {
   height: 7.5em;
 }
@@ -3178,4 +3221,23 @@ All breakpoint
     font-size: 1.125em;
     line-height: 1.33333em;
   }
+}
+/*
+-----------------------------------------------------------------------------
+Main Navigation
+-----------------------------------------------------------------------------
+*/
+/* line 6, ../sass/crossinghippos.nl/behavior/modules/_buttons.scss */
+.btn {
+  background: #c12b34;
+  color: #fffef4;
+}
+
+/* line 10, ../sass/crossinghippos.nl/behavior/modules/_buttons.scss */
+.btn--large {
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+  text-align: center;
+  font-size: 1.3em;
+  line-height: 1.15385em;
 }

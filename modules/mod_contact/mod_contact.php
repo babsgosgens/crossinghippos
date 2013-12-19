@@ -15,6 +15,9 @@ if ($params->def('prepare_content', 1))
 	$module->content = JHtml::_('content.prepare', $module->content, '', 'mod_contact.content');
 }
 
+$uri = JFactory::getUri();
+$current_url = $uri->toString();
+
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 
 require JModuleHelper::getLayoutPath('mod_contact', $params->get('layout', 'default'));

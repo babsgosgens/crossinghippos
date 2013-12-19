@@ -38,8 +38,20 @@
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
-				<field name="backgroundimage" type="media"
-					label="MOD_CONTACT_FIELD_BACKGROUNDIMAGE_LABEL" description="MOD_BACKGROUNDIMAGE_FIELD_LOGO_DESC" />
+				<field
+					name="gravatar"
+					type="text"
+					label="MOD_CONTACT_FIELD_GRAVATAR_LABEL"
+					description="MOD_CONTACT_FIELD_GRAVATAR_DESC"
+					filter="safehtml"
+					/>
+				<field
+					name="text"
+					type="editor"
+					label="MOD_CONTACT_FIELD_TEXT_LABEL"
+					description="MOD_CONTACT_FIELD_TEXT_DESC"
+					filter="safehtml"
+					/>
 			</fieldset>
 			<fieldset
 				name="advanced">

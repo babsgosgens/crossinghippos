@@ -1,3 +1,4 @@
+
 .media {
 	width: 100%;
 	// height: auto;
@@ -21,7 +22,9 @@
 .soft--bottom {
 	@include border-radius(0 0 6px 6px);
 }
-
+.round {
+	@include border-radius(100px);
+}
 .underline {
 	border-bottom: 1px solid $line-dirt;
 }
@@ -52,3 +55,11 @@
 	.trailer--double {
 		@include trailer(2);
 	}
+
+
+.no-speak {
+	speak: none;
+}
+.only-bot {
+	display: none;
+}

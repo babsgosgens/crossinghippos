@@ -26,13 +26,10 @@ Fancy Form fields
 
 .fld-group--ff {
 }
-	.is--active, {
+	.is--active,
+	.fld-group--ff:hover {
 		.fld-group__label--ff {
-			@include triangle--after(10px, "down", $pure);
-			background-color: $pure;
-		}
-		.fld-input--ff {
-			border-color: $pure;
+			@include triangle--after(10px, "down", $got-it);
 		}
 	}
 	.fld-group__label--ff,
@@ -44,12 +41,12 @@ Fancy Form fields
 	}
 	.fld-group__label--ff {
 		@include border-top-radius(6px);
-		background-color: mix($got-it, $dirt);
+		background-color: $got-it;
 		color: $color-background;
 	}
 	.fld-input--ff {
 		@include border-top-radius(0);
-		border-color: mix($got-it, $dirt);
+		border-color: $got-it;
 		text-indent: 0;
 	}
 	.fld-input--textarea {

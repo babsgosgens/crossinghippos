@@ -1,0 +1,15 @@
+/*
+-----------------------------------------------------------------------------
+Main Navigation
+-----------------------------------------------------------------------------
+*/
+.btn {
+	background: $chred;
+	color: $color-background;
+}
+.btn--large {
+	@include padding-leader(.5);
+	@include padding-trailer(.5);
+	text-align: center;
+	@include adjust-font-size-to($ml, 1);
+}
