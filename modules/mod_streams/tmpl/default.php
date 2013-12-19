@@ -28,7 +28,7 @@ $count = 1;
 					<div class="box-list__group">
 				<?php endif; ?>
 
-				<li class="lt-base lt-column--half lt-gutters--half lt-vertical-padding  box-list__item <?php echo $item->platform; ?>">
+				<li class="lt-base lt-column--half lt-gutters lt-vertical-padding  box-list__item  box-list__item--js  box-list__item--<?php echo $item->platform; ?>" data-api="<?php echo $item->platform; ?>">
 					<div class="lt-column box  box--padded box--stream">
 
 				    <?php

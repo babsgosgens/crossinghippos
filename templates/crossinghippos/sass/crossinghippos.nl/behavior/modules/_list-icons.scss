@@ -1,9 +1,0 @@
-.list-icons {
-
-}
-.list-icons__icon {
-	@include vertical-rhythm(.5, padding-left);
-	&:first-child {
-		padding-left: 0;
-	}
-}

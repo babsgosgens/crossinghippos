@@ -1,0 +1,9 @@
+.streams-filter {
+
+}
+	.streams-filter__anchor {
+		color: mix($color-body, $color-background);
+	}
+	.streams-filter__anchor--active {
+		color: $anchor-color;
+	}

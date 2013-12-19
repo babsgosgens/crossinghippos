@@ -1555,36 +1555,6 @@ No-JS fallback
   color: #c12b34;
 }
 
-/* line 39, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
-.hd--bribold {
-  font: normal, normal, 700, "bree", sans-serif;
-}
-
-/* line 43, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
-.hd--iconlink {
-  color: #a49990;
-}
-
-/* line 47, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
-.hd--iconlink:hover {
-  color: #c12b34;
-}
-
-/* line 51, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
-.hd--iconlink:visited {
-  color: #a49990;
-}
-
-/* line 55, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
-.hd--iconlink:visited:hover {
-  color: #c12b34;
-}
-
-/* line 59, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
-.hd--colorred {
-  color: #c12b34;
-}
-
 /* line 1, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
 .footer {
   background: #251c0f;
@@ -2145,13 +2115,14 @@ List of boxes
   font: normal normal 400 1.125em/24px "bree", sans-serif;
 }
 
-/* line 4, ../sass/crossinghippos.nl/behavior/modules/_list-icons.scss */
-.list-icons__icon {
-  padding-left: 0.75em;
+/* line 4, ../sass/crossinghippos.nl/behavior/modules/_streams_filter.scss */
+.streams-filter__anchor {
+  color: #928d81;
 }
-/* line 6, ../sass/crossinghippos.nl/behavior/modules/_list-icons.scss */
-.list-icons__icon:first-child {
-  padding-left: 0;
+
+/* line 7, ../sass/crossinghippos.nl/behavior/modules/_streams_filter.scss */
+.streams-filter__anchor--active {
+  color: #c12b34;
 }
 
 /* line 1, ../sass/crossinghippos.nl/behavior/modules/_project.scss */
@@ -2420,36 +2391,6 @@ Main Navigation
   color: #c12b34;
 }
 
-/* line 39, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
-.hd--bribold {
-  font: normal, normal, 700, "bree", sans-serif;
-}
-
-/* line 43, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
-.hd--iconlink {
-  color: #a49990;
-}
-
-/* line 47, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
-.hd--iconlink:hover {
-  color: #c12b34;
-}
-
-/* line 51, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
-.hd--iconlink:visited {
-  color: #a49990;
-}
-
-/* line 55, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
-.hd--iconlink:visited:hover {
-  color: #c12b34;
-}
-
-/* line 59, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
-.hd--colorred {
-  color: #c12b34;
-}
-
 /* line 1, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
 .footer {
   background: #251c0f;
@@ -3010,13 +2951,14 @@ List of boxes
   font: normal normal 400 1.125em/24px "bree", sans-serif;
 }
 
-/* line 4, ../sass/crossinghippos.nl/behavior/modules/_list-icons.scss */
-.list-icons__icon {
-  padding-left: 0.75em;
+/* line 4, ../sass/crossinghippos.nl/behavior/modules/_streams_filter.scss */
+.streams-filter__anchor {
+  color: #928d81;
 }
-/* line 6, ../sass/crossinghippos.nl/behavior/modules/_list-icons.scss */
-.list-icons__icon:first-child {
-  padding-left: 0;
+
+/* line 7, ../sass/crossinghippos.nl/behavior/modules/_streams_filter.scss */
+.streams-filter__anchor--active {
+  color: #c12b34;
 }
 
 /* line 1, ../sass/crossinghippos.nl/behavior/modules/_project.scss */

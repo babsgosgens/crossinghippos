@@ -12,5 +12,10 @@ require_once __DIR__ . '/helper.php';
 
 $platforms = ModStreamsfilterHelper::getPlatforms();
 $icons = ModStreamsfilterHelper::getIcons();
+
+$uri = JFactory::getURI();
+
+$input = JFactory::getApplication()->input;
+
 $layout = $params->get('layout', 'default');
 require JModuleHelper::getLayoutPath('mod_streams_filter', $layout);
