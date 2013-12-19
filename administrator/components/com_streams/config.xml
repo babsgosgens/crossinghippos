@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<fieldset name="component"
+		label="COM_STREAMS_COMPONENT_LABEL"
+		description="COM_STREAMS_COMPONENT_DESC"
+	>
+
+	</fieldset>
+
+</config>
