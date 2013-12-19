@@ -22,7 +22,7 @@ $gravatar = "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $params->
 	<input type="hidden" name="task" value="contact.submit" />
 	<input type="hidden" name="id" value="1:babsgosgens" />
 	<input type="hidden" name="jform[contact_subject]" value="Make contact with Crossing Hippos" />
-	<input type="hidden" name="jform[return]" value="<?php echo base64_encode( $current_url ); ?>" />
+	<input type="hidden" name="jform[contact_redirect]" value="<?php echo base64_encode( $current_url ); ?>" />
 	<?php echo JHtml::_('form.token'); ?>
 	<fieldset>
 		<div class="fld-group--ff lt-column lt-column--half lt-gutters leader--half trailer--half">
@@ -51,7 +51,7 @@ $gravatar = "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $params->
 		</div>
 	</fieldset>
 	<fieldset class="txt-center leader">
-		<input type="text" class="no-speak only-bot" value="">
+		<input type="text" name="jform[contact_catchascatchcan]" class="no-speak only-bot" value="">
 		<input type="submit" value="<?php echo JText::_("MOD_CONTACT_LABEL_SUBMIT"); ?>" class="btn-base soft btn btn--large lt-column--half">
 	</fieldset>
 </form>
