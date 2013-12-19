@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="1.0"
+	client="site"
+	method="upgrade">
+	<name>mod_streams</name>
+	<author>Babs Gosgens</author>
+	<version>1.0</version>
+	<description>Social Streams Module</description>
+	<files>
+		<filename>mod_streams.xml</filename>
+		<filename module="mod_streams">mod_streams.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<filename>tmpl/default.php</filename>
+		<filename>tmpl/index.html</filename>
+	</files>
+</extension>
