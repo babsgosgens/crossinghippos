@@ -10,6 +10,9 @@ Box
 	@include border-radius(10px);
 	padding: inherit;
 }
+	.box--padded {
+		padding: rhythm(.5);
+	}
 	.box--filled {
 		background: lighten($dirt, 20%);
 		background: rgba($dirt, .15);
@@ -33,4 +36,19 @@ Box
 
 	.box__title {
 		@include adjust-font-size-to($l,1.25);
+	}
+
+
+/*
+-----------------------------------------------------------------------------
+Post - needs to be moved
+-----------------------------------------------------------------------------
+*/
+
+.post {
+	position: relative;
+}
+	.post__time {
+		position: absolute;
+		bottom: 0;
 	}

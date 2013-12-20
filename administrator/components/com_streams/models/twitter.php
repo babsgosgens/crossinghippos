@@ -160,7 +160,8 @@ class StreamsModelTwitter extends JModelAdmin
 	 */
 	protected function setResponse()
 	{
-		$url = 'https://api.twitter.com/1.1/statuses/home_timeline.json';
+		// $url = 'https://api.twitter.com/1.1/statuses/home_timeline.json';
+		$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 
 		if ( $this->response==null ) 
 		{

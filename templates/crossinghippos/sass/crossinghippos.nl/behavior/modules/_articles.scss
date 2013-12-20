@@ -3,5 +3,5 @@
 	@include vertical-rhythm(1, margin-bottom);
 }
 	.article__introduction {
-		@include font($bree-regular, px-to-em(18px));
+		@include font($bree-regular);
 	}

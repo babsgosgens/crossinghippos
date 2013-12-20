@@ -16,6 +16,11 @@ defined('_JEXEC') or die;
 // exit;
 ?>
 
-<a href="http://dribbble.com/<?php echo $displayData['post']->player->username; ?>"><span><?php echo $displayData['post']->player->name;?></span></a></p>
-<p><a href="<?php echo $displayData['post']->url; ?>"> <img class="postimage" src="<?php echo $displayData['post']->image_url; ?>"></a></p>
-<time><?php echo $displayData['date']; ?></time>
+<time class="date"><i class="fa fa-calendar"></i> <?php echo $displayData['date']; ?></time>
+
+<a href="<?php echo $displayData['post']->url; ?>" class="lt-base lt-vertical-padding"> <img class="media soft" src="<?php echo $displayData['post']->image_url; ?>"></a>
+
+<a href="http://dribbble.com/<?php echo $displayData['post']->player->username; ?>" class="post__actor">
+	<i class="fa fa-dribbble"></i>&nbsp;
+	<span><?php echo $displayData['post']->player->name;?> (<?php echo $displayData['post']->player->username;?>)</span>
+</a>

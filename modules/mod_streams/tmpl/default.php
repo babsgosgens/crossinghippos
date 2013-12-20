@@ -16,11 +16,11 @@ $document->addStyleSheet('media/mod_streams/js/slider.css');
 $count = 1;
 ?>
 
-<div class="streamscontent">
+<div class="streamscontent leader--double trailer">
 
 	<div class="streamswrapper">
 
-		<ul class="box-list">
+		<ul class="list-inline">
 				
 			<?php foreach($items as $item): ?>
 
@@ -28,15 +28,13 @@ $count = 1;
 					<div class="box-list__group">
 				<?php endif; ?>
 
-				<li class="lt-base lt-column--half lt-gutters lt-vertical-padding  box-list__item  box-list__item--js  box-list__item--<?php echo $item->platform; ?>" data-api="<?php echo $item->platform; ?>">
-					<div class="lt-column box  box--padded box--stream">
+				<li class="lt-base lt-column--half lt-gutters">
+					<div class="lt-column box box--js box--padded box--filled trailer box--stream post" data-api="<?php echo $item->platform; ?>">
 
 				    <?php
-				    $date = new JDate($item->date_created);
-
 				    // new data
 				    $itemObj['platform'] = $item->platform;
-					$itemObj['date'] = $date->format(JText::_('DATE_FORMAT_LC2'));
+					$itemObj['date'] = JHtml::_('date', $item->date_created);
 				    $itemObj['post'] = unserialize(base64_decode($item->raw));
 
 				    $layout = new JLayoutFile('layouts.' . $item->platform, JPATH_BASE . '/components/com_streams');
@@ -55,8 +53,5 @@ $count = 1;
 		</ul>
 
 	</div>
-
-	<a href="#left" class="left"><</a>
-	<a href="#right" class="right">></a>
 
 </div>

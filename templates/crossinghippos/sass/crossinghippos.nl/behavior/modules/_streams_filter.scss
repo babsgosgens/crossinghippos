@@ -2,7 +2,10 @@
 
 }
 	.streams-filter__anchor {
-		color: mix($color-body, $color-background);
+		color: rgba($dirt--rgb, .2);
+	}
+	.streams-filter__anchor--current {
+		color: $color-body;
 	}
 	.streams-filter__anchor--active {
 		color: $anchor-color;

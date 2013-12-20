@@ -15,6 +15,9 @@ defined('_JEXEC') or die;
 // echo '</pre>';
 // exit;
 ?>
-<a href="<?php echo $displayData['post']->author->html_url; ?>"><span><?php echo $displayData['post']->commit->author->name; ?></span></a>
-<p><?php echo $displayData['post']->commit->message; ?></p>
-<time><?php echo $displayData['date']; ?></time>
+<time class="date"><i class="fa fa-calendar"></i> <?php echo $displayData['date']; ?></time>
+
+<p class="lt-vertical-padding"><?php echo $displayData['post']->commit->message; ?></p>
+
+<a href="<?php echo $displayData['post']->author->html_url; ?>" class="post__actor">
+	<i class="fa fa-github"></i> <span><?php echo $displayData['post']->commit->author->name; ?></span></a>

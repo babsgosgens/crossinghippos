@@ -1,15 +1,13 @@
-.stream {
-	
-}
 
-.postimage {
-	max-width: 100%;
-	border-radius: 6px;
+.post {
+	position: relative;
+	padding-bottom: rhythm(1.25);
 }
-
-.lt.box-list__item.box--box-list.box--small{
-	a {
-		color: $got-it--hex;
-		text-decoration: none;
+	.post__actor {
+		position: absolute;
+		bottom: rhythm(.25);
+		left: rhythm(.5);
 	}
-}
+	.post__likes {
+		color: rgba($dirt--rgb, .4);
+	}

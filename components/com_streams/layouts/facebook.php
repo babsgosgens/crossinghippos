@@ -9,15 +9,24 @@
 
 defined('_JEXEC') or die;
 
+$post = $displayData['post'];
+
 // Uncomment for available attributes
 // echo '<pre>';
-// print_r($displayData);
+// print_r(count($post->likes->data));
 // echo '</pre>';
+/*	<img class="round img--inline outline--decorative" src="https://graph.facebook.com/<?php echo $displayData['post']->from->id; ?>/picture?square" width="32" height="32" alt="">&nbsp; */
 ?>
+<time class="date"><i class="fa fa-calendar"></i> <?php echo $displayData['date']; ?></time>
 
-<img class="avatar" src="https://graph.facebook.com/<?php echo $displayData['post']->from->id; ?>/picture?square">
-<a href="https://www.facebook.com/<?php echo $displayData['post']->from->id; ?>"><span><?php echo $displayData['post']->from->name;?></span></a>
-<?php if(isset($displayData['post']->message)): ?>
-	<p><?php echo $displayData['post']->message; ?></p>
+<p class="lt-vertical-padding">
+	<?php echo $post->message; ?>
+</p>
+<?php if (isset($post->likes)) : ?>
+<div class="post__likes"><i class="fa fa-thumbs-up"></i> <?php echo count($post->likes->data); ?></div>
 <?php endif; ?>
-<time><?php echo $displayData['date']; ?></time>
+
+<a href="https://https://www.facebook.com/babsgosgens" class="post__actor">
+	<i class="fa fa-facebook-square"></i>&nbsp;
+	<span><?php echo $post->from->name; ?></span>
+</a>

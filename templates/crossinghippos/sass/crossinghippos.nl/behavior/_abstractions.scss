@@ -112,3 +112,6 @@
 		@include box-shadow(0 -15px 15px 10px rgba($whipped-cream--rgb, .8), 0 15px 15px 10px rgba($whipped-cream--rgb, .8));
 	}
 }
+.img--inline {
+	vertical-align: bottom;
+}

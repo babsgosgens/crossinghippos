@@ -15,8 +15,12 @@ defined('_JEXEC') or die;
 // echo '</pre>';
 // exit;
 ?>
-<img class="avatar" src="<?php echo $displayData['post']->profileimg; ?>">
-<a href="http://www.flickr.com/photos/<?php echo $displayData['post']->owner->nsid; ?>"><span><?php echo $displayData['post']->owner->username; ?></span></a>
-<a href="<?php echo $displayData['post']->urls->url[0]->_content; ?>"><span><?php echo $displayData['post']->title->_content; ?></span>
-<img class="postimage" src="<?php echo 'http://farm'.$displayData['post']->farm.'.staticflickr.com/'.$displayData['post']->server.'/'.$displayData['post']->id.'_'.$displayData['post']->secret.'_m.jpg'; ?>" width="150"></a>
-<time><?php echo $displayData['date']; ?></time>
+<time class="date"><i class="fa fa-calendar"></i> <?php echo $displayData['date']; ?></time>
+<p class="lt-vertical-padding">
+<a href="<?php echo $displayData['post']->urls->url[0]->_content; ?>">
+<img class="media soft" src="<?php echo 'http://farm'.$displayData['post']->farm.'.staticflickr.com/'.$displayData['post']->server.'/'.$displayData['post']->id.'_'.$displayData['post']->secret.'_m.jpg'; ?>" width="150"></a>
+</p>
+<a href="http://www.flickr.com/photos/<?php echo $displayData['post']->owner->nsid; ?>" class="post__actor">
+	<i class="fa fa-flickr"></i>&nbsp;
+	<span><?php echo $displayData['post']->owner->username; ?></span>
+</a>

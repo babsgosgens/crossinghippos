@@ -15,12 +15,23 @@ defined('_JEXEC') or die;
 // echo '</pre>';
 
 // Format the content
-$patterns = array('/@(\w+)/', '/#(\w+)/');
-$replace = array('<a href="https://www.twitter.com/$1">@$1</a>', '<a href="https://twitter.com/search?q=%23$1&src=hash">#$1</a>');
+$patterns = array('/@(\w+)/', '/#(\w+)/', '/http[s]*:\/\/\w[.]{1}\w+[\/\w*]*[[.]{1}?\w\S*]+/');
+$replace = array('<a href="https://www.twitter.com/$1">@$1</a>', '<a href="https://twitter.com/search?q=%23$1&src=hash">#$1</a>', '<a href="$1">$1</a>');
 $formatted_post = preg_replace($patterns, $replace, $displayData['post']->text);
+
+/* <img class="round img--inline outline--decorative" src="<?php echo $displayData['post']->user->profile_image_url; ?>" width="32" height="32"></a>&nbsp; */
 ?>
 
-<img class="avatar" src="<?php echo $displayData['post']->user->profile_image_url; ?>" width="32" height="32">
-<a href="https://www.twitter.com/<?php echo $displayData['post']->user->screen_name; ?>"><span><?php echo $displayData['post']->user->name;?></span><em>@<?php echo $displayData['post']->user->screen_name;?></em></a>
-<p><?php echo $formatted_post; ?></p>
-<time><?php echo $displayData['date']; ?></time>
+
+<time class="date"><i class="fa fa-calendar"></i> <?php echo $displayData['date']; ?></time>
+
+
+
+<p class="lt-vertical-padding">
+<a href="https://www.twitter.com/<?php echo $displayData['post']->user->screen_name; ?>"><?php echo $formatted_post; ?>
+</p>
+<a href="https://www.twitter.com/<?php echo $displayData['post']->user->screen_name; ?>" class="post__actor">
+	<i class="fa fa-twitter"></i>&nbsp;
+	<span><?php echo $displayData['post']->user->name;?> (@<?php echo $displayData['post']->user->screen_name;?>)</span>
+</a>
+
