@@ -164,3 +164,12 @@ Masthead
     @-webkit-keyframes float {
 	    @include float-position("webkit"); 
 	}
+
+
+
+			.masthead__logo {
+				z-index: 2;
+				// background: rgba($whipped-cream--rgb, .2);
+				// @include box-shadow(0 -15px 15px 10px rgba($whipped-cream--rgb, .2), 0 15px 15px 10px rgba($whipped-cream--rgb, .2));
+				// @include border-radius(20px);
+			}

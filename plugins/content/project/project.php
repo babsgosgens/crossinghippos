@@ -193,6 +193,7 @@ class PlgContentProject extends JPlugin
 
                 $columns = array('parent_table', 'content_id', 'attribute', 'value', 'state', 'ordering');
 
+                $store = false;
                 $i=0; foreach ($attributes as $attribute)
                 {
                     if (isset($post['params'][$attribute]) && $post['params'][$attribute]!='')
@@ -200,11 +201,12 @@ class PlgContentProject extends JPlugin
                         $values = array($db->quote('categories'), $contentId, $db->quote($attribute), $db->quote($post['params'][$attribute]), 1, $i);
                         $query->values(implode(',', $values));
                         $db->setQuery($query);
+                        $store = true;
                     }
                     $i++;
                 }
 
-                if (!$db->query())
+                if ($store && !$db->query())
                 {
                    throw new Exception($db->getErrorMsg());
                 }
