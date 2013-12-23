@@ -40,6 +40,35 @@ Box
 	}
 
 
+	/*
+	-----------------------------------------------------------------------------
+	Breakpoints
+	-----------------------------------------------------------------------------
+	*/
+
+	@include breakpoint($lt-small)
+	{
+		.box--stream,
+		.box--projects {
+			min-height: 0;
+			max-height: 100%;
+		}
+	}
+	@include breakpoint($gt-small $lt-medium)
+	{
+		.box--stream,
+		.box--projects {
+			@include vertical-rhythm(8, min-height);
+		}
+	}
+	@include breakpoint($gt-medium $lt-large)
+	{
+		.box--stream,
+		.box--projects {
+			@include vertical-rhythm(10, min-height);
+		}
+	}
+
 /*
 -----------------------------------------------------------------------------
 Post - needs to be moved

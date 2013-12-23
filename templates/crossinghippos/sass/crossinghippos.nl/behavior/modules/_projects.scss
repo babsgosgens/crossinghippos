@@ -19,5 +19,30 @@
 {
 	.article__intro-image {
 		@include column-spacing;
-	}	
+	}
+	.projects__item {
+		@include column-width(1/4);
+	}
+}
+
+@include breakpoint($gt-medium $lt-large)
+{
+	.projects__item {
+		@include column-width(1/3);
+	}
+}
+
+
+@include breakpoint($gt-small $lt-medium)
+{
+	.projects__item {
+		@include column-width(1/2);
+	}
+}
+
+@include breakpoint($lt-small)
+{
+	.projects__item {
+		// @include column-width(1/3);
+	}
 }

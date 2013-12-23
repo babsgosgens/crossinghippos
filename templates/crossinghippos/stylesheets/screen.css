@@ -1053,6 +1053,11 @@ Button base
   .lt-prime--alpha-beta + .lt-alpha + .lt-beta {
     left: -75%;
   }
+
+  /* line 100, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  .lt-beta + .lt-prime {
+    left: 0;
+  }
 }
 /* line 1, ../sass/crossinghippos.nl/behavior/_base.scss */
 a {
@@ -1420,23 +1425,39 @@ a {
 .image-whitespace {
   display: inline-block;
   padding: 1.5em;
-  height: 9em;
 }
-/* line 102, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+/* line 101, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
 .image-whitespace img {
   line-height: 9em;
 }
 
 @media only screen and (max-width: 29.9375em) {
-  /* line 109, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+  /* line 108, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
   .main {
     margin-top: 1.5em;
     -webkit-box-shadow: 0 -15px 15px 10px rgba(255, 254, 244, 0.8), 0 15px 15px 10px rgba(255, 254, 244, 0.8);
     -moz-box-shadow: 0 -15px 15px 10px rgba(255, 254, 244, 0.8), 0 15px 15px 10px rgba(255, 254, 244, 0.8);
     box-shadow: 0 -15px 15px 10px rgba(255, 254, 244, 0.8), 0 15px 15px 10px rgba(255, 254, 244, 0.8);
   }
+
+  /* line 112, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+  .image-whitespace {
+    height: 4.5em;
+  }
 }
-/* line 114, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+@media only screen and (min-width: 30em) and (max-width: 63.9375em) {
+  /* line 118, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+  .image-whitespace {
+    height: 6em;
+  }
+}
+@media only screen and (min-width: 64em) {
+  /* line 124, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
+  .image-whitespace {
+    height: 9em;
+  }
+}
+/* line 128, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
 .img--inline {
   vertical-align: bottom;
 }
@@ -2106,15 +2127,42 @@ Box
 
 /*
 -----------------------------------------------------------------------------
+Breakpoints
+-----------------------------------------------------------------------------
+*/
+@media only screen and (max-width: 29.9375em) {
+  /* line 52, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
+  .box--stream,
+  .box--projects {
+    min-height: 0;
+    max-height: 100%;
+  }
+}
+@media only screen and (min-width: 30em) and (max-width: 49.9375em) {
+  /* line 60, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
+  .box--stream,
+  .box--projects {
+    min-height: 12em;
+  }
+}
+@media only screen and (min-width: 50em) and (max-width: 63.9375em) {
+  /* line 67, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
+  .box--stream,
+  .box--projects {
+    min-height: 15em;
+  }
+}
+/*
+-----------------------------------------------------------------------------
 Post - needs to be moved
 -----------------------------------------------------------------------------
 */
-/* line 49, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
+/* line 78, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
 .post {
   position: relative;
 }
 
-/* line 52, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
+/* line 81, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
 .post__time {
   position: absolute;
   bottom: 0;
@@ -2262,6 +2310,23 @@ Post - needs to be moved
   .article__intro-image {
     padding-left: 12.8px;
     padding-right: 12.8px;
+  }
+
+  /* line 23, ../sass/crossinghippos.nl/behavior/modules/_projects.scss */
+  .projects__item {
+    width: 25%;
+  }
+}
+@media only screen and (min-width: 50em) and (max-width: 63.9375em) {
+  /* line 30, ../sass/crossinghippos.nl/behavior/modules/_projects.scss */
+  .projects__item {
+    width: 33.33333%;
+  }
+}
+@media only screen and (min-width: 30em) and (max-width: 49.9375em) {
+  /* line 38, ../sass/crossinghippos.nl/behavior/modules/_projects.scss */
+  .projects__item {
+    width: 50%;
   }
 }
 /*
@@ -2953,15 +3018,42 @@ Box
 
 /*
 -----------------------------------------------------------------------------
+Breakpoints
+-----------------------------------------------------------------------------
+*/
+@media only screen and (max-width: 29.9375em) {
+  /* line 52, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
+  .box--stream,
+  .box--projects {
+    min-height: 0;
+    max-height: 100%;
+  }
+}
+@media only screen and (min-width: 30em) and (max-width: 49.9375em) {
+  /* line 60, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
+  .box--stream,
+  .box--projects {
+    min-height: 12em;
+  }
+}
+@media only screen and (min-width: 50em) and (max-width: 63.9375em) {
+  /* line 67, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
+  .box--stream,
+  .box--projects {
+    min-height: 15em;
+  }
+}
+/*
+-----------------------------------------------------------------------------
 Post - needs to be moved
 -----------------------------------------------------------------------------
 */
-/* line 49, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
+/* line 78, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
 .post {
   position: relative;
 }
 
-/* line 52, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
+/* line 81, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
 .post__time {
   position: absolute;
   bottom: 0;
@@ -3109,6 +3201,23 @@ Post - needs to be moved
   .article__intro-image {
     padding-left: 12.8px;
     padding-right: 12.8px;
+  }
+
+  /* line 23, ../sass/crossinghippos.nl/behavior/modules/_projects.scss */
+  .projects__item {
+    width: 25%;
+  }
+}
+@media only screen and (min-width: 50em) and (max-width: 63.9375em) {
+  /* line 30, ../sass/crossinghippos.nl/behavior/modules/_projects.scss */
+  .projects__item {
+    width: 33.33333%;
+  }
+}
+@media only screen and (min-width: 30em) and (max-width: 49.9375em) {
+  /* line 38, ../sass/crossinghippos.nl/behavior/modules/_projects.scss */
+  .projects__item {
+    width: 50%;
   }
 }
 /*

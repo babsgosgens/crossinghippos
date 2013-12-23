@@ -174,8 +174,8 @@ $parentUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->category->par
 <?php if (!empty($this->link_items)) : ?>
 
 <aside class="leader--double lt-root">
-<h1 class="lt-column lt-column--fourth lt-gutters hd"><?php echo JText::sprintf('TPL_CROSSINGHIPPOS_TITLE_PROJECT_ARTICLES', $this->category->title); ?></h1>
-<ol class="lt-column lt-column--half link-list">
+<h1 class="lt-beta lt-gutters hd hd--page trailer--half"><?php echo JText::sprintf('TPL_CROSSINGHIPPOS_TITLE_PROJECT_ARTICLES', $this->category->title); ?></h1>
+<ol class="lt-prime lt-prime--beta link-list">
 <?php
 	foreach ($this->link_items as &$item) :
 

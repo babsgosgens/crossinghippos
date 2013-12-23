@@ -98,9 +98,8 @@
 .image-whitespace {
 	display: inline-block;
 	@include vertical-rhythm(1, 'padding');
-	@include vertical-rhythm(6, 'height');
 	img {
-	@include vertical-rhythm(6, 'line-height');
+		@include vertical-rhythm(6, 'line-height');
 	}
 }
 
@@ -109,6 +108,21 @@
 	.main {
 		@include vertical-rhythm(1, margin-top);	
 		@include box-shadow(0 -15px 15px 10px rgba($whipped-cream--rgb, .8), 0 15px 15px 10px rgba($whipped-cream--rgb, .8));
+	}
+	.image-whitespace {
+		@include vertical-rhythm(3, 'height');
+	}
+}
+@include breakpoint($gt-small $lt-large)
+{
+	.image-whitespace {
+		@include vertical-rhythm(4, 'height');
+	}
+}
+@include breakpoint($gt-large)
+{
+	.image-whitespace {
+		@include vertical-rhythm(6, 'height');
 	}
 }
 .img--inline {

@@ -24,7 +24,7 @@ $app = JFactory::getApplication('site');
 		//print_r($item);exit;
 		//echo '</pre>';
 	?>
-	<div class="lt-column lt-column--fourth lt-gutters lt-vertical-padding  projects__item project">
+	<div class="lt-column lt-gutters lt-vertical-padding  projects__item project">
 		<div class="box box--projects">
 			<h1 class="hd box__title">
 				<a href="<?php echo $itemUrl; ?>" class="anchor--incognito">
