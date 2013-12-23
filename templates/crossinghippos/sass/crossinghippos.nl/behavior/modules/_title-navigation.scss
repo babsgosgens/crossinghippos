@@ -9,47 +9,62 @@ Title navigation
 	-----------------------------------------------------------------------------
 	All breakpoint
 	-----------------------------------------------------------------------------
-	*/
+	*/	
 
-	.title-navigation {
-		display: inline-block;
-		@include column-spacing(1/2, true);
+.w-sub-nav {
+		position: relative;
+		@include vertical-rhythm(1.5, "padding-top");
+	}
+	.sub-nav {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		@include vertical-rhythm(1.5, "max-height");
+		.parent,
+		.ui-dropdown {
+			display: inline-block;
+		}
+		.parent {
+			display: inline-block;
+			vertical-align: top;
+		}
+	}
+	.ui-dropdown {
+		position: relative;
+		>li {
+			position: absolute;
+			top: 0;
+			left: -1000em;
+			&.active,
+			&.current {
+				position: static;
+				&::after {
+					// @extend .icn;
+					// @extend .icn-arrow-down:before;
+				}
+			}
+		}
 		a {
-			@extend .btn-base;
-			position: relative;
-			padding-right: 1em; /* This is to allow for indication icons */
+			white-space: nowrap;
 		}
-		.icn {
-			position: absolute;
-			right: 0;
-			line-height: inherit !important;
-		}
-	}
-		.title-navigation.is--active {
-			position: absolute;
-			@extend .box;
-			@include column-spacing(1/2);
-			@include navigation-background;
-			a {
-				display: block;
-			}
-			.title-navigation__items {
-				@include show();
-			}
-		}
-		.title-navigation.is--inactive {
-			@include column-spacing(0);
-			.title-navigation__items {
-				@include hide();
-			}
-		}
-	.parent {
-		display: inline-block;
-		vertical-align: top;
-	}
-	
-	@include breakpoint($gt-small) {
-		.w-title-navigation {
-			@include adjust-font-size-to(18px,1);
+		&:hover {
+			padding-top: rhythm(1);
+			>li {
+				position: static;
+				&.current {
+					position: absolute;
+					left: vertical-rhythm(1/2);
+					&>a::before {
+						@extend .icn;
+						@extend .icn-checkmark:before;
+					}
+					&::after {
+						content: "";
+					}
+				}
+			}		
 		}
 	}
+
+
+				

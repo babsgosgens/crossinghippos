@@ -1,6 +1,7 @@
+.itemid-110 {
+	background: rgba($dirt--rgb, .2);
+}
 .projects {
-	text-align: center;
-
 	.tags {
 		@include font($bree-light);
 		@include adjust-font-size-to($s, 1);
@@ -9,8 +10,9 @@
 		@include font($bree-light);
 		color: $color-body;
 	}
-
-
+}
+.projects__item {
+	text-align: center;
 }
 
 @include breakpoint($gt-large)

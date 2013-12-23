@@ -11,6 +11,6 @@ defined('_JEXEC') or die;
 JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 //  echo JLayoutHelper::render('joomla.content.categories_default', $this);
 ?>
-<section class="lt-prime projects">
+<section class="lt-root projects lt-vertical-padding">
 	<?php echo $this->loadTemplate('items'); ?>
 </section>

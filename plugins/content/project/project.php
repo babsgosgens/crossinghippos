@@ -150,6 +150,7 @@ class PlgContentProject extends JPlugin
      */
     public function onContentAfterSave($context, &$row, $isNew)
     {
+        
         $input = JFactory::getApplication()->input;
 
         $post = $input->post->get('jform', null, null);

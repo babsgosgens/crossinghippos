@@ -14,6 +14,9 @@ if ($this->item->state == 0) {
 	return false;
 }
 
+$input = JFactory::getApplication()->input;
+$itemid = $input->getInt('Itemid');
+
 $document	= JFactory::getDocument();
 $params 	= $this->item->params;
 $images  	= json_decode($this->item->images);
@@ -70,21 +73,21 @@ $article['article'] = array(
 		)
 	);
 
-/*
- * Use a module for the header
- */
-$renderer	= $document->loadRenderer('module');
-$header	= JModuleHelper::getModule('mod_articles_categories');
-$headerIsActive = !is_null($header) && $header->id > 0;
+// /*
+//  * Use a module for the header
+//  */
+// $renderer	= $document->loadRenderer('module');
+// $header	= JModuleHelper::getModule('mod_articles_categories');
+// $headerIsActive = !is_null($header) && $header->id > 0;
 
 $identifier = 'categories';
-if (!is_null($header)) {
-	$headerAttribs	= array(
-		'style' => 'id',
-		'module_id' => $identifier
-	);
-	$titleNavigationOptions = $renderer->render($header, $headerAttribs);
-}
+// if (!is_null($header)) {
+// 	$headerAttribs	= array(
+// 		'style' => 'id',
+// 		'module_id' => $identifier
+// 	);
+// 	$titleNavigationOptions = $renderer->render($header, $headerAttribs);
+// }
 $parentTitle = $this->escape($this->item->parent_title);
 $parentUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug));
 $categoryTitle = $this->escape($this->item->category_title);
@@ -95,22 +98,7 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 // echo '<pre>';
 ?>
 
-<?php if ($this->params->get('show_page_heading', 1)) : ?>
-<header class="underline--dashed">
-	<div class="lt-root">
-		<div class="w-title-navigation lt-gutters">
-			<?php if ($headerIsActive) : ?>
-			<p class="parent"><a href="<?php echo $parentUrl; ?>" title="<?php echo JText::sprintf('TPL_CROSSINGHIPPOS_ANCHOR_TITLE_PARENTCATEGORY', $this->params->get('page_title')); ?>" class="btn-base anchor--incognito"><?php echo $this->params->get('page_title'); ?></a></p>
-			<div class="title-navigation" data-inject="#<?php echo $identifier; ?>">
-			<h1 class="title-navigation__trigger hd"><a href="<?php echo $categoryUrl; ?>"><?php echo $categoryTitle; ?></a></h1>
-			</div>
-			<?php else : ?>
-			<h1 class="hd hd--section"><a href="<?php echo $parentUrl; ?>" title="<?php echo JText::sprintf('TPL_CROSSINGHIPPOS_ANCHOR_TITLE_PARENTCATEGORY', $this->params->get('page_title')); ?>" class="btn-base anchor--incognito"><?php echo $this->params->get('page_title'); ?></a></h1>
-			<?php endif; ?>
-		</div>
-	</div>
-</header>
-<?php endif; ?>
+
 
 <?php if ($hasIntroImage) :?>
 <div class="box--filled">
@@ -138,13 +126,13 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 	?>
 	<div class="lt-prime lt-prime--alpha-beta lt-gutters<?php if ($hasTags) : ?> divider<?php endif; ?>">
 
-		<?php $articleLayout = new JLayoutFile('content.article.body', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
-		<?php echo $articleLayout->render($article); ?>
-
 		<?php // Article date ?>
 		<?php if ($params->get('show_publish_date')) : ?>
-			<time class="date link-list__date"><i class="fa fa-calendar-o"></i> <?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?></time>
+			<time class="date link-list__date trailer lt-column"><i class="fa fa-calendar-o"></i> <?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?></time>
 		<?php endif; ?>
+
+		<?php $articleLayout = new JLayoutFile('content.article.body', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
+		<?php echo $articleLayout->render($article); ?>
 
 
 		<?php echo $this->item->event->afterDisplayContent; ?>
@@ -171,11 +159,6 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 			<?php $tagsLayout = new JLayoutFile('content.tags.button', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
 			<?php echo $tagsLayout->render($this->item->tags->itemTags); ?>
 		<?php endif; ?>	
-
-		<?php if ($headerIsActive) : ?>
-			<?php echo $titleNavigationOptions; ?>
-		<?php endif; ?>
-
 	</div>
 
 	

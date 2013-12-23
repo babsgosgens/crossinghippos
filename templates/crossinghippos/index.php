@@ -39,10 +39,10 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 
 
 		<!-- Wraps the main section of the page -->
-		<div>
+		<div<?php if ($hasSubNavigation) : ?> class="w-sub-nav"<?php endif; ?>>
 
 			<!-- component output -->
-			<div role="main" class="main">
+			<div role="main" class="main itemid-<?php echo $active->id; ?>">
 				<jdoc:include type="message" />
 				<jdoc:include type="modules" name="title" style="header" />
 				<jdoc:include type="component" />
@@ -50,6 +50,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 
 			<!-- modules -->
 			<aside class="lt-root">
+				<!-- <h1 class="lt-prime lt-prime--clear lt-gutters hd hd--article">Through the grapevine:</h1> -->
 				<div class="lt-prime <?php echo $mainColumnClass; ?>">
 					<jdoc:include type="modules" name="position-prime" />
 				</div>
@@ -65,6 +66,13 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 			    <?php endif; ?>
 			</aside>
 
+			<?php if ($hasSubNavigation) : ?>
+			<div role="navigation" class="sub-nav underline--dashed">
+				<div class="lt-root">
+				<jdoc:include type="modules" name="position-8" style="subnav" />
+				</div>
+			</div>
+			<?php endif; ?>
 
 		</div>
 

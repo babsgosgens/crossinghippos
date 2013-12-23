@@ -16,7 +16,7 @@ $document->addStyleSheet('media/mod_streams/js/slider.css');
 $count = 1;
 ?>
 
-<div class="streamscontent leader--double trailer">
+<div class="streamscontent leader trailer">
 
 	<div class="streamswrapper">
 

@@ -12,7 +12,7 @@ defined('_JEXEC') or die;
 $requestedApi = $input->getWord('platform', '');
 ?>
 
-<ul class="list-inline streams-filter leader--double">
+<ul class="list-inline streams-filter leader">
 <?php foreach ($platforms as $item):
 
 	$apiUri = clone($uri);

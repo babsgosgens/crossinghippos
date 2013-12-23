@@ -61,6 +61,9 @@
 	.lt-prime {
 		@include column-width(1/2);
 	}
+	.lt-prime--clear {
+		margin-right: 25%;
+	}
 	.lt-prime-alpha {
 		@include column-width(3/4);
 	}

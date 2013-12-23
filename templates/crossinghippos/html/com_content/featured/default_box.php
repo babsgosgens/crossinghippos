@@ -62,13 +62,18 @@ $article['article'] = array(
 
 
 <article class="lt-column lt-column--half lt-gutters">
-	<div class="box box--filled soft">
-		<h1 class="hd box__title lt-gutters"><a href="<?php echo $article['title']['url'];?>" class="anchor--incognito"><?php echo $article['title']['title']; ?></a></h1>
-		<a href="<?php echo $article['title']['url'];?>" class="anchor--incognito"><img src="<?php echo $article['image']['src']; ?>" class="outline media soft"></a>
-	</div>
-	<?php // Article date ?>
-	<?php if ($params->get('show_publish_date')) : ?>
-		<time class="article__date"><?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?></time>
-	<?php endif; ?>
+<div class="box box--filled soft">
+<h1 class="hd box__title lt-gutters"><a href="<?php echo $article['title']['url'];?>" class="anchor--incognito"><?php echo $article['title']['title']; ?></a></h1>
+<a href="<?php echo $article['title']['url'];?>" class="anchor--incognito"><img src="<?php echo $article['image']['src']; ?>" class="outline media soft"></a>
+</div>
+		<?php // Article date ?>
+		<?php if ($params->get('show_publish_date')) : ?>
+			<time class="article__date"><?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?></time>
+		<?php endif; ?>
+		<?php if ($params->get('show_tags', 1) && !empty($this->item->tags)) : ?>
+			<?php $tagsLayout = new JLayoutFile('content.tags', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
+			<?php echo $tagsLayout->render($this->item->tags->itemTags); ?>
+		<?php endif; ?>
+
 </article>
 

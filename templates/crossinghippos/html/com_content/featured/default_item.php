@@ -14,6 +14,11 @@ if ($this->item->state == 0) {
 	return false;
 }
 
+
+JPluginHelper::importPlugin('content'); 
+$dispatcher = JEventDispatcher::getInstance();
+$dispatcher->trigger( 'onContentPrepare', array('com_content.article', &$this->item, &$this->params) );
+
 $params     = &$this->item->params;
 $tags 		= &$this->item->tags;
 $images     = json_decode($this->item->images);
@@ -44,11 +49,13 @@ $article['title'] = array(
 		)
 	);
 if (isset($images->image_intro) && !empty($images->image_intro)) {
-$article['image'] = array(
+	$article['image'] = array(
 		'caption' => $images->image_intro_caption ? htmlspecialchars($images->image_intro_caption) : '',
 		'src' => htmlspecialchars($images->image_intro),
 		'alt' => $images->image_intro_alt ? htmlspecialchars($images->image_intro_alt) : '',
-		'float' => 	empty($images->float_intro) ? $params->get('float_intro') : $images->float_intro
+		'float' => 	empty($images->float_intro) ? $params->get('float_intro') : $images->float_intro,
+		'figureClass' => 'lt-prime lt-gutters',
+		'imageClass' => 'media soft'
 	);		
 }
 $article['article'] = array(
@@ -61,8 +68,7 @@ $article['article'] = array(
 ?>
 
 
-<article class="article">
-
+<article class="article lt-root">
 
 	<?php
 	/*
@@ -71,17 +77,29 @@ $article['article'] = array(
 	 * ------------------------------------------------------------------------------------------------------------------
 	 */
 	?>
-	<div class="lt-prime lt-prime--alpha lt-gutters">
-
-		<?php $articleLayout = new JLayoutFile('content.article', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
-		<?php echo $articleLayout->render($article); ?>
+	<header class="lt-prime lt-prime--clear lt-gutters">
+		<h1 class="hd hd--article">
+			<a href="<?php echo $article['title']['url']; ?>"><?php echo $article['title']['title']; ?></a>
+		</h1>
 
 		<?php // Article date ?>
 		<?php if ($params->get('show_publish_date')) : ?>
-			<time class="article__date"><?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?></time>
+			<time class="date lt-vertical-padding lt-base"><i class="fa fa-calendar"></i>&nbsp;<?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?></time>
 		<?php endif; ?>
+	</header>
 
-		<?php echo $this->item->event->afterDisplayContent; ?>
+	<?php if (isset($images->image_intro) && !empty($images->image_intro)) : ?>
+	<div>
+		<?php $articleLayout = new JLayoutFile('content.image', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
+		<?php echo $articleLayout->render($article['image']); ?>
+	</div>
+	<?php endif; ?>
+
+	<div class="lt-prime lt-prime--alpha-beta lt-gutters">
+
+		<?php echo $article['article']['event']['before']; ?>
+		<?php echo $article['article']['content']; ?>
+		<?php echo $article['article']['event']['after']; ?>
 
 	</div>
 
@@ -93,90 +111,33 @@ $article['article'] = array(
 	 * ------------------------------------------------------------------------------------------------------------------
 	 */
 	?>
-	<div class="lt-alpha lt-gutters">
+	<aside class="lt-alpha lt-gutters">
 		<?php if ($params->get('show_tags', 1) && !empty($this->item->tags)) : ?>
-			<?php $tagsLayout = new JLayoutFile('content.tags', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
+			<?php $tagsLayout = new JLayoutFile('content.tags.button', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
 			<?php echo $tagsLayout->render($this->item->tags->itemTags); ?>
 		<?php endif; ?>
-	</div>
+	</aside>
 
+
+	<?php
+	/*
+	 * ------------------------------------------------------------------------------------------------------------------
+	 * TERTIARY - PROJECT LOGO AND DATA
+	 * ------------------------------------------------------------------------------------------------------------------
+	 */
+	?>
+	<footer class="lt-beta lt-gutters">
+		<?php if (isset($this->item->project) && !empty($this->item->project)): ?>
+		<?php
+		$title = $this->escape($this->item->category_title);
+		$layoutData = array(
+			'category' => '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)).'" class="hd anchor--incognito">'.$title.'</a>',
+			'project'  => $this->item->project
+			);
+		?>
+		<?php $projectDetails = new JLayoutFile('content.project', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
+		<?php echo $projectDetails->render($layoutData); ?>
+		<?php endif; ?>
+	</footer>
 
 </article>
-
-
-<?php if ($useDefList && ($info == 0 ||  $info == 2)) : ?>
-	<dl class="article-info  muted">
-		<dt class="article-info-term">
-		<?php echo JText::_('COM_CONTENT_ARTICLE_INFO'); ?>
-		</dt>
-
-		<?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
-			<dd class="createdby">
-				<?php $author = $this->item->author; ?>
-				<?php $author = ($this->item->created_by_alias ? $this->item->created_by_alias : $author); ?>
-				<?php if (!empty($this->item->contactid ) && $params->get('link_author') == true) : ?>
-					<?php
-					echo JText::sprintf('COM_CONTENT_WRITTEN_BY',
-						JHtml::_('link', JRoute::_('index.php?option=com_contact&view=contact&id='.$this->item->contactid), $author)
-					); ?>
-				<?php else :?>
-					<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
-				<?php endif; ?>
-			</dd>
-		<?php endif; ?>
-
-		<?php if ($params->get('show_parent_category') && !empty($this->item->parent_slug)) : ?>
-			<dd class="parent-category-name">
-				<?php $title = $this->escape($this->item->parent_title);
-				$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)).'">'.$title.'</a>';?>
-				<?php if ($params->get('link_parent_category') && !empty($this->item->parent_slug)) : ?>
-					<?php echo JText::sprintf('COM_CONTENT_PARENT', $url); ?>
-				<?php else : ?>
-					<?php echo JText::sprintf('COM_CONTENT_PARENT', $title); ?>
-				<?php endif; ?>
-			</dd>
-		<?php endif; ?>
-
-		<?php if ($params->get('show_category')) : ?>
-			<dd class="category-name">
-				<?php $title = $this->escape($this->item->category_title);
-				$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)).'">'.$title.'</a>';?>
-				<?php if ($params->get('link_category') && $this->item->catslug) : ?>
-					<?php echo JText::sprintf('COM_CONTENT_CATEGORY', $url); ?>
-				<?php else : ?>
-					<?php echo JText::sprintf('COM_CONTENT_CATEGORY', $title); ?>
-				<?php endif; ?>
-			</dd>
-		<?php endif; ?>
-
-		<?php if ($params->get('show_publish_date')) : ?>
-			<dd class="published">
-				<span class="icon-calendar"></span> <?php echo JText::sprintf('COM_CONTENT_PUBLISHED_DATE_ON', JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3'))); ?>
-			</dd>
-		<?php endif; ?>
-
-		<?php if ($info == 0) : ?>
-			<?php if ($params->get('show_modify_date')) : ?>
-				<dd class="modified">
-				<span class="icon-calendar"></span>
-				<?php echo JText::sprintf('COM_CONTENT_LAST_UPDATED', JHtml::_('date', $this->item->modified, JText::_('DATE_FORMAT_LC3'))); ?>
-				</dd>
-			<?php endif; ?>
-
-			<?php if ($params->get('show_create_date')) : ?>
-				<dd class="create">
-					<span class="icon-calendar"></span>
-					<?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC3'))); ?>
-				</dd>
-			<?php endif; ?>
-
-			<?php if ($params->get('show_hits')) : ?>
-				<dd class="hits">
-					<span class="icon-eye-open"></span>
-					<?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', $this->item->hits); ?>
-				</dd>
-			<?php endif; ?>
-
-		<?php endif; ?>
-	</dl>
-<?php endif; ?>

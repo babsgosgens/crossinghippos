@@ -38,46 +38,33 @@ else {
  * Check for project image
  */
 $image = '';
-$pattern = '/<figure.+\/figure>/';
+$pattern = '/<img.+\/>/';
 if( preg_match($pattern, $this->category->description, $images) )
 {
-	$this->category->description = preg_replace('/<figure.+\/figure>/', '', $this->category->description);
+	$this->category->description = preg_replace($pattern, '', $this->category->description);
 	$image = $images[0];
 }
 
-/*
- * Use a module for the header
- */
-$renderer	= $document->loadRenderer('module');
-$header	= JModuleHelper::getModule('mod_articles_categories');
-$headerIsActive = !is_null($header) && $header->id > 0;
+// /*
+//  * Use a module for the header
+//  */
+// $renderer	= $document->loadRenderer('module');
+// $header	= JModuleHelper::getModule('mod_articles_categories');
+// $headerIsActive = !is_null($header) && $header->id > 0;
 
-$identifier = 'categories';
-if ($headerIsActive) {
-	$headerAttribs	= array(
-		'style' => 'id',
-		'module_id' => $identifier
-	);
-	$titleNavigationOptions = $renderer->render($header, $headerAttribs);
-}
+// $identifier = 'categories';
+// if ($headerIsActive) {
+// 	$headerAttribs	= array(
+// 		'style' => 'id',
+// 		'module_id' => $identifier
+// 	);
+// 	$titleNavigationOptions = $renderer->render($header, $headerAttribs);
+// }
 $title = $this->escape($this->category->title);
 $url = JRoute::_(ContentHelperRoute::getCategoryRoute($this->category->id));
 $parentUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->category->parent_id));
 ?>
-
-<section class="section lt-root">
-	
-	<header class="w-title-navigation lt-gutters">
-		<?php if ($headerIsActive) : ?>
-		<p class="parent"><a href="<?php echo $parentUrl; ?>" title="<?php echo JText::sprintf('TPL_CROSSINGHIPPOS_ANCHOR_TITLE_PARENTCATEGORY', $this->params->get('page_title')); ?>" class="btn-base anchor--incognito"><?php echo $this->params->get('page_title'); ?></a></p>
-		<div class="title-navigation" data-inject="#<?php echo $identifier; ?>">
-		<h1 class="title-navigation__trigger hd"><a href="<?php echo $url; ?>"><?php echo $title = $this->escape($this->category->title); ?></a></h1>
-		</div>
-		<?php else : ?>
-		<h1 class="hd hd--section"><a href="<?php echo $parentUrl; ?>" title="<?php echo JText::sprintf('TPL_CROSSINGHIPPOS_ANCHOR_TITLE_PARENTCATEGORY', $this->params->get('page_title')); ?>" class="btn-base anchor--incognito"><?php echo $this->params->get('page_title'); ?></a></h1>
-		<?php endif; ?>
-	</header>
-
+<section class="section lt-root leader">
 
 	<div class="trailer">
 
@@ -88,6 +75,8 @@ $parentUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->category->par
 		 * ------------------------------------------------------------------------------------------------------------------
 		 */
 		?>
+
+
 		<div class="lt-prime-alpha valign-bottom">
 		<?php if ($image != '') : ?>
 			<?php echo $image; ?>
@@ -102,45 +91,19 @@ $parentUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->category->par
 		 * ------------------------------------------------------------------------------------------------------------------
 		 */
 		?>
-		<div class="lt-beta lt-gutters valign-bottom">
+		<div class="lt-beta lt-gutters trailer--double valign-bottom">
 			<?php if (!empty($project)): ?>
-			<dl class="lt-column lt-gutter-right">
-
-				<dt class="lt-base lt-column--third-persistent  underline--dashed" style="vertical-align: bottom;"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_PROJECT'); ?></dt>
-				<dd class="lt-base lt-column--two-third-persistent  underline--dashed">
-					<?php if ($this->params->get('show_description_image') && $this->category->getParams()->get('image')) : ?>
-					<div class="project__logo lt-column lt-column--two-third-persistent trailer--half">
-						<img src="<?php echo $this->category->getParams()->get('image'); ?>" class="media">
-					</div>
-					<?php endif; ?>
-					<div><?php echo $title;?></div>
-				</dd>
-
-				<?php if (isset($project['projectclient']) && !empty($project['projectclient'])): ?>
-				<dt class="lt-base lt-column--third-persistent  underline--dashed"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_CLIENT'); ?></dt>
-				<dd class="lt-base lt-column--two-third-persistent  underline--dashed"><?php echo $project['projectclient']; ?></dd>
-				<?php endif; ?>
-
-				<?php if (isset($project['projectcontractor']) && !empty($project['projectcontractor'])): ?>
-				<dt class="lt-base lt-column--third-persistent  underline--dashed"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_CONTRACTOR'); ?></dt>
-				<dd class="lt-base lt-column--two-third-persistent  underline--dashed"><?php echo $project['projectcontractor']; ?></dd>
-				<?php endif; ?>
-
-				<?php if (isset($project['projectstart']) && !empty($project['projectstart'])): ?>
-				<dt class="lt-base lt-column--third-persistent  underline--dashed"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_PROJECTSTART'); ?></dt>
-				<dd class="lt-base lt-column--two-third-persistent  underline--dashed"><?php echo $project['projectstart']; ?></dd>
-				<?php endif; ?>
-
-				<?php if (isset($project['projectend']) && !empty($project['projectend'])): ?>
-				<dt class="lt-base lt-column--third-persistent  underline--dashed"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_PROJECTEND'); ?></dt>
-				<dd class="lt-base lt-column--two-third-persistent  underline--dashed"><?php echo $project['projectend']; ?></dd>
-				<?php endif; ?>
-
-				<?php if (isset($project['projecturl']) && !empty($project['projecturl'])): ?>
-				<dt class="lt-base lt-column--third-persistent"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_WEBSITE'); ?></dt>
-				<dd class="lt-base lt-column--two-third-persistent"><a href="<?php echo $project['projecturl']; ?>"><?php echo $project['projecturl']; ?></a></dd>
-				<?php endif; ?>
-			</dl>
+			<?php
+			$layoutData = array(
+				'category' => $title,
+				'project'  => $project,
+				);
+			if ($this->params->get('show_description_image') && $this->category->getParams()->get('image')) {
+				$layoutData['image'] = $this->category->getParams()->get('image');
+			}
+			?>
+			<?php $projectDetails = new JLayoutFile('content.project', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
+			<?php echo $projectDetails->render($layoutData); ?>
 			<?php endif; ?>
 		</div>
 
@@ -153,6 +116,9 @@ $parentUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->category->par
 	 * ------------------------------------------------------------------------------------------------------------------
 	 */
 	?>
+	<?php if ($this->params->get('show_page_heading') != 0) : ?>
+	<h1 class="hd hd--section lt-prime lt-prime--clear lt-gutters"><a href="<?php echo $parentUrl; ?>" title="<?php echo JText::sprintf('TPL_CROSSINGHIPPOS_ANCHOR_TITLE_PARENTCATEGORY', $this->params->get('page_title')); ?>" class="btn-base anchor--incognito"><?php echo $this->params->get('page_title'); ?></a></h1>
+	<?php endif; ?>
 	<div class="lt-prime <?php if ($hasTags) : ?> divider<?php endif; ?> lt-prime--alpha-beta lt-gutters">
 	<?php if ($this->params->get('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
 	<div class="category-desc clearfix">
@@ -176,11 +142,6 @@ $parentUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->category->par
 	<div class="lt-alpha lt-gutters">
 		<?php $tagsLayout = new JLayoutFile('content.tags.button', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
 		<?php echo $tagsLayout->render($this->category->tags->itemTags); ?>
-
-		<?php if (!is_null($header)) : ?>
-			<?php echo $titleNavigationOptions; ?>
-		<?php endif; ?>
-
 	</div>
 
 
@@ -207,11 +168,10 @@ $parentUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->category->par
 <?php if (!empty($this->lead_items)) : ?>
 <?php  endif; ?>
 
-<?php if (!empty($this->links_items)) : ?>
+<?php if (!empty($this->intro_items)) : ?>
 <?php  endif; ?>
 
 <?php if (!empty($this->link_items)) : ?>
-
 
 <aside class="leader--double lt-root">
 <h1 class="lt-column lt-column--fourth lt-gutters hd"><?php echo JText::sprintf('TPL_CROSSINGHIPPOS_TITLE_PROJECT_ARTICLES', $this->category->title); ?></h1>
@@ -246,8 +206,8 @@ $parentUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->category->par
 			<h1 class="<?php echo $titleClass; ?>"><a href="<?php echo $url; ?>" class="anchor--incognito"><?php echo $title; ?></a></h1>
 
 			<div class="link-list__meta">
-			<?php $tagsLayout = new JLayoutFile('content.tags', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
-			<?php echo $tagsLayout->render($item->tags->itemTags); ?>
+			<?php // $tagsLayout = new JLayoutFile('content.tags', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
+			<?php // echo $tagsLayout->render($item->tags->itemTags); ?>
 
 			<span class="link-list__category"><i class="fa fa-folder-open"></i> <?php echo $this->escape($item->parent_title); ?></span>
 			</div>

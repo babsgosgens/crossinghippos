@@ -66,6 +66,16 @@ function modChrome_UiDd($module, $params, $attribs)
 
 }
 
+function modChrome_Subnav($module, $params, $attribs)
+{
+	// $moduleClass = preg_replace('/(\s+\D*)$/', '', $params->get('moduleclass_sfx', 'ui-dd'));
+	// $params->set('header_class', $moduleClass.'__trigger');
+	// $params->set('header_tag', 'a href="#menu"');
+	
+	modChrome_Cms($module, $params, $attribs);
+
+}
+
 function modChrome_Id($module, $params, $attribs)
 {
 	if (isset($attribs['module_id'])) {

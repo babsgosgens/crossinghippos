@@ -73,6 +73,13 @@ $input = $app->input;
 $session = JFactory::getSession();
 
 /**
+ * Get the active menu item
+ *
+ */
+$menu = $app->getMenu();
+$active = $menu->getActive();
+
+/**
  * Get current url
  *
  */
@@ -162,3 +169,5 @@ elseif( $alphaColumn) {
 elseif( $betaColumn) {
 	$mainColumnClass = $mainColumnClass . '--beta';
 }
+
+$hasSubNavigation = $this->countModules('position-8');

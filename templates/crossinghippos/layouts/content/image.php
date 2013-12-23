@@ -23,9 +23,9 @@ $g
 ?>
 <?php if (!empty($displayData)) : ?>
 
-	<?php if ($displayData['caption']!=''): ?>
+	<?php if ($displayData['caption']!='' || $displayData['figureClass']!=''): ?>
 	<figure<?php if ( isset($displayData['figureClass']) && $displayData['figureClass'] !='') : ?> class="<?php echo $displayData['figureClass']; ?>"<?php endif; ?>>
-		<figcaption><?php echo $displayData['caption']; ?></figcaption>
+		<?php if ($displayData['caption']!='') : ?><figcaption><?php echo $displayData['caption']; ?></figcaption><?php endif; ?>
 		<img src="<?php echo $displayData['src']; ?>" alt="<?php echo $displayData['alt']; ?>"<?php if ( isset($displayData['imageClass']) && $displayData['imageClass'] !='') : ?> class="<?php echo $displayData['imageClass']; ?>"<?php endif; ?>>
 	</figure>
 	<?php else: ?>
