@@ -27,7 +27,7 @@ Box
 		}
 	}
 	.box--stream {
-		@include vertical-rhythm(12, min-height);
+		// @include vertical-rhythm(12, min-height);
 	}
 
 	.box--projects {
@@ -39,6 +39,11 @@ Box
 		@include adjust-font-size-to($l,1.25);
 	}
 
+	.box-list__group {
+		&>li {
+			float: left;
+		}
+	}
 
 	/*
 	-----------------------------------------------------------------------------

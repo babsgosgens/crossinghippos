@@ -2099,11 +2099,6 @@ Box
   color: #fffef4;
 }
 
-/* line 29, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
-.box--stream {
-  min-height: 18em;
-}
-
 /* line 33, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
 .box--projects {
   background-color: #fffef4;
@@ -2115,13 +2110,18 @@ Box
   line-height: 1.17188em;
 }
 
+/* line 43, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
+.box-list__group > li {
+  float: left;
+}
+
 /*
 -----------------------------------------------------------------------------
 Breakpoints
 -----------------------------------------------------------------------------
 */
 @media only screen and (max-width: 29.9375em) {
-  /* line 52, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
+  /* line 57, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
   .box--stream,
   .box--projects {
     min-height: 0;
@@ -2129,14 +2129,14 @@ Breakpoints
   }
 }
 @media only screen and (min-width: 30em) and (max-width: 49.9375em) {
-  /* line 60, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
+  /* line 65, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
   .box--stream,
   .box--projects {
     min-height: 12em;
   }
 }
 @media only screen and (min-width: 50em) and (max-width: 63.9375em) {
-  /* line 67, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
+  /* line 72, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
   .box--stream,
   .box--projects {
     min-height: 15em;
@@ -2147,12 +2147,12 @@ Breakpoints
 Post - needs to be moved
 -----------------------------------------------------------------------------
 */
-/* line 78, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
+/* line 83, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
 .post {
   position: relative;
 }
 
-/* line 81, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
+/* line 86, ../sass/crossinghippos.nl/behavior/modules/_box.scss */
 .post__time {
   position: absolute;
   bottom: 0;
