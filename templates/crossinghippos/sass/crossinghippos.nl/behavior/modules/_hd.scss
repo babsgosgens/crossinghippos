@@ -19,3 +19,9 @@
 		@include adjust-font-size-to(18px,1);
 	}
 }
+	
+@include breakpoint($lt-small) {
+	.hd--article {
+		@include adjust-leading-to(1.25, $l);
+	}
+}

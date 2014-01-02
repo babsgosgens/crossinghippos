@@ -1562,6 +1562,12 @@ No-JS fallback
     line-height: 1.33333em;
   }
 }
+@media only screen and (max-width: 29.9375em) {
+  /* line 24, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+  .hd--article {
+    line-height: 1.17188em;
+  }
+}
 /* line 1, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
 .footer {
   background: #251c0f;
@@ -2517,6 +2523,12 @@ Main Navigation
   .hd--page {
     font-size: 1.125em;
     line-height: 1.33333em;
+  }
+}
+@media only screen and (max-width: 29.9375em) {
+  /* line 24, ../sass/crossinghippos.nl/behavior/modules/_hd.scss */
+  .hd--article {
+    line-height: 1.17188em;
   }
 }
 /* line 1, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
