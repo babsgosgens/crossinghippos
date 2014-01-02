@@ -10,6 +10,10 @@
 	@include padding-trailer(.5);
 }
 
+.lt-base--float {
+	float: left;
+}
+
 .lt-prime,
 .lt-alpha,
 .lt-beta,

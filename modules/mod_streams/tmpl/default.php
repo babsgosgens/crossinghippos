@@ -20,15 +20,11 @@ $count = 1;
 
 	<div class="streamswrapper">
 
-		<ul class="list-inline">
+		<ul class="list-inline box-list">
 				
 			<?php foreach($items as $item): ?>
 
-				<?php if ($count % 4 == 1): ?>
-					<div class="box-list__group">
-				<?php endif; ?>
-
-				<li class="lt-base lt-column--half lt-gutters">
+				<li class="lt-base lt-base--float lt-column--half lt-gutters">
 					<div class="lt-column box box--js box--padded box--filled trailer box--stream post" data-api="<?php echo $item->platform; ?>">
 
 				    <?php
@@ -43,10 +39,6 @@ $count = 1;
 
 					</div>
 				</li>
-
-				<?php if ($count % 4 == 0): ?>
-					</div>
-				<?php endif; ?>
 
 			<?php $count++; endforeach; ?>
 

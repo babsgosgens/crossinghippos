@@ -958,7 +958,12 @@ Button base
   padding-bottom: 0.75em;
 }
 
-/* line 16, ../sass/crossinghippos.nl/behavior/_layout.scss */
+/* line 13, ../sass/crossinghippos.nl/behavior/_layout.scss */
+.lt-base--float {
+  float: left;
+}
+
+/* line 20, ../sass/crossinghippos.nl/behavior/_layout.scss */
 .lt-prime,
 .lt-alpha,
 .lt-beta,
@@ -971,26 +976,26 @@ Button base
   *display: inline;
 }
 
-/* line 21, ../sass/crossinghippos.nl/behavior/_layout.scss */
+/* line 25, ../sass/crossinghippos.nl/behavior/_layout.scss */
 .lt-prime::after {
   display: table;
   width: 100%;
 }
 
 @media only screen and (max-width: 63.9375em) {
-  /* line 32, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  /* line 36, ../sass/crossinghippos.nl/behavior/_layout.scss */
   .lt-prime {
     width: 100%;
   }
 
-  /* line 36, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  /* line 40, ../sass/crossinghippos.nl/behavior/_layout.scss */
   .lt-alpha,
   .lt-beta {
     width: 50%;
   }
 }
 @media only screen and (max-width: 49.9375em) {
-  /* line 44, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  /* line 48, ../sass/crossinghippos.nl/behavior/_layout.scss */
   .lt-prime,
   .lt-alpha,
   .lt-beta {
@@ -998,7 +1003,7 @@ Button base
   }
 }
 @media only screen and (min-width: 50em) {
-  /* line 54, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  /* line 58, ../sass/crossinghippos.nl/behavior/_layout.scss */
   .lt-prime-alpha,
   .lt-prime,
   .lt-alpha,
@@ -1006,55 +1011,55 @@ Button base
     position: relative;
   }
 
-  /* line 58, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  /* line 62, ../sass/crossinghippos.nl/behavior/_layout.scss */
   .lt-prime,
   .lt-prime-alpha {
     left: 25%;
   }
 
-  /* line 61, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  /* line 65, ../sass/crossinghippos.nl/behavior/_layout.scss */
   .lt-prime {
     width: 50%;
   }
 
-  /* line 64, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  /* line 68, ../sass/crossinghippos.nl/behavior/_layout.scss */
   .lt-prime--clear {
     margin-right: 25%;
   }
 
-  /* line 67, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  /* line 71, ../sass/crossinghippos.nl/behavior/_layout.scss */
   .lt-prime-alpha {
     width: 75%;
   }
 
-  /* line 71, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  /* line 75, ../sass/crossinghippos.nl/behavior/_layout.scss */
   .lt-alpha,
   .lt-beta {
     width: 25%;
   }
 
-  /* line 79, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  /* line 83, ../sass/crossinghippos.nl/behavior/_layout.scss */
   .lt-prime--alpha + .lt-alpha,
   .lt-prime--alpha-beta + .lt-alpha {
     left: 25%;
   }
 
-  /* line 84, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  /* line 88, ../sass/crossinghippos.nl/behavior/_layout.scss */
   .lt-prime-alpha + .lt-beta {
     left: -75%;
   }
 
-  /* line 89, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  /* line 93, ../sass/crossinghippos.nl/behavior/_layout.scss */
   .lt-prime--beta + .lt-beta {
     left: -50%;
   }
 
-  /* line 95, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  /* line 99, ../sass/crossinghippos.nl/behavior/_layout.scss */
   .lt-prime--alpha-beta + .lt-alpha + .lt-beta {
     left: -75%;
   }
 
-  /* line 100, ../sass/crossinghippos.nl/behavior/_layout.scss */
+  /* line 104, ../sass/crossinghippos.nl/behavior/_layout.scss */
   .lt-beta + .lt-prime {
     left: 0;
   }

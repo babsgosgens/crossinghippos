@@ -49,9 +49,26 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 			</div>
 
 			<!-- modules -->
+			<aside>
+			<header class="lt-root">
+				<h1 class="lt-prime lt-gutters hd hd--article">Stuff I said</h1>
+			</header>
+			<div>
+			<div class="lt-root">
+				<!-- <h1 class="lt-prime lt-prime--clear lt-gutters hd hd--article">Through the grapevine:</h1> -->
+				<div class="lt-prime lt-prime--alpha">
+					<jdoc:include type="modules" name="streams" />
+				</div>
+				<div class="lt-alpha">
+					<jdoc:include type="modules" name="streams-filter" />
+				</div>
+			</div>
+			</div>
+			</aside>
+			<!-- modules -->
 			<aside class="lt-root">
 				<!-- <h1 class="lt-prime lt-prime--clear lt-gutters hd hd--article">Through the grapevine:</h1> -->
-				<div class="lt-prime <?php echo $mainColumnClass; ?>">
+				<div class="lt-prime-alpha <?php echo $mainColumnClass; ?>">
 					<jdoc:include type="modules" name="position-prime" />
 				</div>
     			<?php if($alphaColumn): ?>
