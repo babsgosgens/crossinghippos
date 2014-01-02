@@ -91,7 +91,7 @@ $parentUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->category->par
 		 * ------------------------------------------------------------------------------------------------------------------
 		 */
 		?>
-		<div class="lt-beta lt-gutters trailer--double valign-bottom">
+		<div class="lt-beta lt-gutters valign-bottom">
 			<?php if (!empty($project)): ?>
 			<?php
 			$layoutData = array(

@@ -13,7 +13,7 @@ $project = $displayData['project'];
 $image   = isset($displayData['image']) ? $displayData['image'] : '';
 ?>
 
-			<dl class="lt-column lt-gutter-right">
+			<dl class="lt-column lt-gutter-right  project__data">
 
 				<dt class="lt-base lt-column--third-persistent  underline--dashed" style="vertical-align: bottom;"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_PROJECT'); ?></dt>
 				<dd class="lt-base lt-column--two-third-persistent  underline--dashed">

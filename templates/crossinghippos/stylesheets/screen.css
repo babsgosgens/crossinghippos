@@ -2277,6 +2277,12 @@ Post - needs to be moved
     /* dirty hack */
   }
 }
+@media only screen and (min-width: 50em) {
+  /* line 74, ../sass/crossinghippos.nl/behavior/modules/_project.scss */
+  .project__data {
+    margin-bottom: 3em;
+  }
+}
 /* line 1, ../sass/crossinghippos.nl/behavior/modules/_projects.scss */
 .itemid-110 {
   background: rgba(37, 28, 15, 0.2);
@@ -3237,6 +3243,12 @@ Post - needs to be moved
   .project__logo {
     display: none;
     /* dirty hack */
+  }
+}
+@media only screen and (min-width: 50em) {
+  /* line 74, ../sass/crossinghippos.nl/behavior/modules/_project.scss */
+  .project__data {
+    margin-bottom: 3em;
   }
 }
 /* line 1, ../sass/crossinghippos.nl/behavior/modules/_projects.scss */

@@ -68,3 +68,10 @@
 			display: none; /* dirty hack */
 		}
 	}
+
+	@include breakpoint($gt-medium)
+	{
+		.project__data {
+			@include trailer(2);
+		}
+	}
