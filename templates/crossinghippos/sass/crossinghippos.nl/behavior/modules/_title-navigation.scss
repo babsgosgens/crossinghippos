@@ -13,13 +13,13 @@ Title navigation
 
 .w-sub-nav {
 	position: relative;
-	@include vertical-rhythm(1.5, "padding-top");
+	@include vertical-rhythm(1.5, padding-top);
 }
 .sub-nav {
 	position: absolute;
 	top: 0;
 	width: 100%;
-	@include vertical-rhythm(1.5, "max-height");
+	@include vertical-rhythm(1.5, max-height);
 	.parent,
 	.ui-dropdown {
 		display: inline-block;
@@ -95,4 +95,18 @@ Title navigation
 }
 
 
-				
+	/*
+	-----------------------------------------------------------------------------
+	Breakpoint
+	-----------------------------------------------------------------------------
+	*/
+
+	@include breakpoint($lt-small) {
+
+		.w-sub-nav {
+			@include vertical-rhythm(2.5, padding-top);
+		}
+		.sub-nav {
+			@include vertical-rhythm(1, top);
+		}
+	}

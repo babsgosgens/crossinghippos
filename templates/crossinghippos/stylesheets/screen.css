@@ -1893,7 +1893,7 @@ Main Navigation
 /* line 38, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
 .main-nav {
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   border-bottom: 1px solid rgba(37, 28, 15, 0.2);
   padding: 0.75em 0;
@@ -2454,6 +2454,22 @@ All breakpoint
   color: #00b09e;
 }
 
+/*
+-----------------------------------------------------------------------------
+Breakpoint
+-----------------------------------------------------------------------------
+*/
+@media only screen and (max-width: 29.9375em) {
+  /* line 106, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
+  .w-sub-nav {
+    padding-top: 3.75em;
+  }
+
+  /* line 109, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
+  .sub-nav {
+    top: 1.5em;
+  }
+}
 /*
 -----------------------------------------------------------------------------
 Main Navigation
@@ -2834,7 +2850,7 @@ Main Navigation
 /* line 38, ../sass/crossinghippos.nl/behavior/modules/_main-nav.scss */
 .main-nav {
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   border-bottom: 1px solid rgba(37, 28, 15, 0.2);
   padding: 0.75em 0;
@@ -3395,6 +3411,22 @@ All breakpoint
   color: #00b09e;
 }
 
+/*
+-----------------------------------------------------------------------------
+Breakpoint
+-----------------------------------------------------------------------------
+*/
+@media only screen and (max-width: 29.9375em) {
+  /* line 106, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
+  .w-sub-nav {
+    padding-top: 3.75em;
+  }
+
+  /* line 109, ../sass/crossinghippos.nl/behavior/modules/_title-navigation.scss */
+  .sub-nav {
+    top: 1.5em;
+  }
+}
 /*
 -----------------------------------------------------------------------------
 Main Navigation
