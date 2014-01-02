@@ -13,15 +13,20 @@
 	// @include vertical-rhythm(1, margin-bottom);
 	@include adjust-font-size-to($l);
 }
+	/*
+	-------------------------------------------------------------------------
+	Breakpoints
+	-------------------------------------------------------------------------
+	*/
 	
-@include breakpoint($gt-small) {
-	.hd--page {
-		@include adjust-font-size-to(18px,1);
+	@include breakpoint($gt-small) {
+		.hd--page {
+			@include adjust-font-size-to(18px,1);
+		}
 	}
-}
-	
-@include breakpoint($lt-small) {
-	.hd--article {
-		@include adjust-leading-to(1.25, $l);
+		
+	@include breakpoint($lt-small) {
+		.hd--article {
+			@include adjust-leading-to(1.25, $l);
+		}
 	}
-}

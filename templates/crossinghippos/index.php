@@ -100,7 +100,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 
 		/* Prepare for toggle */
 		$(".ui-dd__item").addClass("ui-dd__item--inactive");
-		$(".adaptive-menu, .title-navigation, .fld-group--ff").addClass("is--inactive");
+		$(".adaptive-menu, .fld-group--ff").addClass("is--inactive");
 
 		$("fld-group__label--ff").toggleStateClass({
 			targetContext: ".fld-group",
@@ -108,11 +108,17 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 			activeClass:"is--active",
 			inactiveClass:"is--inactive"});
 
-		$(".title-navigation__trigger").toggleStateClass({
-			targetContext: ".w-title-navigation",
-			target: ".title-navigation",
-			activeClass:"is--active",
-			inactiveClass:"is--inactive"}).find("a").append('<i class="fa fa-sort icn"></i>');
+		/* Category navigat */
+		$(".cat-nav__options").addClass("cat-nav__options--inactive").bind("click");
+		$("cat-nav__options--inactive").on("click", function(e){
+			$(this).toggleClass("cat-nav__options--active").toggleClass("cat-nav__options--inactive")
+		});
+		$(".cat-nav__options .active").toggleStateClass({
+			targetContext: ".cat-nav",
+			target: ".cat-nav__options",
+			activeClass:"cat-nav__options--active",
+			inactiveClass:"cat-nav__options--inactive"});
+
 
 		/* Initialise toggles */
 		$(".ui-dd__trigger").toggleStateClass();
@@ -125,7 +131,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 			$(".adaptive-menu__trigger").click();
 		});
 
-		$("[data-inject]").append( $( $("[data-inject]").data("inject") ).addClass("hd") );
+		// $("[data-inject]").append( $( $("[data-inject]").data("inject") ).addClass("hd") );
 
 
 	    var img    = $(".masthead__logo"),

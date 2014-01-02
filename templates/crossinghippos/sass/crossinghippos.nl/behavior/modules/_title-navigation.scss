@@ -28,27 +28,42 @@ Title navigation
 		display: inline-block;
 		vertical-align: top;
 	}
-
-	.current {
-		&::after {
-			@include horizontal-rhythm(1/4, margin-left);
-			@extend .icn;
-			@extend .soft;
-			// color: $color-background;
-			// background: $color-primary;
-			content: "\e614";
-		}
-	}
 	li {
 		@include column-spacing;
+		font-weight: 300;
 		&:hover {
 			background: inherit;
 			color: $anchor-color-hover;
 		}
+		&.active {
+			font-weight: inherit;
+		}
 	}
 }
-.ui-dropdown {
-	position: relative;
+
+.cat-nav__options {
+	// position: relative;
+	margin-left: 0;
+	@include transition(margin-left .2s ease-in);
+	a {
+		white-space: nowrap;
+	}
+}
+.cat-nav__options--active,
+.cat-nav__options--inactive {
+	>li {
+		&::after {
+			@include horizontal-rhythm(1/4, margin-left);
+			@extend .icn;
+		}
+	}
+}
+.cat-nav__options--inactive {
+	.current {
+		&::after {
+			content: "\e614";
+		}
+	}
 	>li {
 		position: absolute;
 		top: 0;
@@ -56,42 +71,33 @@ Title navigation
 		&.active,
 		&.current {
 			position: static;
-			// &::after {
-			// 	// @extend .icn;
-			// 	// @extend .icn-arrow-down:before;
-			// }
 		}
 	}
-	a {
-		white-space: nowrap;
-	}
-	margin-left: 0;
-	@include transition(margin-left .2s ease-in);
-	&:hover {
-		z-index: 1;
-		// padding-top: rhythm(1);
-		border: 1px solid rgba($dirt, .2);
-		border-top: 0;
-		@include box-shadow(0 0 20px 0 rgba($dirt--rgb, .3), -5px 0 20px 0 rgba($dirt--rgb, .3));
-		@include navigation-background;
-		@include horizontal-rhythm(1/4, margin-left);
-		@include vertical-rhythm(-1/4, margin-top);
-		@include vertical-rhythm(1/4, padding-top);
-		@include vertical-rhythm(1/4, padding-bottom);
-		>li {
-			position: static;
-			&.current {
-				// position: absolute;
-				// left: 0;
-				background: rgba($dirt, .2);
-				@include vertical-rhythm(1/4, padding-top);
-				&::after {
-					content: "\e613";
-					color: $color-primary;
-				}
+}
+.cat-nav__options--active {
+	z-index: 1;
+	// padding-top: rhythm(1);
+	border: 1px solid rgba($dirt, .2);
+	border-top: 0;
+	@include box-shadow(0 0 20px 0 rgba($dirt--rgb, .3), -5px 0 20px 0 rgba($dirt--rgb, .3));
+	@include navigation-background;
+	@include horizontal-rhythm(1/4, margin-left);
+	@include vertical-rhythm(-1/4, margin-top);
+	@include vertical-rhythm(1/4, padding-top);
+	@include vertical-rhythm(1/4, padding-bottom);
+	>li {
+		position: static;
+		&.current {
+			// position: absolute;
+			// left: 0;
+			// background: rgba($dirt, .2);
+			// @include vertical-rhythm(1/4, padding-top);
+			&::after {
+				content: "\e613";
+				color: $color-primary;
 			}
-		}		
-	}
+		}
+	}		
 }
 
 
