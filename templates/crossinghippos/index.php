@@ -138,8 +138,22 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 	    	imgOrigPosition = $(".masthead__logo").position();
 	    	mastheadHeight =$(".masthead").height(),
 	    	artworkHeight =$(".footer__artwork").height(),
+	    	artworkWidth =$(".footer__artwork").width(),
+	    	artworkRatio = artworkHeight / artworkWidth,
 	    	artworkTop = $(".footer__artwork").offset().top,
-	    	artworkBottom = artworkTop + $(".footer__artwork").height();
+	    	artworkBottom = artworkTop - artworkHeight;
+
+		$(window).resize(function(){
+	    	artworkHeight =$(".footer__artwork").height(),
+	    	artworkWidth =$(".footer__artwork").width(),
+	    	artworkRatio = artworkHeight / artworkWidth,
+	    	artworkTop = $(".footer__artwork").offset().top,
+	    	artworkBottom = artworkTop - artworkHeight;
+	    	$(this).trigger("curious");
+		});
+		$(window).scroll(function(){
+	    	$(this).trigger("curious");
+		});
 
 		$.fn.isOnScreen = function(){
 		     
@@ -160,7 +174,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 		     
 		};
 
-		$(window).scroll(function() {
+		$(window).on("curious", function() {
 
 		    var offsetY, offsetX;
 				
@@ -176,7 +190,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 		    		img.removeClass("bottom").addClass("top");
 		    	}
 		    	else if (atBottom) {
-		    		offsetY = artworkBottom - 1.75*artworkHeight;
+		    		offsetY = artworkBottom + ( .25 * artworkHeight);
 		    		img.addClass("bottom").removeClass("top");
 		    	}
 		    	// else if (!atTop && !atBottom) {
