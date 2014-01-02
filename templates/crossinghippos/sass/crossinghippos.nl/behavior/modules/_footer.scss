@@ -7,7 +7,7 @@
 	}
 }
 	.footer__artwork {
-		@include vertical-rhythm(5, padding-top);	
+		@include vertical-rhythm(5, margin-top);	
 		@include vertical-rhythm(2, margin-bottom);	
 		background: $color-background;
 		border-bottom: vertical-rhythm(.25) solid $color-body;

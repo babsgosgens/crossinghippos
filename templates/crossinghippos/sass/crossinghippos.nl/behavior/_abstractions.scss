@@ -68,7 +68,7 @@
 	position: relative;
 	background: $color-background;
 	background: rgba($whipped-cream--rgb, .8);
-	@include box-shadow(0 -35px 35px 10px rgba($whipped-cream--rgb, .8), 0 35px 35px 10px rgba($whipped-cream--rgb, .8));
+	// @include box-shadow(0 -35px 35px 10px rgba($whipped-cream--rgb, .8), 0 35px 35px 10px rgba($whipped-cream--rgb, .8));
 }
 
 .main {

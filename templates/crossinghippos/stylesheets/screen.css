@@ -634,7 +634,7 @@ Field base
   box-sizing: border-box;
   display: -moz-inline-stack;
   display: inline-block;
-  vertical-align: "baseline";
+  vertical-align: baseline;
   *vertical-align: auto;
   zoom: 1;
   *display: inline;
@@ -661,9 +661,9 @@ Field base
 .fld--state-focus, .fld:focus, .fld-input:focus, .fld-select:focus, .fld-textarea:focus {
   border-color: #00b09e;
   background-color: whitesmoke;
-  -webkit-box-shadow: 0 0 4px #00b09e false;
-  -moz-box-shadow: 0 0 4px #00b09e false;
-  box-shadow: 0 0 4px #00b09e false;
+  -webkit-box-shadow: "" "";
+  -moz-box-shadow: "" "";
+  box-shadow: "" "";
   -webkit-appearance: none;
   /* mobile firefox too! */
   -moz-appearance: none;
@@ -1383,9 +1383,6 @@ a {
   position: relative;
   background: #fffef4;
   background: rgba(255, 254, 244, 0.8);
-  -webkit-box-shadow: 0 -35px 35px 10px rgba(255, 254, 244, 0.8), 0 35px 35px 10px rgba(255, 254, 244, 0.8);
-  -moz-box-shadow: 0 -35px 35px 10px rgba(255, 254, 244, 0.8), 0 35px 35px 10px rgba(255, 254, 244, 0.8);
-  box-shadow: 0 -35px 35px 10px rgba(255, 254, 244, 0.8), 0 35px 35px 10px rgba(255, 254, 244, 0.8);
 }
 
 /* line 77, ../sass/crossinghippos.nl/behavior/_abstractions.scss */
@@ -1586,7 +1583,7 @@ Breakpoints
 
 /* line 9, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
 .footer__artwork {
-  padding-top: 7.5em;
+  margin-top: 7.5em;
   margin-bottom: 3em;
   background: #fffef4;
   border-bottom: 0.375em solid #251c0f;

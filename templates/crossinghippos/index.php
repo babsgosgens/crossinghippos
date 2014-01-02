@@ -139,14 +139,14 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 	    	mastheadHeight =$(".masthead").height(),
 	    	artworkHeight =$(".footer__artwork").height(),
 	    	artworkWidth =$(".footer__artwork").width(),
-	    	artworkRatio = artworkHeight / artworkWidth,
+	    	artworkRatio = artworkWidth/artworkHeight,
 	    	artworkTop = $(".footer__artwork").offset().top,
-	    	artworkBottom = artworkTop - artworkHeight;
+	    	artworkBottom = artworkTop + artworkHeight;
 
 		$(window).resize(function(){
 	    	artworkHeight =$(".footer__artwork").height(),
 	    	artworkWidth =$(".footer__artwork").width(),
-	    	artworkRatio = artworkHeight / artworkWidth,
+	    	artworkRatio = artworkWidth/artworkHeight,
 	    	artworkTop = $(".footer__artwork").offset().top,
 	    	artworkBottom = artworkTop - artworkHeight;
 	    	$(this).trigger("curious");
@@ -189,14 +189,14 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 		    		offsetY = imgOrigPosition.top + "px";
 		    		img.removeClass("bottom").addClass("top");
 		    	}
-		    	else if (atBottom) {
-		    		offsetY = artworkBottom + ( .25 * artworkHeight);
+		    	else {
+		    		// console.log( artworkTop );
+		    		// console.log( artworkBottom );
+		    		// console.log(artworkHeight);
+		    		// console.log(artworkHeight);
+		    		offsetY = artworkBottom - 3*img.height();
 		    		img.addClass("bottom").removeClass("top");
 		    	}
-		    	// else if (!atTop && !atBottom) {
-		    	// 	offsetY = $(this).scrollTop() + "px",
-		    	// 	img.removeClass("bottom").removeClass("top");
-		    	// }
 
 			    img.delay(500).css({
 			    	top: offsetY
