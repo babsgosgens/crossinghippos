@@ -63,8 +63,8 @@ $article['article'] = array(
 
 <article class="lt-column lt-column--half lt-gutters">
 	<div class="box box--filled soft">
-		<h1 class="hd box__title lt-gutters"><a href="<?php echo $article['title']['url'];?>" class="anchor--incognito"><?php echo $article['title']['title']; ?></a></h1>
-		<a href="<?php echo $article['title']['url'];?>" class="anchor--incognito"><img src="<?php echo $article['image']['src']; ?>" class="outline media soft"></a>
+		<h1 class="hd box__title lt-gutters"><a href="<?php echo $article['title']['url'];?>#disqus_thread" class="anchor--incognito"><?php echo $article['title']['title']; ?></a></h1>
+		<a href="<?php echo $article['title']['url'];?>#disqus_thread" class="anchor--incognito"><img src="<?php echo $article['image']['src']; ?>" class="outline media soft"></a>
 	</div>
 	<?php // Article date ?>
 	<?php if ($params->get('show_publish_date')) : ?>

@@ -58,25 +58,25 @@ class PlgContentDisqus extends JPlugin
 		}
 
 		if ( (bool) !$this->params->get('shortname', '') ) {
-			throw new Exception(JText::_('PLG_CONTENT_DISQUS_ERROR_NO_SHORTNAME'));
+			$article->text = preg_replace('/{disqus.*}/i', '', $article->text);
+			return true;
 		}
 
 
+		// Extract variables (if any) from the disqus string
+		if ($matches[1] != '') {
+			if (preg_match_all('/(\w+)="([^"]*)"/', $matches[1], $vars)) {
+			    $vars = array_combine($vars[1], $vars[2]);
+			} else {
+			    $vars = array();
+			}
+		}
+
 		if ($context == 'com_content.article')
 		{
-			
-
-			// Extract variables (if any) from the disqus string
-			if ($matches[1] != '') {
-				if (preg_match_all('/(\w+)="([^"]*)"/', $matches[1], $vars)) {
-				    $vars = array_combine($vars[1], $vars[2]);
-				} else {
-				    $vars = array();
-				}
-			}
 
 			// Replace with disqus container
-			$html = '<div id="disqus_thread"></div>';
+			$html = '<div id="disqus_thread" class="disquss"></div>';
 			$article->text = preg_replace('/{disqus.*}/i', $html, $article->text);
 
 			// Build script
@@ -110,6 +110,11 @@ class PlgContentDisqus extends JPlugin
 			
 			$doc = JFactory::getDocument();
 			$doc->addScriptDeclaration($script);
+    	}
+    	else if ($context == 'com_content.featured') {
+ 			// Replace with disqus container
+			$html = '<p class="disquss-comments-count leader"><i class="icn icn-comments"></i>&nbsp;<a href="' . $vars['url'] . '" data-disqus-identifier="' . $article->slug . '"></a></p>';
+			$article->text = preg_replace('/{disqus.*}/i', $html, $article->text);
     	}
 	}
 }
