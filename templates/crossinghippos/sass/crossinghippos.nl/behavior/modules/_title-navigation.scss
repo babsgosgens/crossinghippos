@@ -12,59 +12,87 @@ Title navigation
 	*/	
 
 .w-sub-nav {
-		position: relative;
-		@include vertical-rhythm(1.5, "padding-top");
+	position: relative;
+	@include vertical-rhythm(1.5, "padding-top");
+}
+.sub-nav {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	@include vertical-rhythm(1.5, "max-height");
+	.parent,
+	.ui-dropdown {
+		display: inline-block;
 	}
-	.sub-nav {
+	.parent {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	.current {
+		&::after {
+			@include horizontal-rhythm(1/4, margin-left);
+			@extend .icn;
+			@extend .soft;
+			// color: $color-background;
+			// background: $color-primary;
+			content: "\e614";
+		}
+	}
+	li {
+		@include column-spacing;
+		&:hover {
+			background: inherit;
+			color: $anchor-color-hover;
+		}
+	}
+}
+.ui-dropdown {
+	position: relative;
+	>li {
 		position: absolute;
 		top: 0;
-		width: 100%;
-		@include vertical-rhythm(1.5, "max-height");
-		.parent,
-		.ui-dropdown {
-			display: inline-block;
-		}
-		.parent {
-			display: inline-block;
-			vertical-align: top;
+		left: -1000em;
+		&.active,
+		&.current {
+			position: static;
+			// &::after {
+			// 	// @extend .icn;
+			// 	// @extend .icn-arrow-down:before;
+			// }
 		}
 	}
-	.ui-dropdown {
-		position: relative;
+	a {
+		white-space: nowrap;
+	}
+	margin-left: 0;
+	@include transition(margin-left .2s ease-in);
+	&:hover {
+		z-index: 1;
+		// padding-top: rhythm(1);
+		border: 1px solid rgba($dirt, .2);
+		border-top: 0;
+		@include box-shadow(0 0 20px 0 rgba($dirt--rgb, .3), -5px 0 20px 0 rgba($dirt--rgb, .3));
+		@include navigation-background;
+		@include horizontal-rhythm(1/4, margin-left);
+		@include vertical-rhythm(-1/4, margin-top);
+		@include vertical-rhythm(1/4, padding-top);
+		@include vertical-rhythm(1/4, padding-bottom);
 		>li {
-			position: absolute;
-			top: 0;
-			left: -1000em;
-			&.active,
+			position: static;
 			&.current {
-				position: static;
+				// position: absolute;
+				// left: 0;
+				background: rgba($dirt, .2);
+				@include vertical-rhythm(1/4, padding-top);
 				&::after {
-					// @extend .icn;
-					// @extend .icn-arrow-down:before;
+					content: "\e613";
+					color: $color-primary;
 				}
 			}
-		}
-		a {
-			white-space: nowrap;
-		}
-		&:hover {
-			padding-top: rhythm(1);
-			>li {
-				position: static;
-				&.current {
-					position: absolute;
-					left: vertical-rhythm(1/2);
-					&>a::before {
-						@extend .icn;
-						@extend .icn-checkmark:before;
-					}
-					&::after {
-						content: "";
-					}
-				}
-			}		
-		}
+		}		
 	}
+}
 
 
 				

@@ -173,10 +173,10 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 		    		offsetY = artworkBottom - 1.75*artworkHeight;
 		    		img.addClass("bottom").removeClass("top");
 		    	}
-		    	else if (!atTop && !atBottom) {
-		    		offsetY = $(this).scrollTop() + "px",
-		    		img.removeClass("bottom").removeClass("top");
-		    	}
+		    	// else if (!atTop && !atBottom) {
+		    	// 	offsetY = $(this).scrollTop() + "px",
+		    	// 	img.removeClass("bottom").removeClass("top");
+		    	// }
 
 			    img.delay(500).css({
 			    	top: offsetY

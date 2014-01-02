@@ -17,12 +17,29 @@ $app = JFactory::getApplication('site');
 	<?php foreach($this->items[$this->parent->id] as $id => $item) : ?>
 	<?php
 		$itemTags 	= $tagsHelper->getItemTags('com_content.category', $item->id);
-		$itemImage 	= $item->getParams()->get('image');
+		// $itemImage 	= $item->getParams()->get('image');
 		$itemTitle 	= $this->escape($item->title);
+		$itemAlias 	= $this->escape($item->alias);
 		$itemUrl 	= JRoute::_(ContentHelperRoute::getCategoryRoute($item->id));
 		//echo '<pre>';
 		//print_r($item);exit;
 		//echo '</pre>';
+
+		// var_dump($item);exit;
+
+		// /*
+		//  * Check for project image
+		//  */
+		// $image = '';
+		// $pattern = '/<img.+\/>/';
+		// if( preg_match($pattern, $this->category->description, $images) )
+		// {
+		// 	$this->category->description = preg_replace($pattern, '', $this->category->description);
+		// 	$image = $images[0];
+		// }
+
+		$itemImage = "http://192.168.178.44/crossinghippos.nl/images/projects/$itemAlias/$itemAlias"."_x1.jpg";
+
 	?>
 	<div class="lt-column lt-gutters lt-vertical-padding  projects__item project">
 		<div class="box box--projects">
