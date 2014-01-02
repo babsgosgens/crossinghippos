@@ -138,6 +138,9 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 		<?php echo $this->item->event->afterDisplayContent; ?>
 
 
+    
+    
+
 	<?php if (!empty($this->item->pagination) && $this->item->pagination && !$this->item->paginationposition && $this->item->paginationrelative)
 	{
 		echo $this->item->pagination;

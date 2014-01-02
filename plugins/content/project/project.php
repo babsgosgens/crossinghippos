@@ -1,7 +1,7 @@
 <?php
 /**
  * @version     1.0
- * @subpackage  plg_project
+ * @subpackage  plg_content_project
  * @author      Babs Gösgens <babs@crossinghippos.nl>
  * @copyright   Copyright (C) 2013 Babs Gösgens, Netherlands
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
