@@ -49,22 +49,16 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 			</div>
 
 			<!-- modules -->
-			<aside>
-			<header class="lt-root">
-				<h1 class="lt-prime lt-gutters hd hd--article">Stuff I said</h1>
-			</header>
-			<div>
-			<div class="lt-root">
+			<aside class="lt-root">
 				<!-- <h1 class="lt-prime lt-prime--clear lt-gutters hd hd--article">Through the grapevine:</h1> -->
-				<div class="lt-prime lt-prime--alpha">
-					<jdoc:include type="modules" name="streams" />
+				<div class="lt-prime lt-prime--beta">
+					<jdoc:include type="modules" name="streams" style="cms" />
 				</div>
-				<div class="lt-alpha">
-					<jdoc:include type="modules" name="streams-filter" />
+				<div class="lt-beta">
+					<jdoc:include type="modules" name="streams-filter" style="cms" />
 				</div>
-			</div>
-			</div>
 			</aside>
+
 			<!-- modules -->
 			<aside class="lt-root">
 				<!-- <h1 class="lt-prime lt-prime--clear lt-gutters hd hd--article">Through the grapevine:</h1> -->
