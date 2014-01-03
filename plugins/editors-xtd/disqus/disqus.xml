@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="editors-xtd">
+	<name>plg_editors-xtd_disqus</name>
+	<author>Babs Gosgens</author>
+    <creationDate>December 2013</creationDate>
+    <copyright>Copyright (C) 2013 Babs Gösgens, Netherlands</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>babsgosgens@gmail.com</authorEmail>
+    <authorUrl>www.crossinghippos.com</authorUrl>
+	<version>3.0.0</version>
+	<description>PLG_EDITOR_XTD_DISQUS_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="disqus">disqus.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.plg_editors-xtd_disqus.ini</language>
+		<language tag="en-GB">en-GB.plg_editors-xtd_disqus.sys.ini</language>
+	</languages>
+</extension>

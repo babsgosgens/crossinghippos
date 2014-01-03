@@ -111,10 +111,8 @@ class PlgContentDisqus extends JPlugin
 			$doc = JFactory::getDocument();
 			$doc->addScriptDeclaration($script);
     	}
-    	if ($context == 'com_content.featured') {
+    	if ($context == 'com_content.featured' || $context == 'com_content.category') {
     		if( isset($vars['url']) ) {
-    			var_dump($vars);
-    			var_dump(JRoute::_($vars['url']));
 	 			// Replace with disqus container
 				$html = '<p class="disquss-comments-count leader"><i class="icn icn-comments"></i>&nbsp;<a href="' . JRoute::_($vars['url']) . '" data-disqus-identifier="' . $article->slug . '"></a></p>';
     		}
