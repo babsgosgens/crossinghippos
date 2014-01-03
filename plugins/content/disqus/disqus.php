@@ -76,7 +76,7 @@ class PlgContentDisqus extends JPlugin
 		{
 
 			// Replace with disqus container
-			$html = '<div id="disqus_thread" class="disquss"></div>';
+			$html = '<div id="disqus_thread" class="disqus leader"></div>';
 			$article->text = preg_replace('/{disqus.*}/i', $html, $article->text);
 
 			// Build script
@@ -98,7 +98,7 @@ class PlgContentDisqus extends JPlugin
 			}
 
 			if (isset($vars['url'])) {
-				$script .= 'var disqus_url = "' . $vars['url'] . '";';
+				$script .= 'var disqus_url = "' . JRoute::_($vars['url']) . '";';
 			}
 
 			$script .= '(function() {
@@ -111,9 +111,16 @@ class PlgContentDisqus extends JPlugin
 			$doc = JFactory::getDocument();
 			$doc->addScriptDeclaration($script);
     	}
-    	else if ($context == 'com_content.featured') {
- 			// Replace with disqus container
-			$html = '<p class="disquss-comments-count leader"><i class="icn icn-comments"></i>&nbsp;<a href="' . $vars['url'] . '" data-disqus-identifier="' . $article->slug . '"></a></p>';
+    	if ($context == 'com_content.featured') {
+    		if( isset($vars['url']) ) {
+    			var_dump($vars);
+    			var_dump(JRoute::_($vars['url']));
+	 			// Replace with disqus container
+				$html = '<p class="disquss-comments-count leader"><i class="icn icn-comments"></i>&nbsp;<a href="' . JRoute::_($vars['url']) . '" data-disqus-identifier="' . $article->slug . '"></a></p>';
+    		}
+    		else {
+    			$html = '';
+    		}
 			$article->text = preg_replace('/{disqus.*}/i', $html, $article->text);
     	}
 	}
