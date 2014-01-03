@@ -160,6 +160,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 	    	artworkRatio = artworkWidth/artworkHeight,
 	    	artworkTop = $(".footer__artwork").offset().top,
 	    	artworkBottom = artworkTop - artworkHeight;
+
 	    	$(this).trigger("curious");
 		});
 		$(window).scroll(function(){
@@ -192,7 +193,6 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 	    	var atTop    = $(".masthead").isOnScreen(),
 	    		atBottom = $(".footer__artwork").isOnScreen();
 
-		    	
 		    	if ( (atTop && atBottom) ) {
 		    		return;
 		    	}
@@ -201,10 +201,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 		    		img.removeClass("bottom").addClass("top");
 		    	}
 		    	else {
-		    		// console.log( artworkTop );
-		    		// console.log( artworkBottom );
-		    		// console.log(artworkHeight);
-		    		// console.log(artworkHeight);
+
 		    		offsetY = artworkBottom - 3*img.height();
 		    		img.addClass("bottom").removeClass("top");
 		    	}
@@ -215,17 +212,5 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 		});
 	});
 	</script>
-<script type="text/javascript">
-/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-var disqus_shortname = 'crossinghippos'; // required: replace example with your forum shortname
-
-/* * * DON'T EDIT BELOW THIS LINE * * */
-(function () {
-var s = document.createElement('script'); s.async = true;
-s.type = 'text/javascript';
-s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-}());
-</script>
 	</body>
 </html>

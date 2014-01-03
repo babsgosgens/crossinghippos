@@ -71,6 +71,9 @@ class PlgContentDisqus extends JPlugin
 			    $vars = array();
 			}
 		}
+		
+		// Get a reference to the document object	
+		$doc = JFactory::getDocument();
 
 		if ($context == 'com_content.article')
 		{
@@ -107,19 +110,35 @@ class PlgContentDisqus extends JPlugin
 	        dsq.src = "//" + disqus_shortname + ".disqus.com/embed.js";
 	        (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
 	    	})();';
-			
-			$doc = JFactory::getDocument();
+
 			$doc->addScriptDeclaration($script);
     	}
+
     	if ($context == 'com_content.featured' || $context == 'com_content.category') {
+
+    		$html = '';
     		if( isset($vars['url']) ) {
+	 			
 	 			// Replace with disqus container
 				$html = '<p class="disquss-comments-count leader"><i class="icn icn-comments"></i>&nbsp;<a href="' . JRoute::_($vars['url']) . '" data-disqus-identifier="' . $article->slug . '"></a></p>';
+				
+				// Build script
+				$script = '';
+				$script .= 'var disqus_shortname = "' . $this->params->get('shortname') . '";'; // Required - Replace example with your forum shortname
+
+				$script .= '(function () {
+				var s = document.createElement("script"); s.async = true;
+				s.type = "text/javascript";
+				s.src = "http://" + disqus_shortname + ".disqus.com/count.js";
+				(document.getElementsByTagName("HEAD")[0] || document.getElementsByTagName("BODY")[0]).appendChild(s);
+				}());';
+
+				$doc->addScriptDeclaration($script);
     		}
-    		else {
-    			$html = '';
-    		}
+
 			$article->text = preg_replace('/{disqus.*}/i', $html, $article->text);
+
+
     	}
 	}
 }
