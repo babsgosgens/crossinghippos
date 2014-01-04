@@ -82,7 +82,7 @@ Masthead
 	@include breakpoint($lt-small) {
 		.masthead {
 			@include vertical-rhythm(2.75, padding-top);
-			@include vertical-rhythm(0, margin-bottom);
+			@include vertical-rhythm(1.25, margin-bottom);
 			position: relative;
 			z-index: 1;
 		}
