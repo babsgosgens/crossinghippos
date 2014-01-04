@@ -66,8 +66,8 @@
 
 .main {
 	position: relative;
-	background: $color-background;
-	background: rgba($whipped-cream--rgb, .8);
+	// background: $color-background;
+	// background: rgba($whipped-cream--rgb, .8);
 	// @include box-shadow(0 -35px 35px 10px rgba($whipped-cream--rgb, .8), 0 35px 35px 10px rgba($whipped-cream--rgb, .8));
 }
 
@@ -92,6 +92,12 @@
 	.outline--decorative {
 		border: 2px solid $got-it;
 	}
+	.outline-top--decorative {
+		border-top: 2px solid $got-it;
+	}
+	.outline-bottom--decorative {
+		border-bottom: 2px solid $got-it;
+	}
 .divider {
 	border-right: 1px dashed rgba($dirt--rgb,0.15);
 }
@@ -106,7 +112,7 @@
 @include breakpoint($lt-small)
 {
 	.main {
-		@include vertical-rhythm(1, margin-top);	
+		// @include vertical-rhythm(1, margin-top);	
 		// @include box-shadow(0 -15px 15px 10px rgba($whipped-cream--rgb, .8), 0 15px 15px 10px rgba($whipped-cream--rgb, .8));
 	}
 	.image-whitespace {

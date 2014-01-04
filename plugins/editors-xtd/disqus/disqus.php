@@ -1,9 +1,10 @@
 <?php
 /**
- * @package     Joomla.Plugin
- * @subpackage  Editors-xtd.article
- *
- * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
+ * @version     1.0
+ * @package     CrossingHippos.Plugin
+ * @subpackage  Content.disqus
+ * @author      Babs Gösgens <babs@crossinghippos.nl>
+ * @copyright   Copyright (C) 2013 Babs Gösgens, Netherlands
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -12,8 +13,8 @@ defined('_JEXEC') or die;
 /**
  * Editor Article buton
  *
- * @package     Joomla.Plugin
- * @subpackage  Editors-xtd.article
+ * @package     CrossingHippos.Plugin
+ * @subpackage  Editors-xtd.disqus
  * @since       1.5
  */
 class PlgButtonDisqus extends JPlugin
@@ -31,7 +32,7 @@ class PlgButtonDisqus extends JPlugin
 	 *
 	 * @param   string  $name  The name of the button to add
 	 *
-	 * @return array A four element array of (article_id, article_title, category_id, object)
+	 * @return  object $button
 	 */
 	public function onDisplay($name)
 	{
@@ -39,13 +40,24 @@ class PlgButtonDisqus extends JPlugin
 
 		// Button is not active in specific content components
 
+		$containerClass = $this->params->get('container_class', '');
+
 		$getContent = $this->_subject->getContent($name);
 		$present = JText::_('PLG_READMORE_ALREADY_EXISTS', true);
+
+		// Build the disqus container html
+		if ($containerClass != '') {
+			$html = '<div id="disqus_thread" class="'. $containerClass.'"></div>';
+		}
+		else {
+			$html = '<div id="disqus_thread"></div>';
+		}
+		
 		$js = "
 			function insertDisqus(editor)
 			{
 				var content = $getContent
-				jInsertEditorText('{disqus url=\"index.php?option=com_content&amp;view=article&amp;id=2&amp;\"}', editor);
+				jInsertEditorText('$html', editor);
 			}
 			";
 

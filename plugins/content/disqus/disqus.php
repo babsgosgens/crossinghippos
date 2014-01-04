@@ -1,7 +1,8 @@
 <?php
 /**
  * @version     1.0
- * @subpackage  plg_content_disqus
+ * @package     CrossingHippos.Plugin
+ * @subpackage  Content.disqus
  * @author      Babs Gösgens <babs@crossinghippos.nl>
  * @copyright   Copyright (C) 2013 Babs Gösgens, Netherlands
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,11 +11,11 @@
 defined('_JEXEC') or die;
 
 /**
- * Plug-in to enable loading modules into content (e.g. articles)
- * This uses the {loadmodule} syntax
+ * Plug-in to enable loading disqus thread
+ * It responds to html elements with an id of disqus_thread
  *
- * @package     Joomla.Plugin
- * @subpackage  Content.loadmodule
+ * @package     CrossingHippos.Plugin
+ * @subpackage  Content.disqus
  * @since       1.5
  */
 class PlgContentDisqus extends JPlugin
@@ -42,13 +43,9 @@ class PlgContentDisqus extends JPlugin
 		{
 			return true;
 		}
-		// if ($context == 'com_content.featured')
-		// {
-		// 	return true;
-		// }
 
 		// Expression to search for
-		$pattern		= '/{disqus\s?(.*?)}/i';
+		$pattern		= '/<\w+\s*id="disqus_thread".*><\/\w+>/i';
 
 		preg_match($pattern, $article->text, $matches);
 
@@ -62,46 +59,29 @@ class PlgContentDisqus extends JPlugin
 			return true;
 		}
 
-
-		// Extract variables (if any) from the disqus string
-		if ($matches[1] != '') {
-			if (preg_match_all('/(\w+)="([^"]*)"/', $matches[1], $vars)) {
-			    $vars = array_combine($vars[1], $vars[2]);
-			} else {
-			    $vars = array();
-			}
-		}
-		
 		// Get a reference to the document object	
 		$doc = JFactory::getDocument();
 
 		if ($context == 'com_content.article')
 		{
 
-			// Replace with disqus container
-			$html = '<div id="disqus_thread" class="disqus leader"></div>';
-			$article->text = preg_replace('/{disqus.*}/i', $html, $article->text);
-
 			// Build script
 			$script = '';
 			$script .= 'var disqus_shortname = "' . $this->params->get('shortname') . '";'; // Required - Replace example with your forum shortname
 
-			if (isset($vars['id'])) {
-				$script .= 'var disqus_identifier = "' . $vars['id'] . '";';
-			}
-			else {
+			if (isset($article->slug) && $article->slug!='') {
 				$script .= 'var disqus_identifier = "' . $article->slug . '";';
-			}
 
-			if (isset($vars['title'])) {
-				$script .= 'var disqus_title = "' . $vars['title'] . '";';
+				if (isset($article->catid) && $article->catid != '') {
+					$url = JRoute::_(ContentHelperRoute::getArticleRoute($article->slug, $article->catid));
+				}
+				else {
+					$url = JRoute::_(ContentHelperRoute::getArticleRoute($article->slug));
+				}
+				$script .= 'var disqus_url = "' . $url . '";';
 			}
-			else {
+			if (isset($article->title) && $article->title != '') {
 				$script .= 'var disqus_title = "' . $article->title . '";';
-			}
-
-			if (isset($vars['url'])) {
-				$script .= 'var disqus_url = "' . JRoute::_($vars['url']) . '";';
 			}
 
 			$script .= '(function() {
@@ -114,13 +94,15 @@ class PlgContentDisqus extends JPlugin
 			$doc->addScriptDeclaration($script);
     	}
 
-    	if ($context == 'com_content.featured' || $context == 'com_content.category') {
+    	else if ($context == 'com_content.featured' || $context == 'com_content.category') {
 
     		$html = '';
     		if( isset($vars['url']) ) {
-	 			
+
+ 			
 	 			// Replace with disqus container
 				$html = '<p class="disquss-comments-count leader"><i class="icn icn-comments"></i>&nbsp;<a href="' . JRoute::_($vars['url']) . '" data-disqus-identifier="' . $article->slug . '"></a></p>';
+				// $html = '<p class="disquss-comments-count leader"><i class="icn icn-comments"></i>&nbsp;<a href="' . $vars['url'] . '" data-disqus-identifier="' . $article->slug . '"></a></p>';
 				
 				// Build script
 				$script = '';
@@ -136,7 +118,7 @@ class PlgContentDisqus extends JPlugin
 				$doc->addScriptDeclaration($script);
     		}
 
-			$article->text = preg_replace('/{disqus.*}/i', $html, $article->text);
+			$article->text = preg_replace($pattern, $html, $article->text);
 
 
     	}

@@ -13,79 +13,78 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>">
-	<head>
-		<?php //echo $jQueryScript; ?>		
-		<jdoc:include type="head" />
-	</head>
-	<body>
+<head>
+	<?php //echo $jQueryScript; ?>		
+	<jdoc:include type="head" />
+</head>
+<body>
 
-		<nav role="navigation" class="main-nav">
-			<div class="lt-root">
-			<jdoc:include type="modules" name="position-7" style="UiDd" />
-			</div>
-		</nav>
-
-		<header role="banner" class="masthead">
-			<div class="lt-root">
-				<h1 class="lt-prime  masthead__title">
-					<a href="<?php echo $this->baseurl; ?>" class="anchor--incognito">
-						<span class="hd">Crossing Hippos</span>
-						<img src="<?php echo $this->baseurl; ?>/templates/crossinghippos/images/crossinghippos.svg" class="masthead__logo top" alt="Logo Crossing Hippos">
-						<span class="masthead__tagline">webdesign &amp; development</span>
-					</a>
-				</h1>
-			</div>
-		</header>
-
-
-		<!-- Wraps the main section of the page -->
-		<div<?php if ($hasSubNavigation) : ?> class="w-sub-nav"<?php endif; ?>>
-
-			<!-- component output -->
-			<div role="main" class="main itemid-<?php echo $active->id; ?>">
-				<jdoc:include type="message" />
-				<jdoc:include type="modules" name="title" style="header" />
-				<jdoc:include type="component" />
-			</div>
-
-			<!-- modules -->
-			<aside class="lt-root">
-				<!-- <h1 class="lt-prime lt-prime--clear lt-gutters hd hd--article">Through the grapevine:</h1> -->
-				<div class="lt-prime lt-prime--beta">
-					<jdoc:include type="modules" name="streams" style="cms" />
-				</div>
-				<div class="lt-beta">
-					<jdoc:include type="modules" name="streams-filter" style="cms" />
-				</div>
-			</aside>
-
-			<!-- modules -->
-			<aside class="lt-root">
-				<!-- <h1 class="lt-prime lt-prime--clear lt-gutters hd hd--article">Through the grapevine:</h1> -->
-				<div class="lt-prime-alpha <?php echo $mainColumnClass; ?>">
-					<jdoc:include type="modules" name="position-prime" />
-				</div>
-    			<?php if($alphaColumn): ?>
-				<div class="lt-alpha">
-					<jdoc:include type="modules" name="position-alpha" />
-				</div>
-			    <?php endif; ?>
-			    <?php if($betaColumn): ?>
-				<div class="lt-beta">
-					<jdoc:include type="modules" name="position-beta" />
-				</div>
-			    <?php endif; ?>
-			</aside>
-
-			<?php if ($hasSubNavigation) : ?>
-			<div role="navigation" class="sub-nav underline--dashed">
-				<div class="lt-root">
-				<jdoc:include type="modules" name="position-8" style="subnav" />
-				</div>
-			</div>
-			<?php endif; ?>
-
+	<nav role="navigation" class="main-nav">
+		<div class="lt-root">
+		<jdoc:include type="modules" name="position-7" style="UiDd" />
 		</div>
+	</nav>
+
+	<header role="banner" class="masthead">
+		<div class="lt-root">
+			<h1 class="lt-prime  masthead__title">
+				<a href="<?php echo $this->baseurl; ?>" class="anchor--incognito">
+					<span class="hd">Crossing Hippos</span>
+					<img src="<?php echo $this->baseurl; ?>/templates/crossinghippos/images/crossinghippos.svg" class="masthead__logo top" alt="Logo Crossing Hippos">
+					<span class="masthead__tagline">webdesign &amp; development</span>
+				</a>
+			</h1>
+		</div>
+	</header>
+
+	<!-- Wraps the main section of the page -->
+	<div<?php if ($hasSubNavigation) : ?> class="w-sub-nav"<?php endif; ?>>
+
+		<!-- component output -->
+		<div role="main" class="main itemid-<?php echo $active->id; ?>">
+			<jdoc:include type="message" />
+			<jdoc:include type="modules" name="title" style="header" />
+			<jdoc:include type="component" />
+		</div>
+
+		<!-- modules -->
+		<aside class="lt-root">
+			<!-- <h1 class="lt-prime lt-prime--clear lt-gutters hd hd--article">Through the grapevine:</h1> -->
+			<div class="lt-prime lt-prime--beta">
+				<jdoc:include type="modules" name="streams" style="cms" />
+			</div>
+			<div class="lt-beta">
+				<jdoc:include type="modules" name="streams-filter" style="cms" />
+			</div>
+		</aside>
+
+		<!-- modules -->
+		<aside class="lt-root">
+			<!-- <h1 class="lt-prime lt-prime--clear lt-gutters hd hd--article">Through the grapevine:</h1> -->
+			<div class="lt-prime-alpha <?php echo $mainColumnClass; ?>">
+				<jdoc:include type="modules" name="position-prime" />
+			</div>
+			<?php if($alphaColumn): ?>
+			<div class="lt-alpha">
+				<jdoc:include type="modules" name="position-alpha" />
+			</div>
+		    <?php endif; ?>
+		    <?php if($betaColumn): ?>
+			<div class="lt-beta">
+				<jdoc:include type="modules" name="position-beta" />
+			</div>
+		    <?php endif; ?>
+		</aside>
+
+		<?php if ($hasSubNavigation) : ?>
+		<div role="navigation" class="sub-nav underline--dashed">
+			<div class="lt-root">
+			<jdoc:include type="modules" name="position-8" style="subnav" />
+			</div>
+		</div>
+		<?php endif; ?>
+	</div>
+
 
 	<footer class="footer" id="pagefooter">
 
@@ -146,7 +145,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 
 
 	    var img    = $(".masthead__logo"),
-	    	imgOrigPosition = $(".masthead__logo").position();
+	    	imgOrigPosition = $(".masthead__logo").position(),
 	    	mastheadHeight =$(".masthead").height(),
 	    	artworkHeight =$(".footer__artwork").height(),
 	    	artworkWidth =$(".footer__artwork").width(),
@@ -165,6 +164,10 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 		});
 		$(window).scroll(function(){
 	    	$(this).trigger("curious");
+		});
+		$('#disqus_thread').bind('DOMNodeInserted', function(e) {
+		    $(window).trigger("curious");
+		    console.log('inserted');
 		});
 
 		$.fn.isOnScreen = function(){

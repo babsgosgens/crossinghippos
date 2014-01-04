@@ -54,7 +54,7 @@ if (isset($images->image_intro) && !empty($images->image_intro)) {
 		'src' => htmlspecialchars($images->image_intro),
 		'alt' => $images->image_intro_alt ? htmlspecialchars($images->image_intro_alt) : '',
 		'float' => 	empty($images->float_intro) ? $params->get('float_intro') : $images->float_intro,
-		'figureClass' => 'lt-prime lt-gutters',
+		'figureClass' => 'lt-prime lt-prime--clear lt-gutters blog__image',
 		'imageClass' => 'media soft'
 	);		
 }
@@ -68,7 +68,7 @@ $article['article'] = array(
 ?>
 
 
-<article class="article lt-root">
+<article class="blog__article lt-root">
 
 	<?php
 	/*
@@ -89,17 +89,48 @@ $article['article'] = array(
 	</header>
 
 	<?php if (isset($images->image_intro) && !empty($images->image_intro)) : ?>
-	<div>
 		<?php $articleLayout = new JLayoutFile('content.image', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
 		<?php echo $articleLayout->render($article['image']); ?>
-	</div>
 	<?php endif; ?>
 
-	<div class="lt-prime lt-prime--alpha-beta lt-gutters">
+	<div class="lt-prime lt-prime--alpha-beta lt-gutters blog__intro">
 
 		<?php echo $article['article']['event']['before']; ?>
 		<?php echo $article['article']['content']; ?>
 		<?php echo $article['article']['event']['after']; ?>
+
+		<?php if ($params->get('show_readmore') && $this->item->readmore) :
+			if ($params->get('access-view')) :
+				$link = JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid));
+			else :
+				$menu = JFactory::getApplication()->getMenu();
+				$active = $menu->getActive();
+				$itemId = $active->id;
+				$link1 = JRoute::_('index.php?option=com_users&view=login&Itemid=' . $itemId);
+				$returnURL = JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid));
+				$link = new JUri($link1);
+				$link->setVar('return', base64_encode($returnURL));
+			endif; ?>
+
+			<p class="leader"><a href="<?php echo $link; ?>"> <span class="icon-chevron-right"></span>
+
+			<?php if (!$params->get('access-view')) :
+				echo JText::_('COM_CONTENT_REGISTER_TO_READ_MORE');
+			elseif ($readmore = $this->item->alternative_readmore) :
+				echo $readmore;
+				if ($params->get('show_readmore_title', 0) != 0) :
+				echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
+				endif;
+			elseif ($params->get('show_readmore_title', 0) == 0) :
+				echo JText::sprintf('COM_CONTENT_READ_MORE_TITLE');
+			else :
+				echo JText::_('TPL_CROSSINGHIPPOS_READ_MORE');
+				echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
+			endif; ?>
+
+			</a></p>
+
+		<?php endif; ?>
 
 	</div>
 

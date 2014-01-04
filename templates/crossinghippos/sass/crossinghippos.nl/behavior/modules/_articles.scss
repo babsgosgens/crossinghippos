@@ -5,3 +5,8 @@
 	.article__introduction {
 		@include font($bree-regular);
 	}
+		.blog__intro {
+			.article__introduction {
+				@include font($bree-light);
+			}
+		}
