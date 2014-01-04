@@ -145,30 +145,33 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 
 
 	    var img    = $(".masthead__logo"),
+	    	imgHeight = img.height();
 	    	imgOrigPosition = $(".masthead__logo").position(),
-	    	mastheadHeight =$(".masthead").height(),
+	    	documentHeight = $(document).innerHeight(),
+	    	footerHeight = $("#pagefooter").height(),
+	    	artworkTop = documentHeight - footerHeight,
 	    	artworkHeight =$(".footer__artwork").height(),
 	    	artworkWidth =$(".footer__artwork").width(),
-	    	artworkRatio = artworkWidth/artworkHeight,
-	    	artworkTop = $(".footer__artwork").offset().top,
-	    	artworkBottom = artworkTop + artworkHeight;
+	    	artworkRatio = artworkHeight/artworkWidth;
 
-		$(window).resize(function(){
-	    	artworkHeight =$(".footer__artwork").height(),
-	    	artworkWidth =$(".footer__artwork").width(),
-	    	artworkRatio = artworkWidth/artworkHeight,
-	    	artworkTop = $(".footer__artwork").offset().top,
-	    	artworkBottom = artworkTop - artworkHeight;
+			$(window)
+			.resize(function(){
+		    	documentHeight = $(document).innerHeight(),
+		    	footerHeight = $("#pagefooter").height(),
+		    	artworkTop = documentHeight - footerHeight,
+		    	artworkHeight =$(".footer__artwork").height(),
+		    	artworkWidth =$(".footer__artwork").width(),
+		    	artworkRatio = artworkHeight/artworkWidth;
 
-	    	$(this).trigger("curious");
-		});
-		$(window).scroll(function(){
-	    	$(this).trigger("curious");
-		});
-		$('#disqus_thread').bind('DOMNodeInserted', function(e) {
-		    $(window).trigger("curious");
-		    console.log('inserted');
-		});
+		    	$(this).trigger("curious");
+			})
+			.scroll(function(){
+		    	$(this).trigger("curious");
+			});
+
+			$('#disqus_thread').bind('DOMNodeInserted', function(e) {
+			    $(window).trigger("resize");
+			});
 
 		$.fn.isOnScreen = function(){
 		     
@@ -205,7 +208,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 		    	}
 		    	else {
 
-		    		offsetY = artworkBottom - 3*img.height();
+		    		offsetY = artworkTop - imgHeight;
 		    		img.addClass("bottom").removeClass("top");
 		    	}
 

@@ -1600,7 +1600,7 @@ Breakpoints
 
 /* line 9, ../sass/crossinghippos.nl/behavior/modules/_footer.scss */
 .footer__artwork {
-  margin-top: 7.5em;
+  padding-top: 7.5em;
   margin-bottom: 3em;
   background: #fffef4;
   border-bottom: 0.375em solid #251c0f;
