@@ -47,35 +47,6 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 			<jdoc:include type="component" />
 		</div>
 
-		<!-- modules -->
-		<aside class="lt-root">
-			<!-- <h1 class="lt-prime lt-prime--clear lt-gutters hd hd--article">Through the grapevine:</h1> -->
-			<div class="lt-prime lt-prime--beta">
-				<jdoc:include type="modules" name="streams" style="cms" />
-			</div>
-			<div class="lt-beta">
-				<jdoc:include type="modules" name="streams-filter" style="cms" />
-			</div>
-		</aside>
-
-		<!-- modules -->
-		<aside class="lt-root">
-			<!-- <h1 class="lt-prime lt-prime--clear lt-gutters hd hd--article">Through the grapevine:</h1> -->
-			<div class="lt-prime-alpha <?php echo $mainColumnClass; ?>">
-				<jdoc:include type="modules" name="position-prime" />
-			</div>
-			<?php if($alphaColumn): ?>
-			<div class="lt-alpha">
-				<jdoc:include type="modules" name="position-alpha" />
-			</div>
-		    <?php endif; ?>
-		    <?php if($betaColumn): ?>
-			<div class="lt-beta">
-				<jdoc:include type="modules" name="position-beta" />
-			</div>
-		    <?php endif; ?>
-		</aside>
-
 		<?php if ($hasSubNavigation) : ?>
 		<div role="navigation" class="sub-nav underline--dashed">
 			<div class="lt-root">
@@ -149,19 +120,13 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 	    	imgOrigPosition = $(".masthead__logo").position(),
 	    	documentHeight = $(document).innerHeight(),
 	    	footerHeight = $("#pagefooter").height(),
-	    	artworkTop = documentHeight - footerHeight,
-	    	artworkHeight =$(".footer__artwork").height(),
-	    	artworkWidth =$(".footer__artwork").width(),
-	    	artworkRatio = artworkHeight/artworkWidth;
+	    	artworkTop = documentHeight - footerHeight;
 
 			$(window)
 			.resize(function(){
 		    	documentHeight = $(document).innerHeight(),
 		    	footerHeight = $("#pagefooter").height(),
-		    	artworkTop = documentHeight - footerHeight,
-		    	artworkHeight =$(".footer__artwork").height(),
-		    	artworkWidth =$(".footer__artwork").width(),
-		    	artworkRatio = artworkHeight/artworkWidth;
+		    	artworkTop = documentHeight - footerHeight;
 
 		    	$(this).trigger("curious");
 			})
@@ -199,16 +164,14 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 	    	var atTop    = $(".masthead").isOnScreen(),
 	    		atBottom = $(".footer__artwork").isOnScreen();
 
-		    	if ( (atTop && atBottom) ) {
-		    		return;
-		    	}
-		    	if (atTop) {
+	    		// Top has priority
+		    	if ( atTop || (atTop && atBottom) ) {
 		    		offsetY = imgOrigPosition.top + "px";
 		    		img.removeClass("bottom").addClass("top");
 		    	}
 		    	else {
 
-		    		offsetY = artworkTop - imgHeight;
+		    		offsetY = artworkTop - .65*imgHeight;
 		    		img.addClass("bottom").removeClass("top");
 		    	}
 
