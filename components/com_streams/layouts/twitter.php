@@ -66,7 +66,7 @@ foreach ($entities as $entity) {
 		case 'photo':
 			if (isset($entity['sizes']->thumb)) {
 				$image = $entity['sizes']->thumb;
-				$replacement = '<a href="'.$entity['url'].'"><img class="media soft" src="'.$entity['src'].'" alt="" >';
+				$replacement = '<a href="'.$entity['url'].'"><img class="media soft" src="'.$entity['src'].'" alt="" ></a>';
 			}
 			break;
 
@@ -78,7 +78,7 @@ foreach ($entities as $entity) {
 ?>
 
 
-<time class="date"><i class="fa fa-calendar"></i> <?php echo $displayData['date']; ?></time>
+<time class="date" datetime="<?php echo $displayData['datetime']; ?>"><i class="fa fa-calendar"></i> <?php echo $displayData['date']; ?></time>
 
 
 

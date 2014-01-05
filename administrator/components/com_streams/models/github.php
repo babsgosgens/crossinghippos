@@ -58,7 +58,7 @@ class StreamsModelGithub extends StreamsModelApi
 		parent::__construct($config);
 
 		// Load this items parameters
-		$table =& $this->getTable('Api', 'StreamsTable');
+		$table = $this->getTable('Api', 'StreamsTable');
 		$table->load(3);
 		$params = new JRegistry( $table->get('params') );
 
@@ -142,7 +142,7 @@ class StreamsModelGithub extends StreamsModelApi
 				}
 			}
 
-			JFactory::getApplication()->enqueueMessage( JText::sprintf('COM_STREAMS_UPDATE_SUCCESS', 'Facebook', $c), 'message');
+			JFactory::getApplication()->enqueueMessage( JText::sprintf('COM_STREAMS_UPDATE_SUCCESS', 'Github', $c), 'message');
 		}
 	}
 
@@ -156,10 +156,12 @@ class StreamsModelGithub extends StreamsModelApi
 		/**
 		 * Only fetch items if the response is empty
 		 */
-		if ( is_null($this->_response) )
+		if ( is_null($this->response) )
 		{
 			$this->setResponse();
 		}
+
+		// var_dump($this->response);exit;
 
 		return $this->response;
 	}
@@ -182,6 +184,7 @@ class StreamsModelGithub extends StreamsModelApi
 
 			$username = $params->get('username');
 			$repository = $params->get('repository');
+
 
 			$this->set('response', $github->commits->getList($username, $repository));
 		}

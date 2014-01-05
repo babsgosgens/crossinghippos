@@ -113,7 +113,7 @@ class StreamsModelStreams extends JModelList
 		$input = JFactory::getApplication()->input;
 
 		// get ?platform=[CONTENT] and filter.
-		$platform = $input->get('platform', '', 'raw');
+		$platform = $input->get('platform', 'twitter', 'string');
 
 		// if ?platform=[CONTENT] is set
 		if ($platform != ''){

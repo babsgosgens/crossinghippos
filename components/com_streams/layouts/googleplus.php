@@ -50,7 +50,7 @@ if (isset($post['object']['attachments'])){
 	$attachment = array('type' => $post['object']['attachments'][0]['objectType'], 'content' => $content, 'url' => $link, 'description' => $description);
 }
 ?>
-<time class="date"><i class="fa fa-calendar"></i> <?php echo $displayData['date']; ?></time>
+<time class="date" datetime="<?php echo $displayData['datetime']; ?>"><i class="fa fa-calendar"></i> <?php echo $displayData['date']; ?></time>
 
 
 <?php if ( isset($post['title']) ) : ?>

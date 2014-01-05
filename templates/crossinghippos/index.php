@@ -54,6 +54,13 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 			</div>
 		</div>
 		<?php endif; ?>
+
+
+		<!-- modules -->
+		<aside class="lt-root">
+			<jdoc:include type="modules" name="below-main-content" style="cms" />
+		</aside>
+
 	</div>
 
 

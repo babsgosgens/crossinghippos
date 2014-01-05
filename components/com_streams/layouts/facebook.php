@@ -17,7 +17,7 @@ $post = $displayData['post'];
 // echo '</pre>';
 /*	<img class="round img--inline outline--decorative" src="https://graph.facebook.com/<?php echo $displayData['post']->from->id; ?>/picture?square" width="32" height="32" alt="">&nbsp; */
 ?>
-<time class="date"><i class="fa fa-calendar"></i> <?php echo $displayData['date']; ?></time>
+<time class="date" datetime="<?php echo $displayData['datetime']; ?>"><i class="fa fa-calendar"></i> <?php echo $displayData['date']; ?></time>
 
 <p class="lt-vertical-padding">
 	<?php echo $post->message; ?>

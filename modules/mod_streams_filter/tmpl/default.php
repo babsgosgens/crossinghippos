@@ -9,7 +9,7 @@
 
 defined('_JEXEC') or die;
 
-$requestedApi = $input->getWord('platform', '');
+$requestedApi = $input->getWord('platform', 'twitter');
 ?>
 
 <ul class="list-inline streams-filter leader">

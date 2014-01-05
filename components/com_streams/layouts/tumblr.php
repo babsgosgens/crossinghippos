@@ -21,7 +21,7 @@ $post = $displayData['post'];
 // $post_username = $post->blog_name;
 // $post
 ?>
-<time class="date"><i class="fa fa-calendar"></i> <?php echo $displayData['date']; ?></time>
+<time class="date" datetime="<?php echo $displayData['datetime']; ?>"><i class="fa fa-calendar"></i> <?php echo $displayData['date']; ?></time>
 
 <h1><a href="<?php echo $post_url; ?>"><?php echo $post->title; ?></a></h1>
 
