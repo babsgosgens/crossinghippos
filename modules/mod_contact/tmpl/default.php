@@ -11,7 +11,7 @@ defined('_JEXEC') or die;
 
 // We can re-use the contact session data: $app->setUserState('com_contact.contact.data', null);
 
-$gravatar = "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $params->get('gravatar') ) ) ) . "?&s=78";
+$gravatar = "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $params->get('gravatar') ) ) ) . "?&amp;s=78";
 ?>
 <p class="txt-center"><img src="<?php echo $gravatar; ?>" class="round outline--decorative" alt="<?php echo JText::_('MOD_CONTACT_ALT_GRAVATAR'); ?>"></p>
 <h1 class="hd hd--section txt-center"><?php echo $module->title; ?></h1>

@@ -179,7 +179,7 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 
 			<?php if (!empty($this->item->parent_slug)) : ?>
 			<dt  class="lt-base lt-column--third-persistent  underline--dashed"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_PROJECT'); ?></dt>
-			<dd class="lt-base lt-column--two-third-persistent  underline--dashed"><a href="<?php echo $categoryUrl; ?>" class="anchor--incognito  hd"><?php echo $categoryTitle;?></a></dd>
+			<dd class="lt-base lt-column--two-third-persistent  underline--dashed"><a href="<?php echo $categoryUrl; ?>" class="hd"><?php echo $categoryTitle;?></a></dd>
 			<?php endif; ?>
 
 			<?php if (isset($project['projectclient']) && !empty($project['projectclient'])): ?>
@@ -203,8 +203,7 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 			<?php endif; ?>
 
 			<?php if (isset($project['projecturl']) && !empty($project['projecturl'])): ?>
-			<dt class="lt-base lt-column--third-persistent"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_WEBSITE'); ?></dt>
-			<dd class="lt-base lt-column--two-third-persistent"><a href="<?php echo $project['projecturl']; ?>"><?php echo $project['projecturl']; ?></a></dd>
+			<dd class="lt-base lt-column underline--dashed"><a href="<?php echo $project['projecturl']; ?>"><?php echo $project['projecturl']; ?></a></dd>
 			<?php endif; ?>
 		</dl>
 	<?php endif; ?>

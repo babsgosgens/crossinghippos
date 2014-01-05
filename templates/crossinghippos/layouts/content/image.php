@@ -24,12 +24,21 @@ $g
 <?php if (!empty($displayData)) : ?>
 
 	<?php if ($displayData['caption']!='' || $displayData['figureClass']!=''): ?>
-	<figure<?php if ( isset($displayData['figureClass']) && $displayData['figureClass'] !='') : ?> class="<?php echo $displayData['figureClass']; ?>"<?php endif; ?>>
+	<figure<?php if ( isset($displayData['figureClass']) && $displayData['figureClass'] !='') : ?> class="<?php echo $displayData['figureClass']; ?> pretty-wrap"<?php endif; ?>>
 		<?php if ($displayData['caption']!='') : ?><figcaption><?php echo $displayData['caption']; ?></figcaption><?php endif; ?>
+		<?php if ( isset($displayData['url']) && $displayData!='') : ?>
+		<a href="<?php echo $displayData['url']; ?>"><img src="<?php echo $displayData['src']; ?>" alt="<?php echo $displayData['alt']; ?>"<?php if ( isset($displayData['imageClass']) && $displayData['imageClass'] !='') : ?> class="<?php echo $displayData['imageClass']; ?>"<?php endif; ?>></a>
+		<?php else: ?>
 		<img src="<?php echo $displayData['src']; ?>" alt="<?php echo $displayData['alt']; ?>"<?php if ( isset($displayData['imageClass']) && $displayData['imageClass'] !='') : ?> class="<?php echo $displayData['imageClass']; ?>"<?php endif; ?>>
+		<?php endif; ?>
+		<div class="pretty">&nbsp;</div>
 	</figure>
 	<?php else: ?>
+		<?php if ( isset($displayData['url']) && $displayData!='') : ?>
+		<a href="<?php echo $displayData['url']; ?>"><img src="<?php echo $displayData['src']; ?>" alt="<?php echo $displayData['alt']; ?>"<?php if ( isset($displayData['imageClass']) && $displayData['imageClass'] !='') : ?> class="<?php echo $displayData['imageClass']; ?>"<?php endif; ?>></a>
+		<?php else: ?>
 		<img src="<?php echo $displayData['src']; ?>" alt="<?php echo $displayData['alt']; ?>"<?php if ( isset($displayData['imageClass']) && $displayData['imageClass'] !='') : ?> class="<?php echo $displayData['imageClass']; ?>"<?php endif; ?>>
+		<?php endif; ?>
 	<?php endif; ?>
 
 <?php endif; ?>

@@ -61,7 +61,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 
 		<div class="footer__artwork">
 			<div class="lt-root">
-				<img src="<?php echo $this->baseurl; ?>/templates/crossinghippos/images/artwork-by-untilsunday.it.svg" class="footer__image media">
+				<img src="<?php echo $this->baseurl; ?>/templates/crossinghippos/images/artwork-by-untilsunday.it.svg" class="footer__image media" alt="Beautiful illustration by http://www.untilsunday.it">
 			</div>
 		</div>
 

@@ -1,4 +1,7 @@
 
+.lt-gutters-margin {
+	@include column-spacing(1/2, true);
+}
 .lt-gutters--half {
 	@include column-spacing(1/4);
 }

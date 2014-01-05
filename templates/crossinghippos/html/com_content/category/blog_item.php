@@ -54,8 +54,9 @@ if (isset($images->image_intro) && !empty($images->image_intro)) {
 		'src' => htmlspecialchars($images->image_intro),
 		'alt' => $images->image_intro_alt ? htmlspecialchars($images->image_intro_alt) : '',
 		'float' => 	empty($images->float_intro) ? $params->get('float_intro') : $images->float_intro,
-		'figureClass' => 'lt-prime lt-prime--clear lt-gutters blog__image',
-		'imageClass' => 'media soft'
+		'figureClass' => 'blog__image',
+		'imageClass' => 'media blog-article--item__image',
+		'url' => $article['title']['url']
 	);		
 }
 $article['article'] = array(
@@ -68,32 +69,67 @@ $article['article'] = array(
 ?>
 
 
-<article class="blog__article lt-root">
+<article class="blog-article lt-root">
+
+	<hr class="lt-gutters-margin leader--double">
 
 	<?php
 	/*
 	 * ------------------------------------------------------------------------------------------------------------------
-	 * PRIMARY
+	 * FIRST (IMAGE)
 	 * ------------------------------------------------------------------------------------------------------------------
 	 */
 	?>
-	<header class="lt-prime lt-prime--clear lt-gutters">
-		<h1 class="hd hd--article">
-			<a href="<?php echo $article['title']['url']; ?>"><?php echo $article['title']['title']; ?></a>
-		</h1>
+	<div class="lt-column blog-article__column-one lt-gutters blog-article__first">
 
-		<?php // Article date ?>
-		<?php if ($params->get('show_publish_date')) : ?>
-			<time class="date lt-vertical-padding lt-base"><i class="fa fa-calendar"></i>&nbsp;<?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?></time>
+
+		<?php if (isset($images->image_intro) && !empty($images->image_intro)) : ?>
+			<?php $articleLayout = new JLayoutFile('content.image', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
+			<?php echo $articleLayout->render($article['image']); ?>
 		<?php endif; ?>
-	</header>
 
-	<?php if (isset($images->image_intro) && !empty($images->image_intro)) : ?>
-		<?php $articleLayout = new JLayoutFile('content.image', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
-		<?php echo $articleLayout->render($article['image']); ?>
-	<?php endif; ?>
+		<footer>
+		<div class="blog-article__metadata">
+			<div class="box--filled lt-gutters">
+			<?php // Article date ?>
+			<?php if ($params->get('show_publish_date')) : ?>
+				<time class="date lt-vertical-padding lt-base"><i class="fa fa-calendar"></i>&nbsp;<?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?></time>
+			<?php endif; ?>
+			<?php if ($params->get('show_tags', 1) && !empty($this->item->tags)) : ?>
+				<?php $tagsLayout = new JLayoutFile('content.tags.inline', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
+				<?php echo $tagsLayout->render($this->item->tags->itemTags); ?>
+			<?php endif; ?>
+			</div>
+		</div>
 
-	<div class="lt-prime lt-prime--alpha-beta lt-gutters blog__intro">
+		<?php if (isset($this->item->project) && !empty($this->item->project)): ?>
+			<?php
+			$title = $this->escape($this->item->category_title);
+			$layoutData = array(
+				'category' => '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)).'" class="hd anchor--incognito">'.$title.'</a>',
+				'project'  => $this->item->project
+				);
+			?>
+			<?php $projectDetails = new JLayoutFile('content.project', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
+			<?php echo $projectDetails->render($layoutData); ?>
+		</footer>
+		<?php endif; ?>
+
+	</div>
+
+
+	<?php
+	/*
+	 * ------------------------------------------------------------------------------------------------------------------
+	 * MIDDLE (TEXT)
+	 * ------------------------------------------------------------------------------------------------------------------
+	 */
+	?>
+	<div class="lt-column blog-article__column-two lt-gutters blog__intro">
+
+		<h1 class="hd hd--article">
+			<a href="<?php echo $article['title']['url']; ?>" class="anchor--incognito"><?php echo $article['title']['title']; ?></a>
+		</h1>
 
 		<?php echo $article['article']['event']['before']; ?>
 		<?php echo $article['article']['content']; ?>
@@ -122,7 +158,7 @@ $article['article'] = array(
 				echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
 				endif;
 			elseif ($params->get('show_readmore_title', 0) == 0) :
-				echo JText::sprintf('COM_CONTENT_READ_MORE_TITLE');
+				echo JText::sprintf('TPL_CROSSINGHIPPOS_READ_MORE');
 			else :
 				echo JText::_('TPL_CROSSINGHIPPOS_READ_MORE');
 				echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
@@ -138,37 +174,24 @@ $article['article'] = array(
 	<?php
 	/*
 	 * ------------------------------------------------------------------------------------------------------------------
-	 * SECONDARY
+	 * LAST (METADATA)
 	 * ------------------------------------------------------------------------------------------------------------------
 	 */
 	?>
-	<aside class="lt-alpha lt-gutters">
+	<!--footer class="lt-column lt-column--fourth lt-gutters">
+
+	<div class="box--filled">
+		<?php // Article date ?>
+		<?php if ($params->get('show_publish_date')) : ?>
+			<time class="date lt-vertical-padding lt-base"><i class="fa fa-calendar"></i>&nbsp;<?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?></time>
+			<br><time class="date lt-vertical-padding lt-base"><i class="fa fa-calendar"></i>&nbsp;<?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?></time>
+			<br><time class="date lt-vertical-padding lt-base"><i class="fa fa-calendar"></i>&nbsp;<?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?></time>
+		<?php endif; ?>
 		<?php if ($params->get('show_tags', 1) && !empty($this->item->tags)) : ?>
 			<?php $tagsLayout = new JLayoutFile('content.tags.button', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
 			<?php echo $tagsLayout->render($this->item->tags->itemTags); ?>
 		<?php endif; ?>
-	</aside>
-
-
-	<?php
-	/*
-	 * ------------------------------------------------------------------------------------------------------------------
-	 * TERTIARY - PROJECT LOGO AND DATA
-	 * ------------------------------------------------------------------------------------------------------------------
-	 */
-	?>
-	<footer class="lt-beta lt-gutters">
-		<?php if (isset($this->item->project) && !empty($this->item->project)): ?>
-		<?php
-		$title = $this->escape($this->item->category_title);
-		$layoutData = array(
-			'category' => '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)).'" class="hd anchor--incognito">'.$title.'</a>',
-			'project'  => $this->item->project
-			);
-		?>
-		<?php $projectDetails = new JLayoutFile('content.project', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
-		<?php echo $projectDetails->render($layoutData); ?>
-		<?php endif; ?>
-	</footer>
+		</div>
+	</footer-->
 
 </article>

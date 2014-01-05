@@ -46,7 +46,6 @@ $image   = isset($displayData['image']) ? $displayData['image'] : '';
 				<?php endif; ?>
 
 				<?php if (isset($project['projecturl']) && !empty($project['projecturl'])): ?>
-				<dt class="lt-base lt-column--third-persistent"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_WEBSITE'); ?></dt>
-				<dd class="lt-base lt-column--two-third-persistent"><a href="<?php echo $project['projecturl']; ?>"><?php echo $project['projecturl']; ?></a></dd>
+				<dd class="lt-base lt-column  underline--dashed"><a href="<?php echo $project['projecturl']; ?>"><?php echo $project['projecturl']; ?></a></dd>
 				<?php endif; ?>
 			</dl>

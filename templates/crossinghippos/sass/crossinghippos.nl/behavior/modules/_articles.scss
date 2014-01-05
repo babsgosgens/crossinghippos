@@ -10,3 +10,146 @@
 				@include font($bree-light);
 			}
 		}
+		.blog-article__metadata {
+			.tags {
+				margin-top: 0;
+			}
+		}
+
+
+
+		// <div class="blog-article__metadata">
+		// 	<div class="box--filled lt-gutters">
+		// 	<?php // Article date ?>
+		// 	<?php if ($params->get('show_publish_date')) : ?>
+		// 		<time class="date lt-vertical-padding lt-base"><i class="fa fa-calendar"></i>&nbsp;<?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?></time>
+		// 	<?php endif; ?>
+		// 	<?php if ($params->get('show_tags', 1) && !empty($this->item->tags)) : ?>
+		// 		<?php $tagsLayout = new JLayoutFile('content.tags.button', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
+		// 		<?php echo $tagsLayout->render($this->item->tags->itemTags); ?>
+		// 	<?php endif; ?>
+		// 	</div>
+		// </div>
+
+
+			.position__sidebar {
+				width: fraction-to-percentage(1/3);
+				&>img {
+				margin-top: rhythm(.25);
+				}
+			}
+			.position__sidebar--left {
+				float: left;
+					padding-right: .5*$column-spacing;
+			}
+			.position__sidebar--right {
+				float: right;
+					padding-left: .5*$column-spacing;
+			}
+
+		@include breakpoint($gt-medium) {
+			
+			.blog-article {
+				position: relative;
+			}
+				.blog-article__metadata {
+					position: absolute;
+					top: 0;
+					left: fraction-to-percentage(3/4);
+					width: fraction-to-percentage(1/4);
+					height: 100%;
+					&>.box--filled {
+						height: 100%;
+					}
+				}
+
+			.position {
+				position: relative;
+			}
+				.position__sidebar {
+					@include column-behavior();
+					position: absolute;
+					top: 0;
+					width: fraction-to-percentage(1/2);
+				}
+				.position__sidebar--left {
+					left: fraction-to-percentage(-1/2);
+					padding-right: $column-spacing;
+				}
+				.position__sidebar--right {
+					left: fraction-to-percentage(1/1);
+					padding-left: $column-spacing;
+				}
+		}
+
+			.blog-article__column-one {
+				@include column-width(1/4);
+			}
+			.blog-article__column-two {
+				@include column-width(1/2);
+			}
+
+		@include breakpoint($gt-small $lt-medium) {
+			.blog-article__column-one {
+				@include column-width(1/2);
+			}
+
+			// .blog-article__metadata {
+			// 	position: relative;
+			// 	z-index: 2;
+
+			// }
+			// .blog-article--item__image {
+			// 	margin-bottom: -100%;
+			// }
+			// .blog__image+.blog-article__metadata {
+			// 	background: rgba($whipped-cream--rgb, .8);
+			// }
+		}
+
+
+		@include breakpoint($lt-medium) {
+			.blog-article--item__image {
+				float: left;
+			}
+			.blog-article {
+				position: static;
+				.hd--article {
+					@include vertical-rhythm(.5, margin-top);
+					@include vertical-rhythm(.5, margin-bottom);
+				}
+			}
+		}
+		@include breakpoint($lt-small) {
+			.blog-article__column-one,
+			.blog-article__column-two {
+				@include column-width(1/1);
+			}
+			.blog-article__metadata+.project__data {
+				@include vertical-rhythm(.5, margin-top);
+			}
+		}
+
+			.pretty {
+				position: absolute;
+			}
+			@include breakpoint($gt-medium) {
+			.blog-article__metadata {
+				@include column-spacing;
+			}
+		}
+		@include breakpoint($gt-medium) {
+			.pretty-wrap {
+				position: relative;
+			}
+			.pretty {
+				display: block;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: rhythm(4);
+				@include filter-gradient(rgba($whipped-cream--rgb, 0), rgba($whipped-cream--rgb, 1), vertical); // IE6-9
+				@include background-image(linear-gradient(top,  rgba($whipped-cream--rgb, 0) 0%,rgba($whipped-cream--rgb, 1) 90%,rgba($whipped-cream--rgb, 1) 99%));
+			}
+		}
