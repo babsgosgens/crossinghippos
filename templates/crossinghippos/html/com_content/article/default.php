@@ -73,6 +73,13 @@ $article['article'] = array(
 		)
 	);
 
+/* Set Facebook Graph Tags */
+$document->addCustomTag('<meta property="og:title" content="'.$article['title']['title'].'"/> ');
+$document->addCustomTag('<meta property="og:image" content="'.JUri::root() . $article['image']['src'].'"/> ');
+$document->addCustomTag('<meta property="og:url" content="'.JUri::root() . $url.'"/> ');
+$document->addCustomTag('<meta property="og:site_name" content="Crossing Hippos"/> ');
+
+
 // /*
 //  * Use a module for the header
 //  */
