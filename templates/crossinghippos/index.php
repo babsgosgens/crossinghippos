@@ -37,12 +37,13 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 		</div>
 	</header>
 
+	<jdoc:include type="message" />
+
 	<!-- Wraps the main section of the page -->
 	<div<?php if ($hasSubNavigation) : ?> class="w-sub-nav"<?php endif; ?>>
 
 		<!-- component output -->
 		<div role="main" class="main itemid-<?php echo $active->id; ?>">
-			<jdoc:include type="message" />
 			<jdoc:include type="modules" name="title" style="header" />
 			<jdoc:include type="component" />
 		</div>
