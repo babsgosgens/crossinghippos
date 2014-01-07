@@ -58,7 +58,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 
 
 		<!-- modules -->
-		<aside class="lt-root">
+		<aside class="lt-root" id="streams">
 			<jdoc:include type="modules" name="below-main-content" style="cms" />
 		</aside>
 

@@ -30,7 +30,7 @@ $requestedApi = $input->getWord('platform', 'twitter');
 	}
 	?>
 	<li class="tl-base">
-		<a href="<?php echo $apiUri; ?>" class="<?php echo implode(' ', $class); ?>"><i class="fa <?php echo $icons[$item] ?> fa-2x hd--iconlink streams-filter__icon"></i></a>
+		<a href="<?php echo $apiUri; ?>#streams" class="<?php echo implode(' ', $class); ?>" data-target="streams"><i class="fa <?php echo $icons[$item] ?> fa-2x hd--iconlink streams-filter__icon"></i></a>
 	</li>
 
 <?php endforeach; ?>
