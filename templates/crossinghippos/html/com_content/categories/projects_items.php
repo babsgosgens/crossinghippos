@@ -44,12 +44,10 @@ $app = JFactory::getApplication('site');
 	<div class="lt-column lt-gutters lt-vertical-padding  projects__item project">
 		<div class="box box--projects">
 			<h1 class="hd box__title">
-				<a href="<?php echo $itemUrl; ?>" class="anchor--incognito">
 				<div class="image-whitespace">
-				<img src="<?php echo $itemImage; ?>" class="project__image media soft" alt="<?php echo JText::sprintf('TPL_CROSSINGHIPPOS_ALT_PROJECTIMAGE', $itemTitle); ?>">
+				<a href="<?php echo $itemUrl; ?>" class="anchor--incognito"><img src="<?php echo $itemImage; ?>" class="project__image media soft" alt="<?php echo JText::sprintf('TPL_CROSSINGHIPPOS_ALT_PROJECTIMAGE', $itemTitle); ?>"></a>
 				</div>
 				<?php echo $this->escape($item->title); ?>
-				</a>
 			</h1>
 			<?php $tagsLayout = new JLayoutFile('content.tags', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
 			<?php echo $tagsLayout->render($itemTags); ?>
