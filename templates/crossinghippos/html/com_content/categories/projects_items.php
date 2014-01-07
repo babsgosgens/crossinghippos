@@ -38,7 +38,7 @@ $app = JFactory::getApplication('site');
 		// 	$image = $images[0];
 		// }
 
-		$itemImage = "http://192.168.178.44/crossinghippos.nl/images/projects/$itemAlias/$itemAlias"."_x1.jpg";
+		$itemImage = "images/projects/$itemAlias/$itemAlias"."_x1.jpg";
 
 	?>
 	<div class="lt-column lt-gutters lt-vertical-padding  projects__item project">
