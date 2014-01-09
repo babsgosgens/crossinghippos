@@ -82,13 +82,31 @@ $article['article'] = array(
 		)
 	);
 
-/* Set Facebook Graph Tags */
+// <!-- for Google -->
+$document->addCustomTag('<meta name="copyright" content="Crossing Hippos" /> ');
+$document->addCustomTag('<meta name="application-name" content="Crossing Hippos" /> ');
+
+// <!-- for Facebook -->          
 $document->addCustomTag('<meta property="og:title" content="'.$article['title']['title'].'"/> ');
-if (!is_null($image)) {
+$document->addCustomTag('<meta property="og:type" content="article"/> ');
+$document->addCustomTag('<meta property="og:url" content="'.str_replace('//', '/', JUri::root() . $url).'"/> ');
+if ($params->get('page_description') != '') {
+	$document->addCustomTag('<meta property="og:site_name" content="'.$params->get('page_description').'"/> ');
+}
+if (!is_null($image)) { 
 	$document->addCustomTag('<meta property="og:image" content="'.str_replace('//', '/', JUri::root() . $image['src']).'"/> ');
 }
-$document->addCustomTag('<meta property="og:url" content="'.str_replace('//', '/', JUri::root() . $url).'"/> ');
-$document->addCustomTag('<meta property="og:site_name" content="Crossing Hippos"/> ');
+
+// <!-- for Twitter -->          
+$document->addCustomTag('<meta name="twitter:card" content="summary"/> ');
+$document->addCustomTag('<meta name="twitter:title" content="'.$article['title']['title'].'"/> ');
+if ($params->get('page_description') != '') {
+	$document->addCustomTag('<meta name="twitter:description" content="'.$params->get('page_description').'"/> ');
+}
+if (!is_null($image)) { 
+	$document->addCustomTag('<meta name="twitter:image" content="'.str_replace('//', '/', JUri::root() . $image['src']).'"/> ');
+}
+
 
 $identifier = 'categories';
 
@@ -98,7 +116,7 @@ $categoryTitle = $this->escape($this->item->category_title);
 $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug));
 
 // echo '<pre>';
-// print_r($images);
+// print_r($article);
 // echo '</pre>';
 ?>
 
