@@ -135,7 +135,7 @@ class StreamsModelFacebook extends JModelAdmin
 				/**
 				 * Get a reference to the table
 				 */
-				$table =& $this->getTable('Stream', 'StreamsTable');
+				$table = $this->getTable('Stream', 'StreamsTable');
 
 				/**
 				 * Create two arrays with data for storage,
@@ -199,9 +199,9 @@ class StreamsModelFacebook extends JModelAdmin
 			// Get a reference to the api object
 			$facebook =& $this->api;
 
-			// Get the feed and store it in the class attribute
+			// Get the feed and store it in the response attribute
 			$user = $facebook->user;
-			$this->response = $user->getStatuses('me', 20);
+			$this->response = $user->getStatuses('me');
 		}
 	}
 
