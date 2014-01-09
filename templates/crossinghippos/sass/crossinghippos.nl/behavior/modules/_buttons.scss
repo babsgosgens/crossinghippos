@@ -6,6 +6,9 @@ Main Navigation
 .btn {
 	background: $chred;
 	color: $color-background;
+	&:hover {
+		background: lighten($chred, 10%);
+	}
 }
 	.btn--large {
 		@include padding-leader(.5);
