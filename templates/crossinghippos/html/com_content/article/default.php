@@ -133,12 +133,17 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 
 <article class="article<?php echo $this->pageclass_sfx?> lt-root">
 
+<header class="leader--half lt-prime lt-prime--clear lt-gutters">
 <?php if ($params->get('show_title')) :?>
-<<?php echo $article['title']['tag']; ?> class="hd hd--article leader--half">
-	<a href="<?php echo $article['title']['url']; ?>" class="anchor--incognito lt-prime lt-gutters"> <?php echo $article['title']['title']; ?></a>
+<<?php echo $article['title']['tag']; ?> class="hd hd--article">
+	<a href="<?php echo $article['title']['url']; ?>" class="anchor--incognito"> <?php echo $article['title']['title']; ?></a>
 </<?php echo $article['title']['tag']; ?>>
 <?php endif; ?>
-
+		<?php // Article date ?>
+		<?php if ($params->get('show_publish_date')) : ?>
+			<time class="date link-list__date trailer lt-column"><i class="fa fa-calendar-o"></i> <?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?></time>
+		<?php endif; ?>
+</header>
 	<?php
 	/*
 	 * ------------------------------------------------------------------------------------------------------------------
@@ -147,11 +152,6 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 	 */
 	?>
 	<div class="lt-prime lt-prime--alpha-beta lt-gutters<?php if ($hasTags) : ?> divider<?php endif; ?>">
-
-		<?php // Article date ?>
-		<?php if ($params->get('show_publish_date')) : ?>
-			<time class="date link-list__date trailer lt-column"><i class="fa fa-calendar-o"></i> <?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?></time>
-		<?php endif; ?>
 
 		<?php $articleLayout = new JLayoutFile('content.article.body', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
 		<?php echo $articleLayout->render($article); ?>
@@ -197,7 +197,7 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 	<div class="lt-beta lt-gutters">
 		<?php if (isset($this->item->project)): ?>
 		<?php $project = $this->item->project; ?>
-		<dl class="lt-column lt-gutter-right">
+		<dl class="lt-column lt-gutter-right trailer">
 
 			<?php if (!empty($this->item->parent_slug)) : ?>
 			<dt  class="lt-base lt-column--third-persistent  underline--dashed"><?php echo JText::_('TPL_CROSSINGHIPPOS_LABEL_PROJECT'); ?></dt>
@@ -229,6 +229,35 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 			<?php endif; ?>
 		</dl>
 	<?php endif; ?>
+
+
+
+	<?php
+		$share_uri = str_replace('//', '/', JUri::root() . $url);
+		$share_twitter = "http://twitter.com/share?url=$share_uri&amp;via=crossinghippos&amp;text=".$article['title']['title'];
+		$share_facebook = "https://www.facebook.com/sharer/sharer.php?u=$share_uri";
+		$share_gplus = "https://plus.google.com/share?url=$share_uri";
+	?>
+	<ul class="list-inline">
+		<li class="twitter"><a 
+			href="<?php echo $share_twitter; ?>" 
+			class="soft btn btn--icn btn--twitter" 
+			target="_blank"
+			onclick="window.open('<?php echo $share_twitter; ?>','', 'width=715,height=450'); return false"
+			title="<?php echo JText::_('Share on Twitter'); ?>"><i class="icn icn-twitter"></i></a></li>
+		<li class="facebook lt-gutters"><a 
+			href="<?php echo $share_facebook; ?>" 
+			onclick="window.open('<?php echo $share_facebook; ?>','', 'width=715,height=450'); return false"
+			target="_blank"
+			class="soft btn btn--icn btn--facebook" 
+			title="<?php echo JText::_('Share on Facebook'); ?>"><i class="icn icn-facebook"></i></a></li>
+		<li class="gplus"><a 
+			href="<?php echo $share_gplus; ?>" 
+			onclick="window.open('<?php echo $share_gplus ?>','', 'width=715,height=450'); return false" 
+			target="_blank"
+			class="soft btn btn--icn btn--googleplus" 
+			title="<?php echo JText::_('Share on Google Plus'); ?>"><i class="icn icn-googleplus"></i></a></li>
+	</ul>
 	</div>
 
 
