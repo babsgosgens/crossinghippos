@@ -36,12 +36,26 @@ $useDefList = (
 	$params->get('show_author')
 );
 
+// Check for images
+$image = null;
 $hasIntroImage = isset($images->image_intro) && !empty($images->image_intro);
+$hasFullArticleImage = isset($images->image_fulltext) && !empty($images->image_fulltext);
 $hasTags = $params->get('show_tags', 1) && !empty($this->item->tags);
 
-// echo '<pre>';
-// print_r($this->item);
-// echo '</pre>';
+if ( $hasFullArticleImage ) {
+	$image = array();
+	$image['src'] = $images->image_fulltext;
+	$image['caption'] = $images->image_fulltext_caption;
+	$image['alt'] = $images->image_fulltext_alt;
+	$image['float'] = $images->float_intro;
+}
+else if ( $hasIntroImage ) {
+	$image = array();
+	$image['src'] = $images->image_intro;
+	$image['caption'] = $images->image_intro_caption;
+	$image['alt'] = $images->image_intro_alt;
+	$image['float'] = $images->float_fulltext;
+}
 
 // Prepare display data for article layout
 $article = array();
@@ -54,15 +68,10 @@ $article['title'] = array(
 		'after' => $this->item->event->afterDisplayTitle
 		)
 	);
-if ($hasIntroImage) {
-$article['image'] = array(
-		'caption' => $images->image_intro_caption ? htmlspecialchars($images->image_intro_caption) : '',
-		'src' => htmlspecialchars($images->image_intro),
-		'alt' => $images->image_intro_alt ? htmlspecialchars($images->image_intro_alt) : '',
-		'float' => 	empty($images->float_intro) ? $params->get('float_intro') : $images->float_intro,
-		'figureClass' => '',
-		'imageClass' => 'lt-prime article__intro-image'
-	);		
+if (!is_null($image)) {
+	$article['image'] = $image;
+	$article['image']['figureClass'] = '';
+	$article['image']['imageClass'] = 'lt-prime article__intro-image';
 }
 $article['article'] = array(
 	'toc' => isset ($this->item->toc) ? $this->item->toc : '',
@@ -75,36 +84,22 @@ $article['article'] = array(
 
 /* Set Facebook Graph Tags */
 $document->addCustomTag('<meta property="og:title" content="'.$article['title']['title'].'"/> ');
-if ($hasIntroImage) {
-$document->addCustomTag('<meta property="og:image" content="'.JUri::root() . $article['image']['src'].'"/> ');
+if (!is_null($image)) {
+	$document->addCustomTag('<meta property="og:image" content="'.str_replace('//', '/', JUri::root() . $image['src']).'"/> ');
 }
-$document->addCustomTag('<meta property="og:url" content="'.JUri::root() . $url.'"/> ');
+$document->addCustomTag('<meta property="og:url" content="'.str_replace('//', '/', JUri::root() . $url).'"/> ');
 $document->addCustomTag('<meta property="og:site_name" content="Crossing Hippos"/> ');
 
-
-// /*
-//  * Use a module for the header
-//  */
-// $renderer	= $document->loadRenderer('module');
-// $header	= JModuleHelper::getModule('mod_articles_categories');
-// $headerIsActive = !is_null($header) && $header->id > 0;
-
 $identifier = 'categories';
-// if (!is_null($header)) {
-// 	$headerAttribs	= array(
-// 		'style' => 'id',
-// 		'module_id' => $identifier
-// 	);
-// 	$titleNavigationOptions = $renderer->render($header, $headerAttribs);
-// }
+
 $parentTitle = $this->escape($this->item->parent_title);
 $parentUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug));
 $categoryTitle = $this->escape($this->item->category_title);
 $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug));
 
 // echo '<pre>';
-// print_r($this->item);
-// echo '<pre>';
+// print_r($images);
+// echo '</pre>';
 ?>
 
 
