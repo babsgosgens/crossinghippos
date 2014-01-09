@@ -229,35 +229,6 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 			<?php endif; ?>
 		</dl>
 	<?php endif; ?>
-
-
-
-	<?php
-		$share_uri = str_replace('//', '/', JUri::root() . $url);
-		$share_twitter = "http://twitter.com/share?url=$share_uri&amp;via=crossinghippos&amp;text=".$article['title']['title'];
-		$share_facebook = "https://www.facebook.com/sharer/sharer.php?u=$share_uri";
-		$share_gplus = "https://plus.google.com/share?url=$share_uri";
-	?>
-	<ul class="list-inline">
-		<li class="twitter"><a 
-			href="<?php echo $share_twitter; ?>" 
-			class="soft btn btn--icn btn--twitter" 
-			target="_blank"
-			onclick="window.open('<?php echo $share_twitter; ?>','', 'width=715,height=450'); return false"
-			title="<?php echo JText::_('Share on Twitter'); ?>"><i class="icn icn-twitter"></i></a></li>
-		<li class="facebook lt-gutters"><a 
-			href="<?php echo $share_facebook; ?>" 
-			onclick="window.open('<?php echo $share_facebook; ?>','', 'width=715,height=450'); return false"
-			target="_blank"
-			class="soft btn btn--icn btn--facebook" 
-			title="<?php echo JText::_('Share on Facebook'); ?>"><i class="icn icn-facebook"></i></a></li>
-		<li class="gplus"><a 
-			href="<?php echo $share_gplus; ?>" 
-			onclick="window.open('<?php echo $share_gplus ?>','', 'width=715,height=450'); return false" 
-			target="_blank"
-			class="soft btn btn--icn btn--googleplus" 
-			title="<?php echo JText::_('Share on Google Plus'); ?>"><i class="icn icn-googleplus"></i></a></li>
-	</ul>
 	</div>
 
 
