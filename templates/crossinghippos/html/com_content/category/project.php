@@ -211,7 +211,7 @@ $parentUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->category->par
 
 			<span class="link-list__category"><i class="fa fa-folder-open"></i> <?php echo $this->escape($item->parent_title); ?></span>
 			</div>
-			<a href="<?php echo $url; ?>" class="anchor--incognito"><img src="<?php echo $article['image']['src']; ?>" alt="<?php echo $article['image']['alt']; ?>" class="media link-list__image"></a>
+			<?php if (isset($images->image_intro) && !empty($images->image_intro)) : ?><a href="<?php echo $url; ?>" class="anchor--incognito"><img src="<?php echo $article['image']['src']; ?>" alt="<?php echo $article['image']['alt']; ?>" class="media link-list__image"></a><?php endif; ?>
 		</article>
 	</li>
 <?php endforeach; ?>
