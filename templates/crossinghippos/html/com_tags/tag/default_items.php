@@ -67,7 +67,6 @@ $n = count($this->items);
 
 </form>
 <?php endif; ?>
-<?php 			$dom = new DOMDocument(); ?>
 
 <ol class="lt-column link-list leader">
 	<?php foreach ($items as $i => $item) : ?>
@@ -81,6 +80,7 @@ $n = count($this->items);
 			 */
 			$image = strip_tags($item->core_body, '<img>');
 
+			$dom = new DOMDocument();
 		    $dom->loadHTML($image);
 		    $imageTags = $dom->getElementsByTagName('img');
 
