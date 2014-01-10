@@ -11,8 +11,8 @@ defined('_JEXEC') or die;
 
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 
-JHtml::_('behavior.framework');
-JHtml::_('formbehavior.chosen', 'select');
+// JHtml::_('behavior.framework');
+// JHtml::_('formbehavior.chosen', 'select');
 
 // Get the user object.
 $user = JFactory::getUser();
@@ -38,6 +38,7 @@ $bscolumns = min($columns, floor(12 / $bsspans));
 $n = count($this->items);
 ?>
 
+<?php if ($this->params->get('filter_field') || $this->params->get('show_pagination_limit')) : ?>
 <form action="<?php echo htmlspecialchars(JUri::getInstance()->toString()); ?>" method="post" name="adminForm" id="adminForm">
 	<?php if ($this->params->get('filter_field') || $this->params->get('show_pagination_limit')) : ?>
 	<fieldset class="filters btn-toolbar">
@@ -65,56 +66,15 @@ $n = count($this->items);
 		<div class="clearfix"></div>
 	</fieldset>
 	<?php endif; ?>
+</form>
+<?php endif; ?>
+
 
 <?php if ($this->items == false || $n == 0) : ?>
 	<p><?php echo JText::_('COM_TAGS_NO_TAGS'); ?></p>
 <?php else : ?>
-	<?php foreach ($this->items as $i => $item) : ?>
-		<?php if ($n == 1 || $i == 0 || $bscolumns == 1 || $i % $bscolumns == 0) : ?>
-			<ul class="thumbnails">
-		<?php endif; ?>
-		<?php if ((!empty($item->access)) && in_array($item->access, $this->user->getAuthorisedViewLevels())) : ?>
- 			<li class="cat-list-row<?php echo $i % 2; ?>" >
-				<h3>
-					<a href="<?php echo JRoute::_(TagsHelperRoute::getTagRoute($item->id . '-' . $item->alias)); ?>">
-						<?php echo $this->escape($item->title); ?>
-					</a>
-				</h3>
-		<?php endif; ?>
-		<?php if ($this->params->get('all_tags_show_tag_image') && !empty($item->images)) : ?>
-			<?php $images  = json_decode($item->images); ?>
-			<span class="tag-body">
-			<?php if (!empty($images->image_intro)): ?>
-				<?php $imgfloat = (empty($images->float_intro)) ? $this->params->get('float_intro') : $images->float_intro; ?>
-				<div class="pull-<?php echo htmlspecialchars($imgfloat); ?> item-image">
-					<img
-				<?php if ($images->image_intro_caption) : ?>
-					<?php echo 'class="caption"' . ' title="' . htmlspecialchars($images->image_intro_caption) . '"'; ?>
-				<?php endif; ?>
-				src="<?php echo $images->image_intro; ?>" alt="<?php echo htmlspecialchars($images->image_fulltext_alt); ?>"/>
-				</div>
-			<?php endif; ?>
-			</span>
-		<?php endif; ?>
-		<div class="caption">
-			<?php if ($this->params->get('all_tags_show_tag_description', 1)) : ?>
-				<span class="tag-body">
-					<?php echo JHtml::_('string.truncate', $item->description, $this->params->get('tag_list_item_maximum_characters')); ?>
-				</span>
-			<?php endif; ?>
-			<?php if ($this->params->get('all_tags_show_tag_hits')) : ?>
-				<span class="list-hits badge badge-info">
-					<?php echo JText::sprintf('JGLOBAL_HITS_COUNT', $item->hits); ?>
-				</span>
-			<?php endif; ?>
-		</div>
-	</li>
-
-		<?php if (($i == 0 && $n == 1) || $i == $n - 1 || $bscolumns == 1 || (($i + 1) % $bscolumns == 0)) : ?>
-			</ul>
-		<?php endif; ?>
-
-	<?php endforeach; ?>
+	<?php $tagsLayout = new JLayoutFile('content.tags.button', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
+	<?php echo $tagsLayout->render($this->items); ?>
 <?php endif;?>
 
 <?php // Add pagination links ?>
@@ -131,5 +91,4 @@ $n = count($this->items);
 		<?php echo $this->pagination->getPagesLinks(); ?>
 	</div>
 	<?php endif; ?>
-</form>
 <?php endif; ?>

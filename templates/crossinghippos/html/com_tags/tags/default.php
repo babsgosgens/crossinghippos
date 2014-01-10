@@ -27,16 +27,18 @@ $descriptionImage = $this->params->get('all_tags_description_image');
 		</div>
 	</div>
 </header>
+
 <?php endif; ?>
+<?php if ($this->params->get('all_tags_show_description_image') && !empty($descriptionImage)):?>
+	<div><?php echo '<img src="' . $descriptionImage . '">';?></div>
+<?php endif;?>
+<?php if (!empty($description)):?>
+	<div><?php echo $description;?></div>
+<?php endif;?>
 
-<div class="tag-category<?php echo $this->pageclass_sfx; ?>">
-	<?php if ($this->params->get('all_tags_show_description_image') && !empty($descriptionImage)):?>
-		<div><?php echo '<img src="' . $descriptionImage . '">';?></div>
-	<?php endif;?>
-	<?php if (!empty($description)):?>
-		<div><?php echo $description;?></div>
-	<?php endif;?>
-
-	<?php echo $this->loadTemplate('items'); ?>
-
+<div class="lt-root">
+	<div class="lt-column lt-gutters leader">
+		<?php echo $this->loadTemplate('items'); ?>
+	</div>
 </div>
+
