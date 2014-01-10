@@ -97,7 +97,7 @@ $article['article'] = array(
 			<?php endif; ?>
 			<?php //var_dump($this->item->tags->itemTags[]); ?>
 			<?php if ($params->get('show_tags', 1) && !empty($this->item->tags)) : ?>
-				<?php $tagsLayout = new JLayoutFile('content.tags.button', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
+				<?php $tagsLayout = new JLayoutFile('content.tags.inline', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
 				<?php echo $tagsLayout->render($this->item->tags->itemTags); ?>
 			<?php endif; ?>
 			</div>
