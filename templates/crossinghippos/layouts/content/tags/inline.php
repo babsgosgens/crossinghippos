@@ -11,7 +11,6 @@ defined('JPATH_BASE') or die;
 
 JLoader::register('TagsHelperRoute', JPATH_BASE . '/components/com_tags/helpers/route.php');
 ?>
-
 <?php if (!empty($displayData)) : ?>
 	<p class="tags list-inline">
 		<?php $tagsTotal = count($displayData); ?>

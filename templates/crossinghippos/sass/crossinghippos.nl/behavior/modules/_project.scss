@@ -35,7 +35,9 @@
 		}
 		a:hover {
 			color: inherit;
-			text-decoration: underline;
+		}
+		&:hover {
+			background: $pure;
 		}
 	}
 	.link-list__date {

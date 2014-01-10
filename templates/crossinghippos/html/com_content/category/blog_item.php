@@ -95,8 +95,9 @@ $article['article'] = array(
 			<?php if ($params->get('show_publish_date')) : ?>
 				<time class="date lt-vertical-padding lt-base"><i class="fa fa-calendar"></i>&nbsp;<?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?></time>
 			<?php endif; ?>
+			<?php //var_dump($this->item->tags->itemTags[]); ?>
 			<?php if ($params->get('show_tags', 1) && !empty($this->item->tags)) : ?>
-				<?php $tagsLayout = new JLayoutFile('content.tags.inline', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
+				<?php $tagsLayout = new JLayoutFile('content.tags.button', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>
 				<?php echo $tagsLayout->render($this->item->tags->itemTags); ?>
 			<?php endif; ?>
 			</div>
