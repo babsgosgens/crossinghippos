@@ -34,7 +34,7 @@ $n = count($this->items);
 ?>
 
 <?php if ($this->items == false || $n == 0) : ?>
-	<p class="leader lt-gutters"> <?php echo JText::_('COM_TAGS_NO_ITEMS'); ?></p>
+	<p class="leader lt-gutters"> <?php echo JText::_('TPL_CROSSINGHIPPOS_NO_ITEMS'); ?></p>
 <?php else : ?>
 
 <?php if ($this->params->get('show_headings') || $this->params->get('filter_field') || $this->params->get('show_pagination_limit')) : ?>
