@@ -67,23 +67,62 @@ $n = count($this->items);
 
 </form>
 <?php endif; ?>
-
+<?php 			$dom = new DOMDocument(); ?>
 
 <ol class="lt-column link-list leader">
 	<?php foreach ($items as $i => $item) : ?>
-	<?php
-		// Format article details so the layout can work with it - Joomla uses different attribute names accross components.
-		// Really Joomla - you can do better than that
-		preg_match_all('/[0-9]+[:]\S[^?&]+/', $item->link, $slug);
-		$slug = $slug ? $slug[0][0] : $slug ;
-		$article = array(
-			'title' => $this->escape($item->core_title),
-			'publish_up' => array('meta' => JHtml::_('date', $item->core_publish_up, JText::_('DATE_FORMAT_LC2')), 'render' => JHtml::_('date', $item->core_publish_up, JText::_('DATE_FORMAT_LC3')) ),
-			'images' => json_decode($item->core_images),
-			'summary' => $item->text,
-			'url' => $slug ? JRoute::_(ContentHelperRoute::getArticleRoute($slug, $item->core_catid)) : JRoute::_($item->link)
-			);
-	?>
+	<?php switch($item->type_alias) {
+
+		case 'com_content.category':
+			$url = JRoute::_(ContentHelperRoute::getCategoryRoute($item->content_item_id));
+
+			/*
+			 * Check for project image
+			 */
+			$image = strip_tags($item->core_body, '<img>');
+
+		    $dom->loadHTML($image);
+		    $imageTags = $dom->getElementsByTagName('img');
+
+		    $html = '';
+		    $i=0;
+		    foreach($imageTags as $tag) {
+		    	if ($i==0) {
+			    	$html = '<a href="'.$url.'"><img src="'.$tag->getAttribute('src').'" alt="" class="soft media leader--half" style="background-color: #FFFEF4; padding: 10px 0;"></a>';
+		    	}
+		    	$i++;
+		    }
+
+			// if (isset($images[0]))
+			// {
+			// 	$summary = str_replace($image, '', $item->core_body);
+
+			// 	$image = new stdClass();
+			// 	$image->image_intro = $images[0]['src'];
+			// 	$image->image_intro_alt = $images[0]['alt'];
+			// }
+			
+			$article = array(
+				'title' => $this->escape($item->core_title),
+				'images' => '',//$image,
+				'url' => $url,
+				'summary' => $html
+				);
+			break;
+		case 'com_content.article':
+			// Format article details so the layout can work with it - Joomla uses different attribute names accross components.
+			// Really Joomla - you can do better than that
+			preg_match('/[0-9]+[:]\S[^?&]+/', $item->link, $slug);
+			$slug = $slug ? $slug[0] : $slug ;
+			$article = array(
+				'title' => $this->escape($item->core_title),
+				'publish_up' => array('meta' => JHtml::_('date', $item->core_publish_up, JText::_('DATE_FORMAT_LC2')), 'render' => JHtml::_('date', $item->core_publish_up, JText::_('DATE_FORMAT_LC3')) ),
+				'images' => json_decode($item->core_images),
+				'summary' => '',
+				'url' => $slug ? JRoute::_(ContentHelperRoute::getArticleRoute($slug, $item->core_catid)) : JRoute::_($item->link)
+				);
+			break;
+	} ?>
 	<li class="lt-column lt-column--fourth lt-gutters trailer">
 		<article class="box box--primary soft outline link-list__item">
 			<?php $layout = new JLayoutFile('content.article.box', JPATH_SITE . '/templates/crossinghippos/layouts/'); ?>

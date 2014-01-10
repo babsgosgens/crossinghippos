@@ -26,7 +26,6 @@ JLoader::register('TagsHelperRoute', JPATH_BASE . '/components/com_tags/helpers/
 						<a href="<?php echo JRoute::_(TagsHelperRoute::getTagRoute($tag->id . '-' . $tag->alias)) ?>" class="<?php echo $link_class; ?>" style="padding-right: .5em; padding-left: .5em;">
 						<i class="fa fa-tag"></i>&nbsp;<?php echo $this->escape($tag->title); ?><?php if(($i+1) < $tagsTotal): ?><?php endif; ?></a>
 					</li>
-
 			<?php endif; ?>
 		<?php $i++; endforeach; ?>
 	</ul>
