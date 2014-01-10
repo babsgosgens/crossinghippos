@@ -14,9 +14,8 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 $description = $this->params->get('all_tags_description');
 $descriptionImage = $this->params->get('all_tags_description_image');
 
-// echo '<pre>';
-// print_r($this->params);
-// echo '</pre>';
+// Force load of jQuery
+JHtml::_('behavior.caption');
 ?>
 
 <?php  if ($this->params->get('show_page_heading')) : ?>

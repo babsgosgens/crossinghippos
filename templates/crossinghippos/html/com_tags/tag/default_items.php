@@ -10,11 +10,11 @@
 defined('_JEXEC') or die;
 
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
-JHtml::addIncludePath(JPATH_SITE.'/components/com_content/helpers');
+
 require_once(JPATH_SITE.'/components/com_content/helpers/route.php');
 
-// JHtml::_('behavior.framework');
 // JHtml::_('formbehavior.chosen', 'select');
+JHtml::_('behavior.framework');
 
 // echo '<pre>';
 // var_dump($this->items);

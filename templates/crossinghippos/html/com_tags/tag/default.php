@@ -10,9 +10,13 @@
 defined('_JEXEC') or die;
 // Note that there are certain parts of this layout used only when there is exactly one tag.
 
+// Force load of jQuery
+JHtml::_('behavior.caption');
+
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 
 $isSingleTag = (count($this->item) == 1);
+
 ?>
 
 <?php  if ($this->params->get('show_page_heading') || $this->params->get('show_tag_title', 1)) : ?>

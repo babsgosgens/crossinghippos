@@ -11,8 +11,6 @@ defined('_JEXEC') or die;
 
 // Include slider script.
 $document = JFactory::getDocument();
-$document->addScript('media/mod_streams/js/slider.js');
-$document->addStyleSheet('media/mod_streams/js/slider.css');
 $count = 1;
 
 $total = count($items);
