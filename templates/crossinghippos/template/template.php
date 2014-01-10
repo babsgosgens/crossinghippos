@@ -19,9 +19,6 @@ jimport('joomla.filesystem.file');
 $doc = JFactory::getDocument();
 
 $head = $doc->getHeadData();
-echo '<pre>';
-var_dump($doc->_scripts);
-echo '</pre>';
 unset($doc->_scripts[JURI::root(true) . '/media/system/js/mootools-more.js']);
 unset($doc->_scripts[JURI::root(true) . '/media/system/js/mootools-core.js']);
 unset($doc->_scripts[JURI::root(true) . '/media/system/js/core.js']);
