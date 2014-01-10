@@ -201,5 +201,7 @@ include(JPATH_SITE.'/templates/'.$this->template.'/template/template.php');
 			pageTracker._trackPageview();
 		} catch(err) {}
 	</script>
+
+	<jdoc:include type="modules" name="debug" style="none" />
 	</body>
 </html>
