@@ -11,20 +11,24 @@ defined('_JEXEC') or die;
 // Note that there are certain parts of this layout used only when there is exactly one tag.
 
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
-echo $isSingleTag = (count($this->item) == 1);
+
+$isSingleTag = (count($this->item) == 1);
 ?>
 
-<div class="tag-category<?php echo $this->pageclass_sfx; ?>">
+
+
 <?php  if ($this->params->get('show_page_heading')) : ?>
-<h1>
-	<?php echo $this->escape($this->params->get('page_heading')); ?>
-</h1>
-<?php endif;  ?>
-<?php if($this->params->get('show_tag_title', 1)) : ?>
-<h2>
-	<?php echo JHtml::_('content.prepare', $this->document->title, '', 'com_tag.tag'); ?>
-</h2>
+<header class="underline--dashed">
+	<div class="lt-root">
+		<div class="w-title-navigation lt-gutters hd--page">
+			<h1 class="hd"><a href="<?php echo JRoute::_('index.php?Itemid='.$itemid); ?>" title="<?php echo JText::sprintf('TPL_CROSSINGHIPPOS_ANCHOR_TITLE_PARENTCATEGORY', $this->params->get('page_title')); ?>" class="btn-base anchor--incognito"><?php echo $this->params->get('page_title'); ?></a></h1>
+		</div>
+	</div>
+</header>
 <?php endif; ?>
+
+
+
 
 
 <?php // We only show a tag description if there is a single tag. ?>

@@ -27,8 +27,8 @@ $descriptionImage = $this->params->get('all_tags_description_image');
 		</div>
 	</div>
 </header>
-
 <?php endif; ?>
+
 <?php if ($this->params->get('all_tags_show_description_image') && !empty($descriptionImage)):?>
 	<div><?php echo '<img src="' . $descriptionImage . '">';?></div>
 <?php endif;?>
