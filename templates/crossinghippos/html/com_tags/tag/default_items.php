@@ -14,9 +14,9 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 JHtml::_('behavior.framework');
 JHtml::_('formbehavior.chosen', 'select');
 
-echo '<pre>';
-var_dump($this->items);
-echo '</pre>';
+// echo '<pre>';
+// var_dump($this->items);
+// echo '</pre>';
 
 // Get the user object.
 $user = JFactory::getUser();
