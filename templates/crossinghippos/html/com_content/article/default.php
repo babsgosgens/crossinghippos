@@ -141,7 +141,8 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 <?php endif; ?>
 		<?php // Article date ?>
 		<?php if ($params->get('show_publish_date')) : ?>
-			<time class="date link-list__date trailer lt-column"><i class="fa fa-calendar-o"></i> <?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?></time>
+			<time class="date link-list__date trailer lt-column"><i class="fa fa-calendar-o"></i> <?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?> <span><a href="https://twitter.com/babsgosgens"><i class="icn icn-twitter"></i>@babsgosgens</a></span></time>
+
 		<?php endif; ?>
 </header>
 	<?php
