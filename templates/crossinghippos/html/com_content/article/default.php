@@ -72,6 +72,7 @@ if (!is_null($image)) {
 	$article['image'] = $image;
 	$article['image']['figureClass'] = '';
 	$article['image']['imageClass'] = 'lt-prime article__intro-image';
+	$article['url'] = $url;
 }
 $article['article'] = array(
 	'toc' => isset ($this->item->toc) ? $this->item->toc : '',
@@ -136,7 +137,7 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 <header class="leader--half lt-prime lt-prime--clear lt-gutters">
 <?php if ($params->get('show_title')) :?>
 <<?php echo $article['title']['tag']; ?> class="hd hd--article">
-	<a href="<?php echo $article['title']['url']; ?>" class="anchor--incognito"> <?php echo $article['title']['title']; ?></a>
+	<a href="<?php echo $article['title']['url']; ?>" class="anchor--incognito"><?php echo $article['title']['title']; ?></a>
 </<?php echo $article['title']['tag']; ?>>
 <?php endif; ?>
 		<?php // Article date ?>
