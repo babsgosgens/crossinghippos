@@ -47,6 +47,10 @@
 					padding-left: .5*$column-spacing;
 			}
 
+			.blog__intro>.hd--article {
+				@include vertical-rhythm(.25, padding-top);
+			}
+
 		@include breakpoint($gt-medium) {
 			
 			.blog-article {
@@ -115,7 +119,6 @@
 			.blog-article {
 				position: static;
 				.hd--article {
-					@include vertical-rhythm(.5, margin-top);
 					@include vertical-rhythm(.5, margin-bottom);
 				}
 			}

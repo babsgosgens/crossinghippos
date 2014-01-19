@@ -12,7 +12,9 @@
 .hd--article {
 	// @include vertical-rhythm(1, margin-bottom);
 	@include adjust-font-size-to($l);
+	@include adjust-leading-to(1.25, $l);
 }
+	
 	/*
 	-------------------------------------------------------------------------
 	Breakpoints
