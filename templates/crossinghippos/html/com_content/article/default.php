@@ -169,7 +169,6 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 	{
 		echo $this->item->pagination;
 	}
-	echo $this->item->slug;
 	?>
 
 	<script type="text/javascript">
