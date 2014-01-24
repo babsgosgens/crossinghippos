@@ -33,6 +33,7 @@ $count = 1;
 				    // new data
 				    $itemObj['platform'] = $item->platform;
 					$itemObj['date'] = $date->format(JText::_('DATE_FORMAT_LC2'));
+					$itemObj['datetime'] = JHtml::_('date', $item->date_created, 'Y-m-d').'T'.JHtml::_('date', $item->date_created, 'H:i');
 				    $itemObj['post'] = unserialize(base64_decode($item->raw));
 
 				    $layout = new JLayoutFile('layouts.' . $item->platform, JPATH_BASE . '\\components\\com_streams');
