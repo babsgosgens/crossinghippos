@@ -135,16 +135,16 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 <article class="article<?php echo $this->pageclass_sfx?> lt-root">
 
 <header class="leader--half lt-prime lt-prime--clear lt-gutters">
-<?php if ($params->get('show_title')) :?>
-<<?php echo $article['title']['tag']; ?> class="hd hd--article">
-	<a href="<?php echo $article['title']['url']; ?>" class="anchor--incognito"><?php echo $article['title']['title']; ?></a>
-</<?php echo $article['title']['tag']; ?>>
-<?php endif; ?>
-		<?php // Article date ?>
-		<?php if ($params->get('show_publish_date')) : ?>
-			<time class="date link-list__date trailer lt-column" datetime="<?php echo JHtml::_('date', $this->item->publish_up, 'Y-m-d').'T'.JHtml::_('date', $this->item->publish_up, 'H:i'); ?>"><i class="fa fa-calendar-o"></i> <?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?> <span><a href="https://twitter.com/babsgosgens"><i class="icn icn-twitter"></i>@babsgosgens</a></span></time>
+	<?php if ($params->get('show_title')) :?>
+	<<?php echo $article['title']['tag']; ?> class="hd hd--article">
+		<a href="<?php echo $article['title']['url']; ?>" class="anchor--incognito"><?php echo $article['title']['title']; ?></a>
+	</<?php echo $article['title']['tag']; ?>>
+	<?php endif; ?>
+	<?php // Article date ?>
+	<?php if ($params->get('show_publish_date')) : ?>
+		<time class="date link-list__date trailer lt-column" datetime="<?php echo JHtml::_('date', $this->item->publish_up, 'Y-m-d').'T'.JHtml::_('date', $this->item->publish_up, 'H:i'); ?>"><i class="fa fa-calendar-o"></i> <?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC3')); ?> <span><a href="https://twitter.com/babsgosgens"><i class="icn icn-twitter"></i>@babsgosgens</a></span></time>
 
-		<?php endif; ?>
+	<?php endif; ?>
 </header>
 	<?php
 	/*
@@ -231,7 +231,7 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 			<?php endif; ?>
 		</dl>
 	<?php endif; ?>
-
+	</div>
 
 
 	<?php /*
