@@ -171,8 +171,7 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 	}
 	?>
 
-	    <div id="disqus_thread"></div>
-    <script type="text/javascript">
+	<script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'crossinghippos'; // required: replace example with your forum shortname
 
