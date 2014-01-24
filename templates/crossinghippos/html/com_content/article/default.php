@@ -84,7 +84,7 @@ $article['article'] = array(
 	);
 
 // <!-- for Google -->
-$document->addCustomTag('<meta name="copyright" content="Crossing Hippos" /> ');
+// $document->addCustomTag('<meta name="copyright" content="Crossing Hippos" /> ');
 $document->addCustomTag('<meta name="application-name" content="Crossing Hippos" /> ');
 
 // <!-- for Facebook -->          
