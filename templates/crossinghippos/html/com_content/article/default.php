@@ -170,11 +170,14 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 		echo $this->item->pagination;
 	}
 	?>
+
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'crossinghippos'; // required: replace example with your forum shortname
 	    var disqus_title = '<?php echo $this->escape($this->item->title); ?>';
+	    var disqus_identifier='<?php echo $this->escape($this->item->slug); ?>';
+	    var disqus_title='<?php echo $this->escape($this->item->title); ?>';
 
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
