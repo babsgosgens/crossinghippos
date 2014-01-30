@@ -174,8 +174,7 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'crossinghippos'; // required: replace example with your forum shortname
-	    var disqus_url = '<?php echo $url; ?>';
-
+	    var disqus_identifier = '<?php echo $this->escape($this->item->slug); ?>';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
