@@ -173,13 +173,10 @@ $categoryUrl = JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catsl
 
     <div id="disqus_thread"></div>
     <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'crossinghippos'; // required: replace example with your forum shortname
+        var disqus_shortname = 'crossinghippos';
 	    var disqus_title = '<?php echo $this->escape($this->item->title); ?>';
 	    var disqus_identifier = '<?php echo $this->escape($this->item->slug); ?>';
-	    var disqus_title = '<?php echo $this->escape($this->item->title); ?>';
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
+	    var disqus_url = '<?php echo $url; ?>';
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';

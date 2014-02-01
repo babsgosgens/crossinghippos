@@ -70,7 +70,7 @@ class PlgContentDisqus extends JPlugin
 			$script .= 'var disqus_shortname = "' . $this->params->get('shortname') . '";'; // Required - Replace example with your forum shortname
 
 			if (isset($article->slug) && $article->slug!='') {
-				$script .= 'var disqus_identifier = "' . $article->slug . '";';
+				$script .= 'var disqus_identifier = ' . $article->slug . '";';
 
 				if (isset($article->catid) && $article->catid != '') {
 					$url = JRoute::_(ContentHelperRoute::getArticleRoute($article->slug, $article->catid));
