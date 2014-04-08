@@ -83,30 +83,30 @@ $article["article"] = array(
 		)
 	);
 
-// <!-- for Google -->
-// $document->addCustomTag("<meta name="copyright" content="Crossing Hippos" /> ");
-$document->addCustomTag("<meta name="application-name" content="Crossing Hippos" /> ");
+// // <!-- for Google -->
+// // $document->addCustomTag("<meta name="copyright" content="Crossing Hippos" /> ");
+// // $document->addCustomTag("<meta name=\"application-name\" content="Crossing Hippos" /> ");
 
-// <!-- for Facebook -->          
-$document->addCustomTag("<meta property="og:title" content="".$article["title"]["title"].""/> ");
-$document->addCustomTag("<meta property="og:type" content="article"/> ");
-$document->addCustomTag("<meta property="og:url" content="".str_replace("//", "/", JUri::root() . $url).""/> ");
-if ($params->get("page_description") != "") {
-	$document->addCustomTag("<meta property="og:site_name" content="".$params->get("page_description").""/> ");
-}
-if (!is_null($image)) { 
-	$document->addCustomTag("<meta property="og:image" content="".str_replace("//", "/", JUri::root() . $image["src"]).""/> ");
-}
+// // <!-- for Facebook -->          
+// $document->addCustomTag("<meta property="og:title" content="".$article["title"]["title"].""/> ");
+// $document->addCustomTag("<meta property="og:type" content="article"/> ");
+// $document->addCustomTag("<meta property="og:url" content="".str_replace("//", "/", JUri::root() . $url).""/> ");
+// if ($params->get("page_description") != "") {
+// 	$document->addCustomTag("<meta property="og:site_name" content="".$params->get("page_description").""/> ");
+// }
+// if (!is_null($image)) { 
+// 	$document->addCustomTag("<meta property="og:image" content="".str_replace("//", "/", JUri::root() . $image["src"]).""/> ");
+// }
 
-// <!-- for Twitter -->          
-$document->addCustomTag("<meta name="twitter:card" content="summary"/> ");
-$document->addCustomTag("<meta name="twitter:title" content="".$article["title"]["title"].""/> ");
-if ($params->get("page_description") != "") {
-	$document->addCustomTag("<meta name="twitter:description" content="".$params->get("page_description").""/> ");
-}
-if (!is_null($image)) { 
-	$document->addCustomTag("<meta name="twitter:image" content="".str_replace("//", "/", JUri::root() . $image["src"]).""/> ");
-}
+// // <!-- for Twitter -->          
+// $document->addCustomTag("<meta name="twitter:card" content="summary"/> ");
+// $document->addCustomTag("<meta name="twitter:title" content="".$article["title"]["title"].""/> ");
+// if ($params->get("page_description") != "") {
+// 	$document->addCustomTag("<meta name="twitter:description" content="".$params->get("page_description").""/> ");
+// }
+// if (!is_null($image)) { 
+// 	$document->addCustomTag("<meta name="twitter:image" content="".str_replace("//", "/", JUri::root() . $image["src"]).""/> ");
+// }
 
 
 $identifier = "categories";
